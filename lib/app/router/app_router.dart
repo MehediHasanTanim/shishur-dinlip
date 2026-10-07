@@ -8,9 +8,17 @@ import 'package:shishur_dinlipi/core/settings/app_settings.dart';
 import 'package:shishur_dinlipi/core/settings/settings_controller.dart';
 import 'package:shishur_dinlipi/features/add/add_screen.dart';
 import 'package:shishur_dinlipi/features/albums/albums_screen.dart';
+import 'package:shishur_dinlipi/features/children/child_detail_screen.dart';
+import 'package:shishur_dinlipi/features/children/child_editor_screen.dart';
+import 'package:shishur_dinlipi/features/children/children_list_screen.dart';
 import 'package:shishur_dinlipi/features/home/home_screen.dart';
 import 'package:shishur_dinlipi/features/more/more_screen.dart';
-import 'package:shishur_dinlipi/features/onboarding/onboarding_screen.dart';
+import 'package:shishur_dinlipi/features/onboarding/onboarding_complete_screen.dart';
+import 'package:shishur_dinlipi/features/onboarding/onboarding_create_child_screen.dart';
+import 'package:shishur_dinlipi/features/onboarding/onboarding_language_screen.dart';
+import 'package:shishur_dinlipi/features/onboarding/onboarding_privacy_screen.dart';
+import 'package:shishur_dinlipi/features/onboarding/onboarding_security_screen.dart';
+import 'package:shishur_dinlipi/features/onboarding/onboarding_welcome_screen.dart';
 import 'package:shishur_dinlipi/features/settings/settings_screen.dart';
 import 'package:shishur_dinlipi/features/splash/splash_screen.dart';
 import 'package:shishur_dinlipi/features/timeline/timeline_screen.dart';
@@ -43,13 +51,59 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         builder: (context, state) => const SplashScreen(),
       ),
       GoRoute(
-        path: AppRoutes.onboarding,
-        builder: (context, state) => const OnboardingScreen(),
+        path: AppRoutes.onboardingLanguage,
+        builder: (context, state) => const OnboardingLanguageScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.onboardingPrivacy,
+        builder: (context, state) => const OnboardingPrivacyScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.onboardingWelcome,
+        builder: (context, state) => const OnboardingWelcomeScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.onboardingCreateChild,
+        builder: (context, state) => const OnboardingCreateChildScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.onboardingSecurity,
+        builder: (context, state) => const OnboardingSecurityScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.onboardingComplete,
+        builder: (context, state) => const OnboardingCompleteScreen(),
       ),
       GoRoute(
         path: AppRoutes.settings,
         parentNavigatorKey: _rootNavigatorKey,
         builder: (context, state) => const SettingsScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.children,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const ChildrenListScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.childCreate,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const ChildEditorScreen(),
+      ),
+      GoRoute(
+        path: '/children/:id',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => ChildDetailScreen(
+          childId: state.pathParameters['id']!,
+        ),
+        routes: [
+          GoRoute(
+            path: 'edit',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (context, state) => ChildEditorScreen(
+              childId: state.pathParameters['id'],
+            ),
+          ),
+        ],
       ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {

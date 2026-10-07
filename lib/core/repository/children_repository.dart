@@ -54,24 +54,8 @@ class DriftChildrenRepository extends RepositoryBase
       // Preserve createdAt on insert.
       final existing = await db.childrenDao.getById(toSave.id);
       final withCreated = existing == null
-          ? Child(
-              id: toSave.id,
-              name: toSave.name,
-              nickname: toSave.nickname,
-              dateOfBirth: toSave.dateOfBirth,
-              gender: toSave.gender,
-              bloodGroup: toSave.bloodGroup,
-              birthWeightKg: toSave.birthWeightKg,
-              birthHeightCm: toSave.birthHeightCm,
-              birthplace: toSave.birthplace,
-              schoolName: toSave.schoolName,
-              className: toSave.className,
-              profilePhotoId: toSave.profilePhotoId,
-              notes: toSave.notes,
-              createdAt: nowUtc,
-              updatedAt: nowUtc,
-            )
-          : toSave.copyWithCreated(existing.createdAt);
+          ? toSave.copyWith(createdAt: nowUtc, updatedAt: nowUtc)
+          : toSave.copyWith(createdAt: existing.createdAt);
 
       await db.childrenDao.upsert(ChildMapper.toCompanion(withCreated));
       return withCreated;
@@ -83,28 +67,5 @@ class DriftChildrenRepository extends RepositoryBase
     return guard(() async {
       await db.childrenDao.softDelete(id, now());
     }, operation: 'children.softDelete');
-  }
-}
-
-extension on Child {
-  Child copyWithCreated(DateTime created) {
-    return Child(
-      id: id,
-      name: name,
-      nickname: nickname,
-      dateOfBirth: dateOfBirth,
-      gender: gender,
-      bloodGroup: bloodGroup,
-      birthWeightKg: birthWeightKg,
-      birthHeightCm: birthHeightCm,
-      birthplace: birthplace,
-      schoolName: schoolName,
-      className: className,
-      profilePhotoId: profilePhotoId,
-      notes: notes,
-      createdAt: created,
-      updatedAt: updatedAt,
-      deletedAt: deletedAt,
-    );
   }
 }

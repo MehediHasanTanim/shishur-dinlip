@@ -28,7 +28,9 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
       return;
     }
     context.go(
-      settings.onboardingComplete ? AppRoutes.home : AppRoutes.onboarding,
+      settings.onboardingComplete
+          ? AppRoutes.home
+          : AppRoutes.onboardingLanguage,
     );
   }
 

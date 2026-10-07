@@ -135,6 +135,13 @@ class MediaService extends RepositoryBase {
     }, operation: 'media.deleteUnused');
   }
 
+  Future<MediaAsset?> getById(String id) {
+    return guard(() async {
+      final row = await db.mediaAssetsDao.getById(id);
+      return row == null ? null : MediaAssetMapper.toDomain(row);
+    }, operation: 'media.getById');
+  }
+
   Future<String> checksumForFile(File file) async {
     final bytes = await file.readAsBytes();
     return sha256.convert(bytes).toString();

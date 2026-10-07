@@ -170,6 +170,150 @@ abstract class AppLocalizations {
   /// **'Continue'**
   String get onboardingContinue;
 
+  /// No description provided for @chooseLanguageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose your language'**
+  String get chooseLanguageTitle;
+
+  /// No description provided for @privacyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your child\'s memories stay with you'**
+  String get privacyTitle;
+
+  /// No description provided for @privacyPrivate.
+  ///
+  /// In en, this message translates to:
+  /// **'Private by default — stored securely on your device.'**
+  String get privacyPrivate;
+
+  /// No description provided for @privacyOffline.
+  ///
+  /// In en, this message translates to:
+  /// **'Works offline — no internet required.'**
+  String get privacyOffline;
+
+  /// No description provided for @privacyControl.
+  ///
+  /// In en, this message translates to:
+  /// **'You are in control — export, backup, or delete anytime.'**
+  String get privacyControl;
+
+  /// No description provided for @privacyContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'I understand'**
+  String get privacyContinue;
+
+  /// No description provided for @welcomeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Preserve the little moments that become big memories.'**
+  String get welcomeTitle;
+
+  /// No description provided for @welcomeCta.
+  ///
+  /// In en, this message translates to:
+  /// **'Create child profile'**
+  String get welcomeCta;
+
+  /// No description provided for @welcomeHighlightGrowth.
+  ///
+  /// In en, this message translates to:
+  /// **'Growth'**
+  String get welcomeHighlightGrowth;
+
+  /// No description provided for @welcomeHighlightHealth.
+  ///
+  /// In en, this message translates to:
+  /// **'Health'**
+  String get welcomeHighlightHealth;
+
+  /// No description provided for @welcomeHighlightMilestones.
+  ///
+  /// In en, this message translates to:
+  /// **'Milestones'**
+  String get welcomeHighlightMilestones;
+
+  /// No description provided for @welcomeHighlightPhotos.
+  ///
+  /// In en, this message translates to:
+  /// **'Photos'**
+  String get welcomeHighlightPhotos;
+
+  /// No description provided for @createFirstChildTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Create your first child'**
+  String get createFirstChildTitle;
+
+  /// No description provided for @createFirstChildSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add some basic information to get started.'**
+  String get createFirstChildSubtitle;
+
+  /// No description provided for @addMoreDetailsLater.
+  ///
+  /// In en, this message translates to:
+  /// **'Add more details later'**
+  String get addMoreDetailsLater;
+
+  /// No description provided for @securityTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Protect your child\'s journal'**
+  String get securityTitle;
+
+  /// No description provided for @securitySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional PIN or biometrics keep private memories private.'**
+  String get securitySubtitle;
+
+  /// No description provided for @securitySetPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Set PIN'**
+  String get securitySetPin;
+
+  /// No description provided for @securityBiometrics.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable biometrics'**
+  String get securityBiometrics;
+
+  /// No description provided for @securityLater.
+  ///
+  /// In en, this message translates to:
+  /// **'Set up later'**
+  String get securityLater;
+
+  /// No description provided for @setupCompleteTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re all set!'**
+  String get setupCompleteTitle;
+
+  /// No description provided for @setupCompleteSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'{name}\'s journal is ready. Start capturing beautiful moments.'**
+  String setupCompleteSubtitle(String name);
+
+  /// No description provided for @goToHome.
+  ///
+  /// In en, this message translates to:
+  /// **'Go to Home'**
+  String get goToHome;
+
+  /// No description provided for @addFirstMemory.
+  ///
+  /// In en, this message translates to:
+  /// **'Add first memory'**
+  String get addFirstMemory;
+
   /// No description provided for @homeTitle.
   ///
   /// In en, this message translates to:
@@ -181,6 +325,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Your child\'s story starts here.'**
   String get homePlaceholder;
+
+  /// No description provided for @homeGreetingMorning.
+  ///
+  /// In en, this message translates to:
+  /// **'Good morning'**
+  String get homeGreetingMorning;
+
+  /// No description provided for @homeGreetingAfternoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Good afternoon'**
+  String get homeGreetingAfternoon;
+
+  /// No description provided for @homeGreetingEvening.
+  ///
+  /// In en, this message translates to:
+  /// **'Good evening'**
+  String get homeGreetingEvening;
+
+  /// No description provided for @homeAgeLine.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} is now {age}'**
+  String homeAgeLine(String name, String age);
+
+  /// No description provided for @growthSnapshot.
+  ///
+  /// In en, this message translates to:
+  /// **'Growth snapshot'**
+  String get growthSnapshot;
+
+  /// No description provided for @growthEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No measurements yet. Add the first height or weight.'**
+  String get growthEmpty;
+
+  /// No description provided for @quickAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick add'**
+  String get quickAdd;
+
+  /// No description provided for @quickAddMemory.
+  ///
+  /// In en, this message translates to:
+  /// **'Memory'**
+  String get quickAddMemory;
+
+  /// No description provided for @quickAddPhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo'**
+  String get quickAddPhoto;
+
+  /// No description provided for @quickAddGrowth.
+  ///
+  /// In en, this message translates to:
+  /// **'Growth'**
+  String get quickAddGrowth;
+
+  /// No description provided for @quickAddMilestone.
+  ///
+  /// In en, this message translates to:
+  /// **'Milestone'**
+  String get quickAddMilestone;
+
+  /// No description provided for @quickAddHealth.
+  ///
+  /// In en, this message translates to:
+  /// **'Health'**
+  String get quickAddHealth;
+
+  /// No description provided for @quickAddAchievement.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievement'**
+  String get quickAddAchievement;
+
+  /// No description provided for @recentMemories.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent memories'**
+  String get recentMemories;
+
+  /// No description provided for @recentMemoriesEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No memories yet. Add your first memory and begin the story.'**
+  String get recentMemoriesEmpty;
+
+  /// No description provided for @upcoming.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming'**
+  String get upcoming;
+
+  /// No description provided for @upcomingEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No reminders yet.'**
+  String get upcomingEmpty;
 
   /// No description provided for @timelineTitle.
   ///
@@ -320,6 +566,30 @@ abstract class AppLocalizations {
   /// **'Go Back'**
   String get commonGoBack;
 
+  /// No description provided for @commonDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get commonDelete;
+
+  /// No description provided for @commonEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get commonEdit;
+
+  /// No description provided for @commonSkip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip for now'**
+  String get commonSkip;
+
+  /// No description provided for @commonSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get commonSearch;
+
   /// No description provided for @errorGeneric.
   ///
   /// In en, this message translates to:
@@ -367,6 +637,264 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Could not generate the PDF.'**
   String get errorPdf;
+
+  /// No description provided for @childName.
+  ///
+  /// In en, this message translates to:
+  /// **'Child\'s name'**
+  String get childName;
+
+  /// No description provided for @childNickname.
+  ///
+  /// In en, this message translates to:
+  /// **'Nickname'**
+  String get childNickname;
+
+  /// No description provided for @childDob.
+  ///
+  /// In en, this message translates to:
+  /// **'Date of birth'**
+  String get childDob;
+
+  /// No description provided for @childGender.
+  ///
+  /// In en, this message translates to:
+  /// **'Gender'**
+  String get childGender;
+
+  /// No description provided for @childGenderBoy.
+  ///
+  /// In en, this message translates to:
+  /// **'Boy'**
+  String get childGenderBoy;
+
+  /// No description provided for @childGenderGirl.
+  ///
+  /// In en, this message translates to:
+  /// **'Girl'**
+  String get childGenderGirl;
+
+  /// No description provided for @childGenderOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get childGenderOther;
+
+  /// No description provided for @childBloodGroup.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood group'**
+  String get childBloodGroup;
+
+  /// No description provided for @childBirthWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Birth weight (kg)'**
+  String get childBirthWeight;
+
+  /// No description provided for @childBirthHeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Birth height (cm)'**
+  String get childBirthHeight;
+
+  /// No description provided for @childBirthplace.
+  ///
+  /// In en, this message translates to:
+  /// **'Birthplace'**
+  String get childBirthplace;
+
+  /// No description provided for @childSchool.
+  ///
+  /// In en, this message translates to:
+  /// **'School'**
+  String get childSchool;
+
+  /// No description provided for @childClass.
+  ///
+  /// In en, this message translates to:
+  /// **'Class'**
+  String get childClass;
+
+  /// No description provided for @childNotes.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get childNotes;
+
+  /// No description provided for @childNameRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Child name is required.'**
+  String get childNameRequired;
+
+  /// No description provided for @childDobFuture.
+  ///
+  /// In en, this message translates to:
+  /// **'Date of birth cannot be in the future.'**
+  String get childDobFuture;
+
+  /// No description provided for @saveChild.
+  ///
+  /// In en, this message translates to:
+  /// **'Save child'**
+  String get saveChild;
+
+  /// No description provided for @addChild.
+  ///
+  /// In en, this message translates to:
+  /// **'Add child'**
+  String get addChild;
+
+  /// No description provided for @addAnotherChild.
+  ///
+  /// In en, this message translates to:
+  /// **'Add another child'**
+  String get addAnotherChild;
+
+  /// No description provided for @editChild.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit child'**
+  String get editChild;
+
+  /// No description provided for @childProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Child profile'**
+  String get childProfile;
+
+  /// No description provided for @manageChildren.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage children'**
+  String get manageChildren;
+
+  /// No description provided for @selectChild.
+  ///
+  /// In en, this message translates to:
+  /// **'Select a child'**
+  String get selectChild;
+
+  /// No description provided for @childrenTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Children'**
+  String get childrenTitle;
+
+  /// No description provided for @noChildrenTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No children yet'**
+  String get noChildrenTitle;
+
+  /// No description provided for @noChildrenMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a child profile to start preserving their story.'**
+  String get noChildrenMessage;
+
+  /// No description provided for @aboutSection.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get aboutSection;
+
+  /// No description provided for @deleteChildTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this child?'**
+  String get deleteChildTitle;
+
+  /// No description provided for @deleteChildMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This removes {name}\'s journal entries from this device. Consider creating a backup first. This cannot be undone easily.'**
+  String deleteChildMessage(String name);
+
+  /// No description provided for @deleteChildConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete child'**
+  String get deleteChildConfirm;
+
+  /// No description provided for @setAsSelected.
+  ///
+  /// In en, this message translates to:
+  /// **'Set as selected'**
+  String get setAsSelected;
+
+  /// No description provided for @takePhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Take photo'**
+  String get takePhoto;
+
+  /// No description provided for @chooseGallery.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose from gallery'**
+  String get chooseGallery;
+
+  /// No description provided for @removePhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove photo'**
+  String get removePhoto;
+
+  /// No description provided for @replacePhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Replace photo'**
+  String get replacePhoto;
+
+  /// No description provided for @addPhotoTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a photo'**
+  String get addPhotoTitle;
+
+  /// No description provided for @photoPermissionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo access is needed only when you choose to add a picture.'**
+  String get photoPermissionDenied;
+
+  /// No description provided for @cameraPermissionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera access is needed only when you choose to take a photo.'**
+  String get cameraPermissionDenied;
+
+  /// No description provided for @basicSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Basic'**
+  String get basicSection;
+
+  /// No description provided for @birthSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Birth'**
+  String get birthSection;
+
+  /// No description provided for @healthSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Health'**
+  String get healthSection;
+
+  /// No description provided for @schoolSection.
+  ///
+  /// In en, this message translates to:
+  /// **'School'**
+  String get schoolSection;
+
+  /// No description provided for @notesSection.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get notesSection;
 }
 
 class _AppLocalizationsDelegate

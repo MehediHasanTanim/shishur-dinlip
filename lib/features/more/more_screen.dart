@@ -14,11 +14,17 @@ class MoreScreen extends StatelessWidget {
       child: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          Text(
-            l10n.moreTitle,
-            style: Theme.of(context).textTheme.headlineLarge,
-          ),
+          Text(l10n.moreTitle, style: Theme.of(context).textTheme.headlineLarge),
           const SizedBox(height: 16),
+          Card(
+            child: ListTile(
+              leading: const Icon(Icons.child_care_outlined),
+              title: Text(l10n.childrenTitle),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => context.push(AppRoutes.children),
+            ),
+          ),
+          const SizedBox(height: 8),
           Card(
             child: ListTile(
               leading: const Icon(Icons.settings_outlined),

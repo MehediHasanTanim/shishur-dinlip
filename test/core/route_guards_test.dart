@@ -14,13 +14,22 @@ class _FakeGoRouterState extends Fake implements GoRouterState {
 }
 
 void main() {
-  test('sends incomplete onboarding users to onboarding', () {
+  test('sends incomplete onboarding users to language step', () {
     final result = resolveAppRedirect(
       settings: const AppSettings(onboardingComplete: false),
       unlocked: true,
       state: _FakeGoRouterState(AppRoutes.home),
     );
-    expect(result, AppRoutes.onboarding);
+    expect(result, AppRoutes.onboardingLanguage);
+  });
+
+  test('allows onboarding sub-routes while incomplete', () {
+    final result = resolveAppRedirect(
+      settings: const AppSettings(onboardingComplete: false),
+      unlocked: true,
+      state: _FakeGoRouterState(AppRoutes.onboardingPrivacy),
+    );
+    expect(result, isNull);
   });
 
   test('locks non-splash routes when unlocked is false', () {

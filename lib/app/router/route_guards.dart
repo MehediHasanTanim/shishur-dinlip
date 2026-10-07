@@ -10,7 +10,8 @@ String? resolveAppRedirect({
 }) {
   final location = state.matchedLocation;
   final isSplash = location == AppRoutes.splash;
-  final isOnboarding = location == AppRoutes.onboarding;
+  final isOnboarding = location == AppRoutes.onboarding ||
+      location.startsWith('${AppRoutes.onboarding}/');
 
   if (!unlocked && !isSplash) {
     return AppRoutes.splash;
@@ -18,7 +19,7 @@ String? resolveAppRedirect({
 
   if (!settings.onboardingComplete) {
     if (isOnboarding || isSplash) return null;
-    return AppRoutes.onboarding;
+    return AppRoutes.onboardingLanguage;
   }
 
   if (isSplash || isOnboarding) {
