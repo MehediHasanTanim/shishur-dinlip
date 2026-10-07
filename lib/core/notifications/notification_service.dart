@@ -18,15 +18,17 @@ class NotificationService {
   final FlutterLocalNotificationsPlugin _plugin;
   final AppLogger _logger;
   bool _initialized = false;
+  String _timezoneId = 'UTC';
 
   bool get isInitialized => _initialized;
+  String get timezoneId => _timezoneId;
 
   FlutterLocalNotificationsPlugin get plugin => _plugin;
 
   Future<void> initialize({bool requestIosPermissions = false}) async {
     if (_initialized) return;
 
-    await _configureTimeZone();
+    await configureTimeZone();
 
     const android = AndroidInitializationSettings('@mipmap/ic_launcher');
     final ios = DarwinInitializationSettings(
@@ -41,6 +43,23 @@ class NotificationService {
 
     _initialized = true;
     _logger.info('Notification service initialized');
+  }
+
+  /// Re-reads device timezone (call after OS timezone changes / app resume).
+  Future<void> configureTimeZone() async {
+    tzdata.initializeTimeZones();
+    try {
+      final info = await FlutterTimezone.getLocalTimezone();
+      _timezoneId = info.identifier;
+      tz.setLocalLocation(tz.getLocation(info.identifier));
+      _logger.debug('Timezone configured', {'tz': info.identifier});
+    } catch (error) {
+      _timezoneId = 'UTC';
+      tz.setLocalLocation(tz.UTC);
+      _logger.warn('Timezone fallback to UTC', {
+        'errorType': error.runtimeType.toString(),
+      });
+    }
   }
 
   /// Point-of-use iOS / Android 13+ notification permission request.
@@ -70,6 +89,56 @@ class NotificationService {
     return false;
   }
 
+  Future<void> schedule({
+    required int id,
+    required String title,
+    required String body,
+    required DateTime whenLocal,
+    required AndroidNotificationChannel channel,
+    bool repeatsDaily = false,
+  }) async {
+    if (!_initialized) await initialize();
+
+    var scheduled = tz.TZDateTime.from(whenLocal, tz.local);
+    final now = tz.TZDateTime.now(tz.local);
+    if (!repeatsDaily && !scheduled.isAfter(now)) {
+      _logger.debug('Skip past notification', {
+        'id': id,
+        'when': whenLocal.toIso8601String(),
+      });
+      return;
+    }
+    if (repeatsDaily && !scheduled.isAfter(now)) {
+      scheduled = scheduled.add(const Duration(days: 1));
+    }
+
+    final details = NotificationDetails(
+      android: AndroidNotificationDetails(
+        channel.id,
+        channel.name,
+        channelDescription: channel.description,
+        importance: channel.importance,
+        priority: Priority.high,
+      ),
+      iOS: const DarwinNotificationDetails(),
+    );
+
+    await _plugin.zonedSchedule(
+      id,
+      title,
+      body,
+      scheduled,
+      details,
+      androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
+      matchDateTimeComponents: repeatsDaily ? DateTimeComponents.time : null,
+    );
+    _logger.debug('Notification scheduled', {
+      'id': id,
+      'tz': _timezoneId,
+      'when': scheduled.toIso8601String(),
+    });
+  }
+
   Future<void> cancel(int id) => _plugin.cancel(id);
 
   Future<void> cancelAll() => _plugin.cancelAll();
@@ -83,20 +152,6 @@ class NotificationService {
     if (android == null) return;
     for (final channel in NotificationChannels.all) {
       await android.createNotificationChannel(channel);
-    }
-  }
-
-  Future<void> _configureTimeZone() async {
-    tzdata.initializeTimeZones();
-    try {
-      final info = await FlutterTimezone.getLocalTimezone();
-      tz.setLocalLocation(tz.getLocation(info.identifier));
-      _logger.debug('Timezone configured', {'tz': info.identifier});
-    } catch (error) {
-      tz.setLocalLocation(tz.UTC);
-      _logger.warn('Timezone fallback to UTC', {
-        'errorType': error.runtimeType.toString(),
-      });
     }
   }
 }

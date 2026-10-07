@@ -17,11 +17,13 @@ import 'package:shishur_dinlipi/core/repository/journal_repository.dart';
 import 'package:shishur_dinlipi/core/repository/medical_documents_repository.dart';
 import 'package:shishur_dinlipi/core/repository/medicines_repository.dart';
 import 'package:shishur_dinlipi/core/repository/milestones_repository.dart';
+import 'package:shishur_dinlipi/core/repository/reminders_repository.dart';
 import 'package:shishur_dinlipi/core/repository/school_events_repository.dart';
 import 'package:shishur_dinlipi/core/repository/school_profiles_repository.dart';
 import 'package:shishur_dinlipi/core/repository/tags_repository.dart';
 import 'package:shishur_dinlipi/core/repository/vaccinations_repository.dart';
 import 'package:shishur_dinlipi/core/settings/settings_repository.dart';
+import 'package:shishur_dinlipi/core/timeline/timeline_service.dart';
 import 'package:shishur_dinlipi/features/children/profile_photo_service.dart';
 
 final appDatabaseProvider = Provider<AppDatabase>((ref) {
@@ -168,3 +170,16 @@ final medicalDocumentsRepositoryProvider =
         media: ref.watch(mediaServiceProvider),
       );
     });
+
+final timelineServiceProvider = Provider<TimelineService>((ref) {
+  return TimelineService(ref.watch(appDatabaseProvider));
+});
+
+final remindersRepositoryProvider = Provider<RemindersRepository>((ref) {
+  return DriftRemindersRepository(
+    ref.watch(appDatabaseProvider),
+    notifications: ref.watch(notificationServiceProvider),
+    idsStore: ref.watch(notificationIdStoreProvider),
+    permissions: ref.watch(permissionServiceProvider),
+  );
+});

@@ -47,6 +47,12 @@ abstract final class AppRoutes {
   static const medicalDocuments = '/health/documents';
   static const medicalDocumentCreate = '/health/documents/create';
 
+  static const calendar = '/calendar';
+  static const reminders = '/reminders';
+  static const reminderCreate = '/reminders/create';
+  static const reminderDetail = '/reminders/:id';
+  static const reminderEdit = '/reminders/:id/edit';
+
   static String childDetailPath(String id) => '/children/$id';
   static String childEditPath(String id) => '/children/$id/edit';
 
@@ -120,4 +126,7 @@ abstract final class AppRoutes {
       '/health/documents/$id';
   static String medicalDocumentEditPath(String id) =>
       '/health/documents/$id/edit';
+
+  static String reminderDetailPath(String id) => '/reminders/$id';
+  static String reminderEditPath(String id) => '/reminders/$id/edit';
 }

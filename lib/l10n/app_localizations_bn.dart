@@ -1443,4 +1443,175 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get docTypeOther => 'অন্যান্য';
+
+  @override
+  String get timelineEmpty => 'এখনো কোনো সময়রেখার এন্ট্রি নেই।';
+
+  @override
+  String get timelineFilterAll => 'সব';
+
+  @override
+  String get timelineFilterMemories => 'স্মৃতি';
+
+  @override
+  String get timelineFilterGrowth => 'বৃদ্ধি';
+
+  @override
+  String get timelineFilterMilestones => 'মাইলফলক';
+
+  @override
+  String get timelineFilterHealth => 'স্বাস্থ্য';
+
+  @override
+  String get timelineFilterSchool => 'স্কুল';
+
+  @override
+  String get timelineFilterAchievements => 'অর্জন';
+
+  @override
+  String get timelineFilterPhotos => 'ছবি';
+
+  @override
+  String get timelineFilterFunny => 'মজার';
+
+  @override
+  String get timelineTypeJournal => 'স্মৃতি';
+
+  @override
+  String get timelineTypeFunny => 'মজার মুহূর্ত';
+
+  @override
+  String get timelineTypeAchievement => 'অর্জন';
+
+  @override
+  String get timelineTypeGrowth => 'বৃদ্ধি';
+
+  @override
+  String get timelineTypeMilestone => 'মাইলফলক';
+
+  @override
+  String get timelineTypeSchool => 'স্কুল';
+
+  @override
+  String get timelineTypeVaccination => 'টিকা';
+
+  @override
+  String get timelineTypeIllness => 'অসুস্থতা';
+
+  @override
+  String get timelineTypeDoctor => 'ডাক্তার দেখা';
+
+  @override
+  String get timelineTypeBirthday => 'জন্মদিন';
+
+  @override
+  String get calendarTitle => 'ক্যালেন্ডার';
+
+  @override
+  String get calendarNoEvents => 'এই দিনে কোনো ইভেন্ট নেই।';
+
+  @override
+  String get remindersTitle => 'রিমাইন্ডার';
+
+  @override
+  String get remindersEmpty => 'এখনো কোনো রিমাইন্ডার নেই।';
+
+  @override
+  String get addReminder => 'রিমাইন্ডার যোগ করুন';
+
+  @override
+  String get editReminder => 'রিমাইন্ডার সম্পাদনা';
+
+  @override
+  String get reminderTitleField => 'শিরোনাম';
+
+  @override
+  String get reminderTitleRequired => 'শিরোনাম আবশ্যক।';
+
+  @override
+  String get reminderType => 'ধরন';
+
+  @override
+  String get reminderDateTime => 'তারিখ ও সময়';
+
+  @override
+  String get reminderRepeat => 'পুনরাবৃত্তি';
+
+  @override
+  String get reminderEnabled => 'বিজ্ঞপ্তি চালু';
+
+  @override
+  String get reminderNotes => 'নোট';
+
+  @override
+  String get saveReminder => 'রিমাইন্ডার সংরক্ষণ';
+
+  @override
+  String get deleteReminderTitle => 'এই রিমাইন্ডার মুছবেন?';
+
+  @override
+  String get deleteReminderMessage => 'এই রিমাইন্ডার এই ডিভাইস থেকে সরবে।';
+
+  @override
+  String get reminderTypeVaccination => 'টিকা';
+
+  @override
+  String get reminderTypeMedicine => 'ওষুধ';
+
+  @override
+  String get reminderTypeDoctorFollowUp => 'ডাক্তার ফলো-আপ';
+
+  @override
+  String get reminderTypeBirthday => 'জন্মদিন';
+
+  @override
+  String get reminderTypeWeeklyMemory => 'সাপ্তাহিক স্মৃতি';
+
+  @override
+  String get reminderTypeBackup => 'ব্যাকআপ';
+
+  @override
+  String get reminderTypeCustom => 'কাস্টম';
+
+  @override
+  String get reminderRepeatNone => 'পুনরাবৃত্তি নেই';
+
+  @override
+  String get reminderRepeatDaily => 'প্রতিদিন';
+
+  @override
+  String get reminderRepeatWeekly => 'সাপ্তাহিক';
+
+  @override
+  String get reminderRepeatYearly => 'বার্ষিক';
+
+  @override
+  String get reminderRepeatMonthly => 'মাসিক';
+
+  @override
+  String get onThisDayTitle => 'আজকের দিনে';
+
+  @override
+  String get onThisDayEmpty => 'আগের বছরগুলোর এই দিনে এখনো কিছু নেই।';
+
+  @override
+  String onThisDayYearsAgo(int years) {
+    return '$years বছর আগে';
+  }
+
+  @override
+  String get upcomingReminders => 'আসন্ন রিমাইন্ডার';
+
+  @override
+  String get notificationPermissionTitle => 'রিমাইন্ডার চালু করবেন?';
+
+  @override
+  String get notificationPermissionBody =>
+      'শিশুর দিনলিপি টিকা, ওষুধ, ফলো-আপ ও গুরুত্বপূর্ণ স্মৃতির কথা মনে করিয়ে দিতে পারে।';
+
+  @override
+  String get notificationAllow => 'বিজ্ঞপ্তি অনুমতি দিন';
+
+  @override
+  String get notificationNotNow => 'এখন নয়';
 }

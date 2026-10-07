@@ -2848,6 +2848,24 @@ class $RemindersTable extends Reminders
     type: DriftSqlType.string,
     requiredDuringInsert: true,
   );
+  static const VerificationMeta _titleMeta = const VerificationMeta('title');
+  @override
+  late final GeneratedColumn<String> title = GeneratedColumn<String>(
+    'title',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _notesMeta = const VerificationMeta('notes');
+  @override
+  late final GeneratedColumn<String> notes = GeneratedColumn<String>(
+    'notes',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
   static const VerificationMeta _scheduledAtMeta = const VerificationMeta(
     'scheduledAt',
   );
@@ -2936,6 +2954,8 @@ class $RemindersTable extends Reminders
     entityType,
     entityId,
     reminderType,
+    title,
+    notes,
     scheduledAt,
     repeatRule,
     notificationId,
@@ -2989,6 +3009,18 @@ class $RemindersTable extends Reminders
       );
     } else if (isInserting) {
       context.missing(_reminderTypeMeta);
+    }
+    if (data.containsKey('title')) {
+      context.handle(
+        _titleMeta,
+        title.isAcceptableOrUnknown(data['title']!, _titleMeta),
+      );
+    }
+    if (data.containsKey('notes')) {
+      context.handle(
+        _notesMeta,
+        notes.isAcceptableOrUnknown(data['notes']!, _notesMeta),
+      );
     }
     if (data.containsKey('scheduled_at')) {
       context.handle(
@@ -3073,6 +3105,14 @@ class $RemindersTable extends Reminders
         DriftSqlType.string,
         data['${effectivePrefix}reminder_type'],
       )!,
+      title: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}title'],
+      ),
+      notes: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}notes'],
+      ),
       scheduledAt: attachedDatabase.typeMapping.read(
         DriftSqlType.dateTime,
         data['${effectivePrefix}scheduled_at'],
@@ -3116,6 +3156,8 @@ class ReminderRow extends DataClass implements Insertable<ReminderRow> {
   final String? entityType;
   final String? entityId;
   final String reminderType;
+  final String? title;
+  final String? notes;
   final DateTime scheduledAt;
   final String? repeatRule;
   final int? notificationId;
@@ -3129,6 +3171,8 @@ class ReminderRow extends DataClass implements Insertable<ReminderRow> {
     this.entityType,
     this.entityId,
     required this.reminderType,
+    this.title,
+    this.notes,
     required this.scheduledAt,
     this.repeatRule,
     this.notificationId,
@@ -3151,6 +3195,12 @@ class ReminderRow extends DataClass implements Insertable<ReminderRow> {
       map['entity_id'] = Variable<String>(entityId);
     }
     map['reminder_type'] = Variable<String>(reminderType);
+    if (!nullToAbsent || title != null) {
+      map['title'] = Variable<String>(title);
+    }
+    if (!nullToAbsent || notes != null) {
+      map['notes'] = Variable<String>(notes);
+    }
     map['scheduled_at'] = Variable<DateTime>(scheduledAt);
     if (!nullToAbsent || repeatRule != null) {
       map['repeat_rule'] = Variable<String>(repeatRule);
@@ -3180,6 +3230,12 @@ class ReminderRow extends DataClass implements Insertable<ReminderRow> {
           ? const Value.absent()
           : Value(entityId),
       reminderType: Value(reminderType),
+      title: title == null && nullToAbsent
+          ? const Value.absent()
+          : Value(title),
+      notes: notes == null && nullToAbsent
+          ? const Value.absent()
+          : Value(notes),
       scheduledAt: Value(scheduledAt),
       repeatRule: repeatRule == null && nullToAbsent
           ? const Value.absent()
@@ -3207,6 +3263,8 @@ class ReminderRow extends DataClass implements Insertable<ReminderRow> {
       entityType: serializer.fromJson<String?>(json['entityType']),
       entityId: serializer.fromJson<String?>(json['entityId']),
       reminderType: serializer.fromJson<String>(json['reminderType']),
+      title: serializer.fromJson<String?>(json['title']),
+      notes: serializer.fromJson<String?>(json['notes']),
       scheduledAt: serializer.fromJson<DateTime>(json['scheduledAt']),
       repeatRule: serializer.fromJson<String?>(json['repeatRule']),
       notificationId: serializer.fromJson<int?>(json['notificationId']),
@@ -3225,6 +3283,8 @@ class ReminderRow extends DataClass implements Insertable<ReminderRow> {
       'entityType': serializer.toJson<String?>(entityType),
       'entityId': serializer.toJson<String?>(entityId),
       'reminderType': serializer.toJson<String>(reminderType),
+      'title': serializer.toJson<String?>(title),
+      'notes': serializer.toJson<String?>(notes),
       'scheduledAt': serializer.toJson<DateTime>(scheduledAt),
       'repeatRule': serializer.toJson<String?>(repeatRule),
       'notificationId': serializer.toJson<int?>(notificationId),
@@ -3241,6 +3301,8 @@ class ReminderRow extends DataClass implements Insertable<ReminderRow> {
     Value<String?> entityType = const Value.absent(),
     Value<String?> entityId = const Value.absent(),
     String? reminderType,
+    Value<String?> title = const Value.absent(),
+    Value<String?> notes = const Value.absent(),
     DateTime? scheduledAt,
     Value<String?> repeatRule = const Value.absent(),
     Value<int?> notificationId = const Value.absent(),
@@ -3254,6 +3316,8 @@ class ReminderRow extends DataClass implements Insertable<ReminderRow> {
     entityType: entityType.present ? entityType.value : this.entityType,
     entityId: entityId.present ? entityId.value : this.entityId,
     reminderType: reminderType ?? this.reminderType,
+    title: title.present ? title.value : this.title,
+    notes: notes.present ? notes.value : this.notes,
     scheduledAt: scheduledAt ?? this.scheduledAt,
     repeatRule: repeatRule.present ? repeatRule.value : this.repeatRule,
     notificationId: notificationId.present
@@ -3275,6 +3339,8 @@ class ReminderRow extends DataClass implements Insertable<ReminderRow> {
       reminderType: data.reminderType.present
           ? data.reminderType.value
           : this.reminderType,
+      title: data.title.present ? data.title.value : this.title,
+      notes: data.notes.present ? data.notes.value : this.notes,
       scheduledAt: data.scheduledAt.present
           ? data.scheduledAt.value
           : this.scheduledAt,
@@ -3299,6 +3365,8 @@ class ReminderRow extends DataClass implements Insertable<ReminderRow> {
           ..write('entityType: $entityType, ')
           ..write('entityId: $entityId, ')
           ..write('reminderType: $reminderType, ')
+          ..write('title: $title, ')
+          ..write('notes: $notes, ')
           ..write('scheduledAt: $scheduledAt, ')
           ..write('repeatRule: $repeatRule, ')
           ..write('notificationId: $notificationId, ')
@@ -3317,6 +3385,8 @@ class ReminderRow extends DataClass implements Insertable<ReminderRow> {
     entityType,
     entityId,
     reminderType,
+    title,
+    notes,
     scheduledAt,
     repeatRule,
     notificationId,
@@ -3334,6 +3404,8 @@ class ReminderRow extends DataClass implements Insertable<ReminderRow> {
           other.entityType == this.entityType &&
           other.entityId == this.entityId &&
           other.reminderType == this.reminderType &&
+          other.title == this.title &&
+          other.notes == this.notes &&
           other.scheduledAt == this.scheduledAt &&
           other.repeatRule == this.repeatRule &&
           other.notificationId == this.notificationId &&
@@ -3349,6 +3421,8 @@ class RemindersCompanion extends UpdateCompanion<ReminderRow> {
   final Value<String?> entityType;
   final Value<String?> entityId;
   final Value<String> reminderType;
+  final Value<String?> title;
+  final Value<String?> notes;
   final Value<DateTime> scheduledAt;
   final Value<String?> repeatRule;
   final Value<int?> notificationId;
@@ -3363,6 +3437,8 @@ class RemindersCompanion extends UpdateCompanion<ReminderRow> {
     this.entityType = const Value.absent(),
     this.entityId = const Value.absent(),
     this.reminderType = const Value.absent(),
+    this.title = const Value.absent(),
+    this.notes = const Value.absent(),
     this.scheduledAt = const Value.absent(),
     this.repeatRule = const Value.absent(),
     this.notificationId = const Value.absent(),
@@ -3378,6 +3454,8 @@ class RemindersCompanion extends UpdateCompanion<ReminderRow> {
     this.entityType = const Value.absent(),
     this.entityId = const Value.absent(),
     required String reminderType,
+    this.title = const Value.absent(),
+    this.notes = const Value.absent(),
     required DateTime scheduledAt,
     this.repeatRule = const Value.absent(),
     this.notificationId = const Value.absent(),
@@ -3397,6 +3475,8 @@ class RemindersCompanion extends UpdateCompanion<ReminderRow> {
     Expression<String>? entityType,
     Expression<String>? entityId,
     Expression<String>? reminderType,
+    Expression<String>? title,
+    Expression<String>? notes,
     Expression<DateTime>? scheduledAt,
     Expression<String>? repeatRule,
     Expression<int>? notificationId,
@@ -3412,6 +3492,8 @@ class RemindersCompanion extends UpdateCompanion<ReminderRow> {
       if (entityType != null) 'entity_type': entityType,
       if (entityId != null) 'entity_id': entityId,
       if (reminderType != null) 'reminder_type': reminderType,
+      if (title != null) 'title': title,
+      if (notes != null) 'notes': notes,
       if (scheduledAt != null) 'scheduled_at': scheduledAt,
       if (repeatRule != null) 'repeat_rule': repeatRule,
       if (notificationId != null) 'notification_id': notificationId,
@@ -3429,6 +3511,8 @@ class RemindersCompanion extends UpdateCompanion<ReminderRow> {
     Value<String?>? entityType,
     Value<String?>? entityId,
     Value<String>? reminderType,
+    Value<String?>? title,
+    Value<String?>? notes,
     Value<DateTime>? scheduledAt,
     Value<String?>? repeatRule,
     Value<int?>? notificationId,
@@ -3444,6 +3528,8 @@ class RemindersCompanion extends UpdateCompanion<ReminderRow> {
       entityType: entityType ?? this.entityType,
       entityId: entityId ?? this.entityId,
       reminderType: reminderType ?? this.reminderType,
+      title: title ?? this.title,
+      notes: notes ?? this.notes,
       scheduledAt: scheduledAt ?? this.scheduledAt,
       repeatRule: repeatRule ?? this.repeatRule,
       notificationId: notificationId ?? this.notificationId,
@@ -3472,6 +3558,12 @@ class RemindersCompanion extends UpdateCompanion<ReminderRow> {
     }
     if (reminderType.present) {
       map['reminder_type'] = Variable<String>(reminderType.value);
+    }
+    if (title.present) {
+      map['title'] = Variable<String>(title.value);
+    }
+    if (notes.present) {
+      map['notes'] = Variable<String>(notes.value);
     }
     if (scheduledAt.present) {
       map['scheduled_at'] = Variable<DateTime>(scheduledAt.value);
@@ -3508,6 +3600,8 @@ class RemindersCompanion extends UpdateCompanion<ReminderRow> {
           ..write('entityType: $entityType, ')
           ..write('entityId: $entityId, ')
           ..write('reminderType: $reminderType, ')
+          ..write('title: $title, ')
+          ..write('notes: $notes, ')
           ..write('scheduledAt: $scheduledAt, ')
           ..write('repeatRule: $repeatRule, ')
           ..write('notificationId: $notificationId, ')
@@ -16510,6 +16604,8 @@ typedef $$RemindersTableCreateCompanionBuilder = RemindersCompanion Function({
   Value<String?> entityType,
   Value<String?> entityId,
   required String reminderType,
+  Value<String?> title,
+  Value<String?> notes,
   required DateTime scheduledAt,
   Value<String?> repeatRule,
   Value<int?> notificationId,
@@ -16525,6 +16621,8 @@ typedef $$RemindersTableUpdateCompanionBuilder = RemindersCompanion Function({
   Value<String?> entityType,
   Value<String?> entityId,
   Value<String> reminderType,
+  Value<String?> title,
+  Value<String?> notes,
   Value<DateTime> scheduledAt,
   Value<String?> repeatRule,
   Value<int?> notificationId,
@@ -16566,6 +16664,16 @@ class $$RemindersTableFilterComposer
 
   ColumnFilters<String> get reminderType => $composableBuilder(
     column: $table.reminderType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get notes => $composableBuilder(
+    column: $table.notes,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -16639,6 +16747,16 @@ class $$RemindersTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
+  ColumnOrderings<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnOrderings(column),
+  );
+
   ColumnOrderings<DateTime> get scheduledAt => $composableBuilder(
     column: $table.scheduledAt,
     builder: (column) => ColumnOrderings(column),
@@ -16702,6 +16820,12 @@ class $$RemindersTableAnnotationComposer
     column: $table.reminderType,
     builder: (column) => column,
   );
+
+  GeneratedColumn<String> get title =>
+      $composableBuilder(column: $table.title, builder: (column) => column);
+
+  GeneratedColumn<String> get notes =>
+      $composableBuilder(column: $table.notes, builder: (column) => column);
 
   GeneratedColumn<DateTime> get scheduledAt => $composableBuilder(
     column: $table.scheduledAt,
@@ -16767,6 +16891,8 @@ class $$RemindersTableTableManager
                 Value<String?> entityType = const Value.absent(),
                 Value<String?> entityId = const Value.absent(),
                 Value<String> reminderType = const Value.absent(),
+                Value<String?> title = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
                 Value<DateTime> scheduledAt = const Value.absent(),
                 Value<String?> repeatRule = const Value.absent(),
                 Value<int?> notificationId = const Value.absent(),
@@ -16781,6 +16907,8 @@ class $$RemindersTableTableManager
                 entityType: entityType,
                 entityId: entityId,
                 reminderType: reminderType,
+                title: title,
+                notes: notes,
                 scheduledAt: scheduledAt,
                 repeatRule: repeatRule,
                 notificationId: notificationId,
@@ -16797,6 +16925,8 @@ class $$RemindersTableTableManager
                 Value<String?> entityType = const Value.absent(),
                 Value<String?> entityId = const Value.absent(),
                 required String reminderType,
+                Value<String?> title = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
                 required DateTime scheduledAt,
                 Value<String?> repeatRule = const Value.absent(),
                 Value<int?> notificationId = const Value.absent(),
@@ -16811,6 +16941,8 @@ class $$RemindersTableTableManager
                 entityType: entityType,
                 entityId: entityId,
                 reminderType: reminderType,
+                title: title,
+                notes: notes,
                 scheduledAt: scheduledAt,
                 repeatRule: repeatRule,
                 notificationId: notificationId,

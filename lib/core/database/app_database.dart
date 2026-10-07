@@ -104,7 +104,7 @@ class AppDatabase extends _$AppDatabase {
   factory AppDatabase.memory() => AppDatabase(openMemoryConnection());
 
   /// Bump when schema changes; add steps in [migration].
-  static const int currentSchemaVersion = 5;
+  static const int currentSchemaVersion = 6;
 
   @override
   int get schemaVersion => currentSchemaVersion;
@@ -140,6 +140,10 @@ class AppDatabase extends _$AppDatabase {
         await m.createTable(medicineSchedules);
         await m.createTable(doctorVisits);
         await m.createTable(medicalDocuments);
+      }
+      if (from < 6) {
+        await m.addColumn(reminders, reminders.title);
+        await m.addColumn(reminders, reminders.notes);
       }
     },
     beforeOpen: (details) async {

@@ -1464,4 +1464,176 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get docTypeOther => 'Other';
+
+  @override
+  String get timelineEmpty => 'No timeline entries yet.';
+
+  @override
+  String get timelineFilterAll => 'All';
+
+  @override
+  String get timelineFilterMemories => 'Memories';
+
+  @override
+  String get timelineFilterGrowth => 'Growth';
+
+  @override
+  String get timelineFilterMilestones => 'Milestones';
+
+  @override
+  String get timelineFilterHealth => 'Health';
+
+  @override
+  String get timelineFilterSchool => 'School';
+
+  @override
+  String get timelineFilterAchievements => 'Achievements';
+
+  @override
+  String get timelineFilterPhotos => 'Photos';
+
+  @override
+  String get timelineFilterFunny => 'Funny';
+
+  @override
+  String get timelineTypeJournal => 'Memory';
+
+  @override
+  String get timelineTypeFunny => 'Funny';
+
+  @override
+  String get timelineTypeAchievement => 'Achievement';
+
+  @override
+  String get timelineTypeGrowth => 'Growth';
+
+  @override
+  String get timelineTypeMilestone => 'Milestone';
+
+  @override
+  String get timelineTypeSchool => 'School';
+
+  @override
+  String get timelineTypeVaccination => 'Vaccination';
+
+  @override
+  String get timelineTypeIllness => 'Illness';
+
+  @override
+  String get timelineTypeDoctor => 'Doctor visit';
+
+  @override
+  String get timelineTypeBirthday => 'Birthday';
+
+  @override
+  String get calendarTitle => 'Calendar';
+
+  @override
+  String get calendarNoEvents => 'No events on this day.';
+
+  @override
+  String get remindersTitle => 'Reminders';
+
+  @override
+  String get remindersEmpty => 'No reminders yet.';
+
+  @override
+  String get addReminder => 'Add reminder';
+
+  @override
+  String get editReminder => 'Edit reminder';
+
+  @override
+  String get reminderTitleField => 'Title';
+
+  @override
+  String get reminderTitleRequired => 'Title is required.';
+
+  @override
+  String get reminderType => 'Type';
+
+  @override
+  String get reminderDateTime => 'Date & time';
+
+  @override
+  String get reminderRepeat => 'Repeat';
+
+  @override
+  String get reminderEnabled => 'Notifications on';
+
+  @override
+  String get reminderNotes => 'Notes';
+
+  @override
+  String get saveReminder => 'Save reminder';
+
+  @override
+  String get deleteReminderTitle => 'Delete this reminder?';
+
+  @override
+  String get deleteReminderMessage =>
+      'This reminder will be removed from this device.';
+
+  @override
+  String get reminderTypeVaccination => 'Vaccination';
+
+  @override
+  String get reminderTypeMedicine => 'Medicine';
+
+  @override
+  String get reminderTypeDoctorFollowUp => 'Doctor follow-up';
+
+  @override
+  String get reminderTypeBirthday => 'Birthday';
+
+  @override
+  String get reminderTypeWeeklyMemory => 'Weekly memory';
+
+  @override
+  String get reminderTypeBackup => 'Backup';
+
+  @override
+  String get reminderTypeCustom => 'Custom';
+
+  @override
+  String get reminderRepeatNone => 'Does not repeat';
+
+  @override
+  String get reminderRepeatDaily => 'Daily';
+
+  @override
+  String get reminderRepeatWeekly => 'Weekly';
+
+  @override
+  String get reminderRepeatYearly => 'Yearly';
+
+  @override
+  String get reminderRepeatMonthly => 'Monthly';
+
+  @override
+  String get onThisDayTitle => 'On this day';
+
+  @override
+  String get onThisDayEmpty => 'Nothing from past years on this day yet.';
+
+  @override
+  String onThisDayYearsAgo(int years) {
+    return '$years years ago';
+  }
+
+  @override
+  String get upcomingReminders => 'Upcoming reminders';
+
+  @override
+  String get notificationPermissionTitle => 'Turn on reminders?';
+
+  @override
+  String get notificationPermissionBody =>
+      'Shishur Dinlipi can remind you about vaccinations, medicines, follow-up visits and important memories.';
+
+  @override
+  String get notificationAllow => 'Allow notifications';
+
+  @override
+  String get notificationNotNow => 'Not now';
 }

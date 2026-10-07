@@ -2917,6 +2917,342 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Other'**
   String get docTypeOther;
+
+  /// No description provided for @timelineEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No timeline entries yet.'**
+  String get timelineEmpty;
+
+  /// No description provided for @timelineFilterAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get timelineFilterAll;
+
+  /// No description provided for @timelineFilterMemories.
+  ///
+  /// In en, this message translates to:
+  /// **'Memories'**
+  String get timelineFilterMemories;
+
+  /// No description provided for @timelineFilterGrowth.
+  ///
+  /// In en, this message translates to:
+  /// **'Growth'**
+  String get timelineFilterGrowth;
+
+  /// No description provided for @timelineFilterMilestones.
+  ///
+  /// In en, this message translates to:
+  /// **'Milestones'**
+  String get timelineFilterMilestones;
+
+  /// No description provided for @timelineFilterHealth.
+  ///
+  /// In en, this message translates to:
+  /// **'Health'**
+  String get timelineFilterHealth;
+
+  /// No description provided for @timelineFilterSchool.
+  ///
+  /// In en, this message translates to:
+  /// **'School'**
+  String get timelineFilterSchool;
+
+  /// No description provided for @timelineFilterAchievements.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievements'**
+  String get timelineFilterAchievements;
+
+  /// No description provided for @timelineFilterPhotos.
+  ///
+  /// In en, this message translates to:
+  /// **'Photos'**
+  String get timelineFilterPhotos;
+
+  /// No description provided for @timelineFilterFunny.
+  ///
+  /// In en, this message translates to:
+  /// **'Funny'**
+  String get timelineFilterFunny;
+
+  /// No description provided for @timelineTypeJournal.
+  ///
+  /// In en, this message translates to:
+  /// **'Memory'**
+  String get timelineTypeJournal;
+
+  /// No description provided for @timelineTypeFunny.
+  ///
+  /// In en, this message translates to:
+  /// **'Funny'**
+  String get timelineTypeFunny;
+
+  /// No description provided for @timelineTypeAchievement.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievement'**
+  String get timelineTypeAchievement;
+
+  /// No description provided for @timelineTypeGrowth.
+  ///
+  /// In en, this message translates to:
+  /// **'Growth'**
+  String get timelineTypeGrowth;
+
+  /// No description provided for @timelineTypeMilestone.
+  ///
+  /// In en, this message translates to:
+  /// **'Milestone'**
+  String get timelineTypeMilestone;
+
+  /// No description provided for @timelineTypeSchool.
+  ///
+  /// In en, this message translates to:
+  /// **'School'**
+  String get timelineTypeSchool;
+
+  /// No description provided for @timelineTypeVaccination.
+  ///
+  /// In en, this message translates to:
+  /// **'Vaccination'**
+  String get timelineTypeVaccination;
+
+  /// No description provided for @timelineTypeIllness.
+  ///
+  /// In en, this message translates to:
+  /// **'Illness'**
+  String get timelineTypeIllness;
+
+  /// No description provided for @timelineTypeDoctor.
+  ///
+  /// In en, this message translates to:
+  /// **'Doctor visit'**
+  String get timelineTypeDoctor;
+
+  /// No description provided for @timelineTypeBirthday.
+  ///
+  /// In en, this message translates to:
+  /// **'Birthday'**
+  String get timelineTypeBirthday;
+
+  /// No description provided for @calendarTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Calendar'**
+  String get calendarTitle;
+
+  /// No description provided for @calendarNoEvents.
+  ///
+  /// In en, this message translates to:
+  /// **'No events on this day.'**
+  String get calendarNoEvents;
+
+  /// No description provided for @remindersTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders'**
+  String get remindersTitle;
+
+  /// No description provided for @remindersEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No reminders yet.'**
+  String get remindersEmpty;
+
+  /// No description provided for @addReminder.
+  ///
+  /// In en, this message translates to:
+  /// **'Add reminder'**
+  String get addReminder;
+
+  /// No description provided for @editReminder.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit reminder'**
+  String get editReminder;
+
+  /// No description provided for @reminderTitleField.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get reminderTitleField;
+
+  /// No description provided for @reminderTitleRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Title is required.'**
+  String get reminderTitleRequired;
+
+  /// No description provided for @reminderType.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get reminderType;
+
+  /// No description provided for @reminderDateTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Date & time'**
+  String get reminderDateTime;
+
+  /// No description provided for @reminderRepeat.
+  ///
+  /// In en, this message translates to:
+  /// **'Repeat'**
+  String get reminderRepeat;
+
+  /// No description provided for @reminderEnabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications on'**
+  String get reminderEnabled;
+
+  /// No description provided for @reminderNotes.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get reminderNotes;
+
+  /// No description provided for @saveReminder.
+  ///
+  /// In en, this message translates to:
+  /// **'Save reminder'**
+  String get saveReminder;
+
+  /// No description provided for @deleteReminderTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this reminder?'**
+  String get deleteReminderTitle;
+
+  /// No description provided for @deleteReminderMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This reminder will be removed from this device.'**
+  String get deleteReminderMessage;
+
+  /// No description provided for @reminderTypeVaccination.
+  ///
+  /// In en, this message translates to:
+  /// **'Vaccination'**
+  String get reminderTypeVaccination;
+
+  /// No description provided for @reminderTypeMedicine.
+  ///
+  /// In en, this message translates to:
+  /// **'Medicine'**
+  String get reminderTypeMedicine;
+
+  /// No description provided for @reminderTypeDoctorFollowUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Doctor follow-up'**
+  String get reminderTypeDoctorFollowUp;
+
+  /// No description provided for @reminderTypeBirthday.
+  ///
+  /// In en, this message translates to:
+  /// **'Birthday'**
+  String get reminderTypeBirthday;
+
+  /// No description provided for @reminderTypeWeeklyMemory.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly memory'**
+  String get reminderTypeWeeklyMemory;
+
+  /// No description provided for @reminderTypeBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup'**
+  String get reminderTypeBackup;
+
+  /// No description provided for @reminderTypeCustom.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom'**
+  String get reminderTypeCustom;
+
+  /// No description provided for @reminderRepeatNone.
+  ///
+  /// In en, this message translates to:
+  /// **'Does not repeat'**
+  String get reminderRepeatNone;
+
+  /// No description provided for @reminderRepeatDaily.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily'**
+  String get reminderRepeatDaily;
+
+  /// No description provided for @reminderRepeatWeekly.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly'**
+  String get reminderRepeatWeekly;
+
+  /// No description provided for @reminderRepeatYearly.
+  ///
+  /// In en, this message translates to:
+  /// **'Yearly'**
+  String get reminderRepeatYearly;
+
+  /// No description provided for @reminderRepeatMonthly.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly'**
+  String get reminderRepeatMonthly;
+
+  /// No description provided for @onThisDayTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'On this day'**
+  String get onThisDayTitle;
+
+  /// No description provided for @onThisDayEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing from past years on this day yet.'**
+  String get onThisDayEmpty;
+
+  /// No description provided for @onThisDayYearsAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{years} years ago'**
+  String onThisDayYearsAgo(int years);
+
+  /// No description provided for @upcomingReminders.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming reminders'**
+  String get upcomingReminders;
+
+  /// No description provided for @notificationPermissionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn on reminders?'**
+  String get notificationPermissionTitle;
+
+  /// No description provided for @notificationPermissionBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Shishur Dinlipi can remind you about vaccinations, medicines, follow-up visits and important memories.'**
+  String get notificationPermissionBody;
+
+  /// No description provided for @notificationAllow.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow notifications'**
+  String get notificationAllow;
+
+  /// No description provided for @notificationNotNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Not now'**
+  String get notificationNotNow;
 }
 
 class _AppLocalizationsDelegate

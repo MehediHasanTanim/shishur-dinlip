@@ -7,6 +7,8 @@ class Reminders extends Table {
   TextColumn get entityType => text().nullable()();
   TextColumn get entityId => text().nullable()();
   TextColumn get reminderType => text()();
+  TextColumn get title => text().nullable()();
+  TextColumn get notes => text().nullable()();
   DateTimeColumn get scheduledAt => dateTime()();
   TextColumn get repeatRule => text().nullable()();
   IntColumn get notificationId => integer().nullable()();

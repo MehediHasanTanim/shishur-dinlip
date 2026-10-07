@@ -53,6 +53,7 @@ import 'package:shishur_dinlipi/features/memories/funny_moment_editor_screen.dar
 import 'package:shishur_dinlipi/features/memories/journal_detail_screen.dart';
 import 'package:shishur_dinlipi/features/memories/journal_editor_screen.dart';
 import 'package:shishur_dinlipi/features/memories/journal_templates.dart';
+import 'package:shishur_dinlipi/features/calendar/calendar_screen.dart';
 import 'package:shishur_dinlipi/features/more/more_screen.dart';
 import 'package:shishur_dinlipi/features/onboarding/onboarding_complete_screen.dart';
 import 'package:shishur_dinlipi/features/onboarding/onboarding_create_child_screen.dart';
@@ -60,6 +61,9 @@ import 'package:shishur_dinlipi/features/onboarding/onboarding_language_screen.d
 import 'package:shishur_dinlipi/features/onboarding/onboarding_privacy_screen.dart';
 import 'package:shishur_dinlipi/features/onboarding/onboarding_security_screen.dart';
 import 'package:shishur_dinlipi/features/onboarding/onboarding_welcome_screen.dart';
+import 'package:shishur_dinlipi/features/reminders/reminder_detail_screen.dart';
+import 'package:shishur_dinlipi/features/reminders/reminder_editor_screen.dart';
+import 'package:shishur_dinlipi/features/reminders/reminders_list_screen.dart';
 import 'package:shishur_dinlipi/features/settings/settings_screen.dart';
 import 'package:shishur_dinlipi/features/splash/splash_screen.dart';
 import 'package:shishur_dinlipi/features/timeline/timeline_screen.dart';
@@ -513,6 +517,37 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             parentNavigatorKey: _rootNavigatorKey,
             builder: (context, state) => MedicalDocumentEditorScreen(
               documentId: state.pathParameters['id'],
+            ),
+          ),
+        ],
+      ),
+      GoRoute(
+        path: AppRoutes.calendar,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const CalendarScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.reminders,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const RemindersListScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.reminderCreate,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const ReminderEditorScreen(),
+      ),
+      GoRoute(
+        path: '/reminders/:id',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => ReminderDetailScreen(
+          reminderId: state.pathParameters['id']!,
+        ),
+        routes: [
+          GoRoute(
+            path: 'edit',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (context, state) => ReminderEditorScreen(
+              reminderId: state.pathParameters['id'],
             ),
           ),
         ],

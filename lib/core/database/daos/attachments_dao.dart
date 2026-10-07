@@ -55,5 +55,46 @@ class AttachmentsDao extends DatabaseAccessor<AppDatabase>
           ),
         );
   }
+
+  /// First attachment row per entity (lowest sort order), for timeline thumbs.
+  Future<List<AttachmentRow>> firstForEntities({
+    required String entityType,
+    required List<String> entityIds,
+  }) async {
+    if (entityIds.isEmpty) return const [];
+    final rows = await (select(attachments)
+          ..where(
+            (t) =>
+                t.entityType.equals(entityType) &
+                t.entityId.isIn(entityIds) &
+                t.deletedAt.isNull(),
+          )
+          ..orderBy([
+            (t) => OrderingTerm.asc(t.entityId),
+            (t) => OrderingTerm.asc(t.sortOrder),
+          ]))
+        .get();
+    final seen = <String>{};
+    final first = <AttachmentRow>[];
+    for (final row in rows) {
+      if (seen.add(row.entityId)) first.add(row);
+    }
+    return first;
+  }
+
+  Future<Set<String>> entityIdsWithAttachments({
+    required String entityType,
+    required List<String> entityIds,
+  }) async {
+    if (entityIds.isEmpty) return {};
+    final rows = await (select(attachments)..where(
+          (t) =>
+              t.entityType.equals(entityType) &
+              t.entityId.isIn(entityIds) &
+              t.deletedAt.isNull(),
+        ))
+        .get();
+    return rows.map((r) => r.entityId).toSet();
+  }
 }
 

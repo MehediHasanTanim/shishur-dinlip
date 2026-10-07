@@ -2,13 +2,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shishur_dinlipi/core/database/app_database.dart';
 
 void main() {
-  test('fresh database opens at schema version 5', () async {
+  test('fresh database opens at schema version 6', () async {
     final db = AppDatabase.memory();
     addTearDown(db.close);
 
     final row = await db.customSelect('PRAGMA user_version').getSingle();
-    expect(row.data['user_version'], 5);
-    expect(AppDatabase.currentSchemaVersion, 5);
+    expect(row.data['user_version'], 6);
+    expect(AppDatabase.currentSchemaVersion, 6);
 
     await db.customSelect('SELECT COUNT(*) AS c FROM children').getSingle();
     await db.customSelect('SELECT COUNT(*) AS c FROM settings').getSingle();
@@ -48,5 +48,10 @@ void main() {
     await db
         .customSelect('SELECT COUNT(*) AS c FROM medical_documents')
         .getSingle();
+
+    final cols = await db.customSelect('PRAGMA table_info(reminders)').get();
+    final names = cols.map((c) => c.data['name']).toSet();
+    expect(names.contains('title'), isTrue);
+    expect(names.contains('notes'), isTrue);
   });
 }

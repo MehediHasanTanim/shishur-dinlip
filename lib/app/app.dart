@@ -5,6 +5,7 @@ import 'package:shishur_dinlipi/app/theme/app_theme.dart';
 import 'package:shishur_dinlipi/core/config/app_config.dart';
 import 'package:shishur_dinlipi/core/settings/app_settings.dart';
 import 'package:shishur_dinlipi/core/settings/settings_controller.dart';
+import 'package:shishur_dinlipi/features/reminders/reminder_bootstrap.dart';
 import 'package:shishur_dinlipi/l10n/app_localizations.dart';
 
 class ShishurDinlipiApp extends ConsumerWidget {
@@ -34,7 +35,9 @@ class ShishurDinlipiApp extends ConsumerWidget {
             child: Center(child: CircularProgressIndicator()),
           );
         }
-        return child ?? const SizedBox.shrink();
+        return ReminderBootstrap(
+          child: child ?? const SizedBox.shrink(),
+        );
       },
     );
   }

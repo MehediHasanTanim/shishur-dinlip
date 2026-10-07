@@ -11,21 +11,43 @@ import 'package:shishur_dinlipi/core/settings/app_settings.dart';
 import 'package:shishur_dinlipi/core/di/core_providers.dart';
 import 'package:shishur_dinlipi/features/development/growth_providers.dart';
 import 'package:shishur_dinlipi/features/memories/recent_memories_provider.dart';
+import 'package:shishur_dinlipi/features/reminders/reminder_labels.dart';
+import 'package:shishur_dinlipi/features/reminders/reminders_providers.dart';
 import 'package:shishur_dinlipi/features/school/school_providers.dart';
+import 'package:shishur_dinlipi/features/timeline/timeline_providers.dart';
+import 'package:shishur_dinlipi/features/timeline/widgets/timeline_card.dart';
 import 'package:shishur_dinlipi/l10n/app_localizations.dart';
 import 'package:shishur_dinlipi/shared/widgets/child_avatar.dart';
 
-class HomeScreen extends ConsumerWidget {
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends ConsumerState<HomeScreen> {
+  String? _birthdayEnsuredFor;
+
+  @override
+  Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final childAsync = ref.watch(selectedChildProvider);
     final childrenAsync = ref.watch(childrenListProvider);
     final settings = ref.watch(settingsControllerProvider).valueOrNull;
     final bangla = Localizations.localeOf(context).languageCode == 'bn';
     final useBnDigits = settings?.useBengaliDigits ?? false;
+
+    ref.listen(selectedChildProvider, (prev, next) {
+      final child = next.valueOrNull;
+      if (child == null || child.id == _birthdayEnsuredFor) return;
+      _birthdayEnsuredFor = child.id;
+      ref.read(remindersRepositoryProvider).ensureBirthdayReminder(
+            childId: child.id,
+            dateOfBirth: child.dateOfBirth,
+            childName: child.displayName,
+          );
+    });
 
     return childrenAsync.when(
       loading: () => const Center(child: CircularProgressIndicator()),
@@ -151,6 +173,13 @@ class HomeScreen extends ConsumerWidget {
                     ),
                     const SizedBox(height: 24),
                     Text(
+                      l10n.onThisDayTitle,
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
+                    const SizedBox(height: 8),
+                    const _OnThisDaySection(),
+                    const SizedBox(height: 24),
+                    Text(
                       l10n.recentMemories,
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
@@ -164,9 +193,19 @@ class HomeScreen extends ConsumerWidget {
                     const SizedBox(height: 8),
                     const _SchoolDashboardSection(),
                     const SizedBox(height: 24),
-                    Text(
-                      l10n.upcoming,
-                      style: Theme.of(context).textTheme.titleLarge,
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            l10n.upcomingReminders,
+                            style: Theme.of(context).textTheme.titleLarge,
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () => context.push(AppRoutes.reminders),
+                          child: Text(l10n.commonSeeAll),
+                        ),
+                      ],
                     ),
                     const SizedBox(height: 8),
                     const _UpcomingSection(),
@@ -521,22 +560,76 @@ class _SchoolDashboardSection extends ConsumerWidget {
   }
 }
 
+class _OnThisDaySection extends ConsumerWidget {
+  const _OnThisDaySection();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final onThisDayAsync = ref.watch(onThisDayProvider);
+
+    return onThisDayAsync.when(
+      loading: () => const LinearProgressIndicator(),
+      error: (_, _) => _PlaceholderCard(
+        icon: Icons.history,
+        message: l10n.errorGeneric,
+      ),
+      data: (items) {
+        if (items.isEmpty) {
+          return _PlaceholderCard(
+            icon: Icons.history,
+            message: l10n.onThisDayEmpty,
+          );
+        }
+        final now = DateTime.now();
+        return Column(
+          children: [
+            for (final item in items.take(3))
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 4, bottom: 4),
+                      child: Text(
+                        l10n.onThisDayYearsAgo(
+                          (now.year - item.eventDate.year).clamp(1, 100),
+                        ),
+                        style: Theme.of(context).textTheme.labelMedium?.copyWith(
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
+                      ),
+                    ),
+                    TimelineCard(item: item),
+                  ],
+                ),
+              ),
+          ],
+        );
+      },
+    );
+  }
+}
+
 class _UpcomingSection extends ConsumerWidget {
   const _UpcomingSection();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
-    final upcomingAsync = ref.watch(upcomingSchoolEventsProvider);
+    final remindersAsync = ref.watch(upcomingRemindersProvider);
+    final schoolAsync = ref.watch(upcomingSchoolEventsProvider);
 
-    return upcomingAsync.when(
+    return remindersAsync.when(
       loading: () => const LinearProgressIndicator(),
       error: (_, _) => _PlaceholderCard(
         icon: Icons.notifications_none,
         message: l10n.errorGeneric,
       ),
-      data: (events) {
-        if (events.isEmpty) {
+      data: (reminders) {
+        final schoolEvents = schoolAsync.valueOrNull ?? const [];
+        if (reminders.isEmpty && schoolEvents.isEmpty) {
           return _PlaceholderCard(
             icon: Icons.notifications_none,
             message: l10n.upcomingEmpty,
@@ -544,7 +637,30 @@ class _UpcomingSection extends ConsumerWidget {
         }
         return Column(
           children: [
-            for (final event in events)
+            for (final reminder in reminders.take(5))
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: Card(
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.notifications_active_outlined,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                    title: Text(reminder.displayTitle),
+                    subtitle: Text(
+                      [
+                        reminderTypeLabel(l10n, reminder.reminderType),
+                        MaterialLocalizations.of(context)
+                            .formatMediumDate(reminder.scheduledAt.toLocal()),
+                      ].join(' · '),
+                    ),
+                    onTap: () => context.push(
+                      AppRoutes.reminderDetailPath(reminder.id),
+                    ),
+                  ),
+                ),
+              ),
+            for (final event in schoolEvents.take(2))
               Padding(
                 padding: const EdgeInsets.only(bottom: 8),
                 child: Card(
