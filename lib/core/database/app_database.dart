@@ -23,6 +23,7 @@ import 'package:shishur_dinlipi/core/database/daos/school_profiles_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/settings_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/tags_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/vaccinations_dao.dart';
+import 'package:shishur_dinlipi/core/database/daos/year_review_preferences_dao.dart';
 import 'package:shishur_dinlipi/core/database/tables/achievements_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/album_items_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/albums_table.dart';
@@ -48,6 +49,7 @@ import 'package:shishur_dinlipi/core/database/tables/settings_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/tag_links_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/tags_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/vaccinations_table.dart';
+import 'package:shishur_dinlipi/core/database/tables/year_review_preferences_table.dart';
 import 'package:shishur_dinlipi/core/logging/app_logger.dart';
 
 part 'app_database.g.dart';
@@ -79,6 +81,7 @@ part 'app_database.g.dart';
     Albums,
     AlbumItems,
     GeneratedExports,
+    YearReviewPreferences,
   ],
   daos: [
     ChildrenDao,
@@ -104,6 +107,7 @@ part 'app_database.g.dart';
     MedicalDocumentsDao,
     AlbumsDao,
     GeneratedExportsDao,
+    YearReviewPreferencesDao,
   ],
 )
 class AppDatabase extends _$AppDatabase {
@@ -114,7 +118,7 @@ class AppDatabase extends _$AppDatabase {
   factory AppDatabase.memory() => AppDatabase(openMemoryConnection());
 
   /// Bump when schema changes; add steps in [migration].
-  static const int currentSchemaVersion = 7;
+  static const int currentSchemaVersion = 8;
 
   @override
   int get schemaVersion => currentSchemaVersion;
@@ -159,6 +163,9 @@ class AppDatabase extends _$AppDatabase {
         await m.createTable(albums);
         await m.createTable(albumItems);
         await m.createTable(generatedExports);
+      }
+      if (from < 8) {
+        await m.createTable(yearReviewPreferences);
       }
     },
     beforeOpen: (details) async {

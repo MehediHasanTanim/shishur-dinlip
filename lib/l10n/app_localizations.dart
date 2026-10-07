@@ -3517,6 +3517,234 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No tags yet.'**
   String get tagsEmpty;
+
+  /// No description provided for @yearReviewTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Year in Review'**
+  String get yearReviewTitle;
+
+  /// No description provided for @yearReviewSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Create a yearly memory album — entirely offline.'**
+  String get yearReviewSubtitle;
+
+  /// No description provided for @yearReviewPickYear.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a year'**
+  String get yearReviewPickYear;
+
+  /// No description provided for @yearReviewEmptyYears.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a child profile to start a Year in Review.'**
+  String get yearReviewEmptyYears;
+
+  /// No description provided for @yearReviewOpenYear.
+  ///
+  /// In en, this message translates to:
+  /// **'Open {name}\'s {year} review'**
+  String yearReviewOpenYear(String name, int year);
+
+  /// No description provided for @yearReviewEditorTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Year in Review'**
+  String get yearReviewEditorTitle;
+
+  /// No description provided for @yearReviewTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get yearReviewTheme;
+
+  /// No description provided for @yearReviewLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'PDF language'**
+  String get yearReviewLanguage;
+
+  /// No description provided for @yearReviewIncludeHealth.
+  ///
+  /// In en, this message translates to:
+  /// **'Include health highlights'**
+  String get yearReviewIncludeHealth;
+
+  /// No description provided for @yearReviewParentLetter.
+  ///
+  /// In en, this message translates to:
+  /// **'Parent letter'**
+  String get yearReviewParentLetter;
+
+  /// No description provided for @yearReviewParentLetterHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Write a short letter to your child…'**
+  String get yearReviewParentLetterHint;
+
+  /// No description provided for @yearReviewCover.
+  ///
+  /// In en, this message translates to:
+  /// **'Cover photo'**
+  String get yearReviewCover;
+
+  /// No description provided for @yearReviewNoCover.
+  ///
+  /// In en, this message translates to:
+  /// **'No cover'**
+  String get yearReviewNoCover;
+
+  /// No description provided for @yearReviewNoCoverPhotos.
+  ///
+  /// In en, this message translates to:
+  /// **'No photos this year to use as a cover.'**
+  String get yearReviewNoCoverPhotos;
+
+  /// No description provided for @yearReviewEditCaption.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit caption'**
+  String get yearReviewEditCaption;
+
+  /// No description provided for @yearReviewGenerate.
+  ///
+  /// In en, this message translates to:
+  /// **'Generate PDF'**
+  String get yearReviewGenerate;
+
+  /// No description provided for @yearReviewSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Preferences saved.'**
+  String get yearReviewSaved;
+
+  /// No description provided for @yearReviewGeneratingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Creating your album'**
+  String get yearReviewGeneratingTitle;
+
+  /// No description provided for @yearReviewStagePreparing.
+  ///
+  /// In en, this message translates to:
+  /// **'Preparing memories…'**
+  String get yearReviewStagePreparing;
+
+  /// No description provided for @yearReviewStagePhotos.
+  ///
+  /// In en, this message translates to:
+  /// **'Processing photos…'**
+  String get yearReviewStagePhotos;
+
+  /// No description provided for @yearReviewStageBuilding.
+  ///
+  /// In en, this message translates to:
+  /// **'Building pages…'**
+  String get yearReviewStageBuilding;
+
+  /// No description provided for @yearReviewStageSaving.
+  ///
+  /// In en, this message translates to:
+  /// **'Saving PDF…'**
+  String get yearReviewStageSaving;
+
+  /// No description provided for @yearReviewStageComplete.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete'**
+  String get yearReviewStageComplete;
+
+  /// No description provided for @yearReviewStageFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not create the PDF'**
+  String get yearReviewStageFailed;
+
+  /// No description provided for @yearReviewPdfReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Year in Review PDF is ready.'**
+  String get yearReviewPdfReady;
+
+  /// No description provided for @yearReviewPreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Preview'**
+  String get yearReviewPreview;
+
+  /// No description provided for @yearReviewShare.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get yearReviewShare;
+
+  /// No description provided for @yearReviewPrint.
+  ///
+  /// In en, this message translates to:
+  /// **'Print'**
+  String get yearReviewPrint;
+
+  /// No description provided for @yearReviewSavedToExports.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved on this device in your exports folder.'**
+  String get yearReviewSavedToExports;
+
+  /// No description provided for @yearReviewSectionGrowth.
+  ///
+  /// In en, this message translates to:
+  /// **'Growth'**
+  String get yearReviewSectionGrowth;
+
+  /// No description provided for @yearReviewSectionMilestones.
+  ///
+  /// In en, this message translates to:
+  /// **'Milestones'**
+  String get yearReviewSectionMilestones;
+
+  /// No description provided for @yearReviewSectionSchool.
+  ///
+  /// In en, this message translates to:
+  /// **'School'**
+  String get yearReviewSectionSchool;
+
+  /// No description provided for @yearReviewSectionAchievements.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievements'**
+  String get yearReviewSectionAchievements;
+
+  /// No description provided for @yearReviewSectionFunny.
+  ///
+  /// In en, this message translates to:
+  /// **'Funny moments'**
+  String get yearReviewSectionFunny;
+
+  /// No description provided for @yearReviewSectionPhotos.
+  ///
+  /// In en, this message translates to:
+  /// **'Photos'**
+  String get yearReviewSectionPhotos;
+
+  /// No description provided for @yearReviewSectionBirthday.
+  ///
+  /// In en, this message translates to:
+  /// **'Birthday'**
+  String get yearReviewSectionBirthday;
+
+  /// No description provided for @yearReviewSectionJournals.
+  ///
+  /// In en, this message translates to:
+  /// **'Journal highlights'**
+  String get yearReviewSectionJournals;
+
+  /// No description provided for @yearReviewSectionHealth.
+  ///
+  /// In en, this message translates to:
+  /// **'Health'**
+  String get yearReviewSectionHealth;
 }
 
 class _AppLocalizationsDelegate

@@ -24,10 +24,13 @@ import 'package:shishur_dinlipi/core/repository/school_events_repository.dart';
 import 'package:shishur_dinlipi/core/repository/school_profiles_repository.dart';
 import 'package:shishur_dinlipi/core/repository/tags_repository.dart';
 import 'package:shishur_dinlipi/core/repository/vaccinations_repository.dart';
+import 'package:shishur_dinlipi/core/repository/year_review_preferences_repository.dart';
 import 'package:shishur_dinlipi/core/search/recent_searches_store.dart';
 import 'package:shishur_dinlipi/core/search/search_service.dart';
 import 'package:shishur_dinlipi/core/settings/settings_repository.dart';
 import 'package:shishur_dinlipi/core/timeline/timeline_service.dart';
+import 'package:shishur_dinlipi/core/year_review/year_review_query_service.dart';
+import 'package:shishur_dinlipi/core/pdf/year_review_pdf_generator.dart';
 import 'package:shishur_dinlipi/features/children/profile_photo_service.dart';
 
 final appDatabaseProvider = Provider<AppDatabase>((ref) {
@@ -205,4 +208,22 @@ final photoLibraryServiceProvider = Provider<PhotoLibraryService>((ref) {
 
 final albumsRepositoryProvider = Provider<AlbumsRepository>((ref) {
   return DriftAlbumsRepository(ref.watch(appDatabaseProvider));
+});
+
+final yearReviewPreferencesRepositoryProvider =
+    Provider<YearReviewPreferencesRepository>((ref) {
+      return DriftYearReviewPreferencesRepository(
+        ref.watch(appDatabaseProvider),
+      );
+    });
+
+final yearReviewQueryServiceProvider = Provider<YearReviewQueryService>((ref) {
+  return YearReviewQueryService(ref.watch(appDatabaseProvider));
+});
+
+final yearReviewPdfGeneratorProvider = Provider<YearReviewPdfGenerator>((ref) {
+  return YearReviewPdfGenerator(
+    ref.watch(appDatabaseProvider),
+    storage: ref.watch(fileStorageServiceProvider),
+  );
 });

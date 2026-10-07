@@ -1769,4 +1769,125 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get tagsEmpty => 'No tags yet.';
+
+  @override
+  String get yearReviewTitle => 'Year in Review';
+
+  @override
+  String get yearReviewSubtitle =>
+      'Create a yearly memory album — entirely offline.';
+
+  @override
+  String get yearReviewPickYear => 'Choose a year';
+
+  @override
+  String get yearReviewEmptyYears =>
+      'Add a child profile to start a Year in Review.';
+
+  @override
+  String yearReviewOpenYear(String name, int year) {
+    return 'Open $name\'s $year review';
+  }
+
+  @override
+  String get yearReviewEditorTitle => 'Edit Year in Review';
+
+  @override
+  String get yearReviewTheme => 'Theme';
+
+  @override
+  String get yearReviewLanguage => 'PDF language';
+
+  @override
+  String get yearReviewIncludeHealth => 'Include health highlights';
+
+  @override
+  String get yearReviewParentLetter => 'Parent letter';
+
+  @override
+  String get yearReviewParentLetterHint =>
+      'Write a short letter to your child…';
+
+  @override
+  String get yearReviewCover => 'Cover photo';
+
+  @override
+  String get yearReviewNoCover => 'No cover';
+
+  @override
+  String get yearReviewNoCoverPhotos =>
+      'No photos this year to use as a cover.';
+
+  @override
+  String get yearReviewEditCaption => 'Edit caption';
+
+  @override
+  String get yearReviewGenerate => 'Generate PDF';
+
+  @override
+  String get yearReviewSaved => 'Preferences saved.';
+
+  @override
+  String get yearReviewGeneratingTitle => 'Creating your album';
+
+  @override
+  String get yearReviewStagePreparing => 'Preparing memories…';
+
+  @override
+  String get yearReviewStagePhotos => 'Processing photos…';
+
+  @override
+  String get yearReviewStageBuilding => 'Building pages…';
+
+  @override
+  String get yearReviewStageSaving => 'Saving PDF…';
+
+  @override
+  String get yearReviewStageComplete => 'Complete';
+
+  @override
+  String get yearReviewStageFailed => 'Could not create the PDF';
+
+  @override
+  String get yearReviewPdfReady => 'Your Year in Review PDF is ready.';
+
+  @override
+  String get yearReviewPreview => 'Preview';
+
+  @override
+  String get yearReviewShare => 'Share';
+
+  @override
+  String get yearReviewPrint => 'Print';
+
+  @override
+  String get yearReviewSavedToExports =>
+      'Saved on this device in your exports folder.';
+
+  @override
+  String get yearReviewSectionGrowth => 'Growth';
+
+  @override
+  String get yearReviewSectionMilestones => 'Milestones';
+
+  @override
+  String get yearReviewSectionSchool => 'School';
+
+  @override
+  String get yearReviewSectionAchievements => 'Achievements';
+
+  @override
+  String get yearReviewSectionFunny => 'Funny moments';
+
+  @override
+  String get yearReviewSectionPhotos => 'Photos';
+
+  @override
+  String get yearReviewSectionBirthday => 'Birthday';
+
+  @override
+  String get yearReviewSectionJournals => 'Journal highlights';
+
+  @override
+  String get yearReviewSectionHealth => 'Health';
 }

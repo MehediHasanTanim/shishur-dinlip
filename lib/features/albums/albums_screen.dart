@@ -19,6 +19,11 @@ class AlbumsScreen extends ConsumerWidget {
         title: Text(l10n.albumsTitle),
         actions: [
           IconButton(
+            tooltip: l10n.yearReviewTitle,
+            onPressed: () => context.push(AppRoutes.yearReview),
+            icon: const Icon(Icons.auto_stories_outlined),
+          ),
+          IconButton(
             tooltip: l10n.photosTitle,
             onPressed: () => context.push(AppRoutes.photos),
             icon: const Icon(Icons.photo_library_outlined),
@@ -54,6 +59,10 @@ class AlbumsScreen extends ConsumerWidget {
                     ),
                     const SizedBox(height: 8),
                     TextButton(
+                      onPressed: () => context.push(AppRoutes.yearReview),
+                      child: Text(l10n.yearReviewTitle),
+                    ),
+                    TextButton(
                       onPressed: () => context.push(AppRoutes.photos),
                       child: Text(l10n.photosTitle),
                     ),
@@ -65,10 +74,24 @@ class AlbumsScreen extends ConsumerWidget {
 
           return ListView.separated(
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 100),
-            itemCount: albums.length,
+            itemCount: albums.length + 1,
             separatorBuilder: (_, _) => const SizedBox(height: 8),
             itemBuilder: (context, index) {
-              final album = albums[index];
+              if (index == 0) {
+                return Card(
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.auto_stories_outlined,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                    title: Text(l10n.yearReviewTitle),
+                    subtitle: Text(l10n.yearReviewSubtitle),
+                    trailing: const Icon(Icons.chevron_right),
+                    onTap: () => context.push(AppRoutes.yearReview),
+                  ),
+                );
+              }
+              final album = albums[index - 1];
               return Card(
                 child: ListTile(
                   leading: Icon(

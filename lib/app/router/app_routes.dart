@@ -12,6 +12,7 @@ abstract final class AppRoutes {
   static const add = '/add';
   static const albums = '/albums';
   static const albumCreate = '/albums/create';
+  static const yearReview = '/year-review';
   static const more = '/more';
   static const settings = '/settings';
   static const children = '/children';
@@ -137,4 +138,8 @@ abstract final class AppRoutes {
   static String photoDetailPath(String id) => '/photos/$id';
   static String albumDetailPath(String id) => '/albums/$id';
   static String albumEditPath(String id) => '/albums/$id/edit';
+
+  static String yearReviewEditorPath(int year) => '/year-review/$year';
+  static String yearReviewGeneratePath(int year) =>
+      '/year-review/$year/generate';
 }

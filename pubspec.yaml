@@ -66,3 +66,8 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   generate: true
+  assets:
+    - assets/fonts/NotoSansBengali-Regular.ttf
+    - assets/fonts/NotoSans-Regular.ttf
+    - assets/fonts/LICENSE-NotoSansBengali.txt
+    - assets/fonts/LICENSE-NotoSans.txt

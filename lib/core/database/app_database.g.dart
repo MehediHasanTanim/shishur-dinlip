@@ -17147,6 +17147,799 @@ class GeneratedExportsCompanion extends UpdateCompanion<GeneratedExportRow> {
   }
 }
 
+class $YearReviewPreferencesTable extends YearReviewPreferences
+    with TableInfo<$YearReviewPreferencesTable, YearReviewPreferenceRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $YearReviewPreferencesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _childIdMeta = const VerificationMeta(
+    'childId',
+  );
+  @override
+  late final GeneratedColumn<String> childId = GeneratedColumn<String>(
+    'child_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _yearMeta = const VerificationMeta('year');
+  @override
+  late final GeneratedColumn<int> year = GeneratedColumn<int>(
+    'year',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _parentLetterMeta = const VerificationMeta(
+    'parentLetter',
+  );
+  @override
+  late final GeneratedColumn<String> parentLetter = GeneratedColumn<String>(
+    'parent_letter',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _coverAssetIdMeta = const VerificationMeta(
+    'coverAssetId',
+  );
+  @override
+  late final GeneratedColumn<String> coverAssetId = GeneratedColumn<String>(
+    'cover_asset_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _themeMeta = const VerificationMeta('theme');
+  @override
+  late final GeneratedColumn<String> theme = GeneratedColumn<String>(
+    'theme',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant('minimal'),
+  );
+  static const VerificationMeta _includeHealthMeta = const VerificationMeta(
+    'includeHealth',
+  );
+  @override
+  late final GeneratedColumn<bool> includeHealth = GeneratedColumn<bool>(
+    'include_health',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("include_health" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  static const VerificationMeta _languageCodeMeta = const VerificationMeta(
+    'languageCode',
+  );
+  @override
+  late final GeneratedColumn<String> languageCode = GeneratedColumn<String>(
+    'language_code',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+    defaultValue: const Constant('en'),
+  );
+  static const VerificationMeta _selectionJsonMeta = const VerificationMeta(
+    'selectionJson',
+  );
+  @override
+  late final GeneratedColumn<String> selectionJson = GeneratedColumn<String>(
+    'selection_json',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _titleOverrideMeta = const VerificationMeta(
+    'titleOverride',
+  );
+  @override
+  late final GeneratedColumn<String> titleOverride = GeneratedColumn<String>(
+    'title_override',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    childId,
+    year,
+    parentLetter,
+    coverAssetId,
+    theme,
+    includeHealth,
+    languageCode,
+    selectionJson,
+    titleOverride,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'year_review_preferences';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<YearReviewPreferenceRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('child_id')) {
+      context.handle(
+        _childIdMeta,
+        childId.isAcceptableOrUnknown(data['child_id']!, _childIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_childIdMeta);
+    }
+    if (data.containsKey('year')) {
+      context.handle(
+        _yearMeta,
+        year.isAcceptableOrUnknown(data['year']!, _yearMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_yearMeta);
+    }
+    if (data.containsKey('parent_letter')) {
+      context.handle(
+        _parentLetterMeta,
+        parentLetter.isAcceptableOrUnknown(
+          data['parent_letter']!,
+          _parentLetterMeta,
+        ),
+      );
+    }
+    if (data.containsKey('cover_asset_id')) {
+      context.handle(
+        _coverAssetIdMeta,
+        coverAssetId.isAcceptableOrUnknown(
+          data['cover_asset_id']!,
+          _coverAssetIdMeta,
+        ),
+      );
+    }
+    if (data.containsKey('theme')) {
+      context.handle(
+        _themeMeta,
+        theme.isAcceptableOrUnknown(data['theme']!, _themeMeta),
+      );
+    }
+    if (data.containsKey('include_health')) {
+      context.handle(
+        _includeHealthMeta,
+        includeHealth.isAcceptableOrUnknown(
+          data['include_health']!,
+          _includeHealthMeta,
+        ),
+      );
+    }
+    if (data.containsKey('language_code')) {
+      context.handle(
+        _languageCodeMeta,
+        languageCode.isAcceptableOrUnknown(
+          data['language_code']!,
+          _languageCodeMeta,
+        ),
+      );
+    }
+    if (data.containsKey('selection_json')) {
+      context.handle(
+        _selectionJsonMeta,
+        selectionJson.isAcceptableOrUnknown(
+          data['selection_json']!,
+          _selectionJsonMeta,
+        ),
+      );
+    }
+    if (data.containsKey('title_override')) {
+      context.handle(
+        _titleOverrideMeta,
+        titleOverride.isAcceptableOrUnknown(
+          data['title_override']!,
+          _titleOverrideMeta,
+        ),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  YearReviewPreferenceRow map(
+    Map<String, dynamic> data, {
+    String? tablePrefix,
+  }) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return YearReviewPreferenceRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      childId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}child_id'],
+      )!,
+      year: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}year'],
+      )!,
+      parentLetter: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}parent_letter'],
+      ),
+      coverAssetId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}cover_asset_id'],
+      ),
+      theme: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}theme'],
+      )!,
+      includeHealth: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}include_health'],
+      )!,
+      languageCode: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}language_code'],
+      )!,
+      selectionJson: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}selection_json'],
+      ),
+      titleOverride: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}title_override'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+    );
+  }
+
+  @override
+  $YearReviewPreferencesTable createAlias(String alias) {
+    return $YearReviewPreferencesTable(attachedDatabase, alias);
+  }
+}
+
+class YearReviewPreferenceRow extends DataClass
+    implements Insertable<YearReviewPreferenceRow> {
+  final String id;
+  final String childId;
+  final int year;
+  final String? parentLetter;
+  final String? coverAssetId;
+  final String theme;
+  final bool includeHealth;
+  final String languageCode;
+
+  /// JSON map of section -> ordered item drafts (include/caption/order).
+  final String? selectionJson;
+  final String? titleOverride;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final DateTime? deletedAt;
+  const YearReviewPreferenceRow({
+    required this.id,
+    required this.childId,
+    required this.year,
+    this.parentLetter,
+    this.coverAssetId,
+    required this.theme,
+    required this.includeHealth,
+    required this.languageCode,
+    this.selectionJson,
+    this.titleOverride,
+    required this.createdAt,
+    required this.updatedAt,
+    this.deletedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['child_id'] = Variable<String>(childId);
+    map['year'] = Variable<int>(year);
+    if (!nullToAbsent || parentLetter != null) {
+      map['parent_letter'] = Variable<String>(parentLetter);
+    }
+    if (!nullToAbsent || coverAssetId != null) {
+      map['cover_asset_id'] = Variable<String>(coverAssetId);
+    }
+    map['theme'] = Variable<String>(theme);
+    map['include_health'] = Variable<bool>(includeHealth);
+    map['language_code'] = Variable<String>(languageCode);
+    if (!nullToAbsent || selectionJson != null) {
+      map['selection_json'] = Variable<String>(selectionJson);
+    }
+    if (!nullToAbsent || titleOverride != null) {
+      map['title_override'] = Variable<String>(titleOverride);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    return map;
+  }
+
+  YearReviewPreferencesCompanion toCompanion(bool nullToAbsent) {
+    return YearReviewPreferencesCompanion(
+      id: Value(id),
+      childId: Value(childId),
+      year: Value(year),
+      parentLetter: parentLetter == null && nullToAbsent
+          ? const Value.absent()
+          : Value(parentLetter),
+      coverAssetId: coverAssetId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(coverAssetId),
+      theme: Value(theme),
+      includeHealth: Value(includeHealth),
+      languageCode: Value(languageCode),
+      selectionJson: selectionJson == null && nullToAbsent
+          ? const Value.absent()
+          : Value(selectionJson),
+      titleOverride: titleOverride == null && nullToAbsent
+          ? const Value.absent()
+          : Value(titleOverride),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+    );
+  }
+
+  factory YearReviewPreferenceRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return YearReviewPreferenceRow(
+      id: serializer.fromJson<String>(json['id']),
+      childId: serializer.fromJson<String>(json['childId']),
+      year: serializer.fromJson<int>(json['year']),
+      parentLetter: serializer.fromJson<String?>(json['parentLetter']),
+      coverAssetId: serializer.fromJson<String?>(json['coverAssetId']),
+      theme: serializer.fromJson<String>(json['theme']),
+      includeHealth: serializer.fromJson<bool>(json['includeHealth']),
+      languageCode: serializer.fromJson<String>(json['languageCode']),
+      selectionJson: serializer.fromJson<String?>(json['selectionJson']),
+      titleOverride: serializer.fromJson<String?>(json['titleOverride']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'childId': serializer.toJson<String>(childId),
+      'year': serializer.toJson<int>(year),
+      'parentLetter': serializer.toJson<String?>(parentLetter),
+      'coverAssetId': serializer.toJson<String?>(coverAssetId),
+      'theme': serializer.toJson<String>(theme),
+      'includeHealth': serializer.toJson<bool>(includeHealth),
+      'languageCode': serializer.toJson<String>(languageCode),
+      'selectionJson': serializer.toJson<String?>(selectionJson),
+      'titleOverride': serializer.toJson<String?>(titleOverride),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+    };
+  }
+
+  YearReviewPreferenceRow copyWith({
+    String? id,
+    String? childId,
+    int? year,
+    Value<String?> parentLetter = const Value.absent(),
+    Value<String?> coverAssetId = const Value.absent(),
+    String? theme,
+    bool? includeHealth,
+    String? languageCode,
+    Value<String?> selectionJson = const Value.absent(),
+    Value<String?> titleOverride = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> deletedAt = const Value.absent(),
+  }) => YearReviewPreferenceRow(
+    id: id ?? this.id,
+    childId: childId ?? this.childId,
+    year: year ?? this.year,
+    parentLetter: parentLetter.present ? parentLetter.value : this.parentLetter,
+    coverAssetId: coverAssetId.present ? coverAssetId.value : this.coverAssetId,
+    theme: theme ?? this.theme,
+    includeHealth: includeHealth ?? this.includeHealth,
+    languageCode: languageCode ?? this.languageCode,
+    selectionJson: selectionJson.present
+        ? selectionJson.value
+        : this.selectionJson,
+    titleOverride: titleOverride.present
+        ? titleOverride.value
+        : this.titleOverride,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+  );
+  YearReviewPreferenceRow copyWithCompanion(
+    YearReviewPreferencesCompanion data,
+  ) {
+    return YearReviewPreferenceRow(
+      id: data.id.present ? data.id.value : this.id,
+      childId: data.childId.present ? data.childId.value : this.childId,
+      year: data.year.present ? data.year.value : this.year,
+      parentLetter: data.parentLetter.present
+          ? data.parentLetter.value
+          : this.parentLetter,
+      coverAssetId: data.coverAssetId.present
+          ? data.coverAssetId.value
+          : this.coverAssetId,
+      theme: data.theme.present ? data.theme.value : this.theme,
+      includeHealth: data.includeHealth.present
+          ? data.includeHealth.value
+          : this.includeHealth,
+      languageCode: data.languageCode.present
+          ? data.languageCode.value
+          : this.languageCode,
+      selectionJson: data.selectionJson.present
+          ? data.selectionJson.value
+          : this.selectionJson,
+      titleOverride: data.titleOverride.present
+          ? data.titleOverride.value
+          : this.titleOverride,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('YearReviewPreferenceRow(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('year: $year, ')
+          ..write('parentLetter: $parentLetter, ')
+          ..write('coverAssetId: $coverAssetId, ')
+          ..write('theme: $theme, ')
+          ..write('includeHealth: $includeHealth, ')
+          ..write('languageCode: $languageCode, ')
+          ..write('selectionJson: $selectionJson, ')
+          ..write('titleOverride: $titleOverride, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    childId,
+    year,
+    parentLetter,
+    coverAssetId,
+    theme,
+    includeHealth,
+    languageCode,
+    selectionJson,
+    titleOverride,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is YearReviewPreferenceRow &&
+          other.id == this.id &&
+          other.childId == this.childId &&
+          other.year == this.year &&
+          other.parentLetter == this.parentLetter &&
+          other.coverAssetId == this.coverAssetId &&
+          other.theme == this.theme &&
+          other.includeHealth == this.includeHealth &&
+          other.languageCode == this.languageCode &&
+          other.selectionJson == this.selectionJson &&
+          other.titleOverride == this.titleOverride &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.deletedAt == this.deletedAt);
+}
+
+class YearReviewPreferencesCompanion
+    extends UpdateCompanion<YearReviewPreferenceRow> {
+  final Value<String> id;
+  final Value<String> childId;
+  final Value<int> year;
+  final Value<String?> parentLetter;
+  final Value<String?> coverAssetId;
+  final Value<String> theme;
+  final Value<bool> includeHealth;
+  final Value<String> languageCode;
+  final Value<String?> selectionJson;
+  final Value<String?> titleOverride;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> deletedAt;
+  final Value<int> rowid;
+  const YearReviewPreferencesCompanion({
+    this.id = const Value.absent(),
+    this.childId = const Value.absent(),
+    this.year = const Value.absent(),
+    this.parentLetter = const Value.absent(),
+    this.coverAssetId = const Value.absent(),
+    this.theme = const Value.absent(),
+    this.includeHealth = const Value.absent(),
+    this.languageCode = const Value.absent(),
+    this.selectionJson = const Value.absent(),
+    this.titleOverride = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  YearReviewPreferencesCompanion.insert({
+    required String id,
+    required String childId,
+    required int year,
+    this.parentLetter = const Value.absent(),
+    this.coverAssetId = const Value.absent(),
+    this.theme = const Value.absent(),
+    this.includeHealth = const Value.absent(),
+    this.languageCode = const Value.absent(),
+    this.selectionJson = const Value.absent(),
+    this.titleOverride = const Value.absent(),
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       childId = Value(childId),
+       year = Value(year),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt);
+  static Insertable<YearReviewPreferenceRow> custom({
+    Expression<String>? id,
+    Expression<String>? childId,
+    Expression<int>? year,
+    Expression<String>? parentLetter,
+    Expression<String>? coverAssetId,
+    Expression<String>? theme,
+    Expression<bool>? includeHealth,
+    Expression<String>? languageCode,
+    Expression<String>? selectionJson,
+    Expression<String>? titleOverride,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? deletedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (childId != null) 'child_id': childId,
+      if (year != null) 'year': year,
+      if (parentLetter != null) 'parent_letter': parentLetter,
+      if (coverAssetId != null) 'cover_asset_id': coverAssetId,
+      if (theme != null) 'theme': theme,
+      if (includeHealth != null) 'include_health': includeHealth,
+      if (languageCode != null) 'language_code': languageCode,
+      if (selectionJson != null) 'selection_json': selectionJson,
+      if (titleOverride != null) 'title_override': titleOverride,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  YearReviewPreferencesCompanion copyWith({
+    Value<String>? id,
+    Value<String>? childId,
+    Value<int>? year,
+    Value<String?>? parentLetter,
+    Value<String?>? coverAssetId,
+    Value<String>? theme,
+    Value<bool>? includeHealth,
+    Value<String>? languageCode,
+    Value<String?>? selectionJson,
+    Value<String?>? titleOverride,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? deletedAt,
+    Value<int>? rowid,
+  }) {
+    return YearReviewPreferencesCompanion(
+      id: id ?? this.id,
+      childId: childId ?? this.childId,
+      year: year ?? this.year,
+      parentLetter: parentLetter ?? this.parentLetter,
+      coverAssetId: coverAssetId ?? this.coverAssetId,
+      theme: theme ?? this.theme,
+      includeHealth: includeHealth ?? this.includeHealth,
+      languageCode: languageCode ?? this.languageCode,
+      selectionJson: selectionJson ?? this.selectionJson,
+      titleOverride: titleOverride ?? this.titleOverride,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (childId.present) {
+      map['child_id'] = Variable<String>(childId.value);
+    }
+    if (year.present) {
+      map['year'] = Variable<int>(year.value);
+    }
+    if (parentLetter.present) {
+      map['parent_letter'] = Variable<String>(parentLetter.value);
+    }
+    if (coverAssetId.present) {
+      map['cover_asset_id'] = Variable<String>(coverAssetId.value);
+    }
+    if (theme.present) {
+      map['theme'] = Variable<String>(theme.value);
+    }
+    if (includeHealth.present) {
+      map['include_health'] = Variable<bool>(includeHealth.value);
+    }
+    if (languageCode.present) {
+      map['language_code'] = Variable<String>(languageCode.value);
+    }
+    if (selectionJson.present) {
+      map['selection_json'] = Variable<String>(selectionJson.value);
+    }
+    if (titleOverride.present) {
+      map['title_override'] = Variable<String>(titleOverride.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('YearReviewPreferencesCompanion(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('year: $year, ')
+          ..write('parentLetter: $parentLetter, ')
+          ..write('coverAssetId: $coverAssetId, ')
+          ..write('theme: $theme, ')
+          ..write('includeHealth: $includeHealth, ')
+          ..write('languageCode: $languageCode, ')
+          ..write('selectionJson: $selectionJson, ')
+          ..write('titleOverride: $titleOverride, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -17182,6 +17975,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $GeneratedExportsTable generatedExports = $GeneratedExportsTable(
     this,
   );
+  late final $YearReviewPreferencesTable yearReviewPreferences =
+      $YearReviewPreferencesTable(this);
   late final ChildrenDao childrenDao = ChildrenDao(this as AppDatabase);
   late final SettingsDao settingsDao = SettingsDao(this as AppDatabase);
   late final MediaAssetsDao mediaAssetsDao = MediaAssetsDao(
@@ -17235,6 +18030,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final GeneratedExportsDao generatedExportsDao = GeneratedExportsDao(
     this as AppDatabase,
   );
+  late final YearReviewPreferencesDao yearReviewPreferencesDao =
+      YearReviewPreferencesDao(this as AppDatabase);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -17265,6 +18062,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     albums,
     albumItems,
     generatedExports,
+    yearReviewPreferences,
   ];
   @override
   DriftDatabaseOptions get options =>
@@ -25644,6 +26442,401 @@ typedef $$GeneratedExportsTableProcessedTableManager =
       GeneratedExportRow,
       PrefetchHooks Function()
     >;
+typedef $$YearReviewPreferencesTableCreateCompanionBuilder =
+    YearReviewPreferencesCompanion Function({
+      required String id,
+      required String childId,
+      required int year,
+      Value<String?> parentLetter,
+      Value<String?> coverAssetId,
+      Value<String> theme,
+      Value<bool> includeHealth,
+      Value<String> languageCode,
+      Value<String?> selectionJson,
+      Value<String?> titleOverride,
+      required DateTime createdAt,
+      required DateTime updatedAt,
+      Value<DateTime?> deletedAt,
+      Value<int> rowid,
+    });
+typedef $$YearReviewPreferencesTableUpdateCompanionBuilder =
+    YearReviewPreferencesCompanion Function({
+      Value<String> id,
+      Value<String> childId,
+      Value<int> year,
+      Value<String?> parentLetter,
+      Value<String?> coverAssetId,
+      Value<String> theme,
+      Value<bool> includeHealth,
+      Value<String> languageCode,
+      Value<String?> selectionJson,
+      Value<String?> titleOverride,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<DateTime?> deletedAt,
+      Value<int> rowid,
+    });
+
+class $$YearReviewPreferencesTableFilterComposer
+    extends Composer<_$AppDatabase, $YearReviewPreferencesTable> {
+  $$YearReviewPreferencesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get year => $composableBuilder(
+    column: $table.year,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get parentLetter => $composableBuilder(
+    column: $table.parentLetter,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get coverAssetId => $composableBuilder(
+    column: $table.coverAssetId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get theme => $composableBuilder(
+    column: $table.theme,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get includeHealth => $composableBuilder(
+    column: $table.includeHealth,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get languageCode => $composableBuilder(
+    column: $table.languageCode,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get selectionJson => $composableBuilder(
+    column: $table.selectionJson,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get titleOverride => $composableBuilder(
+    column: $table.titleOverride,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$YearReviewPreferencesTableOrderingComposer
+    extends Composer<_$AppDatabase, $YearReviewPreferencesTable> {
+  $$YearReviewPreferencesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get year => $composableBuilder(
+    column: $table.year,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get parentLetter => $composableBuilder(
+    column: $table.parentLetter,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get coverAssetId => $composableBuilder(
+    column: $table.coverAssetId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get theme => $composableBuilder(
+    column: $table.theme,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get includeHealth => $composableBuilder(
+    column: $table.includeHealth,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get languageCode => $composableBuilder(
+    column: $table.languageCode,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get selectionJson => $composableBuilder(
+    column: $table.selectionJson,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get titleOverride => $composableBuilder(
+    column: $table.titleOverride,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$YearReviewPreferencesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $YearReviewPreferencesTable> {
+  $$YearReviewPreferencesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get childId =>
+      $composableBuilder(column: $table.childId, builder: (column) => column);
+
+  GeneratedColumn<int> get year =>
+      $composableBuilder(column: $table.year, builder: (column) => column);
+
+  GeneratedColumn<String> get parentLetter => $composableBuilder(
+    column: $table.parentLetter,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get coverAssetId => $composableBuilder(
+    column: $table.coverAssetId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get theme =>
+      $composableBuilder(column: $table.theme, builder: (column) => column);
+
+  GeneratedColumn<bool> get includeHealth => $composableBuilder(
+    column: $table.includeHealth,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get languageCode => $composableBuilder(
+    column: $table.languageCode,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get selectionJson => $composableBuilder(
+    column: $table.selectionJson,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get titleOverride => $composableBuilder(
+    column: $table.titleOverride,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+}
+
+class $$YearReviewPreferencesTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $YearReviewPreferencesTable,
+          YearReviewPreferenceRow,
+          $$YearReviewPreferencesTableFilterComposer,
+          $$YearReviewPreferencesTableOrderingComposer,
+          $$YearReviewPreferencesTableAnnotationComposer,
+          $$YearReviewPreferencesTableCreateCompanionBuilder,
+          $$YearReviewPreferencesTableUpdateCompanionBuilder,
+          (
+            YearReviewPreferenceRow,
+            BaseReferences<
+              _$AppDatabase,
+              $YearReviewPreferencesTable,
+              YearReviewPreferenceRow
+            >,
+          ),
+          YearReviewPreferenceRow,
+          PrefetchHooks Function()
+        > {
+  $$YearReviewPreferencesTableTableManager(
+    _$AppDatabase db,
+    $YearReviewPreferencesTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$YearReviewPreferencesTableFilterComposer(
+                $db: db,
+                $table: table,
+              ),
+          createOrderingComposer: () =>
+              $$YearReviewPreferencesTableOrderingComposer(
+                $db: db,
+                $table: table,
+              ),
+          createComputedFieldComposer: () =>
+              $$YearReviewPreferencesTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> childId = const Value.absent(),
+                Value<int> year = const Value.absent(),
+                Value<String?> parentLetter = const Value.absent(),
+                Value<String?> coverAssetId = const Value.absent(),
+                Value<String> theme = const Value.absent(),
+                Value<bool> includeHealth = const Value.absent(),
+                Value<String> languageCode = const Value.absent(),
+                Value<String?> selectionJson = const Value.absent(),
+                Value<String?> titleOverride = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => YearReviewPreferencesCompanion(
+                id: id,
+                childId: childId,
+                year: year,
+                parentLetter: parentLetter,
+                coverAssetId: coverAssetId,
+                theme: theme,
+                includeHealth: includeHealth,
+                languageCode: languageCode,
+                selectionJson: selectionJson,
+                titleOverride: titleOverride,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String childId,
+                required int year,
+                Value<String?> parentLetter = const Value.absent(),
+                Value<String?> coverAssetId = const Value.absent(),
+                Value<String> theme = const Value.absent(),
+                Value<bool> includeHealth = const Value.absent(),
+                Value<String> languageCode = const Value.absent(),
+                Value<String?> selectionJson = const Value.absent(),
+                Value<String?> titleOverride = const Value.absent(),
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => YearReviewPreferencesCompanion.insert(
+                id: id,
+                childId: childId,
+                year: year,
+                parentLetter: parentLetter,
+                coverAssetId: coverAssetId,
+                theme: theme,
+                includeHealth: includeHealth,
+                languageCode: languageCode,
+                selectionJson: selectionJson,
+                titleOverride: titleOverride,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<
+                    $YearReviewPreferencesTable,
+                    YearReviewPreferenceRow
+                  >(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $YearReviewPreferencesTable,
+                    YearReviewPreferenceRow
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$YearReviewPreferencesTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $YearReviewPreferencesTable,
+      YearReviewPreferenceRow,
+      $$YearReviewPreferencesTableFilterComposer,
+      $$YearReviewPreferencesTableOrderingComposer,
+      $$YearReviewPreferencesTableAnnotationComposer,
+      $$YearReviewPreferencesTableCreateCompanionBuilder,
+      $$YearReviewPreferencesTableUpdateCompanionBuilder,
+      (
+        YearReviewPreferenceRow,
+        BaseReferences<
+          _$AppDatabase,
+          $YearReviewPreferencesTable,
+          YearReviewPreferenceRow
+        >,
+      ),
+      YearReviewPreferenceRow,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -25697,4 +26890,6 @@ class $AppDatabaseManager {
       $$AlbumItemsTableTableManager(_db, _db.albumItems);
   $$GeneratedExportsTableTableManager get generatedExports =>
       $$GeneratedExportsTableTableManager(_db, _db.generatedExports);
+  $$YearReviewPreferencesTableTableManager get yearReviewPreferences =>
+      $$YearReviewPreferencesTableTableManager(_db, _db.yearReviewPreferences);
 }

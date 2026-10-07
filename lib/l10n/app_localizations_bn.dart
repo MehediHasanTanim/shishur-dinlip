@@ -1747,4 +1747,124 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get tagsEmpty => 'এখনো কোনো ট্যাগ নেই।';
+
+  @override
+  String get yearReviewTitle => 'বছরের স্মৃতিচারণ';
+
+  @override
+  String get yearReviewSubtitle =>
+      'বছরের স্মৃতির অ্যালবাম তৈরি করুন — সম্পূর্ণ অফলাইনে।';
+
+  @override
+  String get yearReviewPickYear => 'বছর বেছে নিন';
+
+  @override
+  String get yearReviewEmptyYears =>
+      'বছরের স্মৃতিচারণ শুরু করতে শিশুর প্রোফাইল যোগ করুন।';
+
+  @override
+  String yearReviewOpenYear(String name, int year) {
+    return '$name-এর $year সালের স্মৃতিচারণ খুলুন';
+  }
+
+  @override
+  String get yearReviewEditorTitle => 'স্মৃতিচারণ সম্পাদনা';
+
+  @override
+  String get yearReviewTheme => 'থিম';
+
+  @override
+  String get yearReviewLanguage => 'পিডিএফের ভাষা';
+
+  @override
+  String get yearReviewIncludeHealth => 'স্বাস্থ্যের হাইলাইট অন্তর্ভুক্ত করুন';
+
+  @override
+  String get yearReviewParentLetter => 'বাবা-মার চিঠি';
+
+  @override
+  String get yearReviewParentLetterHint => 'আপনার শিশুকে একটি ছোট চিঠি লিখুন…';
+
+  @override
+  String get yearReviewCover => 'কভার ছবি';
+
+  @override
+  String get yearReviewNoCover => 'কভার নেই';
+
+  @override
+  String get yearReviewNoCoverPhotos =>
+      'এই বছর কভার হিসেবে ব্যবহারের মতো কোনো ছবি নেই।';
+
+  @override
+  String get yearReviewEditCaption => 'ক্যাপশন সম্পাদনা';
+
+  @override
+  String get yearReviewGenerate => 'পিডিএফ তৈরি করুন';
+
+  @override
+  String get yearReviewSaved => 'পছন্দসমূহ সংরক্ষিত।';
+
+  @override
+  String get yearReviewGeneratingTitle => 'আপনার অ্যালবাম তৈরি হচ্ছে';
+
+  @override
+  String get yearReviewStagePreparing => 'স্মৃতি প্রস্তুত করা হচ্ছে…';
+
+  @override
+  String get yearReviewStagePhotos => 'ছবি প্রক্রিয়াকরণ…';
+
+  @override
+  String get yearReviewStageBuilding => 'পৃষ্ঠা তৈরি হচ্ছে…';
+
+  @override
+  String get yearReviewStageSaving => 'পিডিএফ সংরক্ষণ…';
+
+  @override
+  String get yearReviewStageComplete => 'সম্পন্ন';
+
+  @override
+  String get yearReviewStageFailed => 'পিডিএফ তৈরি করা যায়নি';
+
+  @override
+  String get yearReviewPdfReady => 'আপনার বছরের স্মৃতিচারণ পিডিএফ তৈরি।';
+
+  @override
+  String get yearReviewPreview => 'প্রিভিউ';
+
+  @override
+  String get yearReviewShare => 'শেয়ার';
+
+  @override
+  String get yearReviewPrint => 'প্রিন্ট';
+
+  @override
+  String get yearReviewSavedToExports =>
+      'এই ডিভাইসের এক্সপোর্ট ফোল্ডারে সংরক্ষিত।';
+
+  @override
+  String get yearReviewSectionGrowth => 'বৃদ্ধি';
+
+  @override
+  String get yearReviewSectionMilestones => 'মাইলস্টোন';
+
+  @override
+  String get yearReviewSectionSchool => 'স্কুল';
+
+  @override
+  String get yearReviewSectionAchievements => 'অর্জন';
+
+  @override
+  String get yearReviewSectionFunny => 'মজার মুহূর্ত';
+
+  @override
+  String get yearReviewSectionPhotos => 'ছবি';
+
+  @override
+  String get yearReviewSectionBirthday => 'জন্মদিন';
+
+  @override
+  String get yearReviewSectionJournals => 'স্মৃতির হাইলাইট';
+
+  @override
+  String get yearReviewSectionHealth => 'স্বাস্থ্য';
 }

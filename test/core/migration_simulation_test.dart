@@ -2,13 +2,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shishur_dinlipi/core/database/app_database.dart';
 
 void main() {
-  test('fresh database opens at schema version 7', () async {
+  test('fresh database opens at schema version 8', () async {
     final db = AppDatabase.memory();
     addTearDown(db.close);
 
     final row = await db.customSelect('PRAGMA user_version').getSingle();
-    expect(row.data['user_version'], 7);
-    expect(AppDatabase.currentSchemaVersion, 7);
+    expect(row.data['user_version'], 8);
+    expect(AppDatabase.currentSchemaVersion, 8);
 
     for (final table in [
       'children',
@@ -35,6 +35,7 @@ void main() {
       'albums',
       'album_items',
       'generated_exports',
+      'year_review_preferences',
     ]) {
       await db.customSelect('SELECT COUNT(*) AS c FROM $table').getSingle();
     }

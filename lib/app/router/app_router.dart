@@ -10,6 +10,9 @@ import 'package:shishur_dinlipi/features/add/add_screen.dart';
 import 'package:shishur_dinlipi/features/albums/album_detail_screen.dart';
 import 'package:shishur_dinlipi/features/albums/album_editor_screen.dart';
 import 'package:shishur_dinlipi/features/albums/albums_screen.dart';
+import 'package:shishur_dinlipi/features/year_review/year_review_editor_screen.dart';
+import 'package:shishur_dinlipi/features/year_review/year_review_generate_screen.dart';
+import 'package:shishur_dinlipi/features/year_review/year_review_home_screen.dart';
 import 'package:shishur_dinlipi/features/children/child_detail_screen.dart';
 import 'package:shishur_dinlipi/features/children/child_editor_screen.dart';
 import 'package:shishur_dinlipi/features/children/children_list_screen.dart';
@@ -566,6 +569,32 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             builder: (context, state) => AlbumEditorScreen(
               albumId: state.pathParameters['id'],
             ),
+          ),
+        ],
+      ),
+      GoRoute(
+        path: AppRoutes.yearReview,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const YearReviewHomeScreen(),
+      ),
+      GoRoute(
+        path: '/year-review/:year',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) {
+          final year = int.tryParse(state.pathParameters['year'] ?? '') ??
+              DateTime.now().year;
+          return YearReviewEditorScreen(year: year);
+        },
+        routes: [
+          GoRoute(
+            path: 'generate',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (context, state) {
+              final year =
+                  int.tryParse(state.pathParameters['year'] ?? '') ??
+                  DateTime.now().year;
+              return YearReviewGenerateScreen(year: year);
+            },
           ),
         ],
       ),
