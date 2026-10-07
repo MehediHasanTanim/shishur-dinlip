@@ -1,0 +1,4 @@
+// Staging flavor — pre-production verification builds.
+APP_BUNDLE_ID=com.shishurdinlipi.app.staging
+APP_DISPLAY_NAME=Shishur Dinlipi Staging
+FLUTTER_TARGET=lib/main_staging.dart

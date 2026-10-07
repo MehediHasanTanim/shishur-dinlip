@@ -1,0 +1,47 @@
+---
+description: Strict UX design source of truth for Shishur Dinlipi UI work
+alwaysApply: true
+---
+
+# Shishur Dinlipi — UX Design (Mandatory)
+
+For **all UI/UX, screens, components, icons, colors, copy, and navigation**, strictly follow:
+
+1. Spec: `docs/UX/Shishur_Dinlipi_Detailed_UI_Specification.md`
+2. Visual mockups & icons: `docs/UX/*.png` (screen flows A–V + `Icons.png`)
+
+When mockups and the markdown spec differ, **prefer the visual mockups in `docs/UX/`** for look & layout; use the markdown for screen inventory, fields, flows, and copy rules.
+
+Do **not** invent a different design system. Do **not** use generic clinical/dashboard UI.
+
+## Product feel
+
+Warm, trustworthy, private, family-oriented, simple, calm. Balance health-record seriousness with family-memory warmth. Avoid dense dashboards, heavy animation, and overly childish UI.
+
+## Layout & tokens (from UX docs)
+
+- Design for ~360–430 px phone width
+- Spacing: 4 / 8 / 12 / 16 / 24 / 32 / 40+
+- Radius: controls 8; cards 12–16; panels 20; bottom sheets top 24
+- Touch targets: min 44×44 (prefer 48×48)
+- Type: display 28–32 bold; titles 24; sections 18–20; cards 16; body 14–16; caption 12–13
+- Soft family palette; never encode meaning with color alone
+- Primary CTAs in mockups: forest teal/green (~`#006D5B`); cream/warm neutral backgrounds (~`#FFFBF0`)
+- Brand icon palette (`docs/UX/Icons.png`): blue `#3B82F6`, cyan `#06B6D4`, green `#10B981`, amber `#F59E0B`, pink `#F472B6`, purple `#8B5CF6`
+
+## Navigation
+
+Bottom nav: **Home · Timeline · Add (emphasized) · Albums · More** (bilingual: হোম / সময়রেখা / যোগ করুন / অ্যালবাম / আরও). Match labeled screen sheets A–V in `docs/UX/`.
+
+## App icons
+
+Use assets and variants from `docs/UX/Icons.png` (primary 3D boy+diary character, alt light/blue/minimal/outline/dark, Play Store feature graphic). Keep safe margins for squircle/circle masks.
+
+## Always honor
+
+- Bilingual EN + বাংলা; natural (not literal) translation; preserve user-generated text as-is
+- Privacy UI: no child/medical data before unlock; careful notifications & app-switcher
+- Empty/error/permission/loading states from section V mockups + spec
+- Subtle motion only; sticky CTAs on long forms; inline validation
+- Parent goals: remember · keep safe · look back — signature: “Azwad — Age 5: Year in Review”
+---

@@ -1,0 +1,4 @@
+// Development flavor — side-installable alongside staging/prod.
+APP_BUNDLE_ID=com.shishurdinlipi.app.dev
+APP_DISPLAY_NAME=Shishur Dinlipi Dev
+FLUTTER_TARGET=lib/main_dev.dart

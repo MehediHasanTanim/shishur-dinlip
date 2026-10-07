@@ -1,0 +1,4 @@
+// Production flavor — App Store / TestFlight identifier.
+APP_BUNDLE_ID=com.shishurdinlipi.app
+APP_DISPLAY_NAME=Shishur Dinlipi
+FLUTTER_TARGET=lib/main_prod.dart

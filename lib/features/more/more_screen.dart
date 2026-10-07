@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:shishur_dinlipi/app/router/app_routes.dart';
+import 'package:shishur_dinlipi/l10n/app_localizations.dart';
+
+class MoreScreen extends StatelessWidget {
+  const MoreScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+
+    return SafeArea(
+      child: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          Text(
+            l10n.moreTitle,
+            style: Theme.of(context).textTheme.headlineLarge,
+          ),
+          const SizedBox(height: 16),
+          Card(
+            child: ListTile(
+              leading: const Icon(Icons.settings_outlined),
+              title: Text(l10n.settingsTitle),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => context.push(AppRoutes.settings),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

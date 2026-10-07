@@ -1,0 +1,2 @@
+// Active flavor settings. Schemes overwrite this via pre-action; default is dev.
+#include "flavors/dev.xcconfig"
