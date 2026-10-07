@@ -36,4 +36,24 @@ class AttachmentsDao extends DatabaseAccessor<AppDatabase>
       ),
     );
   }
+
+  Future<void> softDeleteForEntity({
+    required String entityType,
+    required String entityId,
+    required DateTime deletedAt,
+  }) {
+    return (update(attachments)..where(
+          (t) =>
+              t.entityType.equals(entityType) &
+              t.entityId.equals(entityId) &
+              t.deletedAt.isNull(),
+        ))
+        .write(
+          AttachmentsCompanion(
+            deletedAt: Value(deletedAt),
+            updatedAt: Value(deletedAt),
+          ),
+        );
+  }
 }
+

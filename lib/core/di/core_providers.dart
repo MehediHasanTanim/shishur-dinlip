@@ -5,7 +5,12 @@ import 'package:shishur_dinlipi/core/media/media_service.dart';
 import 'package:shishur_dinlipi/core/notifications/notification_id_store.dart';
 import 'package:shishur_dinlipi/core/notifications/notification_service.dart';
 import 'package:shishur_dinlipi/core/permissions/permission_service.dart';
+import 'package:shishur_dinlipi/core/repository/achievements_repository.dart';
+import 'package:shishur_dinlipi/core/repository/attachment_repository.dart';
 import 'package:shishur_dinlipi/core/repository/children_repository.dart';
+import 'package:shishur_dinlipi/core/repository/funny_moments_repository.dart';
+import 'package:shishur_dinlipi/core/repository/journal_repository.dart';
+import 'package:shishur_dinlipi/core/repository/tags_repository.dart';
 import 'package:shishur_dinlipi/core/settings/settings_repository.dart';
 import 'package:shishur_dinlipi/features/children/profile_photo_service.dart';
 
@@ -54,5 +59,39 @@ final profilePhotoServiceProvider = Provider<ProfilePhotoService>((ref) {
     childrenRepository: ref.watch(childrenRepositoryProvider),
     fileStorage: ref.watch(fileStorageServiceProvider),
     permissions: ref.watch(permissionServiceProvider),
+  );
+});
+
+final attachmentRepositoryProvider = Provider<AttachmentRepository>((ref) {
+  return DriftAttachmentRepository(
+    ref.watch(appDatabaseProvider),
+    mediaService: ref.watch(mediaServiceProvider),
+    storage: ref.watch(fileStorageServiceProvider),
+  );
+});
+
+final tagsRepositoryProvider = Provider<TagsRepository>((ref) {
+  return DriftTagsRepository(ref.watch(appDatabaseProvider));
+});
+
+final journalRepositoryProvider = Provider<JournalRepository>((ref) {
+  return DriftJournalRepository(
+    ref.watch(appDatabaseProvider),
+    attachments: ref.watch(attachmentRepositoryProvider),
+    tags: ref.watch(tagsRepositoryProvider),
+  );
+});
+
+final funnyMomentsRepositoryProvider = Provider<FunnyMomentsRepository>((ref) {
+  return DriftFunnyMomentsRepository(
+    ref.watch(appDatabaseProvider),
+    attachments: ref.watch(attachmentRepositoryProvider),
+  );
+});
+
+final achievementsRepositoryProvider = Provider<AchievementsRepository>((ref) {
+  return DriftAchievementsRepository(
+    ref.watch(appDatabaseProvider),
+    attachments: ref.watch(attachmentRepositoryProvider),
   );
 });

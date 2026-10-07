@@ -895,6 +895,420 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Notes'**
   String get notesSection;
+
+  /// No description provided for @addSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose what you want to preserve today.'**
+  String get addSubtitle;
+
+  /// No description provided for @addGroupMemories.
+  ///
+  /// In en, this message translates to:
+  /// **'Memories'**
+  String get addGroupMemories;
+
+  /// No description provided for @addGroupComingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Coming soon'**
+  String get addGroupComingSoon;
+
+  /// No description provided for @addComingSoonMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Growth, milestones, and health records arrive in later sprints.'**
+  String get addComingSoonMessage;
+
+  /// No description provided for @addMemory.
+  ///
+  /// In en, this message translates to:
+  /// **'Add memory'**
+  String get addMemory;
+
+  /// No description provided for @editMemory.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit memory'**
+  String get editMemory;
+
+  /// No description provided for @addMemorySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Write a story, mood, and photos.'**
+  String get addMemorySubtitle;
+
+  /// No description provided for @addFunnyMoment.
+  ///
+  /// In en, this message translates to:
+  /// **'Funny moment'**
+  String get addFunnyMoment;
+
+  /// No description provided for @editFunnyMoment.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit funny moment'**
+  String get editFunnyMoment;
+
+  /// No description provided for @addFunnySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Capture a quote or silly story.'**
+  String get addFunnySubtitle;
+
+  /// No description provided for @addAchievement.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievement'**
+  String get addAchievement;
+
+  /// No description provided for @editAchievement.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit achievement'**
+  String get editAchievement;
+
+  /// No description provided for @addAchievementSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Celebrate a proud win with photos.'**
+  String get addAchievementSubtitle;
+
+  /// No description provided for @quickTemplates.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick templates'**
+  String get quickTemplates;
+
+  /// No description provided for @templateSomethingFunny.
+  ///
+  /// In en, this message translates to:
+  /// **'Something funny'**
+  String get templateSomethingFunny;
+
+  /// No description provided for @templateSomethingNew.
+  ///
+  /// In en, this message translates to:
+  /// **'Something new'**
+  String get templateSomethingNew;
+
+  /// No description provided for @templateProudMoment.
+  ///
+  /// In en, this message translates to:
+  /// **'Proud moment'**
+  String get templateProudMoment;
+
+  /// No description provided for @templateDifficultDay.
+  ///
+  /// In en, this message translates to:
+  /// **'Difficult day'**
+  String get templateDifficultDay;
+
+  /// No description provided for @templateFavoriteMoment.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite moment'**
+  String get templateFavoriteMoment;
+
+  /// No description provided for @templatePhotoMemory.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo memory'**
+  String get templatePhotoMemory;
+
+  /// No description provided for @memoryDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Date'**
+  String get memoryDate;
+
+  /// No description provided for @memoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get memoryTitle;
+
+  /// No description provided for @memoryStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Story'**
+  String get memoryStory;
+
+  /// No description provided for @memoryStoryRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a title or story to save this memory.'**
+  String get memoryStoryRequired;
+
+  /// No description provided for @memoryMood.
+  ///
+  /// In en, this message translates to:
+  /// **'Mood'**
+  String get memoryMood;
+
+  /// No description provided for @memoryLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Location'**
+  String get memoryLocation;
+
+  /// No description provided for @memoryTags.
+  ///
+  /// In en, this message translates to:
+  /// **'Tags'**
+  String get memoryTags;
+
+  /// No description provided for @memoryTagsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'family, park, first time'**
+  String get memoryTagsHint;
+
+  /// No description provided for @saveMemory.
+  ///
+  /// In en, this message translates to:
+  /// **'Save memory'**
+  String get saveMemory;
+
+  /// No description provided for @favorite.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite'**
+  String get favorite;
+
+  /// No description provided for @moodHappy.
+  ///
+  /// In en, this message translates to:
+  /// **'Happy'**
+  String get moodHappy;
+
+  /// No description provided for @moodCalm.
+  ///
+  /// In en, this message translates to:
+  /// **'Calm'**
+  String get moodCalm;
+
+  /// No description provided for @moodProud.
+  ///
+  /// In en, this message translates to:
+  /// **'Proud'**
+  String get moodProud;
+
+  /// No description provided for @moodSilly.
+  ///
+  /// In en, this message translates to:
+  /// **'Silly'**
+  String get moodSilly;
+
+  /// No description provided for @moodTired.
+  ///
+  /// In en, this message translates to:
+  /// **'Tired'**
+  String get moodTired;
+
+  /// No description provided for @moodSad.
+  ///
+  /// In en, this message translates to:
+  /// **'Sad'**
+  String get moodSad;
+
+  /// No description provided for @moodGrateful.
+  ///
+  /// In en, this message translates to:
+  /// **'Grateful'**
+  String get moodGrateful;
+
+  /// No description provided for @attachmentsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Photos'**
+  String get attachmentsTitle;
+
+  /// No description provided for @attachmentsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No photos yet.'**
+  String get attachmentsEmpty;
+
+  /// No description provided for @addPhotos.
+  ///
+  /// In en, this message translates to:
+  /// **'Add photos'**
+  String get addPhotos;
+
+  /// No description provided for @funnyQuote.
+  ///
+  /// In en, this message translates to:
+  /// **'Funny quote'**
+  String get funnyQuote;
+
+  /// No description provided for @funnyContentRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a quote, story, or title.'**
+  String get funnyContentRequired;
+
+  /// No description provided for @peoplePresent.
+  ///
+  /// In en, this message translates to:
+  /// **'Who was there'**
+  String get peoplePresent;
+
+  /// No description provided for @saveFunnyMoment.
+  ///
+  /// In en, this message translates to:
+  /// **'Save funny moment'**
+  String get saveFunnyMoment;
+
+  /// No description provided for @achievementTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get achievementTitle;
+
+  /// No description provided for @achievementTitleRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievement title is required.'**
+  String get achievementTitleRequired;
+
+  /// No description provided for @achievementCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get achievementCategory;
+
+  /// No description provided for @achievementDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Description'**
+  String get achievementDescription;
+
+  /// No description provided for @achievementAttachmentsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Attach a certificate or celebration photo.'**
+  String get achievementAttachmentsHint;
+
+  /// No description provided for @saveAchievement.
+  ///
+  /// In en, this message translates to:
+  /// **'Save achievement'**
+  String get saveAchievement;
+
+  /// No description provided for @categorySchool.
+  ///
+  /// In en, this message translates to:
+  /// **'School'**
+  String get categorySchool;
+
+  /// No description provided for @categorySports.
+  ///
+  /// In en, this message translates to:
+  /// **'Sports'**
+  String get categorySports;
+
+  /// No description provided for @categoryArts.
+  ///
+  /// In en, this message translates to:
+  /// **'Arts'**
+  String get categoryArts;
+
+  /// No description provided for @categorySocial.
+  ///
+  /// In en, this message translates to:
+  /// **'Social'**
+  String get categorySocial;
+
+  /// No description provided for @categoryPersonal.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal'**
+  String get categoryPersonal;
+
+  /// No description provided for @categoryOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get categoryOther;
+
+  /// No description provided for @deleteMemoryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this memory?'**
+  String get deleteMemoryTitle;
+
+  /// No description provided for @deleteMemoryMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This memory will be removed from this device.'**
+  String get deleteMemoryMessage;
+
+  /// No description provided for @deleteFunnyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this funny moment?'**
+  String get deleteFunnyTitle;
+
+  /// No description provided for @deleteFunnyMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This funny moment will be removed from this device.'**
+  String get deleteFunnyMessage;
+
+  /// No description provided for @deleteAchievementTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this achievement?'**
+  String get deleteAchievementTitle;
+
+  /// No description provided for @deleteAchievementMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This achievement will be removed from this device.'**
+  String get deleteAchievementMessage;
+
+  /// No description provided for @discardDraftTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Discard changes?'**
+  String get discardDraftTitle;
+
+  /// No description provided for @discardDraftMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'You have unsaved changes. If you leave now, they will be lost.'**
+  String get discardDraftMessage;
+
+  /// No description provided for @commonKeepEditing.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep editing'**
+  String get commonKeepEditing;
+
+  /// No description provided for @commonDiscard.
+  ///
+  /// In en, this message translates to:
+  /// **'Discard'**
+  String get commonDiscard;
+
+  /// No description provided for @kindJournal.
+  ///
+  /// In en, this message translates to:
+  /// **'Memory'**
+  String get kindJournal;
+
+  /// No description provided for @kindFunny.
+  ///
+  /// In en, this message translates to:
+  /// **'Funny'**
+  String get kindFunny;
+
+  /// No description provided for @kindAchievement.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievement'**
+  String get kindAchievement;
 }
 
 class _AppLocalizationsDelegate

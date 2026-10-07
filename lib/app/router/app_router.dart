@@ -12,6 +12,13 @@ import 'package:shishur_dinlipi/features/children/child_detail_screen.dart';
 import 'package:shishur_dinlipi/features/children/child_editor_screen.dart';
 import 'package:shishur_dinlipi/features/children/children_list_screen.dart';
 import 'package:shishur_dinlipi/features/home/home_screen.dart';
+import 'package:shishur_dinlipi/features/memories/achievement_detail_screen.dart';
+import 'package:shishur_dinlipi/features/memories/achievement_editor_screen.dart';
+import 'package:shishur_dinlipi/features/memories/funny_moment_detail_screen.dart';
+import 'package:shishur_dinlipi/features/memories/funny_moment_editor_screen.dart';
+import 'package:shishur_dinlipi/features/memories/journal_detail_screen.dart';
+import 'package:shishur_dinlipi/features/memories/journal_editor_screen.dart';
+import 'package:shishur_dinlipi/features/memories/journal_templates.dart';
 import 'package:shishur_dinlipi/features/more/more_screen.dart';
 import 'package:shishur_dinlipi/features/onboarding/onboarding_complete_screen.dart';
 import 'package:shishur_dinlipi/features/onboarding/onboarding_create_child_screen.dart';
@@ -101,6 +108,81 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             parentNavigatorKey: _rootNavigatorKey,
             builder: (context, state) => ChildEditorScreen(
               childId: state.pathParameters['id'],
+            ),
+          ),
+        ],
+      ),
+      GoRoute(
+        path: AppRoutes.journalCreate,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) {
+          final raw = state.uri.queryParameters['template'];
+          JournalTemplate? template;
+          if (raw != null) {
+            for (final value in JournalTemplate.values) {
+              if (value.name == raw) {
+                template = value;
+                break;
+              }
+            }
+          }
+          return JournalEditorScreen(template: template);
+        },
+      ),
+      GoRoute(
+        path: '/journal/:id',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => JournalDetailScreen(
+          entryId: state.pathParameters['id']!,
+        ),
+        routes: [
+          GoRoute(
+            path: 'edit',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (context, state) => JournalEditorScreen(
+              entryId: state.pathParameters['id'],
+            ),
+          ),
+        ],
+      ),
+      GoRoute(
+        path: AppRoutes.funnyCreate,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const FunnyMomentEditorScreen(),
+      ),
+      GoRoute(
+        path: '/funny/:id',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => FunnyMomentDetailScreen(
+          momentId: state.pathParameters['id']!,
+        ),
+        routes: [
+          GoRoute(
+            path: 'edit',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (context, state) => FunnyMomentEditorScreen(
+              momentId: state.pathParameters['id'],
+            ),
+          ),
+        ],
+      ),
+      GoRoute(
+        path: AppRoutes.achievementCreate,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const AchievementEditorScreen(),
+      ),
+      GoRoute(
+        path: '/achievements/:id',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => AchievementDetailScreen(
+          achievementId: state.pathParameters['id']!,
+        ),
+        routes: [
+          GoRoute(
+            path: 'edit',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (context, state) => AchievementEditorScreen(
+              achievementId: state.pathParameters['id'],
             ),
           ),
         ],

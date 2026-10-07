@@ -423,4 +423,213 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get notesSection => 'নোট';
+
+  @override
+  String get addSubtitle => 'আজ কী সংরক্ষণ করতে চান বেছে নিন।';
+
+  @override
+  String get addGroupMemories => 'স্মৃতি';
+
+  @override
+  String get addGroupComingSoon => 'শীঘ্রই আসছে';
+
+  @override
+  String get addComingSoonMessage =>
+      'বৃদ্ধি, মাইলস্টোন ও স্বাস্থ্য রেকর্ড পরের স্প্রিন্টে আসবে।';
+
+  @override
+  String get addMemory => 'স্মৃতি যোগ করুন';
+
+  @override
+  String get editMemory => 'স্মৃতি সম্পাদনা';
+
+  @override
+  String get addMemorySubtitle => 'গল্প, মুড ও ছবি লিখুন।';
+
+  @override
+  String get addFunnyMoment => 'মজার মুহূর্ত';
+
+  @override
+  String get editFunnyMoment => 'মজার মুহূর্ত সম্পাদনা';
+
+  @override
+  String get addFunnySubtitle => 'একটি উক্তি বা মজার গল্প রাখুন।';
+
+  @override
+  String get addAchievement => 'অর্জন';
+
+  @override
+  String get editAchievement => 'অর্জন সম্পাদনা';
+
+  @override
+  String get addAchievementSubtitle => 'গর্বের মুহূর্ত ছবিসহ উদযাপন করুন।';
+
+  @override
+  String get quickTemplates => 'দ্রুত টেমপ্লেট';
+
+  @override
+  String get templateSomethingFunny => 'কিছু মজার';
+
+  @override
+  String get templateSomethingNew => 'কিছু নতুন';
+
+  @override
+  String get templateProudMoment => 'গর্বের মুহূর্ত';
+
+  @override
+  String get templateDifficultDay => 'কঠিন দিন';
+
+  @override
+  String get templateFavoriteMoment => 'প্রিয় মুহূর্ত';
+
+  @override
+  String get templatePhotoMemory => 'ছবির স্মৃতি';
+
+  @override
+  String get memoryDate => 'তারিখ';
+
+  @override
+  String get memoryTitle => 'শিরোনাম';
+
+  @override
+  String get memoryStory => 'গল্প';
+
+  @override
+  String get memoryStoryRequired => 'সংরক্ষণ করতে শিরোনাম বা গল্প দিন।';
+
+  @override
+  String get memoryMood => 'মুড';
+
+  @override
+  String get memoryLocation => 'স্থান';
+
+  @override
+  String get memoryTags => 'ট্যাগ';
+
+  @override
+  String get memoryTagsHint => 'পরিবার, পার্ক, প্রথমবার';
+
+  @override
+  String get saveMemory => 'স্মৃতি সংরক্ষণ';
+
+  @override
+  String get favorite => 'প্রিয়';
+
+  @override
+  String get moodHappy => 'খুশি';
+
+  @override
+  String get moodCalm => 'শান্ত';
+
+  @override
+  String get moodProud => 'গর্বিত';
+
+  @override
+  String get moodSilly => 'আজেবাজে';
+
+  @override
+  String get moodTired => 'ক্লান্ত';
+
+  @override
+  String get moodSad => 'দুঃখিত';
+
+  @override
+  String get moodGrateful => 'কৃতজ্ঞ';
+
+  @override
+  String get attachmentsTitle => 'ছবি';
+
+  @override
+  String get attachmentsEmpty => 'এখনো কোনো ছবি নেই।';
+
+  @override
+  String get addPhotos => 'ছবি যোগ';
+
+  @override
+  String get funnyQuote => 'মজার উক্তি';
+
+  @override
+  String get funnyContentRequired => 'উক্তি, গল্প বা শিরোনাম দিন।';
+
+  @override
+  String get peoplePresent => 'কে কে ছিল';
+
+  @override
+  String get saveFunnyMoment => 'মজার মুহূর্ত সংরক্ষণ';
+
+  @override
+  String get achievementTitle => 'শিরোনাম';
+
+  @override
+  String get achievementTitleRequired => 'অর্জনের শিরোনাম আবশ্যক।';
+
+  @override
+  String get achievementCategory => 'বিভাগ';
+
+  @override
+  String get achievementDescription => 'বিবরণ';
+
+  @override
+  String get achievementAttachmentsHint => 'সনদপত্র বা উদযাপনের ছবি যোগ করুন।';
+
+  @override
+  String get saveAchievement => 'অর্জন সংরক্ষণ';
+
+  @override
+  String get categorySchool => 'স্কুল';
+
+  @override
+  String get categorySports => 'খেলা';
+
+  @override
+  String get categoryArts => 'শিল্প';
+
+  @override
+  String get categorySocial => 'সামাজিক';
+
+  @override
+  String get categoryPersonal => 'ব্যক্তিগত';
+
+  @override
+  String get categoryOther => 'অন্যান্য';
+
+  @override
+  String get deleteMemoryTitle => 'এই স্মৃতি মুছবেন?';
+
+  @override
+  String get deleteMemoryMessage => 'এই স্মৃতি এই ডিভাইস থেকে সরবে।';
+
+  @override
+  String get deleteFunnyTitle => 'এই মজার মুহূর্ত মুছবেন?';
+
+  @override
+  String get deleteFunnyMessage => 'এই মজার মুহূর্ত এই ডিভাইস থেকে সরবে।';
+
+  @override
+  String get deleteAchievementTitle => 'এই অর্জন মুছবেন?';
+
+  @override
+  String get deleteAchievementMessage => 'এই অর্জন এই ডিভাইস থেকে সরবে।';
+
+  @override
+  String get discardDraftTitle => 'পরিবর্তন বাতিল করবেন?';
+
+  @override
+  String get discardDraftMessage =>
+      'অসংরক্ষিত পরিবর্তন আছে। এখন চলে গেলে সেগুলো হারিয়ে যাবে।';
+
+  @override
+  String get commonKeepEditing => 'সম্পাদনা চালিয়ে যান';
+
+  @override
+  String get commonDiscard => 'বাতিল';
+
+  @override
+  String get kindJournal => 'স্মৃতি';
+
+  @override
+  String get kindFunny => 'মজার';
+
+  @override
+  String get kindAchievement => 'অর্জন';
 }

@@ -426,4 +426,217 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get notesSection => 'Notes';
+
+  @override
+  String get addSubtitle => 'Choose what you want to preserve today.';
+
+  @override
+  String get addGroupMemories => 'Memories';
+
+  @override
+  String get addGroupComingSoon => 'Coming soon';
+
+  @override
+  String get addComingSoonMessage =>
+      'Growth, milestones, and health records arrive in later sprints.';
+
+  @override
+  String get addMemory => 'Add memory';
+
+  @override
+  String get editMemory => 'Edit memory';
+
+  @override
+  String get addMemorySubtitle => 'Write a story, mood, and photos.';
+
+  @override
+  String get addFunnyMoment => 'Funny moment';
+
+  @override
+  String get editFunnyMoment => 'Edit funny moment';
+
+  @override
+  String get addFunnySubtitle => 'Capture a quote or silly story.';
+
+  @override
+  String get addAchievement => 'Achievement';
+
+  @override
+  String get editAchievement => 'Edit achievement';
+
+  @override
+  String get addAchievementSubtitle => 'Celebrate a proud win with photos.';
+
+  @override
+  String get quickTemplates => 'Quick templates';
+
+  @override
+  String get templateSomethingFunny => 'Something funny';
+
+  @override
+  String get templateSomethingNew => 'Something new';
+
+  @override
+  String get templateProudMoment => 'Proud moment';
+
+  @override
+  String get templateDifficultDay => 'Difficult day';
+
+  @override
+  String get templateFavoriteMoment => 'Favorite moment';
+
+  @override
+  String get templatePhotoMemory => 'Photo memory';
+
+  @override
+  String get memoryDate => 'Date';
+
+  @override
+  String get memoryTitle => 'Title';
+
+  @override
+  String get memoryStory => 'Story';
+
+  @override
+  String get memoryStoryRequired => 'Add a title or story to save this memory.';
+
+  @override
+  String get memoryMood => 'Mood';
+
+  @override
+  String get memoryLocation => 'Location';
+
+  @override
+  String get memoryTags => 'Tags';
+
+  @override
+  String get memoryTagsHint => 'family, park, first time';
+
+  @override
+  String get saveMemory => 'Save memory';
+
+  @override
+  String get favorite => 'Favorite';
+
+  @override
+  String get moodHappy => 'Happy';
+
+  @override
+  String get moodCalm => 'Calm';
+
+  @override
+  String get moodProud => 'Proud';
+
+  @override
+  String get moodSilly => 'Silly';
+
+  @override
+  String get moodTired => 'Tired';
+
+  @override
+  String get moodSad => 'Sad';
+
+  @override
+  String get moodGrateful => 'Grateful';
+
+  @override
+  String get attachmentsTitle => 'Photos';
+
+  @override
+  String get attachmentsEmpty => 'No photos yet.';
+
+  @override
+  String get addPhotos => 'Add photos';
+
+  @override
+  String get funnyQuote => 'Funny quote';
+
+  @override
+  String get funnyContentRequired => 'Add a quote, story, or title.';
+
+  @override
+  String get peoplePresent => 'Who was there';
+
+  @override
+  String get saveFunnyMoment => 'Save funny moment';
+
+  @override
+  String get achievementTitle => 'Title';
+
+  @override
+  String get achievementTitleRequired => 'Achievement title is required.';
+
+  @override
+  String get achievementCategory => 'Category';
+
+  @override
+  String get achievementDescription => 'Description';
+
+  @override
+  String get achievementAttachmentsHint =>
+      'Attach a certificate or celebration photo.';
+
+  @override
+  String get saveAchievement => 'Save achievement';
+
+  @override
+  String get categorySchool => 'School';
+
+  @override
+  String get categorySports => 'Sports';
+
+  @override
+  String get categoryArts => 'Arts';
+
+  @override
+  String get categorySocial => 'Social';
+
+  @override
+  String get categoryPersonal => 'Personal';
+
+  @override
+  String get categoryOther => 'Other';
+
+  @override
+  String get deleteMemoryTitle => 'Delete this memory?';
+
+  @override
+  String get deleteMemoryMessage =>
+      'This memory will be removed from this device.';
+
+  @override
+  String get deleteFunnyTitle => 'Delete this funny moment?';
+
+  @override
+  String get deleteFunnyMessage =>
+      'This funny moment will be removed from this device.';
+
+  @override
+  String get deleteAchievementTitle => 'Delete this achievement?';
+
+  @override
+  String get deleteAchievementMessage =>
+      'This achievement will be removed from this device.';
+
+  @override
+  String get discardDraftTitle => 'Discard changes?';
+
+  @override
+  String get discardDraftMessage =>
+      'You have unsaved changes. If you leave now, they will be lost.';
+
+  @override
+  String get commonKeepEditing => 'Keep editing';
+
+  @override
+  String get commonDiscard => 'Discard';
+
+  @override
+  String get kindJournal => 'Memory';
+
+  @override
+  String get kindFunny => 'Funny';
+
+  @override
+  String get kindAchievement => 'Achievement';
 }

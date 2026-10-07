@@ -6,6 +6,8 @@ import 'package:shishur_dinlipi/core/domain/age.dart';
 import 'package:shishur_dinlipi/core/settings/settings_controller.dart';
 import 'package:shishur_dinlipi/features/children/child_controller.dart';
 import 'package:shishur_dinlipi/features/children/widgets/child_switcher_sheet.dart';
+import 'package:shishur_dinlipi/features/memories/journal_templates.dart';
+import 'package:shishur_dinlipi/features/memories/recent_memories_provider.dart';
 import 'package:shishur_dinlipi/l10n/app_localizations.dart';
 import 'package:shishur_dinlipi/shared/widgets/child_avatar.dart';
 
@@ -116,31 +118,31 @@ class HomeScreen extends ConsumerWidget {
                         _QuickAddChip(
                           label: l10n.quickAddMemory,
                           icon: Icons.auto_stories_outlined,
-                          onTap: () => context.go(AppRoutes.add),
+                          onTap: () => context.push(AppRoutes.journalCreate),
                         ),
                         _QuickAddChip(
                           label: l10n.quickAddPhoto,
                           icon: Icons.photo_outlined,
-                          onTap: () => context.go(AppRoutes.add),
+                          onTap: () => context.push(
+                            AppRoutes.journalCreatePath(
+                              template: JournalTemplate.photoMemory.name,
+                            ),
+                          ),
                         ),
                         _QuickAddChip(
-                          label: l10n.quickAddGrowth,
-                          icon: Icons.monitor_weight_outlined,
-                          onTap: () => context.go(AppRoutes.add),
-                        ),
-                        _QuickAddChip(
-                          label: l10n.quickAddMilestone,
-                          icon: Icons.star_outline,
-                          onTap: () => context.go(AppRoutes.add),
-                        ),
-                        _QuickAddChip(
-                          label: l10n.quickAddHealth,
-                          icon: Icons.favorite_outline,
-                          onTap: () => context.go(AppRoutes.add),
+                          label: l10n.addFunnyMoment,
+                          icon: Icons.sentiment_very_satisfied_outlined,
+                          onTap: () => context.push(AppRoutes.funnyCreate),
                         ),
                         _QuickAddChip(
                           label: l10n.quickAddAchievement,
                           icon: Icons.emoji_events_outlined,
+                          onTap: () =>
+                              context.push(AppRoutes.achievementCreate),
+                        ),
+                        _QuickAddChip(
+                          label: l10n.navAdd,
+                          icon: Icons.add_circle_outline,
                           onTap: () => context.go(AppRoutes.add),
                         ),
                       ],
@@ -151,10 +153,7 @@ class HomeScreen extends ConsumerWidget {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     const SizedBox(height: 8),
-                    _PlaceholderCard(
-                      icon: Icons.photo_album_outlined,
-                      message: l10n.recentMemoriesEmpty,
-                    ),
+                    const _RecentMemoriesSection(),
                     const SizedBox(height: 24),
                     Text(
                       l10n.upcoming,
@@ -263,6 +262,108 @@ class _QuickAddChip extends StatelessWidget {
       avatar: Icon(icon, size: 18),
       label: Text(label),
       onPressed: onTap,
+    );
+  }
+}
+
+class _RecentMemoriesSection extends ConsumerWidget {
+  const _RecentMemoriesSection();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final recentAsync = ref.watch(recentMemoriesProvider);
+
+    return recentAsync.when(
+      loading: () => const Padding(
+        padding: EdgeInsets.symmetric(vertical: 16),
+        child: Center(child: CircularProgressIndicator()),
+      ),
+      error: (error, _) => _PlaceholderCard(
+        icon: Icons.error_outline,
+        message: l10n.errorGeneric,
+      ),
+      data: (cards) {
+        if (cards.isEmpty) {
+          return _PlaceholderCard(
+            icon: Icons.photo_album_outlined,
+            message: l10n.recentMemoriesEmpty,
+          );
+        }
+        return Column(
+          children: [
+            for (final card in cards)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: Card(
+                  clipBehavior: Clip.antiAlias,
+                  child: ListTile(
+                    leading: _Thumb(card: card),
+                    title: Text(card.title, maxLines: 1, overflow: TextOverflow.ellipsis),
+                    subtitle: Text(
+                      [
+                        _kindLabel(l10n, card.kind),
+                        MaterialLocalizations.of(context)
+                            .formatMediumDate(card.eventDate),
+                      ].join(' · '),
+                    ),
+                    onTap: () => _open(context, card),
+                  ),
+                ),
+              ),
+          ],
+        );
+      },
+    );
+  }
+
+  String _kindLabel(AppLocalizations l10n, RecentMemoryKind kind) {
+    return switch (kind) {
+      RecentMemoryKind.journal => l10n.kindJournal,
+      RecentMemoryKind.funny => l10n.kindFunny,
+      RecentMemoryKind.achievement => l10n.kindAchievement,
+    };
+  }
+
+  void _open(BuildContext context, RecentMemoryCard card) {
+    final path = switch (card.kind) {
+      RecentMemoryKind.journal => AppRoutes.journalDetailPath(card.id),
+      RecentMemoryKind.funny => AppRoutes.funnyDetailPath(card.id),
+      RecentMemoryKind.achievement =>
+        AppRoutes.achievementDetailPath(card.id),
+    };
+    context.push(path);
+  }
+}
+
+class _Thumb extends StatelessWidget {
+  const _Thumb({required this.card});
+
+  final RecentMemoryCard card;
+
+  @override
+  Widget build(BuildContext context) {
+    final file = card.thumbnail;
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(8),
+      child: SizedBox(
+        width: 48,
+        height: 48,
+        child: file == null
+            ? ColoredBox(
+                color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                child: Icon(
+                  switch (card.kind) {
+                    RecentMemoryKind.journal => Icons.auto_stories_outlined,
+                    RecentMemoryKind.funny =>
+                      Icons.sentiment_very_satisfied_outlined,
+                    RecentMemoryKind.achievement => Icons.emoji_events_outlined,
+                  },
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+              )
+            : Image.file(file, fit: BoxFit.cover),
+      ),
     );
   }
 }

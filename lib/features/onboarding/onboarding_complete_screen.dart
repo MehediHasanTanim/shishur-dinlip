@@ -65,7 +65,10 @@ class OnboardingCompleteScreen extends ConsumerWidget {
                   await ref
                       .read(settingsControllerProvider.notifier)
                       .completeOnboarding();
-                  if (context.mounted) context.go(AppRoutes.add);
+                  if (context.mounted) {
+                    context.go(AppRoutes.home);
+                    context.push(AppRoutes.journalCreate);
+                  }
                 },
                 child: Text(l10n.addFirstMemory),
               ),

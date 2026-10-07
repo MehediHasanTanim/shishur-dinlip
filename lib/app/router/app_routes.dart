@@ -18,6 +18,22 @@ abstract final class AppRoutes {
   static const childEdit = '/children/:id/edit';
   static const childDetail = '/children/:id';
 
+  static const journalCreate = '/journal/create';
+  static const funnyCreate = '/funny/create';
+  static const achievementCreate = '/achievements/create';
+
   static String childDetailPath(String id) => '/children/$id';
   static String childEditPath(String id) => '/children/$id/edit';
+
+  static String journalCreatePath({String? template}) {
+    if (template == null || template.isEmpty) return journalCreate;
+    return '$journalCreate?template=$template';
+  }
+
+  static String journalDetailPath(String id) => '/journal/$id';
+  static String journalEditPath(String id) => '/journal/$id/edit';
+  static String funnyDetailPath(String id) => '/funny/$id';
+  static String funnyEditPath(String id) => '/funny/$id/edit';
+  static String achievementDetailPath(String id) => '/achievements/$id';
+  static String achievementEditPath(String id) => '/achievements/$id/edit';
 }
