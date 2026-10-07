@@ -22,6 +22,47 @@ class TagsDao extends DatabaseAccessor<AppDatabase> with _$TagsDaoMixin {
         .getSingleOrNull();
   }
 
+  Future<TagRow?> findByNameIgnoreCase(String name) async {
+    final exact = await findByName(name);
+    if (exact != null) return exact;
+    final all = await getActive();
+    final lower = name.toLowerCase();
+    for (final tag in all) {
+      if (tag.name.toLowerCase() == lower) return tag;
+    }
+    return null;
+  }
+
+  Future<List<TagLinkRow>> linksForTag(String tagId, {String? entityType}) {
+    final query = select(tagLinks)
+      ..where((t) => t.tagId.equals(tagId) & t.deletedAt.isNull());
+    if (entityType != null) {
+      query.where((t) => t.entityType.equals(entityType));
+    }
+    return query.get();
+  }
+
+  Future<void> softDeleteLinkForTagEntity({
+    required String tagId,
+    required String entityType,
+    required String entityId,
+    required DateTime deletedAt,
+  }) {
+    return (update(tagLinks)..where(
+          (t) =>
+              t.tagId.equals(tagId) &
+              t.entityType.equals(entityType) &
+              t.entityId.equals(entityId) &
+              t.deletedAt.isNull(),
+        ))
+        .write(
+          TagLinksCompanion(
+            deletedAt: Value(deletedAt),
+            updatedAt: Value(deletedAt),
+          ),
+        );
+  }
+
   Future<void> upsertTag(TagsCompanion companion) {
     return into(tags).insertOnConflictUpdate(companion);
   }

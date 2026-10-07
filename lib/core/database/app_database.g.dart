@@ -15137,6 +15137,2016 @@ class MedicalDocumentsCompanion extends UpdateCompanion<MedicalDocumentRow> {
   }
 }
 
+class $AlbumsTable extends Albums with TableInfo<$AlbumsTable, AlbumRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $AlbumsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _childIdMeta = const VerificationMeta(
+    'childId',
+  );
+  @override
+  late final GeneratedColumn<String> childId = GeneratedColumn<String>(
+    'child_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _albumTypeMeta = const VerificationMeta(
+    'albumType',
+  );
+  @override
+  late final GeneratedColumn<String> albumType = GeneratedColumn<String>(
+    'album_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _titleMeta = const VerificationMeta('title');
+  @override
+  late final GeneratedColumn<String> title = GeneratedColumn<String>(
+    'title',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _startDateMeta = const VerificationMeta(
+    'startDate',
+  );
+  @override
+  late final GeneratedColumn<DateTime> startDate = GeneratedColumn<DateTime>(
+    'start_date',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _endDateMeta = const VerificationMeta(
+    'endDate',
+  );
+  @override
+  late final GeneratedColumn<DateTime> endDate = GeneratedColumn<DateTime>(
+    'end_date',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _coverAssetIdMeta = const VerificationMeta(
+    'coverAssetId',
+  );
+  @override
+  late final GeneratedColumn<String> coverAssetId = GeneratedColumn<String>(
+    'cover_asset_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _themeMeta = const VerificationMeta('theme');
+  @override
+  late final GeneratedColumn<String> theme = GeneratedColumn<String>(
+    'theme',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _languageCodeMeta = const VerificationMeta(
+    'languageCode',
+  );
+  @override
+  late final GeneratedColumn<String> languageCode = GeneratedColumn<String>(
+    'language_code',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    childId,
+    albumType,
+    title,
+    startDate,
+    endDate,
+    coverAssetId,
+    theme,
+    languageCode,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'albums';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<AlbumRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('child_id')) {
+      context.handle(
+        _childIdMeta,
+        childId.isAcceptableOrUnknown(data['child_id']!, _childIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_childIdMeta);
+    }
+    if (data.containsKey('album_type')) {
+      context.handle(
+        _albumTypeMeta,
+        albumType.isAcceptableOrUnknown(data['album_type']!, _albumTypeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_albumTypeMeta);
+    }
+    if (data.containsKey('title')) {
+      context.handle(
+        _titleMeta,
+        title.isAcceptableOrUnknown(data['title']!, _titleMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_titleMeta);
+    }
+    if (data.containsKey('start_date')) {
+      context.handle(
+        _startDateMeta,
+        startDate.isAcceptableOrUnknown(data['start_date']!, _startDateMeta),
+      );
+    }
+    if (data.containsKey('end_date')) {
+      context.handle(
+        _endDateMeta,
+        endDate.isAcceptableOrUnknown(data['end_date']!, _endDateMeta),
+      );
+    }
+    if (data.containsKey('cover_asset_id')) {
+      context.handle(
+        _coverAssetIdMeta,
+        coverAssetId.isAcceptableOrUnknown(
+          data['cover_asset_id']!,
+          _coverAssetIdMeta,
+        ),
+      );
+    }
+    if (data.containsKey('theme')) {
+      context.handle(
+        _themeMeta,
+        theme.isAcceptableOrUnknown(data['theme']!, _themeMeta),
+      );
+    }
+    if (data.containsKey('language_code')) {
+      context.handle(
+        _languageCodeMeta,
+        languageCode.isAcceptableOrUnknown(
+          data['language_code']!,
+          _languageCodeMeta,
+        ),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  AlbumRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return AlbumRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      childId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}child_id'],
+      )!,
+      albumType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}album_type'],
+      )!,
+      title: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}title'],
+      )!,
+      startDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}start_date'],
+      ),
+      endDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}end_date'],
+      ),
+      coverAssetId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}cover_asset_id'],
+      ),
+      theme: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}theme'],
+      ),
+      languageCode: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}language_code'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+    );
+  }
+
+  @override
+  $AlbumsTable createAlias(String alias) {
+    return $AlbumsTable(attachedDatabase, alias);
+  }
+}
+
+class AlbumRow extends DataClass implements Insertable<AlbumRow> {
+  final String id;
+  final String childId;
+  final String albumType;
+  final String title;
+  final DateTime? startDate;
+  final DateTime? endDate;
+  final String? coverAssetId;
+  final String? theme;
+  final String? languageCode;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final DateTime? deletedAt;
+  const AlbumRow({
+    required this.id,
+    required this.childId,
+    required this.albumType,
+    required this.title,
+    this.startDate,
+    this.endDate,
+    this.coverAssetId,
+    this.theme,
+    this.languageCode,
+    required this.createdAt,
+    required this.updatedAt,
+    this.deletedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['child_id'] = Variable<String>(childId);
+    map['album_type'] = Variable<String>(albumType);
+    map['title'] = Variable<String>(title);
+    if (!nullToAbsent || startDate != null) {
+      map['start_date'] = Variable<DateTime>(startDate);
+    }
+    if (!nullToAbsent || endDate != null) {
+      map['end_date'] = Variable<DateTime>(endDate);
+    }
+    if (!nullToAbsent || coverAssetId != null) {
+      map['cover_asset_id'] = Variable<String>(coverAssetId);
+    }
+    if (!nullToAbsent || theme != null) {
+      map['theme'] = Variable<String>(theme);
+    }
+    if (!nullToAbsent || languageCode != null) {
+      map['language_code'] = Variable<String>(languageCode);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    return map;
+  }
+
+  AlbumsCompanion toCompanion(bool nullToAbsent) {
+    return AlbumsCompanion(
+      id: Value(id),
+      childId: Value(childId),
+      albumType: Value(albumType),
+      title: Value(title),
+      startDate: startDate == null && nullToAbsent
+          ? const Value.absent()
+          : Value(startDate),
+      endDate: endDate == null && nullToAbsent
+          ? const Value.absent()
+          : Value(endDate),
+      coverAssetId: coverAssetId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(coverAssetId),
+      theme: theme == null && nullToAbsent
+          ? const Value.absent()
+          : Value(theme),
+      languageCode: languageCode == null && nullToAbsent
+          ? const Value.absent()
+          : Value(languageCode),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+    );
+  }
+
+  factory AlbumRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return AlbumRow(
+      id: serializer.fromJson<String>(json['id']),
+      childId: serializer.fromJson<String>(json['childId']),
+      albumType: serializer.fromJson<String>(json['albumType']),
+      title: serializer.fromJson<String>(json['title']),
+      startDate: serializer.fromJson<DateTime?>(json['startDate']),
+      endDate: serializer.fromJson<DateTime?>(json['endDate']),
+      coverAssetId: serializer.fromJson<String?>(json['coverAssetId']),
+      theme: serializer.fromJson<String?>(json['theme']),
+      languageCode: serializer.fromJson<String?>(json['languageCode']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'childId': serializer.toJson<String>(childId),
+      'albumType': serializer.toJson<String>(albumType),
+      'title': serializer.toJson<String>(title),
+      'startDate': serializer.toJson<DateTime?>(startDate),
+      'endDate': serializer.toJson<DateTime?>(endDate),
+      'coverAssetId': serializer.toJson<String?>(coverAssetId),
+      'theme': serializer.toJson<String?>(theme),
+      'languageCode': serializer.toJson<String?>(languageCode),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+    };
+  }
+
+  AlbumRow copyWith({
+    String? id,
+    String? childId,
+    String? albumType,
+    String? title,
+    Value<DateTime?> startDate = const Value.absent(),
+    Value<DateTime?> endDate = const Value.absent(),
+    Value<String?> coverAssetId = const Value.absent(),
+    Value<String?> theme = const Value.absent(),
+    Value<String?> languageCode = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> deletedAt = const Value.absent(),
+  }) => AlbumRow(
+    id: id ?? this.id,
+    childId: childId ?? this.childId,
+    albumType: albumType ?? this.albumType,
+    title: title ?? this.title,
+    startDate: startDate.present ? startDate.value : this.startDate,
+    endDate: endDate.present ? endDate.value : this.endDate,
+    coverAssetId: coverAssetId.present ? coverAssetId.value : this.coverAssetId,
+    theme: theme.present ? theme.value : this.theme,
+    languageCode: languageCode.present ? languageCode.value : this.languageCode,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+  );
+  AlbumRow copyWithCompanion(AlbumsCompanion data) {
+    return AlbumRow(
+      id: data.id.present ? data.id.value : this.id,
+      childId: data.childId.present ? data.childId.value : this.childId,
+      albumType: data.albumType.present ? data.albumType.value : this.albumType,
+      title: data.title.present ? data.title.value : this.title,
+      startDate: data.startDate.present ? data.startDate.value : this.startDate,
+      endDate: data.endDate.present ? data.endDate.value : this.endDate,
+      coverAssetId: data.coverAssetId.present
+          ? data.coverAssetId.value
+          : this.coverAssetId,
+      theme: data.theme.present ? data.theme.value : this.theme,
+      languageCode: data.languageCode.present
+          ? data.languageCode.value
+          : this.languageCode,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('AlbumRow(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('albumType: $albumType, ')
+          ..write('title: $title, ')
+          ..write('startDate: $startDate, ')
+          ..write('endDate: $endDate, ')
+          ..write('coverAssetId: $coverAssetId, ')
+          ..write('theme: $theme, ')
+          ..write('languageCode: $languageCode, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    childId,
+    albumType,
+    title,
+    startDate,
+    endDate,
+    coverAssetId,
+    theme,
+    languageCode,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is AlbumRow &&
+          other.id == this.id &&
+          other.childId == this.childId &&
+          other.albumType == this.albumType &&
+          other.title == this.title &&
+          other.startDate == this.startDate &&
+          other.endDate == this.endDate &&
+          other.coverAssetId == this.coverAssetId &&
+          other.theme == this.theme &&
+          other.languageCode == this.languageCode &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.deletedAt == this.deletedAt);
+}
+
+class AlbumsCompanion extends UpdateCompanion<AlbumRow> {
+  final Value<String> id;
+  final Value<String> childId;
+  final Value<String> albumType;
+  final Value<String> title;
+  final Value<DateTime?> startDate;
+  final Value<DateTime?> endDate;
+  final Value<String?> coverAssetId;
+  final Value<String?> theme;
+  final Value<String?> languageCode;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> deletedAt;
+  final Value<int> rowid;
+  const AlbumsCompanion({
+    this.id = const Value.absent(),
+    this.childId = const Value.absent(),
+    this.albumType = const Value.absent(),
+    this.title = const Value.absent(),
+    this.startDate = const Value.absent(),
+    this.endDate = const Value.absent(),
+    this.coverAssetId = const Value.absent(),
+    this.theme = const Value.absent(),
+    this.languageCode = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  AlbumsCompanion.insert({
+    required String id,
+    required String childId,
+    required String albumType,
+    required String title,
+    this.startDate = const Value.absent(),
+    this.endDate = const Value.absent(),
+    this.coverAssetId = const Value.absent(),
+    this.theme = const Value.absent(),
+    this.languageCode = const Value.absent(),
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       childId = Value(childId),
+       albumType = Value(albumType),
+       title = Value(title),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt);
+  static Insertable<AlbumRow> custom({
+    Expression<String>? id,
+    Expression<String>? childId,
+    Expression<String>? albumType,
+    Expression<String>? title,
+    Expression<DateTime>? startDate,
+    Expression<DateTime>? endDate,
+    Expression<String>? coverAssetId,
+    Expression<String>? theme,
+    Expression<String>? languageCode,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? deletedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (childId != null) 'child_id': childId,
+      if (albumType != null) 'album_type': albumType,
+      if (title != null) 'title': title,
+      if (startDate != null) 'start_date': startDate,
+      if (endDate != null) 'end_date': endDate,
+      if (coverAssetId != null) 'cover_asset_id': coverAssetId,
+      if (theme != null) 'theme': theme,
+      if (languageCode != null) 'language_code': languageCode,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  AlbumsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? childId,
+    Value<String>? albumType,
+    Value<String>? title,
+    Value<DateTime?>? startDate,
+    Value<DateTime?>? endDate,
+    Value<String?>? coverAssetId,
+    Value<String?>? theme,
+    Value<String?>? languageCode,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? deletedAt,
+    Value<int>? rowid,
+  }) {
+    return AlbumsCompanion(
+      id: id ?? this.id,
+      childId: childId ?? this.childId,
+      albumType: albumType ?? this.albumType,
+      title: title ?? this.title,
+      startDate: startDate ?? this.startDate,
+      endDate: endDate ?? this.endDate,
+      coverAssetId: coverAssetId ?? this.coverAssetId,
+      theme: theme ?? this.theme,
+      languageCode: languageCode ?? this.languageCode,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (childId.present) {
+      map['child_id'] = Variable<String>(childId.value);
+    }
+    if (albumType.present) {
+      map['album_type'] = Variable<String>(albumType.value);
+    }
+    if (title.present) {
+      map['title'] = Variable<String>(title.value);
+    }
+    if (startDate.present) {
+      map['start_date'] = Variable<DateTime>(startDate.value);
+    }
+    if (endDate.present) {
+      map['end_date'] = Variable<DateTime>(endDate.value);
+    }
+    if (coverAssetId.present) {
+      map['cover_asset_id'] = Variable<String>(coverAssetId.value);
+    }
+    if (theme.present) {
+      map['theme'] = Variable<String>(theme.value);
+    }
+    if (languageCode.present) {
+      map['language_code'] = Variable<String>(languageCode.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('AlbumsCompanion(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('albumType: $albumType, ')
+          ..write('title: $title, ')
+          ..write('startDate: $startDate, ')
+          ..write('endDate: $endDate, ')
+          ..write('coverAssetId: $coverAssetId, ')
+          ..write('theme: $theme, ')
+          ..write('languageCode: $languageCode, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $AlbumItemsTable extends AlbumItems
+    with TableInfo<$AlbumItemsTable, AlbumItemRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $AlbumItemsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _albumIdMeta = const VerificationMeta(
+    'albumId',
+  );
+  @override
+  late final GeneratedColumn<String> albumId = GeneratedColumn<String>(
+    'album_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _entityTypeMeta = const VerificationMeta(
+    'entityType',
+  );
+  @override
+  late final GeneratedColumn<String> entityType = GeneratedColumn<String>(
+    'entity_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _entityIdMeta = const VerificationMeta(
+    'entityId',
+  );
+  @override
+  late final GeneratedColumn<String> entityId = GeneratedColumn<String>(
+    'entity_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _sortOrderMeta = const VerificationMeta(
+    'sortOrder',
+  );
+  @override
+  late final GeneratedColumn<int> sortOrder = GeneratedColumn<int>(
+    'sort_order',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
+  static const VerificationMeta _isIncludedMeta = const VerificationMeta(
+    'isIncluded',
+  );
+  @override
+  late final GeneratedColumn<bool> isIncluded = GeneratedColumn<bool>(
+    'is_included',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_included" IN (0, 1))',
+    ),
+    defaultValue: const Constant(true),
+  );
+  static const VerificationMeta _customCaptionMeta = const VerificationMeta(
+    'customCaption',
+  );
+  @override
+  late final GeneratedColumn<String> customCaption = GeneratedColumn<String>(
+    'custom_caption',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    albumId,
+    entityType,
+    entityId,
+    sortOrder,
+    isIncluded,
+    customCaption,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'album_items';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<AlbumItemRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('album_id')) {
+      context.handle(
+        _albumIdMeta,
+        albumId.isAcceptableOrUnknown(data['album_id']!, _albumIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_albumIdMeta);
+    }
+    if (data.containsKey('entity_type')) {
+      context.handle(
+        _entityTypeMeta,
+        entityType.isAcceptableOrUnknown(data['entity_type']!, _entityTypeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_entityTypeMeta);
+    }
+    if (data.containsKey('entity_id')) {
+      context.handle(
+        _entityIdMeta,
+        entityId.isAcceptableOrUnknown(data['entity_id']!, _entityIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_entityIdMeta);
+    }
+    if (data.containsKey('sort_order')) {
+      context.handle(
+        _sortOrderMeta,
+        sortOrder.isAcceptableOrUnknown(data['sort_order']!, _sortOrderMeta),
+      );
+    }
+    if (data.containsKey('is_included')) {
+      context.handle(
+        _isIncludedMeta,
+        isIncluded.isAcceptableOrUnknown(data['is_included']!, _isIncludedMeta),
+      );
+    }
+    if (data.containsKey('custom_caption')) {
+      context.handle(
+        _customCaptionMeta,
+        customCaption.isAcceptableOrUnknown(
+          data['custom_caption']!,
+          _customCaptionMeta,
+        ),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  AlbumItemRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return AlbumItemRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      albumId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}album_id'],
+      )!,
+      entityType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}entity_type'],
+      )!,
+      entityId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}entity_id'],
+      )!,
+      sortOrder: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}sort_order'],
+      )!,
+      isIncluded: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_included'],
+      )!,
+      customCaption: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}custom_caption'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+    );
+  }
+
+  @override
+  $AlbumItemsTable createAlias(String alias) {
+    return $AlbumItemsTable(attachedDatabase, alias);
+  }
+}
+
+class AlbumItemRow extends DataClass implements Insertable<AlbumItemRow> {
+  final String id;
+  final String albumId;
+  final String entityType;
+  final String entityId;
+  final int sortOrder;
+  final bool isIncluded;
+  final String? customCaption;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final DateTime? deletedAt;
+  const AlbumItemRow({
+    required this.id,
+    required this.albumId,
+    required this.entityType,
+    required this.entityId,
+    required this.sortOrder,
+    required this.isIncluded,
+    this.customCaption,
+    required this.createdAt,
+    required this.updatedAt,
+    this.deletedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['album_id'] = Variable<String>(albumId);
+    map['entity_type'] = Variable<String>(entityType);
+    map['entity_id'] = Variable<String>(entityId);
+    map['sort_order'] = Variable<int>(sortOrder);
+    map['is_included'] = Variable<bool>(isIncluded);
+    if (!nullToAbsent || customCaption != null) {
+      map['custom_caption'] = Variable<String>(customCaption);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    return map;
+  }
+
+  AlbumItemsCompanion toCompanion(bool nullToAbsent) {
+    return AlbumItemsCompanion(
+      id: Value(id),
+      albumId: Value(albumId),
+      entityType: Value(entityType),
+      entityId: Value(entityId),
+      sortOrder: Value(sortOrder),
+      isIncluded: Value(isIncluded),
+      customCaption: customCaption == null && nullToAbsent
+          ? const Value.absent()
+          : Value(customCaption),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+    );
+  }
+
+  factory AlbumItemRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return AlbumItemRow(
+      id: serializer.fromJson<String>(json['id']),
+      albumId: serializer.fromJson<String>(json['albumId']),
+      entityType: serializer.fromJson<String>(json['entityType']),
+      entityId: serializer.fromJson<String>(json['entityId']),
+      sortOrder: serializer.fromJson<int>(json['sortOrder']),
+      isIncluded: serializer.fromJson<bool>(json['isIncluded']),
+      customCaption: serializer.fromJson<String?>(json['customCaption']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'albumId': serializer.toJson<String>(albumId),
+      'entityType': serializer.toJson<String>(entityType),
+      'entityId': serializer.toJson<String>(entityId),
+      'sortOrder': serializer.toJson<int>(sortOrder),
+      'isIncluded': serializer.toJson<bool>(isIncluded),
+      'customCaption': serializer.toJson<String?>(customCaption),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+    };
+  }
+
+  AlbumItemRow copyWith({
+    String? id,
+    String? albumId,
+    String? entityType,
+    String? entityId,
+    int? sortOrder,
+    bool? isIncluded,
+    Value<String?> customCaption = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> deletedAt = const Value.absent(),
+  }) => AlbumItemRow(
+    id: id ?? this.id,
+    albumId: albumId ?? this.albumId,
+    entityType: entityType ?? this.entityType,
+    entityId: entityId ?? this.entityId,
+    sortOrder: sortOrder ?? this.sortOrder,
+    isIncluded: isIncluded ?? this.isIncluded,
+    customCaption: customCaption.present
+        ? customCaption.value
+        : this.customCaption,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+  );
+  AlbumItemRow copyWithCompanion(AlbumItemsCompanion data) {
+    return AlbumItemRow(
+      id: data.id.present ? data.id.value : this.id,
+      albumId: data.albumId.present ? data.albumId.value : this.albumId,
+      entityType: data.entityType.present
+          ? data.entityType.value
+          : this.entityType,
+      entityId: data.entityId.present ? data.entityId.value : this.entityId,
+      sortOrder: data.sortOrder.present ? data.sortOrder.value : this.sortOrder,
+      isIncluded: data.isIncluded.present
+          ? data.isIncluded.value
+          : this.isIncluded,
+      customCaption: data.customCaption.present
+          ? data.customCaption.value
+          : this.customCaption,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('AlbumItemRow(')
+          ..write('id: $id, ')
+          ..write('albumId: $albumId, ')
+          ..write('entityType: $entityType, ')
+          ..write('entityId: $entityId, ')
+          ..write('sortOrder: $sortOrder, ')
+          ..write('isIncluded: $isIncluded, ')
+          ..write('customCaption: $customCaption, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    albumId,
+    entityType,
+    entityId,
+    sortOrder,
+    isIncluded,
+    customCaption,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is AlbumItemRow &&
+          other.id == this.id &&
+          other.albumId == this.albumId &&
+          other.entityType == this.entityType &&
+          other.entityId == this.entityId &&
+          other.sortOrder == this.sortOrder &&
+          other.isIncluded == this.isIncluded &&
+          other.customCaption == this.customCaption &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.deletedAt == this.deletedAt);
+}
+
+class AlbumItemsCompanion extends UpdateCompanion<AlbumItemRow> {
+  final Value<String> id;
+  final Value<String> albumId;
+  final Value<String> entityType;
+  final Value<String> entityId;
+  final Value<int> sortOrder;
+  final Value<bool> isIncluded;
+  final Value<String?> customCaption;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> deletedAt;
+  final Value<int> rowid;
+  const AlbumItemsCompanion({
+    this.id = const Value.absent(),
+    this.albumId = const Value.absent(),
+    this.entityType = const Value.absent(),
+    this.entityId = const Value.absent(),
+    this.sortOrder = const Value.absent(),
+    this.isIncluded = const Value.absent(),
+    this.customCaption = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  AlbumItemsCompanion.insert({
+    required String id,
+    required String albumId,
+    required String entityType,
+    required String entityId,
+    this.sortOrder = const Value.absent(),
+    this.isIncluded = const Value.absent(),
+    this.customCaption = const Value.absent(),
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       albumId = Value(albumId),
+       entityType = Value(entityType),
+       entityId = Value(entityId),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt);
+  static Insertable<AlbumItemRow> custom({
+    Expression<String>? id,
+    Expression<String>? albumId,
+    Expression<String>? entityType,
+    Expression<String>? entityId,
+    Expression<int>? sortOrder,
+    Expression<bool>? isIncluded,
+    Expression<String>? customCaption,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? deletedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (albumId != null) 'album_id': albumId,
+      if (entityType != null) 'entity_type': entityType,
+      if (entityId != null) 'entity_id': entityId,
+      if (sortOrder != null) 'sort_order': sortOrder,
+      if (isIncluded != null) 'is_included': isIncluded,
+      if (customCaption != null) 'custom_caption': customCaption,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  AlbumItemsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? albumId,
+    Value<String>? entityType,
+    Value<String>? entityId,
+    Value<int>? sortOrder,
+    Value<bool>? isIncluded,
+    Value<String?>? customCaption,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? deletedAt,
+    Value<int>? rowid,
+  }) {
+    return AlbumItemsCompanion(
+      id: id ?? this.id,
+      albumId: albumId ?? this.albumId,
+      entityType: entityType ?? this.entityType,
+      entityId: entityId ?? this.entityId,
+      sortOrder: sortOrder ?? this.sortOrder,
+      isIncluded: isIncluded ?? this.isIncluded,
+      customCaption: customCaption ?? this.customCaption,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (albumId.present) {
+      map['album_id'] = Variable<String>(albumId.value);
+    }
+    if (entityType.present) {
+      map['entity_type'] = Variable<String>(entityType.value);
+    }
+    if (entityId.present) {
+      map['entity_id'] = Variable<String>(entityId.value);
+    }
+    if (sortOrder.present) {
+      map['sort_order'] = Variable<int>(sortOrder.value);
+    }
+    if (isIncluded.present) {
+      map['is_included'] = Variable<bool>(isIncluded.value);
+    }
+    if (customCaption.present) {
+      map['custom_caption'] = Variable<String>(customCaption.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('AlbumItemsCompanion(')
+          ..write('id: $id, ')
+          ..write('albumId: $albumId, ')
+          ..write('entityType: $entityType, ')
+          ..write('entityId: $entityId, ')
+          ..write('sortOrder: $sortOrder, ')
+          ..write('isIncluded: $isIncluded, ')
+          ..write('customCaption: $customCaption, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $GeneratedExportsTable extends GeneratedExports
+    with TableInfo<$GeneratedExportsTable, GeneratedExportRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $GeneratedExportsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _childIdMeta = const VerificationMeta(
+    'childId',
+  );
+  @override
+  late final GeneratedColumn<String> childId = GeneratedColumn<String>(
+    'child_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _albumIdMeta = const VerificationMeta(
+    'albumId',
+  );
+  @override
+  late final GeneratedColumn<String> albumId = GeneratedColumn<String>(
+    'album_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _exportTypeMeta = const VerificationMeta(
+    'exportType',
+  );
+  @override
+  late final GeneratedColumn<String> exportType = GeneratedColumn<String>(
+    'export_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _titleMeta = const VerificationMeta('title');
+  @override
+  late final GeneratedColumn<String> title = GeneratedColumn<String>(
+    'title',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _filePathMeta = const VerificationMeta(
+    'filePath',
+  );
+  @override
+  late final GeneratedColumn<String> filePath = GeneratedColumn<String>(
+    'file_path',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _dateRangeStartMeta = const VerificationMeta(
+    'dateRangeStart',
+  );
+  @override
+  late final GeneratedColumn<DateTime> dateRangeStart =
+      GeneratedColumn<DateTime>(
+        'date_range_start',
+        aliasedName,
+        true,
+        type: DriftSqlType.dateTime,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _dateRangeEndMeta = const VerificationMeta(
+    'dateRangeEnd',
+  );
+  @override
+  late final GeneratedColumn<DateTime> dateRangeEnd = GeneratedColumn<DateTime>(
+    'date_range_end',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    childId,
+    albumId,
+    exportType,
+    title,
+    filePath,
+    dateRangeStart,
+    dateRangeEnd,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'generated_exports';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<GeneratedExportRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('child_id')) {
+      context.handle(
+        _childIdMeta,
+        childId.isAcceptableOrUnknown(data['child_id']!, _childIdMeta),
+      );
+    }
+    if (data.containsKey('album_id')) {
+      context.handle(
+        _albumIdMeta,
+        albumId.isAcceptableOrUnknown(data['album_id']!, _albumIdMeta),
+      );
+    }
+    if (data.containsKey('export_type')) {
+      context.handle(
+        _exportTypeMeta,
+        exportType.isAcceptableOrUnknown(data['export_type']!, _exportTypeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_exportTypeMeta);
+    }
+    if (data.containsKey('title')) {
+      context.handle(
+        _titleMeta,
+        title.isAcceptableOrUnknown(data['title']!, _titleMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_titleMeta);
+    }
+    if (data.containsKey('file_path')) {
+      context.handle(
+        _filePathMeta,
+        filePath.isAcceptableOrUnknown(data['file_path']!, _filePathMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_filePathMeta);
+    }
+    if (data.containsKey('date_range_start')) {
+      context.handle(
+        _dateRangeStartMeta,
+        dateRangeStart.isAcceptableOrUnknown(
+          data['date_range_start']!,
+          _dateRangeStartMeta,
+        ),
+      );
+    }
+    if (data.containsKey('date_range_end')) {
+      context.handle(
+        _dateRangeEndMeta,
+        dateRangeEnd.isAcceptableOrUnknown(
+          data['date_range_end']!,
+          _dateRangeEndMeta,
+        ),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  GeneratedExportRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return GeneratedExportRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      childId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}child_id'],
+      ),
+      albumId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}album_id'],
+      ),
+      exportType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}export_type'],
+      )!,
+      title: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}title'],
+      )!,
+      filePath: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}file_path'],
+      )!,
+      dateRangeStart: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}date_range_start'],
+      ),
+      dateRangeEnd: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}date_range_end'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+    );
+  }
+
+  @override
+  $GeneratedExportsTable createAlias(String alias) {
+    return $GeneratedExportsTable(attachedDatabase, alias);
+  }
+}
+
+class GeneratedExportRow extends DataClass
+    implements Insertable<GeneratedExportRow> {
+  final String id;
+  final String? childId;
+  final String? albumId;
+  final String exportType;
+  final String title;
+  final String filePath;
+  final DateTime? dateRangeStart;
+  final DateTime? dateRangeEnd;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final DateTime? deletedAt;
+  const GeneratedExportRow({
+    required this.id,
+    this.childId,
+    this.albumId,
+    required this.exportType,
+    required this.title,
+    required this.filePath,
+    this.dateRangeStart,
+    this.dateRangeEnd,
+    required this.createdAt,
+    required this.updatedAt,
+    this.deletedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    if (!nullToAbsent || childId != null) {
+      map['child_id'] = Variable<String>(childId);
+    }
+    if (!nullToAbsent || albumId != null) {
+      map['album_id'] = Variable<String>(albumId);
+    }
+    map['export_type'] = Variable<String>(exportType);
+    map['title'] = Variable<String>(title);
+    map['file_path'] = Variable<String>(filePath);
+    if (!nullToAbsent || dateRangeStart != null) {
+      map['date_range_start'] = Variable<DateTime>(dateRangeStart);
+    }
+    if (!nullToAbsent || dateRangeEnd != null) {
+      map['date_range_end'] = Variable<DateTime>(dateRangeEnd);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    return map;
+  }
+
+  GeneratedExportsCompanion toCompanion(bool nullToAbsent) {
+    return GeneratedExportsCompanion(
+      id: Value(id),
+      childId: childId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(childId),
+      albumId: albumId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(albumId),
+      exportType: Value(exportType),
+      title: Value(title),
+      filePath: Value(filePath),
+      dateRangeStart: dateRangeStart == null && nullToAbsent
+          ? const Value.absent()
+          : Value(dateRangeStart),
+      dateRangeEnd: dateRangeEnd == null && nullToAbsent
+          ? const Value.absent()
+          : Value(dateRangeEnd),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+    );
+  }
+
+  factory GeneratedExportRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return GeneratedExportRow(
+      id: serializer.fromJson<String>(json['id']),
+      childId: serializer.fromJson<String?>(json['childId']),
+      albumId: serializer.fromJson<String?>(json['albumId']),
+      exportType: serializer.fromJson<String>(json['exportType']),
+      title: serializer.fromJson<String>(json['title']),
+      filePath: serializer.fromJson<String>(json['filePath']),
+      dateRangeStart: serializer.fromJson<DateTime?>(json['dateRangeStart']),
+      dateRangeEnd: serializer.fromJson<DateTime?>(json['dateRangeEnd']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'childId': serializer.toJson<String?>(childId),
+      'albumId': serializer.toJson<String?>(albumId),
+      'exportType': serializer.toJson<String>(exportType),
+      'title': serializer.toJson<String>(title),
+      'filePath': serializer.toJson<String>(filePath),
+      'dateRangeStart': serializer.toJson<DateTime?>(dateRangeStart),
+      'dateRangeEnd': serializer.toJson<DateTime?>(dateRangeEnd),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+    };
+  }
+
+  GeneratedExportRow copyWith({
+    String? id,
+    Value<String?> childId = const Value.absent(),
+    Value<String?> albumId = const Value.absent(),
+    String? exportType,
+    String? title,
+    String? filePath,
+    Value<DateTime?> dateRangeStart = const Value.absent(),
+    Value<DateTime?> dateRangeEnd = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> deletedAt = const Value.absent(),
+  }) => GeneratedExportRow(
+    id: id ?? this.id,
+    childId: childId.present ? childId.value : this.childId,
+    albumId: albumId.present ? albumId.value : this.albumId,
+    exportType: exportType ?? this.exportType,
+    title: title ?? this.title,
+    filePath: filePath ?? this.filePath,
+    dateRangeStart: dateRangeStart.present
+        ? dateRangeStart.value
+        : this.dateRangeStart,
+    dateRangeEnd: dateRangeEnd.present ? dateRangeEnd.value : this.dateRangeEnd,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+  );
+  GeneratedExportRow copyWithCompanion(GeneratedExportsCompanion data) {
+    return GeneratedExportRow(
+      id: data.id.present ? data.id.value : this.id,
+      childId: data.childId.present ? data.childId.value : this.childId,
+      albumId: data.albumId.present ? data.albumId.value : this.albumId,
+      exportType: data.exportType.present
+          ? data.exportType.value
+          : this.exportType,
+      title: data.title.present ? data.title.value : this.title,
+      filePath: data.filePath.present ? data.filePath.value : this.filePath,
+      dateRangeStart: data.dateRangeStart.present
+          ? data.dateRangeStart.value
+          : this.dateRangeStart,
+      dateRangeEnd: data.dateRangeEnd.present
+          ? data.dateRangeEnd.value
+          : this.dateRangeEnd,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('GeneratedExportRow(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('albumId: $albumId, ')
+          ..write('exportType: $exportType, ')
+          ..write('title: $title, ')
+          ..write('filePath: $filePath, ')
+          ..write('dateRangeStart: $dateRangeStart, ')
+          ..write('dateRangeEnd: $dateRangeEnd, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    childId,
+    albumId,
+    exportType,
+    title,
+    filePath,
+    dateRangeStart,
+    dateRangeEnd,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is GeneratedExportRow &&
+          other.id == this.id &&
+          other.childId == this.childId &&
+          other.albumId == this.albumId &&
+          other.exportType == this.exportType &&
+          other.title == this.title &&
+          other.filePath == this.filePath &&
+          other.dateRangeStart == this.dateRangeStart &&
+          other.dateRangeEnd == this.dateRangeEnd &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.deletedAt == this.deletedAt);
+}
+
+class GeneratedExportsCompanion extends UpdateCompanion<GeneratedExportRow> {
+  final Value<String> id;
+  final Value<String?> childId;
+  final Value<String?> albumId;
+  final Value<String> exportType;
+  final Value<String> title;
+  final Value<String> filePath;
+  final Value<DateTime?> dateRangeStart;
+  final Value<DateTime?> dateRangeEnd;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> deletedAt;
+  final Value<int> rowid;
+  const GeneratedExportsCompanion({
+    this.id = const Value.absent(),
+    this.childId = const Value.absent(),
+    this.albumId = const Value.absent(),
+    this.exportType = const Value.absent(),
+    this.title = const Value.absent(),
+    this.filePath = const Value.absent(),
+    this.dateRangeStart = const Value.absent(),
+    this.dateRangeEnd = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  GeneratedExportsCompanion.insert({
+    required String id,
+    this.childId = const Value.absent(),
+    this.albumId = const Value.absent(),
+    required String exportType,
+    required String title,
+    required String filePath,
+    this.dateRangeStart = const Value.absent(),
+    this.dateRangeEnd = const Value.absent(),
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       exportType = Value(exportType),
+       title = Value(title),
+       filePath = Value(filePath),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt);
+  static Insertable<GeneratedExportRow> custom({
+    Expression<String>? id,
+    Expression<String>? childId,
+    Expression<String>? albumId,
+    Expression<String>? exportType,
+    Expression<String>? title,
+    Expression<String>? filePath,
+    Expression<DateTime>? dateRangeStart,
+    Expression<DateTime>? dateRangeEnd,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? deletedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (childId != null) 'child_id': childId,
+      if (albumId != null) 'album_id': albumId,
+      if (exportType != null) 'export_type': exportType,
+      if (title != null) 'title': title,
+      if (filePath != null) 'file_path': filePath,
+      if (dateRangeStart != null) 'date_range_start': dateRangeStart,
+      if (dateRangeEnd != null) 'date_range_end': dateRangeEnd,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  GeneratedExportsCompanion copyWith({
+    Value<String>? id,
+    Value<String?>? childId,
+    Value<String?>? albumId,
+    Value<String>? exportType,
+    Value<String>? title,
+    Value<String>? filePath,
+    Value<DateTime?>? dateRangeStart,
+    Value<DateTime?>? dateRangeEnd,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? deletedAt,
+    Value<int>? rowid,
+  }) {
+    return GeneratedExportsCompanion(
+      id: id ?? this.id,
+      childId: childId ?? this.childId,
+      albumId: albumId ?? this.albumId,
+      exportType: exportType ?? this.exportType,
+      title: title ?? this.title,
+      filePath: filePath ?? this.filePath,
+      dateRangeStart: dateRangeStart ?? this.dateRangeStart,
+      dateRangeEnd: dateRangeEnd ?? this.dateRangeEnd,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (childId.present) {
+      map['child_id'] = Variable<String>(childId.value);
+    }
+    if (albumId.present) {
+      map['album_id'] = Variable<String>(albumId.value);
+    }
+    if (exportType.present) {
+      map['export_type'] = Variable<String>(exportType.value);
+    }
+    if (title.present) {
+      map['title'] = Variable<String>(title.value);
+    }
+    if (filePath.present) {
+      map['file_path'] = Variable<String>(filePath.value);
+    }
+    if (dateRangeStart.present) {
+      map['date_range_start'] = Variable<DateTime>(dateRangeStart.value);
+    }
+    if (dateRangeEnd.present) {
+      map['date_range_end'] = Variable<DateTime>(dateRangeEnd.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('GeneratedExportsCompanion(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('albumId: $albumId, ')
+          ..write('exportType: $exportType, ')
+          ..write('title: $title, ')
+          ..write('filePath: $filePath, ')
+          ..write('dateRangeStart: $dateRangeStart, ')
+          ..write('dateRangeEnd: $dateRangeEnd, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -15165,6 +17175,11 @@ abstract class _$AppDatabase extends GeneratedDatabase {
       $MedicineSchedulesTable(this);
   late final $DoctorVisitsTable doctorVisits = $DoctorVisitsTable(this);
   late final $MedicalDocumentsTable medicalDocuments = $MedicalDocumentsTable(
+    this,
+  );
+  late final $AlbumsTable albums = $AlbumsTable(this);
+  late final $AlbumItemsTable albumItems = $AlbumItemsTable(this);
+  late final $GeneratedExportsTable generatedExports = $GeneratedExportsTable(
     this,
   );
   late final ChildrenDao childrenDao = ChildrenDao(this as AppDatabase);
@@ -15216,6 +17231,10 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final MedicalDocumentsDao medicalDocumentsDao = MedicalDocumentsDao(
     this as AppDatabase,
   );
+  late final AlbumsDao albumsDao = AlbumsDao(this as AppDatabase);
+  late final GeneratedExportsDao generatedExportsDao = GeneratedExportsDao(
+    this as AppDatabase,
+  );
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -15243,6 +17262,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     medicineSchedules,
     doctorVisits,
     medicalDocuments,
+    albums,
+    albumItems,
+    generatedExports,
   ];
   @override
   DriftDatabaseOptions get options =>
@@ -22635,6 +24657,993 @@ typedef $$MedicalDocumentsTableProcessedTableManager =
       MedicalDocumentRow,
       PrefetchHooks Function()
     >;
+typedef $$AlbumsTableCreateCompanionBuilder = AlbumsCompanion Function({
+  required String id,
+  required String childId,
+  required String albumType,
+  required String title,
+  Value<DateTime?> startDate,
+  Value<DateTime?> endDate,
+  Value<String?> coverAssetId,
+  Value<String?> theme,
+  Value<String?> languageCode,
+  required DateTime createdAt,
+  required DateTime updatedAt,
+  Value<DateTime?> deletedAt,
+  Value<int> rowid,
+});
+typedef $$AlbumsTableUpdateCompanionBuilder = AlbumsCompanion Function({
+  Value<String> id,
+  Value<String> childId,
+  Value<String> albumType,
+  Value<String> title,
+  Value<DateTime?> startDate,
+  Value<DateTime?> endDate,
+  Value<String?> coverAssetId,
+  Value<String?> theme,
+  Value<String?> languageCode,
+  Value<DateTime> createdAt,
+  Value<DateTime> updatedAt,
+  Value<DateTime?> deletedAt,
+  Value<int> rowid,
+});
+
+class $$AlbumsTableFilterComposer
+    extends Composer<_$AppDatabase, $AlbumsTable> {
+  $$AlbumsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get albumType => $composableBuilder(
+    column: $table.albumType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get startDate => $composableBuilder(
+    column: $table.startDate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get endDate => $composableBuilder(
+    column: $table.endDate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get coverAssetId => $composableBuilder(
+    column: $table.coverAssetId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get theme => $composableBuilder(
+    column: $table.theme,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get languageCode => $composableBuilder(
+    column: $table.languageCode,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$AlbumsTableOrderingComposer
+    extends Composer<_$AppDatabase, $AlbumsTable> {
+  $$AlbumsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get albumType => $composableBuilder(
+    column: $table.albumType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get startDate => $composableBuilder(
+    column: $table.startDate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get endDate => $composableBuilder(
+    column: $table.endDate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get coverAssetId => $composableBuilder(
+    column: $table.coverAssetId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get theme => $composableBuilder(
+    column: $table.theme,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get languageCode => $composableBuilder(
+    column: $table.languageCode,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$AlbumsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $AlbumsTable> {
+  $$AlbumsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get childId =>
+      $composableBuilder(column: $table.childId, builder: (column) => column);
+
+  GeneratedColumn<String> get albumType =>
+      $composableBuilder(column: $table.albumType, builder: (column) => column);
+
+  GeneratedColumn<String> get title =>
+      $composableBuilder(column: $table.title, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get startDate =>
+      $composableBuilder(column: $table.startDate, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get endDate =>
+      $composableBuilder(column: $table.endDate, builder: (column) => column);
+
+  GeneratedColumn<String> get coverAssetId => $composableBuilder(
+    column: $table.coverAssetId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get theme =>
+      $composableBuilder(column: $table.theme, builder: (column) => column);
+
+  GeneratedColumn<String> get languageCode => $composableBuilder(
+    column: $table.languageCode,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+}
+
+class $$AlbumsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $AlbumsTable,
+          AlbumRow,
+          $$AlbumsTableFilterComposer,
+          $$AlbumsTableOrderingComposer,
+          $$AlbumsTableAnnotationComposer,
+          $$AlbumsTableCreateCompanionBuilder,
+          $$AlbumsTableUpdateCompanionBuilder,
+          (AlbumRow, BaseReferences<_$AppDatabase, $AlbumsTable, AlbumRow>),
+          AlbumRow,
+          PrefetchHooks Function()
+        > {
+  $$AlbumsTableTableManager(_$AppDatabase db, $AlbumsTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$AlbumsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$AlbumsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$AlbumsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> childId = const Value.absent(),
+                Value<String> albumType = const Value.absent(),
+                Value<String> title = const Value.absent(),
+                Value<DateTime?> startDate = const Value.absent(),
+                Value<DateTime?> endDate = const Value.absent(),
+                Value<String?> coverAssetId = const Value.absent(),
+                Value<String?> theme = const Value.absent(),
+                Value<String?> languageCode = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => AlbumsCompanion(
+                id: id,
+                childId: childId,
+                albumType: albumType,
+                title: title,
+                startDate: startDate,
+                endDate: endDate,
+                coverAssetId: coverAssetId,
+                theme: theme,
+                languageCode: languageCode,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String childId,
+                required String albumType,
+                required String title,
+                Value<DateTime?> startDate = const Value.absent(),
+                Value<DateTime?> endDate = const Value.absent(),
+                Value<String?> coverAssetId = const Value.absent(),
+                Value<String?> theme = const Value.absent(),
+                Value<String?> languageCode = const Value.absent(),
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => AlbumsCompanion.insert(
+                id: id,
+                childId: childId,
+                albumType: albumType,
+                title: title,
+                startDate: startDate,
+                endDate: endDate,
+                coverAssetId: coverAssetId,
+                theme: theme,
+                languageCode: languageCode,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$AlbumsTable, AlbumRow>(table),
+                  BaseReferences<_$AppDatabase, $AlbumsTable, AlbumRow>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$AlbumsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $AlbumsTable,
+      AlbumRow,
+      $$AlbumsTableFilterComposer,
+      $$AlbumsTableOrderingComposer,
+      $$AlbumsTableAnnotationComposer,
+      $$AlbumsTableCreateCompanionBuilder,
+      $$AlbumsTableUpdateCompanionBuilder,
+      (AlbumRow, BaseReferences<_$AppDatabase, $AlbumsTable, AlbumRow>),
+      AlbumRow,
+      PrefetchHooks Function()
+    >;
+typedef $$AlbumItemsTableCreateCompanionBuilder = AlbumItemsCompanion Function({
+  required String id,
+  required String albumId,
+  required String entityType,
+  required String entityId,
+  Value<int> sortOrder,
+  Value<bool> isIncluded,
+  Value<String?> customCaption,
+  required DateTime createdAt,
+  required DateTime updatedAt,
+  Value<DateTime?> deletedAt,
+  Value<int> rowid,
+});
+typedef $$AlbumItemsTableUpdateCompanionBuilder = AlbumItemsCompanion Function({
+  Value<String> id,
+  Value<String> albumId,
+  Value<String> entityType,
+  Value<String> entityId,
+  Value<int> sortOrder,
+  Value<bool> isIncluded,
+  Value<String?> customCaption,
+  Value<DateTime> createdAt,
+  Value<DateTime> updatedAt,
+  Value<DateTime?> deletedAt,
+  Value<int> rowid,
+});
+
+class $$AlbumItemsTableFilterComposer
+    extends Composer<_$AppDatabase, $AlbumItemsTable> {
+  $$AlbumItemsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get albumId => $composableBuilder(
+    column: $table.albumId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get entityType => $composableBuilder(
+    column: $table.entityType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get entityId => $composableBuilder(
+    column: $table.entityId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get sortOrder => $composableBuilder(
+    column: $table.sortOrder,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get isIncluded => $composableBuilder(
+    column: $table.isIncluded,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get customCaption => $composableBuilder(
+    column: $table.customCaption,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$AlbumItemsTableOrderingComposer
+    extends Composer<_$AppDatabase, $AlbumItemsTable> {
+  $$AlbumItemsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get albumId => $composableBuilder(
+    column: $table.albumId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get entityType => $composableBuilder(
+    column: $table.entityType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get entityId => $composableBuilder(
+    column: $table.entityId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get sortOrder => $composableBuilder(
+    column: $table.sortOrder,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get isIncluded => $composableBuilder(
+    column: $table.isIncluded,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get customCaption => $composableBuilder(
+    column: $table.customCaption,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$AlbumItemsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $AlbumItemsTable> {
+  $$AlbumItemsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get albumId =>
+      $composableBuilder(column: $table.albumId, builder: (column) => column);
+
+  GeneratedColumn<String> get entityType => $composableBuilder(
+    column: $table.entityType,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get entityId =>
+      $composableBuilder(column: $table.entityId, builder: (column) => column);
+
+  GeneratedColumn<int> get sortOrder =>
+      $composableBuilder(column: $table.sortOrder, builder: (column) => column);
+
+  GeneratedColumn<bool> get isIncluded => $composableBuilder(
+    column: $table.isIncluded,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get customCaption => $composableBuilder(
+    column: $table.customCaption,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+}
+
+class $$AlbumItemsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $AlbumItemsTable,
+          AlbumItemRow,
+          $$AlbumItemsTableFilterComposer,
+          $$AlbumItemsTableOrderingComposer,
+          $$AlbumItemsTableAnnotationComposer,
+          $$AlbumItemsTableCreateCompanionBuilder,
+          $$AlbumItemsTableUpdateCompanionBuilder,
+          (
+            AlbumItemRow,
+            BaseReferences<_$AppDatabase, $AlbumItemsTable, AlbumItemRow>,
+          ),
+          AlbumItemRow,
+          PrefetchHooks Function()
+        > {
+  $$AlbumItemsTableTableManager(_$AppDatabase db, $AlbumItemsTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$AlbumItemsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$AlbumItemsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$AlbumItemsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> albumId = const Value.absent(),
+                Value<String> entityType = const Value.absent(),
+                Value<String> entityId = const Value.absent(),
+                Value<int> sortOrder = const Value.absent(),
+                Value<bool> isIncluded = const Value.absent(),
+                Value<String?> customCaption = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => AlbumItemsCompanion(
+                id: id,
+                albumId: albumId,
+                entityType: entityType,
+                entityId: entityId,
+                sortOrder: sortOrder,
+                isIncluded: isIncluded,
+                customCaption: customCaption,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String albumId,
+                required String entityType,
+                required String entityId,
+                Value<int> sortOrder = const Value.absent(),
+                Value<bool> isIncluded = const Value.absent(),
+                Value<String?> customCaption = const Value.absent(),
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => AlbumItemsCompanion.insert(
+                id: id,
+                albumId: albumId,
+                entityType: entityType,
+                entityId: entityId,
+                sortOrder: sortOrder,
+                isIncluded: isIncluded,
+                customCaption: customCaption,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$AlbumItemsTable, AlbumItemRow>(table),
+                  BaseReferences<_$AppDatabase, $AlbumItemsTable, AlbumItemRow>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$AlbumItemsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $AlbumItemsTable,
+      AlbumItemRow,
+      $$AlbumItemsTableFilterComposer,
+      $$AlbumItemsTableOrderingComposer,
+      $$AlbumItemsTableAnnotationComposer,
+      $$AlbumItemsTableCreateCompanionBuilder,
+      $$AlbumItemsTableUpdateCompanionBuilder,
+      (
+        AlbumItemRow,
+        BaseReferences<_$AppDatabase, $AlbumItemsTable, AlbumItemRow>,
+      ),
+      AlbumItemRow,
+      PrefetchHooks Function()
+    >;
+typedef $$GeneratedExportsTableCreateCompanionBuilder =
+    GeneratedExportsCompanion Function({
+      required String id,
+      Value<String?> childId,
+      Value<String?> albumId,
+      required String exportType,
+      required String title,
+      required String filePath,
+      Value<DateTime?> dateRangeStart,
+      Value<DateTime?> dateRangeEnd,
+      required DateTime createdAt,
+      required DateTime updatedAt,
+      Value<DateTime?> deletedAt,
+      Value<int> rowid,
+    });
+typedef $$GeneratedExportsTableUpdateCompanionBuilder =
+    GeneratedExportsCompanion Function({
+      Value<String> id,
+      Value<String?> childId,
+      Value<String?> albumId,
+      Value<String> exportType,
+      Value<String> title,
+      Value<String> filePath,
+      Value<DateTime?> dateRangeStart,
+      Value<DateTime?> dateRangeEnd,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<DateTime?> deletedAt,
+      Value<int> rowid,
+    });
+
+class $$GeneratedExportsTableFilterComposer
+    extends Composer<_$AppDatabase, $GeneratedExportsTable> {
+  $$GeneratedExportsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get albumId => $composableBuilder(
+    column: $table.albumId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get exportType => $composableBuilder(
+    column: $table.exportType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get filePath => $composableBuilder(
+    column: $table.filePath,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get dateRangeStart => $composableBuilder(
+    column: $table.dateRangeStart,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get dateRangeEnd => $composableBuilder(
+    column: $table.dateRangeEnd,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$GeneratedExportsTableOrderingComposer
+    extends Composer<_$AppDatabase, $GeneratedExportsTable> {
+  $$GeneratedExportsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get albumId => $composableBuilder(
+    column: $table.albumId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get exportType => $composableBuilder(
+    column: $table.exportType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get filePath => $composableBuilder(
+    column: $table.filePath,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get dateRangeStart => $composableBuilder(
+    column: $table.dateRangeStart,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get dateRangeEnd => $composableBuilder(
+    column: $table.dateRangeEnd,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$GeneratedExportsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $GeneratedExportsTable> {
+  $$GeneratedExportsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get childId =>
+      $composableBuilder(column: $table.childId, builder: (column) => column);
+
+  GeneratedColumn<String> get albumId =>
+      $composableBuilder(column: $table.albumId, builder: (column) => column);
+
+  GeneratedColumn<String> get exportType => $composableBuilder(
+    column: $table.exportType,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get title =>
+      $composableBuilder(column: $table.title, builder: (column) => column);
+
+  GeneratedColumn<String> get filePath =>
+      $composableBuilder(column: $table.filePath, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get dateRangeStart => $composableBuilder(
+    column: $table.dateRangeStart,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get dateRangeEnd => $composableBuilder(
+    column: $table.dateRangeEnd,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+}
+
+class $$GeneratedExportsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $GeneratedExportsTable,
+          GeneratedExportRow,
+          $$GeneratedExportsTableFilterComposer,
+          $$GeneratedExportsTableOrderingComposer,
+          $$GeneratedExportsTableAnnotationComposer,
+          $$GeneratedExportsTableCreateCompanionBuilder,
+          $$GeneratedExportsTableUpdateCompanionBuilder,
+          (
+            GeneratedExportRow,
+            BaseReferences<
+              _$AppDatabase,
+              $GeneratedExportsTable,
+              GeneratedExportRow
+            >,
+          ),
+          GeneratedExportRow,
+          PrefetchHooks Function()
+        > {
+  $$GeneratedExportsTableTableManager(
+    _$AppDatabase db,
+    $GeneratedExportsTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$GeneratedExportsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$GeneratedExportsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$GeneratedExportsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String?> childId = const Value.absent(),
+                Value<String?> albumId = const Value.absent(),
+                Value<String> exportType = const Value.absent(),
+                Value<String> title = const Value.absent(),
+                Value<String> filePath = const Value.absent(),
+                Value<DateTime?> dateRangeStart = const Value.absent(),
+                Value<DateTime?> dateRangeEnd = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => GeneratedExportsCompanion(
+                id: id,
+                childId: childId,
+                albumId: albumId,
+                exportType: exportType,
+                title: title,
+                filePath: filePath,
+                dateRangeStart: dateRangeStart,
+                dateRangeEnd: dateRangeEnd,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                Value<String?> childId = const Value.absent(),
+                Value<String?> albumId = const Value.absent(),
+                required String exportType,
+                required String title,
+                required String filePath,
+                Value<DateTime?> dateRangeStart = const Value.absent(),
+                Value<DateTime?> dateRangeEnd = const Value.absent(),
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => GeneratedExportsCompanion.insert(
+                id: id,
+                childId: childId,
+                albumId: albumId,
+                exportType: exportType,
+                title: title,
+                filePath: filePath,
+                dateRangeStart: dateRangeStart,
+                dateRangeEnd: dateRangeEnd,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$GeneratedExportsTable, GeneratedExportRow>(
+                    table,
+                  ),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $GeneratedExportsTable,
+                    GeneratedExportRow
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$GeneratedExportsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $GeneratedExportsTable,
+      GeneratedExportRow,
+      $$GeneratedExportsTableFilterComposer,
+      $$GeneratedExportsTableOrderingComposer,
+      $$GeneratedExportsTableAnnotationComposer,
+      $$GeneratedExportsTableCreateCompanionBuilder,
+      $$GeneratedExportsTableUpdateCompanionBuilder,
+      (
+        GeneratedExportRow,
+        BaseReferences<
+          _$AppDatabase,
+          $GeneratedExportsTable,
+          GeneratedExportRow
+        >,
+      ),
+      GeneratedExportRow,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -22682,4 +25691,10 @@ class $AppDatabaseManager {
       $$DoctorVisitsTableTableManager(_db, _db.doctorVisits);
   $$MedicalDocumentsTableTableManager get medicalDocuments =>
       $$MedicalDocumentsTableTableManager(_db, _db.medicalDocuments);
+  $$AlbumsTableTableManager get albums =>
+      $$AlbumsTableTableManager(_db, _db.albums);
+  $$AlbumItemsTableTableManager get albumItems =>
+      $$AlbumItemsTableTableManager(_db, _db.albumItems);
+  $$GeneratedExportsTableTableManager get generatedExports =>
+      $$GeneratedExportsTableTableManager(_db, _db.generatedExports);
 }

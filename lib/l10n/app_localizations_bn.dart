@@ -1614,4 +1614,137 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get notificationNotNow => 'এখন নয়';
+
+  @override
+  String get searchTitle => 'খোঁজ';
+
+  @override
+  String get searchHint => 'স্মৃতি, স্বাস্থ্য, স্কুল খুঁজুন…';
+
+  @override
+  String get searchEmpty => 'কোনো মিল পাওয়া যায়নি।';
+
+  @override
+  String get searchRecent => 'সাম্প্রতিক খোঁজ';
+
+  @override
+  String get searchFilterAll => 'সব';
+
+  @override
+  String get searchTypeJournal => 'স্মৃতি';
+
+  @override
+  String get searchTypeMilestone => 'মাইলফলক';
+
+  @override
+  String get searchTypeMedicine => 'ওষুধ';
+
+  @override
+  String get searchTypeDoctor => 'ডাক্তার';
+
+  @override
+  String get searchTypeIllness => 'অসুস্থতা';
+
+  @override
+  String get searchTypeSchool => 'স্কুল';
+
+  @override
+  String get searchTypeAchievement => 'অর্জন';
+
+  @override
+  String get searchFromDate => 'শুরু';
+
+  @override
+  String get searchToDate => 'শেষ';
+
+  @override
+  String get searchClearDates => 'তারিখ সরান';
+
+  @override
+  String get photosTitle => 'ছবি';
+
+  @override
+  String get photosEmpty => 'এখনো কোনো ছবি নেই।';
+
+  @override
+  String get photosFavorites => 'পছন্দ';
+
+  @override
+  String get photosByYear => 'বছর অনুযায়ী';
+
+  @override
+  String get photosByAge => 'বয়স অনুযায়ী';
+
+  @override
+  String get photosByCategory => 'বিভাগ অনুযায়ী';
+
+  @override
+  String get photosAll => 'সব';
+
+  @override
+  String get photoMissing => 'এই ছবি বা ফাইল আর পাওয়া যাচ্ছে না।';
+
+  @override
+  String get photoFavorite => 'পছন্দে যোগ';
+
+  @override
+  String get photoUnfavorite => 'পছন্দ থেকে সরান';
+
+  @override
+  String get albumsEmpty =>
+      'এখনো কোনো অ্যালবাম নেই। একটি কাস্টম অ্যালবাম তৈরি করুন।';
+
+  @override
+  String get addAlbum => 'অ্যালবাম তৈরি';
+
+  @override
+  String get editAlbum => 'অ্যালবাম সম্পাদনা';
+
+  @override
+  String get albumTitleField => 'অ্যালবামের শিরোনাম';
+
+  @override
+  String get albumTitleRequired => 'অ্যালবামের শিরোনাম আবশ্যক।';
+
+  @override
+  String get albumTheme => 'থিম';
+
+  @override
+  String get albumCover => 'কভার ছবি';
+
+  @override
+  String get albumAddPhotos => 'ছবি যোগ করুন';
+
+  @override
+  String get albumNoItems => 'এই অ্যালবামে এখনো কিছু নেই।';
+
+  @override
+  String get saveAlbum => 'অ্যালবাম সংরক্ষণ';
+
+  @override
+  String get deleteAlbumTitle => 'এই অ্যালবাম মুছবেন?';
+
+  @override
+  String get deleteAlbumMessage => 'এই অ্যালবাম এই ডিভাইস থেকে সরবে।';
+
+  @override
+  String get albumThemeMinimal => 'মিনিমাল';
+
+  @override
+  String get albumThemePlayful => 'খেলাধুলা';
+
+  @override
+  String get albumThemeColorful => 'রঙিন';
+
+  @override
+  String get albumThemeElegant => 'এলিগ্যান্ট';
+
+  @override
+  String get tagsTitle => 'ট্যাগ';
+
+  @override
+  String get tagsAddHint => 'ট্যাগ যোগ করুন';
+
+  @override
+  String get tagsEmpty => 'এখনো কোনো ট্যাগ নেই।';
 }

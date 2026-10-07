@@ -7,11 +7,16 @@ import 'package:shishur_dinlipi/app/shell/main_shell.dart';
 import 'package:shishur_dinlipi/core/settings/app_settings.dart';
 import 'package:shishur_dinlipi/core/settings/settings_controller.dart';
 import 'package:shishur_dinlipi/features/add/add_screen.dart';
+import 'package:shishur_dinlipi/features/albums/album_detail_screen.dart';
+import 'package:shishur_dinlipi/features/albums/album_editor_screen.dart';
 import 'package:shishur_dinlipi/features/albums/albums_screen.dart';
 import 'package:shishur_dinlipi/features/children/child_detail_screen.dart';
 import 'package:shishur_dinlipi/features/children/child_editor_screen.dart';
 import 'package:shishur_dinlipi/features/children/children_list_screen.dart';
 import 'package:shishur_dinlipi/features/home/home_screen.dart';
+import 'package:shishur_dinlipi/features/photos/photo_detail_screen.dart';
+import 'package:shishur_dinlipi/features/photos/photos_screen.dart';
+import 'package:shishur_dinlipi/features/search/search_screen.dart';
 import 'package:shishur_dinlipi/features/development/first_word_detail_screen.dart';
 import 'package:shishur_dinlipi/features/development/first_word_editor_screen.dart';
 import 'package:shishur_dinlipi/features/development/first_words_list_screen.dart';
@@ -525,6 +530,44 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         path: AppRoutes.calendar,
         parentNavigatorKey: _rootNavigatorKey,
         builder: (context, state) => const CalendarScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.search,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const SearchScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.photos,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const PhotosScreen(),
+      ),
+      GoRoute(
+        path: '/photos/:id',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => PhotoDetailScreen(
+          photoId: state.pathParameters['id']!,
+        ),
+      ),
+      GoRoute(
+        path: AppRoutes.albumCreate,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const AlbumEditorScreen(),
+      ),
+      GoRoute(
+        path: '/albums/:id',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => AlbumDetailScreen(
+          albumId: state.pathParameters['id']!,
+        ),
+        routes: [
+          GoRoute(
+            path: 'edit',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (context, state) => AlbumEditorScreen(
+              albumId: state.pathParameters['id'],
+            ),
+          ),
+        ],
       ),
       GoRoute(
         path: AppRoutes.reminders,

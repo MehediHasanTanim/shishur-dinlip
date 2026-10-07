@@ -23,6 +23,46 @@ class MediaAssetsDao extends DatabaseAccessor<AppDatabase>
         .get();
   }
 
+  Future<List<MediaAssetRow>> imagesForChild(String childId) {
+    return (select(mediaAssets)
+          ..where(
+            (t) =>
+                t.childId.equals(childId) &
+                t.deletedAt.isNull() &
+                t.assetType.equals('image'),
+          )
+          ..orderBy([
+            (t) => OrderingTerm.desc(t.capturedAt),
+            (t) => OrderingTerm.desc(t.importedAt),
+          ]))
+        .get();
+  }
+
+  Future<List<MediaAssetRow>> favoritesForChild(String childId) {
+    return (select(mediaAssets)
+          ..where(
+            (t) =>
+                t.childId.equals(childId) &
+                t.deletedAt.isNull() &
+                t.assetType.equals('image') &
+                t.isFavorite.equals(true),
+          )
+          ..orderBy([
+            (t) => OrderingTerm.desc(t.capturedAt),
+            (t) => OrderingTerm.desc(t.importedAt),
+          ]))
+        .get();
+  }
+
+  Future<void> setFavorite(String id, bool isFavorite, DateTime updatedAt) {
+    return (update(mediaAssets)..where((t) => t.id.equals(id))).write(
+      MediaAssetsCompanion(
+        isFavorite: Value(isFavorite),
+        updatedAt: Value(updatedAt),
+      ),
+    );
+  }
+
   Future<void> upsert(MediaAssetsCompanion companion) {
     return into(mediaAssets).insertOnConflictUpdate(companion);
   }

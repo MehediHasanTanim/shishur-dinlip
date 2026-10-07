@@ -3253,6 +3253,270 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Not now'**
   String get notificationNotNow;
+
+  /// No description provided for @searchTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get searchTitle;
+
+  /// No description provided for @searchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search memories, health, school…'**
+  String get searchHint;
+
+  /// No description provided for @searchEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No matching records.'**
+  String get searchEmpty;
+
+  /// No description provided for @searchRecent.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent searches'**
+  String get searchRecent;
+
+  /// No description provided for @searchFilterAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get searchFilterAll;
+
+  /// No description provided for @searchTypeJournal.
+  ///
+  /// In en, this message translates to:
+  /// **'Memories'**
+  String get searchTypeJournal;
+
+  /// No description provided for @searchTypeMilestone.
+  ///
+  /// In en, this message translates to:
+  /// **'Milestones'**
+  String get searchTypeMilestone;
+
+  /// No description provided for @searchTypeMedicine.
+  ///
+  /// In en, this message translates to:
+  /// **'Medicines'**
+  String get searchTypeMedicine;
+
+  /// No description provided for @searchTypeDoctor.
+  ///
+  /// In en, this message translates to:
+  /// **'Doctors'**
+  String get searchTypeDoctor;
+
+  /// No description provided for @searchTypeIllness.
+  ///
+  /// In en, this message translates to:
+  /// **'Illnesses'**
+  String get searchTypeIllness;
+
+  /// No description provided for @searchTypeSchool.
+  ///
+  /// In en, this message translates to:
+  /// **'School'**
+  String get searchTypeSchool;
+
+  /// No description provided for @searchTypeAchievement.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievements'**
+  String get searchTypeAchievement;
+
+  /// No description provided for @searchFromDate.
+  ///
+  /// In en, this message translates to:
+  /// **'From'**
+  String get searchFromDate;
+
+  /// No description provided for @searchToDate.
+  ///
+  /// In en, this message translates to:
+  /// **'To'**
+  String get searchToDate;
+
+  /// No description provided for @searchClearDates.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear dates'**
+  String get searchClearDates;
+
+  /// No description provided for @photosTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Photos'**
+  String get photosTitle;
+
+  /// No description provided for @photosEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No photos yet.'**
+  String get photosEmpty;
+
+  /// No description provided for @photosFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorites'**
+  String get photosFavorites;
+
+  /// No description provided for @photosByYear.
+  ///
+  /// In en, this message translates to:
+  /// **'By year'**
+  String get photosByYear;
+
+  /// No description provided for @photosByAge.
+  ///
+  /// In en, this message translates to:
+  /// **'By age'**
+  String get photosByAge;
+
+  /// No description provided for @photosByCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'By category'**
+  String get photosByCategory;
+
+  /// No description provided for @photosAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get photosAll;
+
+  /// No description provided for @photoMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'This photo or file is no longer available.'**
+  String get photoMissing;
+
+  /// No description provided for @photoFavorite.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite'**
+  String get photoFavorite;
+
+  /// No description provided for @photoUnfavorite.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove favorite'**
+  String get photoUnfavorite;
+
+  /// No description provided for @albumsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No albums yet. Create a custom album.'**
+  String get albumsEmpty;
+
+  /// No description provided for @addAlbum.
+  ///
+  /// In en, this message translates to:
+  /// **'Create album'**
+  String get addAlbum;
+
+  /// No description provided for @editAlbum.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit album'**
+  String get editAlbum;
+
+  /// No description provided for @albumTitleField.
+  ///
+  /// In en, this message translates to:
+  /// **'Album title'**
+  String get albumTitleField;
+
+  /// No description provided for @albumTitleRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Album title is required.'**
+  String get albumTitleRequired;
+
+  /// No description provided for @albumTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get albumTheme;
+
+  /// No description provided for @albumCover.
+  ///
+  /// In en, this message translates to:
+  /// **'Cover photo'**
+  String get albumCover;
+
+  /// No description provided for @albumAddPhotos.
+  ///
+  /// In en, this message translates to:
+  /// **'Add photos'**
+  String get albumAddPhotos;
+
+  /// No description provided for @albumNoItems.
+  ///
+  /// In en, this message translates to:
+  /// **'No items in this album yet.'**
+  String get albumNoItems;
+
+  /// No description provided for @saveAlbum.
+  ///
+  /// In en, this message translates to:
+  /// **'Save album'**
+  String get saveAlbum;
+
+  /// No description provided for @deleteAlbumTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this album?'**
+  String get deleteAlbumTitle;
+
+  /// No description provided for @deleteAlbumMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This album will be removed from this device.'**
+  String get deleteAlbumMessage;
+
+  /// No description provided for @albumThemeMinimal.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimal'**
+  String get albumThemeMinimal;
+
+  /// No description provided for @albumThemePlayful.
+  ///
+  /// In en, this message translates to:
+  /// **'Playful'**
+  String get albumThemePlayful;
+
+  /// No description provided for @albumThemeColorful.
+  ///
+  /// In en, this message translates to:
+  /// **'Colorful'**
+  String get albumThemeColorful;
+
+  /// No description provided for @albumThemeElegant.
+  ///
+  /// In en, this message translates to:
+  /// **'Elegant'**
+  String get albumThemeElegant;
+
+  /// No description provided for @tagsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Tags'**
+  String get tagsTitle;
+
+  /// No description provided for @tagsAddHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a tag'**
+  String get tagsAddHint;
+
+  /// No description provided for @tagsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No tags yet.'**
+  String get tagsEmpty;
 }
 
 class _AppLocalizationsDelegate

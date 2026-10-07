@@ -5,7 +5,9 @@ import 'package:shishur_dinlipi/core/media/media_service.dart';
 import 'package:shishur_dinlipi/core/notifications/notification_id_store.dart';
 import 'package:shishur_dinlipi/core/notifications/notification_service.dart';
 import 'package:shishur_dinlipi/core/permissions/permission_service.dart';
+import 'package:shishur_dinlipi/core/photos/photo_library_service.dart';
 import 'package:shishur_dinlipi/core/repository/achievements_repository.dart';
+import 'package:shishur_dinlipi/core/repository/albums_repository.dart';
 import 'package:shishur_dinlipi/core/repository/attachment_repository.dart';
 import 'package:shishur_dinlipi/core/repository/children_repository.dart';
 import 'package:shishur_dinlipi/core/repository/doctor_visits_repository.dart';
@@ -22,6 +24,8 @@ import 'package:shishur_dinlipi/core/repository/school_events_repository.dart';
 import 'package:shishur_dinlipi/core/repository/school_profiles_repository.dart';
 import 'package:shishur_dinlipi/core/repository/tags_repository.dart';
 import 'package:shishur_dinlipi/core/repository/vaccinations_repository.dart';
+import 'package:shishur_dinlipi/core/search/recent_searches_store.dart';
+import 'package:shishur_dinlipi/core/search/search_service.dart';
 import 'package:shishur_dinlipi/core/settings/settings_repository.dart';
 import 'package:shishur_dinlipi/core/timeline/timeline_service.dart';
 import 'package:shishur_dinlipi/features/children/profile_photo_service.dart';
@@ -182,4 +186,23 @@ final remindersRepositoryProvider = Provider<RemindersRepository>((ref) {
     idsStore: ref.watch(notificationIdStoreProvider),
     permissions: ref.watch(permissionServiceProvider),
   );
+});
+
+final searchServiceProvider = Provider<SearchService>((ref) {
+  return SearchService(ref.watch(appDatabaseProvider));
+});
+
+final recentSearchesStoreProvider = Provider<RecentSearchesStore>((ref) {
+  return RecentSearchesStore(ref.watch(appDatabaseProvider));
+});
+
+final photoLibraryServiceProvider = Provider<PhotoLibraryService>((ref) {
+  return PhotoLibraryService(
+    ref.watch(appDatabaseProvider),
+    storage: ref.watch(fileStorageServiceProvider),
+  );
+});
+
+final albumsRepositoryProvider = Provider<AlbumsRepository>((ref) {
+  return DriftAlbumsRepository(ref.watch(appDatabaseProvider));
 });

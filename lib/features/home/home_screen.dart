@@ -98,7 +98,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       ),
                       const Spacer(),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () => context.push(AppRoutes.search),
                         icon: const Icon(Icons.search),
                         tooltip: l10n.commonSearch,
                       ),

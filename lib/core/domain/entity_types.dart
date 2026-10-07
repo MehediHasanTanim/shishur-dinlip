@@ -13,6 +13,8 @@ abstract final class EntityTypes {
   static const medicine = 'medicine';
   static const doctorVisit = 'doctor_visit';
   static const medicalDocument = 'medical_document';
+  static const mediaAsset = 'media_asset';
+  static const album = 'album';
 }
 
 abstract final class JournalEntryTypes {

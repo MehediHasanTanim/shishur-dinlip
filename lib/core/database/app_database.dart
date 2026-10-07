@@ -1,12 +1,14 @@
 import 'package:drift/drift.dart';
 import 'package:shishur_dinlipi/core/database/connection/native_connection.dart';
 import 'package:shishur_dinlipi/core/database/daos/achievements_dao.dart';
+import 'package:shishur_dinlipi/core/database/daos/albums_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/attachments_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/audit_events_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/children_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/doctor_visits_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/first_words_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/funny_moments_dao.dart';
+import 'package:shishur_dinlipi/core/database/daos/generated_exports_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/growth_records_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/illness_episodes_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/journal_entries_dao.dart';
@@ -22,12 +24,15 @@ import 'package:shishur_dinlipi/core/database/daos/settings_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/tags_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/vaccinations_dao.dart';
 import 'package:shishur_dinlipi/core/database/tables/achievements_table.dart';
+import 'package:shishur_dinlipi/core/database/tables/album_items_table.dart';
+import 'package:shishur_dinlipi/core/database/tables/albums_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/attachments_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/audit_events_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/children_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/doctor_visits_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/first_words_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/funny_moments_table.dart';
+import 'package:shishur_dinlipi/core/database/tables/generated_exports_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/growth_records_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/illness_episodes_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/journal_entries_table.dart';
@@ -71,6 +76,9 @@ part 'app_database.g.dart';
     MedicineSchedules,
     DoctorVisits,
     MedicalDocuments,
+    Albums,
+    AlbumItems,
+    GeneratedExports,
   ],
   daos: [
     ChildrenDao,
@@ -94,6 +102,8 @@ part 'app_database.g.dart';
     MedicineSchedulesDao,
     DoctorVisitsDao,
     MedicalDocumentsDao,
+    AlbumsDao,
+    GeneratedExportsDao,
   ],
 )
 class AppDatabase extends _$AppDatabase {
@@ -104,7 +114,7 @@ class AppDatabase extends _$AppDatabase {
   factory AppDatabase.memory() => AppDatabase(openMemoryConnection());
 
   /// Bump when schema changes; add steps in [migration].
-  static const int currentSchemaVersion = 6;
+  static const int currentSchemaVersion = 7;
 
   @override
   int get schemaVersion => currentSchemaVersion;
@@ -144,6 +154,11 @@ class AppDatabase extends _$AppDatabase {
       if (from < 6) {
         await m.addColumn(reminders, reminders.title);
         await m.addColumn(reminders, reminders.notes);
+      }
+      if (from < 7) {
+        await m.createTable(albums);
+        await m.createTable(albumItems);
+        await m.createTable(generatedExports);
       }
     },
     beforeOpen: (details) async {

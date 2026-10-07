@@ -11,12 +11,16 @@ abstract final class AppRoutes {
   static const timeline = '/timeline';
   static const add = '/add';
   static const albums = '/albums';
+  static const albumCreate = '/albums/create';
   static const more = '/more';
   static const settings = '/settings';
   static const children = '/children';
   static const childCreate = '/children/create';
   static const childEdit = '/children/:id/edit';
   static const childDetail = '/children/:id';
+
+  static const search = '/search';
+  static const photos = '/photos';
 
   static const journalCreate = '/journal/create';
   static const funnyCreate = '/funny/create';
@@ -129,4 +133,8 @@ abstract final class AppRoutes {
 
   static String reminderDetailPath(String id) => '/reminders/$id';
   static String reminderEditPath(String id) => '/reminders/$id/edit';
+
+  static String photoDetailPath(String id) => '/photos/$id';
+  static String albumDetailPath(String id) => '/albums/$id';
+  static String albumEditPath(String id) => '/albums/$id/edit';
 }

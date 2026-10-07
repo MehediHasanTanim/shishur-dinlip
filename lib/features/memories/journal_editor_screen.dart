@@ -12,6 +12,7 @@ import 'package:shishur_dinlipi/features/memories/journal_templates.dart';
 import 'package:shishur_dinlipi/features/memories/recent_memories_provider.dart';
 import 'package:shishur_dinlipi/features/memories/widgets/attachment_strip.dart';
 import 'package:shishur_dinlipi/features/memories/widgets/discard_guard.dart';
+import 'package:shishur_dinlipi/features/tags/widgets/tag_editor.dart';
 import 'package:shishur_dinlipi/l10n/app_localizations.dart';
 
 class JournalEditorScreen extends ConsumerStatefulWidget {
@@ -36,12 +37,12 @@ class _JournalEditorScreenState extends ConsumerState<JournalEditorScreen> {
   late final TextEditingController _title;
   late final TextEditingController _body;
   late final TextEditingController _location;
-  late final TextEditingController _tags;
   late final AttachmentDraftsController _attachments;
 
   DateTime _eventDate = DateTime.now();
   String _entryType = JournalEntryTypes.memory;
   String? _mood;
+  List<String> _tagNames = const [];
   bool _favorite = false;
   bool _dirty = false;
   bool _saving = false;
@@ -55,7 +56,6 @@ class _JournalEditorScreenState extends ConsumerState<JournalEditorScreen> {
     _title = TextEditingController();
     _body = TextEditingController();
     _location = TextEditingController();
-    _tags = TextEditingController();
     _attachments = AttachmentDraftsController(
       attachments: ref.read(attachmentRepositoryProvider),
       storage: ref.read(fileStorageServiceProvider),
@@ -72,7 +72,6 @@ class _JournalEditorScreenState extends ConsumerState<JournalEditorScreen> {
     _title.addListener(_markDirty);
     _body.addListener(_markDirty);
     _location.addListener(_markDirty);
-    _tags.addListener(_markDirty);
 
     WidgetsBinding.instance.addPostFrameCallback((_) => _bootstrap());
   }
@@ -98,7 +97,7 @@ class _JournalEditorScreenState extends ConsumerState<JournalEditorScreen> {
         _title.text = entry.title ?? '';
         _body.text = entry.body;
         _location.text = entry.locationText ?? '';
-        _tags.text = entry.tagNames.join(', ');
+        _tagNames = List.of(entry.tagNames);
         _eventDate = entry.eventDate;
         _entryType = entry.entryType;
         _mood = entry.mood;
@@ -140,7 +139,6 @@ class _JournalEditorScreenState extends ConsumerState<JournalEditorScreen> {
     _title.dispose();
     _body.dispose();
     _location.dispose();
-    _tags.dispose();
     super.dispose();
   }
 
@@ -271,12 +269,15 @@ class _JournalEditorScreenState extends ConsumerState<JournalEditorScreen> {
                       textCapitalization: TextCapitalization.words,
                     ),
                     const SizedBox(height: 12),
-                    TextFormField(
-                      controller: _tags,
-                      decoration: InputDecoration(
-                        labelText: l10n.memoryTags,
-                        hintText: l10n.memoryTagsHint,
-                      ),
+                    TagEditor(
+                      entityType: EntityTypes.journalEntry,
+                      initialNames: _tagNames,
+                      onChanged: (names) {
+                        setState(() {
+                          _tagNames = names;
+                          _dirty = true;
+                        });
+                      },
                     ),
                     const SizedBox(height: 16),
                     AttachmentStrip(controller: _attachments),
@@ -330,11 +331,7 @@ class _JournalEditorScreenState extends ConsumerState<JournalEditorScreen> {
     setState(() => _saving = true);
     try {
       final now = DateTime.now().toUtc();
-      final tagNames = _tags.text
-          .split(RegExp(r'[,،]'))
-          .map((t) => t.trim())
-          .where((t) => t.isNotEmpty)
-          .toList();
+      final tagNames = _tagNames;
 
       final entry = JournalEntry(
         id: _loadedId ?? '',

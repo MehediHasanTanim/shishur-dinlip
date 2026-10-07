@@ -1636,4 +1636,137 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get notificationNotNow => 'Not now';
+
+  @override
+  String get searchTitle => 'Search';
+
+  @override
+  String get searchHint => 'Search memories, health, school…';
+
+  @override
+  String get searchEmpty => 'No matching records.';
+
+  @override
+  String get searchRecent => 'Recent searches';
+
+  @override
+  String get searchFilterAll => 'All';
+
+  @override
+  String get searchTypeJournal => 'Memories';
+
+  @override
+  String get searchTypeMilestone => 'Milestones';
+
+  @override
+  String get searchTypeMedicine => 'Medicines';
+
+  @override
+  String get searchTypeDoctor => 'Doctors';
+
+  @override
+  String get searchTypeIllness => 'Illnesses';
+
+  @override
+  String get searchTypeSchool => 'School';
+
+  @override
+  String get searchTypeAchievement => 'Achievements';
+
+  @override
+  String get searchFromDate => 'From';
+
+  @override
+  String get searchToDate => 'To';
+
+  @override
+  String get searchClearDates => 'Clear dates';
+
+  @override
+  String get photosTitle => 'Photos';
+
+  @override
+  String get photosEmpty => 'No photos yet.';
+
+  @override
+  String get photosFavorites => 'Favorites';
+
+  @override
+  String get photosByYear => 'By year';
+
+  @override
+  String get photosByAge => 'By age';
+
+  @override
+  String get photosByCategory => 'By category';
+
+  @override
+  String get photosAll => 'All';
+
+  @override
+  String get photoMissing => 'This photo or file is no longer available.';
+
+  @override
+  String get photoFavorite => 'Favorite';
+
+  @override
+  String get photoUnfavorite => 'Remove favorite';
+
+  @override
+  String get albumsEmpty => 'No albums yet. Create a custom album.';
+
+  @override
+  String get addAlbum => 'Create album';
+
+  @override
+  String get editAlbum => 'Edit album';
+
+  @override
+  String get albumTitleField => 'Album title';
+
+  @override
+  String get albumTitleRequired => 'Album title is required.';
+
+  @override
+  String get albumTheme => 'Theme';
+
+  @override
+  String get albumCover => 'Cover photo';
+
+  @override
+  String get albumAddPhotos => 'Add photos';
+
+  @override
+  String get albumNoItems => 'No items in this album yet.';
+
+  @override
+  String get saveAlbum => 'Save album';
+
+  @override
+  String get deleteAlbumTitle => 'Delete this album?';
+
+  @override
+  String get deleteAlbumMessage =>
+      'This album will be removed from this device.';
+
+  @override
+  String get albumThemeMinimal => 'Minimal';
+
+  @override
+  String get albumThemePlayful => 'Playful';
+
+  @override
+  String get albumThemeColorful => 'Colorful';
+
+  @override
+  String get albumThemeElegant => 'Elegant';
+
+  @override
+  String get tagsTitle => 'Tags';
+
+  @override
+  String get tagsAddHint => 'Add a tag';
+
+  @override
+  String get tagsEmpty => 'No tags yet.';
 }
