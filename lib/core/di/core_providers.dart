@@ -38,6 +38,7 @@ import 'package:shishur_dinlipi/core/security/db_encryption_key_store.dart';
 import 'package:shishur_dinlipi/core/security/pin_service.dart';
 import 'package:shishur_dinlipi/core/security/secure_storage_service.dart';
 import 'package:shishur_dinlipi/core/security/security_settings_store.dart';
+import 'package:shishur_dinlipi/core/storage/storage_management_service.dart';
 import 'package:shishur_dinlipi/features/children/profile_photo_service.dart';
 
 final appDatabaseProvider = Provider<AppDatabase>((ref) {
@@ -268,5 +269,14 @@ final restoreServiceProvider = Provider<RestoreService>((ref) {
     storage: ref.watch(fileStorageServiceProvider),
     backupService: ref.watch(backupServiceProvider),
     reminders: ref.watch(remindersRepositoryProvider),
+  );
+});
+
+final storageManagementServiceProvider = Provider<StorageManagementService>((
+  ref,
+) {
+  return StorageManagementService(
+    db: ref.watch(appDatabaseProvider),
+    storage: ref.watch(fileStorageServiceProvider),
   );
 });

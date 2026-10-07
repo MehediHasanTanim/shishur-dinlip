@@ -11,6 +11,7 @@ import 'package:shishur_dinlipi/features/backup/backup_screen.dart';
 import 'package:shishur_dinlipi/features/backup/restore_screen.dart';
 import 'package:shishur_dinlipi/features/security/security_settings_screen.dart';
 import 'package:shishur_dinlipi/features/security/unlock_screen.dart';
+import 'package:shishur_dinlipi/features/storage/storage_screen.dart';
 import 'package:shishur_dinlipi/features/add/add_screen.dart';
 import 'package:shishur_dinlipi/features/albums/album_detail_screen.dart';
 import 'package:shishur_dinlipi/features/albums/album_editor_screen.dart';
@@ -126,6 +127,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         path: AppRoutes.restore,
         parentNavigatorKey: _rootNavigatorKey,
         builder: (context, state) => const RestoreScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.storage,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const StorageScreen(),
       ),
       GoRoute(
         path: AppRoutes.onboardingLanguage,

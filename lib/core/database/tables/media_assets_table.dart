@@ -1,6 +1,9 @@
 import 'package:drift/drift.dart';
 
 @DataClassName('MediaAssetRow')
+@TableIndex(name: 'media_assets_child', columns: {#childId})
+@TableIndex(name: 'media_assets_checksum', columns: {#checksum})
+@TableIndex(name: 'media_assets_favorite', columns: {#isFavorite})
 class MediaAssets extends Table {
   TextColumn get id => text()();
   TextColumn get childId => text().nullable()();

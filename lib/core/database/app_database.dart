@@ -118,7 +118,7 @@ class AppDatabase extends _$AppDatabase {
   factory AppDatabase.memory() => AppDatabase(openMemoryConnection());
 
   /// Bump when schema changes; add steps in [migration].
-  static const int currentSchemaVersion = 8;
+  static const int currentSchemaVersion = 9;
 
   @override
   int get schemaVersion => currentSchemaVersion;
@@ -127,6 +127,7 @@ class AppDatabase extends _$AppDatabase {
   MigrationStrategy get migration => MigrationStrategy(
     onCreate: (Migrator m) async {
       await m.createAll();
+      await _ensurePerformanceIndexes(m);
       AppLogger.instance.info('Database created', {
         'schemaVersion': schemaVersion,
       });
@@ -167,6 +168,10 @@ class AppDatabase extends _$AppDatabase {
       if (from < 8) {
         await m.createTable(yearReviewPreferences);
       }
+      if (from < 9) {
+        // Performance indexes (also declared via @TableIndex for fresh installs).
+        await _ensurePerformanceIndexes(m);
+      }
     },
     beforeOpen: (details) async {
       await customStatement('PRAGMA foreign_keys = ON');
@@ -176,6 +181,44 @@ class AppDatabase extends _$AppDatabase {
       });
     },
   );
+
+  Future<void> _ensurePerformanceIndexes(Migrator m) async {
+    // Prefer generated index creators when available after codegen.
+    try {
+      await m.createAll();
+    } catch (_) {
+      // createAll on upgrade may no-op for existing tables; fall through.
+    }
+    const statements = <String>[
+      'CREATE INDEX IF NOT EXISTS journal_entries_child_event ON journal_entries (child_id, event_date)',
+      'CREATE INDEX IF NOT EXISTS journal_entries_title ON journal_entries (title)',
+      'CREATE INDEX IF NOT EXISTS funny_moments_child_event ON funny_moments (child_id, event_date)',
+      'CREATE INDEX IF NOT EXISTS achievements_child_event ON achievements (child_id, event_date)',
+      'CREATE INDEX IF NOT EXISTS achievements_title ON achievements (title)',
+      'CREATE INDEX IF NOT EXISTS growth_records_child_measured ON growth_records (child_id, measured_at)',
+      'CREATE INDEX IF NOT EXISTS milestones_child_event ON milestones (child_id, event_date)',
+      'CREATE INDEX IF NOT EXISTS milestones_title ON milestones (title)',
+      'CREATE INDEX IF NOT EXISTS school_events_child_event ON school_events (child_id, event_date)',
+      'CREATE INDEX IF NOT EXISTS school_events_title ON school_events (title)',
+      'CREATE INDEX IF NOT EXISTS reminders_scheduled_enabled ON reminders (scheduled_at, is_enabled)',
+      'CREATE INDEX IF NOT EXISTS reminders_child_scheduled ON reminders (child_id, scheduled_at)',
+      'CREATE INDEX IF NOT EXISTS media_assets_child ON media_assets (child_id)',
+      'CREATE INDEX IF NOT EXISTS media_assets_checksum ON media_assets (checksum)',
+      'CREATE INDEX IF NOT EXISTS media_assets_favorite ON media_assets (is_favorite)',
+      'CREATE INDEX IF NOT EXISTS attachments_entity ON attachments (entity_type, entity_id)',
+      'CREATE INDEX IF NOT EXISTS attachments_media ON attachments (media_asset_id)',
+      'CREATE INDEX IF NOT EXISTS tag_links_tag ON tag_links (tag_id)',
+      'CREATE INDEX IF NOT EXISTS tag_links_entity ON tag_links (entity_type, entity_id)',
+      'CREATE INDEX IF NOT EXISTS illness_episodes_child_start ON illness_episodes (child_id, start_date)',
+      'CREATE INDEX IF NOT EXISTS doctor_visits_child_visit ON doctor_visits (child_id, visit_date)',
+      'CREATE INDEX IF NOT EXISTS vaccinations_child_scheduled ON vaccinations (child_id, scheduled_date)',
+      'CREATE INDEX IF NOT EXISTS vaccinations_name ON vaccinations (vaccine_name)',
+      'CREATE INDEX IF NOT EXISTS first_words_child_event ON first_words (child_id, event_date)',
+    ];
+    for (final sql in statements) {
+      await customStatement(sql);
+    }
+  }
 
   Future<T> runInTransaction<T>(Future<T> Function() action) {
     return transaction(action);

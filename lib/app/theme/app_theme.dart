@@ -107,6 +107,16 @@ abstract final class AppTheme {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
       dividerTheme: DividerThemeData(color: scheme.outlineVariant),
+      // Accessibility: larger default hit targets and readable list rows.
+      listTileTheme: const ListTileThemeData(
+        minVerticalPadding: 12,
+        minLeadingWidth: 40,
+      ),
+      iconButtonTheme: IconButtonThemeData(
+        style: IconButton.styleFrom(minimumSize: const Size(48, 48)),
+      ),
+      visualDensity: VisualDensity.standard,
+      materialTapTargetSize: MaterialTapTargetSize.padded,
     );
   }
 }

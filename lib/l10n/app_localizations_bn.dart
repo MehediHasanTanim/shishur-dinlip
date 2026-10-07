@@ -2092,4 +2092,111 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get restoreStageFailed => 'রিস্টোর ব্যর্থ';
+
+  @override
+  String get stateLoading => 'লোড হচ্ছে…';
+
+  @override
+  String get stateSaveProgress => 'সংরক্ষণ হচ্ছে…';
+
+  @override
+  String get stateSaveSuccess => 'সংরক্ষিত।';
+
+  @override
+  String get stateSaveFailure => 'সংরক্ষণ করা যায়নি। আবার চেষ্টা করুন।';
+
+  @override
+  String get stateNoSearchResults => 'কোনো মিল পাওয়া যায়নি।';
+
+  @override
+  String get statePermissionDenied => 'এগিয়ে যেতে অনুমতি প্রয়োজন।';
+
+  @override
+  String get stateNotificationDenied =>
+      'নোটিফিকেশন বন্ধ আছে। সিস্টেম সেটিংস থেকে চালু করতে পারেন।';
+
+  @override
+  String get stateMigration => 'আপনার জার্নাল আপডেট হচ্ছে…';
+
+  @override
+  String get stateStorageAlmostFull =>
+      'স্টোরেজ প্রায় ভরে গেছে। জায়গা খালি করুন বা এক্সপোর্ট মুছুন।';
+
+  @override
+  String get storageTitle => 'স্টোরেজ';
+
+  @override
+  String storageTotal(String size) {
+    return 'ব্যবহার $size';
+  }
+
+  @override
+  String get storageAlmostFull => 'এই ডিভাইসের স্টোরেজ প্রায় ভরে যাচ্ছে।';
+
+  @override
+  String storageFileCount(int count) {
+    return '$countটি ফাইল';
+  }
+
+  @override
+  String get storageOrphans => 'অরফান মিডিয়া';
+
+  @override
+  String storageOrphanCount(int count) {
+    return '$countটি আইটেম দেখা দরকার';
+  }
+
+  @override
+  String get storageExports => 'তৈরি পিডিএফ';
+
+  @override
+  String storageExportCount(int count) {
+    return '$countটি এক্সপোর্ট রাখা আছে';
+  }
+
+  @override
+  String get storageCleanupTemp => 'সাময়িক ফাইল পরিষ্কার';
+
+  @override
+  String get storageCleanupExports => 'পুরনো পিডিএফ এক্সপোর্ট মুছুন';
+
+  @override
+  String get storageCleanupOrphans => 'অরফান মিডিয়া মুছুন';
+
+  @override
+  String get storageTempCleaned => 'সাময়িক ফাইল পরিষ্কার হয়েছে।';
+
+  @override
+  String storageExportsCleaned(int count) {
+    return '$countটি পুরনো এক্সপোর্ট সরানো হয়েছে।';
+  }
+
+  @override
+  String storageOrphansCleaned(int count) {
+    return '$countটি অরফান মিডিয়া সরানো হয়েছে।';
+  }
+
+  @override
+  String get storageCatDatabase => 'ডাটাবেস';
+
+  @override
+  String get storageCatImages => 'ছবি';
+
+  @override
+  String get storageCatThumbnails => 'থাম্বনেইল';
+
+  @override
+  String get storageCatDocuments => 'নথি';
+
+  @override
+  String get storageCatPdf => 'পিডিএফ এক্সপোর্ট';
+
+  @override
+  String get storageCatAlbumImages => 'অ্যালবাম ছবি';
+
+  @override
+  String get storageCatBackups => 'ব্যাকআপ';
+
+  @override
+  String get storageCatTemp => 'সাময়িক';
 }

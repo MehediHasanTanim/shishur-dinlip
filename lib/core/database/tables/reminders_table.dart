@@ -1,6 +1,11 @@
 import 'package:drift/drift.dart';
 
 @DataClassName('ReminderRow')
+@TableIndex(
+  name: 'reminders_scheduled_enabled',
+  columns: {#scheduledAt, #isEnabled},
+)
+@TableIndex(name: 'reminders_child_scheduled', columns: {#childId, #scheduledAt})
 class Reminders extends Table {
   TextColumn get id => text()();
   TextColumn get childId => text().nullable()();

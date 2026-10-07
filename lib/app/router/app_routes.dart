@@ -19,6 +19,7 @@ abstract final class AppRoutes {
   static const unlock = '/unlock';
   static const backup = '/backup';
   static const restore = '/backup/restore';
+  static const storage = '/settings/storage';
   static const children = '/children';
   static const childCreate = '/children/create';
   static const childEdit = '/children/:id/edit';

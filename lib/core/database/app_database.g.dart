@@ -17977,6 +17977,102 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   );
   late final $YearReviewPreferencesTable yearReviewPreferences =
       $YearReviewPreferencesTable(this);
+  late final Index mediaAssetsChild = Index(
+    'media_assets_child',
+    'CREATE INDEX media_assets_child ON media_assets (child_id)',
+  );
+  late final Index mediaAssetsChecksum = Index(
+    'media_assets_checksum',
+    'CREATE INDEX media_assets_checksum ON media_assets (checksum)',
+  );
+  late final Index mediaAssetsFavorite = Index(
+    'media_assets_favorite',
+    'CREATE INDEX media_assets_favorite ON media_assets (is_favorite)',
+  );
+  late final Index attachmentsEntity = Index(
+    'attachments_entity',
+    'CREATE INDEX attachments_entity ON attachments (entity_type, entity_id)',
+  );
+  late final Index attachmentsMedia = Index(
+    'attachments_media',
+    'CREATE INDEX attachments_media ON attachments (media_asset_id)',
+  );
+  late final Index remindersScheduledEnabled = Index(
+    'reminders_scheduled_enabled',
+    'CREATE INDEX reminders_scheduled_enabled ON reminders (scheduled_at, is_enabled)',
+  );
+  late final Index remindersChildScheduled = Index(
+    'reminders_child_scheduled',
+    'CREATE INDEX reminders_child_scheduled ON reminders (child_id, scheduled_at)',
+  );
+  late final Index tagLinksTag = Index(
+    'tag_links_tag',
+    'CREATE INDEX tag_links_tag ON tag_links (tag_id)',
+  );
+  late final Index tagLinksEntity = Index(
+    'tag_links_entity',
+    'CREATE INDEX tag_links_entity ON tag_links (entity_type, entity_id)',
+  );
+  late final Index journalEntriesChildEvent = Index(
+    'journal_entries_child_event',
+    'CREATE INDEX journal_entries_child_event ON journal_entries (child_id, event_date)',
+  );
+  late final Index journalEntriesTitle = Index(
+    'journal_entries_title',
+    'CREATE INDEX journal_entries_title ON journal_entries (title)',
+  );
+  late final Index funnyMomentsChildEvent = Index(
+    'funny_moments_child_event',
+    'CREATE INDEX funny_moments_child_event ON funny_moments (child_id, event_date)',
+  );
+  late final Index achievementsChildEvent = Index(
+    'achievements_child_event',
+    'CREATE INDEX achievements_child_event ON achievements (child_id, event_date)',
+  );
+  late final Index achievementsTitle = Index(
+    'achievements_title',
+    'CREATE INDEX achievements_title ON achievements (title)',
+  );
+  late final Index growthRecordsChildMeasured = Index(
+    'growth_records_child_measured',
+    'CREATE INDEX growth_records_child_measured ON growth_records (child_id, measured_at)',
+  );
+  late final Index milestonesChildEvent = Index(
+    'milestones_child_event',
+    'CREATE INDEX milestones_child_event ON milestones (child_id, event_date)',
+  );
+  late final Index milestonesTitle = Index(
+    'milestones_title',
+    'CREATE INDEX milestones_title ON milestones (title)',
+  );
+  late final Index firstWordsChildEvent = Index(
+    'first_words_child_event',
+    'CREATE INDEX first_words_child_event ON first_words (child_id, event_date)',
+  );
+  late final Index schoolEventsChildEvent = Index(
+    'school_events_child_event',
+    'CREATE INDEX school_events_child_event ON school_events (child_id, event_date)',
+  );
+  late final Index schoolEventsTitle = Index(
+    'school_events_title',
+    'CREATE INDEX school_events_title ON school_events (title)',
+  );
+  late final Index vaccinationsChildScheduled = Index(
+    'vaccinations_child_scheduled',
+    'CREATE INDEX vaccinations_child_scheduled ON vaccinations (child_id, scheduled_date)',
+  );
+  late final Index vaccinationsName = Index(
+    'vaccinations_name',
+    'CREATE INDEX vaccinations_name ON vaccinations (vaccine_name)',
+  );
+  late final Index illnessEpisodesChildStart = Index(
+    'illness_episodes_child_start',
+    'CREATE INDEX illness_episodes_child_start ON illness_episodes (child_id, start_date)',
+  );
+  late final Index doctorVisitsChildVisit = Index(
+    'doctor_visits_child_visit',
+    'CREATE INDEX doctor_visits_child_visit ON doctor_visits (child_id, visit_date)',
+  );
   late final ChildrenDao childrenDao = ChildrenDao(this as AppDatabase);
   late final SettingsDao settingsDao = SettingsDao(this as AppDatabase);
   late final MediaAssetsDao mediaAssetsDao = MediaAssetsDao(
@@ -18063,6 +18159,30 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     albumItems,
     generatedExports,
     yearReviewPreferences,
+    mediaAssetsChild,
+    mediaAssetsChecksum,
+    mediaAssetsFavorite,
+    attachmentsEntity,
+    attachmentsMedia,
+    remindersScheduledEnabled,
+    remindersChildScheduled,
+    tagLinksTag,
+    tagLinksEntity,
+    journalEntriesChildEvent,
+    journalEntriesTitle,
+    funnyMomentsChildEvent,
+    achievementsChildEvent,
+    achievementsTitle,
+    growthRecordsChildMeasured,
+    milestonesChildEvent,
+    milestonesTitle,
+    firstWordsChildEvent,
+    schoolEventsChildEvent,
+    schoolEventsTitle,
+    vaccinationsChildScheduled,
+    vaccinationsName,
+    illnessEpisodesChildStart,
+    doctorVisitsChildVisit,
   ];
   @override
   DriftDatabaseOptions get options =>

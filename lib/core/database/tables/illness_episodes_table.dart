@@ -1,6 +1,10 @@
 import 'package:drift/drift.dart';
 
 @DataClassName('IllnessEpisodeRow')
+@TableIndex(
+  name: 'illness_episodes_child_start',
+  columns: {#childId, #startDate},
+)
 class IllnessEpisodes extends Table {
   TextColumn get id => text()();
   TextColumn get childId => text()();

@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -8,6 +6,7 @@ import 'package:shishur_dinlipi/core/di/core_providers.dart';
 import 'package:shishur_dinlipi/core/domain/models/photo_library_item.dart';
 import 'package:shishur_dinlipi/features/photos/photos_providers.dart';
 import 'package:shishur_dinlipi/l10n/app_localizations.dart';
+import 'package:shishur_dinlipi/shared/widgets/app_thumbnail.dart';
 
 class PhotosScreen extends ConsumerWidget {
   const PhotosScreen({super.key});
@@ -150,54 +149,43 @@ class _PhotoTile extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final path = item.media.thumbnailPath ?? item.media.localPath;
-
-    return InkWell(
-      onTap: () => context.push(AppRoutes.photoDetailPath(item.media.id)),
-      borderRadius: BorderRadius.circular(8),
-      child: ClipRRect(
+    return Semantics(
+      button: true,
+      label: AppLocalizations.of(context).photosTitle,
+      child: InkWell(
+        onTap: () => context.push(AppRoutes.photoDetailPath(item.media.id)),
         borderRadius: BorderRadius.circular(8),
-        child: Stack(
-          fit: StackFit.expand,
-          children: [
-            if (item.fileMissing)
-              ColoredBox(
-                color: Theme.of(context).colorScheme.surfaceContainerHighest,
-                child: Icon(
-                  Icons.broken_image_outlined,
-                  color: Theme.of(context).colorScheme.primary,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(8),
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              if (item.fileMissing)
+                ColoredBox(
+                  color: Theme.of(context).colorScheme.surfaceContainerHighest,
+                  child: Icon(
+                    Icons.broken_image_outlined,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                )
+              else
+                AppThumbnail(
+                  storage: ref.read(fileStorageServiceProvider),
+                  asset: item.media,
+                  borderRadius: 0,
                 ),
-              )
-            else
-              FutureBuilder<File>(
-                future: ref.read(fileStorageServiceProvider).absoluteFile(path),
-                builder: (context, snapshot) {
-                  final file = snapshot.data;
-                  if (file == null || !file.existsSync()) {
-                    return ColoredBox(
-                      color: Theme.of(context)
-                          .colorScheme
-                          .surfaceContainerHighest,
-                      child: Icon(
-                        Icons.image_outlined,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
-                    );
-                  }
-                  return Image.file(file, fit: BoxFit.cover);
-                },
-              ),
-            if (item.isFavorite)
-              const Positioned(
-                top: 4,
-                right: 4,
-                child: Icon(
-                  Icons.favorite,
-                  size: 16,
-                  color: Colors.pinkAccent,
+              if (item.isFavorite)
+                const Positioned(
+                  top: 4,
+                  right: 4,
+                  child: Icon(
+                    Icons.favorite,
+                    size: 16,
+                    color: Colors.pinkAccent,
+                  ),
                 ),
-              ),
-          ],
+            ],
+          ),
         ),
       ),
     );

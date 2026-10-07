@@ -4165,6 +4165,192 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Restore failed'**
   String get restoreStageFailed;
+
+  /// No description provided for @stateLoading.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading…'**
+  String get stateLoading;
+
+  /// No description provided for @stateSaveProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'Saving…'**
+  String get stateSaveProgress;
+
+  /// No description provided for @stateSaveSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved.'**
+  String get stateSaveSuccess;
+
+  /// No description provided for @stateSaveFailure.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not save. Please try again.'**
+  String get stateSaveFailure;
+
+  /// No description provided for @stateNoSearchResults.
+  ///
+  /// In en, this message translates to:
+  /// **'No matching records.'**
+  String get stateNoSearchResults;
+
+  /// No description provided for @statePermissionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Permission is required to continue.'**
+  String get statePermissionDenied;
+
+  /// No description provided for @stateNotificationDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications are off. You can enable them in system settings.'**
+  String get stateNotificationDenied;
+
+  /// No description provided for @stateMigration.
+  ///
+  /// In en, this message translates to:
+  /// **'Updating your journal…'**
+  String get stateMigration;
+
+  /// No description provided for @stateStorageAlmostFull.
+  ///
+  /// In en, this message translates to:
+  /// **'Storage is almost full. Free up space or clean exports.'**
+  String get stateStorageAlmostFull;
+
+  /// No description provided for @storageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Storage'**
+  String get storageTitle;
+
+  /// No description provided for @storageTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'Using {size}'**
+  String storageTotal(String size);
+
+  /// No description provided for @storageAlmostFull.
+  ///
+  /// In en, this message translates to:
+  /// **'Storage is getting full on this device.'**
+  String get storageAlmostFull;
+
+  /// No description provided for @storageFileCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} files'**
+  String storageFileCount(int count);
+
+  /// No description provided for @storageOrphans.
+  ///
+  /// In en, this message translates to:
+  /// **'Orphan media'**
+  String get storageOrphans;
+
+  /// No description provided for @storageOrphanCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} items need attention'**
+  String storageOrphanCount(int count);
+
+  /// No description provided for @storageExports.
+  ///
+  /// In en, this message translates to:
+  /// **'Generated PDFs'**
+  String get storageExports;
+
+  /// No description provided for @storageExportCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} exports kept'**
+  String storageExportCount(int count);
+
+  /// No description provided for @storageCleanupTemp.
+  ///
+  /// In en, this message translates to:
+  /// **'Clean temporary files'**
+  String get storageCleanupTemp;
+
+  /// No description provided for @storageCleanupExports.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove older PDF exports'**
+  String get storageCleanupExports;
+
+  /// No description provided for @storageCleanupOrphans.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove orphan media'**
+  String get storageCleanupOrphans;
+
+  /// No description provided for @storageTempCleaned.
+  ///
+  /// In en, this message translates to:
+  /// **'Temporary files cleaned.'**
+  String get storageTempCleaned;
+
+  /// No description provided for @storageExportsCleaned.
+  ///
+  /// In en, this message translates to:
+  /// **'Removed {count} older exports.'**
+  String storageExportsCleaned(int count);
+
+  /// No description provided for @storageOrphansCleaned.
+  ///
+  /// In en, this message translates to:
+  /// **'Removed {count} orphan media items.'**
+  String storageOrphansCleaned(int count);
+
+  /// No description provided for @storageCatDatabase.
+  ///
+  /// In en, this message translates to:
+  /// **'Database'**
+  String get storageCatDatabase;
+
+  /// No description provided for @storageCatImages.
+  ///
+  /// In en, this message translates to:
+  /// **'Photos'**
+  String get storageCatImages;
+
+  /// No description provided for @storageCatThumbnails.
+  ///
+  /// In en, this message translates to:
+  /// **'Thumbnails'**
+  String get storageCatThumbnails;
+
+  /// No description provided for @storageCatDocuments.
+  ///
+  /// In en, this message translates to:
+  /// **'Documents'**
+  String get storageCatDocuments;
+
+  /// No description provided for @storageCatPdf.
+  ///
+  /// In en, this message translates to:
+  /// **'PDF exports'**
+  String get storageCatPdf;
+
+  /// No description provided for @storageCatAlbumImages.
+  ///
+  /// In en, this message translates to:
+  /// **'Album images'**
+  String get storageCatAlbumImages;
+
+  /// No description provided for @storageCatBackups.
+  ///
+  /// In en, this message translates to:
+  /// **'Backups'**
+  String get storageCatBackups;
+
+  /// No description provided for @storageCatTemp.
+  ///
+  /// In en, this message translates to:
+  /// **'Temporary'**
+  String get storageCatTemp;
 }
 
 class _AppLocalizationsDelegate

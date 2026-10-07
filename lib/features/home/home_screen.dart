@@ -17,6 +17,7 @@ import 'package:shishur_dinlipi/features/school/school_providers.dart';
 import 'package:shishur_dinlipi/features/timeline/timeline_providers.dart';
 import 'package:shishur_dinlipi/features/timeline/widgets/timeline_card.dart';
 import 'package:shishur_dinlipi/l10n/app_localizations.dart';
+import 'package:shishur_dinlipi/shared/widgets/app_state_views.dart';
 import 'package:shishur_dinlipi/shared/widgets/child_avatar.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
@@ -50,8 +51,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     });
 
     return childrenAsync.when(
-      loading: () => const Center(child: CircularProgressIndicator()),
-      error: (error, _) => Center(child: Text('$error')),
+      loading: () => AppStateViews.loading(),
+      error: (error, _) => AppStateViews.error(
+        message: '$error',
+        onRetry: () => ref.invalidate(childrenListProvider),
+      ),
       data: (children) {
         if (children.isEmpty) {
           return _EmptyChildren(l10n: l10n);

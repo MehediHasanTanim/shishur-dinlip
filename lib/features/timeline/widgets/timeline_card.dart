@@ -101,7 +101,13 @@ class _TimelineThumb extends ConsumerWidget {
                       color: Theme.of(context).colorScheme.primary,
                     ),
                   )
-                : Image.file(file, fit: BoxFit.cover),
+                : Image.file(
+                    file,
+                    fit: BoxFit.cover,
+                    cacheWidth: (48 * MediaQuery.devicePixelRatioOf(context))
+                        .round(),
+                    filterQuality: FilterQuality.low,
+                  ),
           ),
         );
       },

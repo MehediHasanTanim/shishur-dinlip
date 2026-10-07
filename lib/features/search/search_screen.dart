@@ -5,6 +5,7 @@ import 'package:shishur_dinlipi/core/domain/models/search_result.dart';
 import 'package:shishur_dinlipi/features/children/child_controller.dart';
 import 'package:shishur_dinlipi/features/search/search_labels.dart';
 import 'package:shishur_dinlipi/l10n/app_localizations.dart';
+import 'package:shishur_dinlipi/shared/widgets/app_state_views.dart';
 
 class SearchScreen extends ConsumerStatefulWidget {
   const SearchScreen({super.key});
@@ -260,15 +261,10 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
       return const SizedBox.shrink();
     }
     if (_results.isEmpty) {
-      return Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Text(
-            l10n.searchEmpty,
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-        ),
+      return AppStateViews.empty(
+        icon: Icons.search_off_outlined,
+        title: l10n.stateNoSearchResults,
+        subtitle: l10n.searchEmpty,
       );
     }
 

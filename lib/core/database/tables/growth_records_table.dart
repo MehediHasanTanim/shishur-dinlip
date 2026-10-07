@@ -1,6 +1,10 @@
 import 'package:drift/drift.dart';
 
 @DataClassName('GrowthRecordRow')
+@TableIndex(
+  name: 'growth_records_child_measured',
+  columns: {#childId, #measuredAt},
+)
 class GrowthRecords extends Table {
   TextColumn get id => text()();
   TextColumn get childId => text()();

@@ -13,10 +13,15 @@ class AppLogger {
     'name',
     'nickname',
     'child',
+    'children',
     'journal',
     'story',
     'note',
     'notes',
+    'body',
+    'quote',
+    'letter',
+    'caption',
     'diagnosis',
     'symptom',
     'symptoms',
@@ -26,8 +31,12 @@ class AppLogger {
     'path',
     'file',
     'password',
+    'passphrase',
     'pin',
     'token',
+    'key',
+    'secret',
+    'backup',
   };
 
   void debug(String message, [Map<String, Object?>? fields]) {

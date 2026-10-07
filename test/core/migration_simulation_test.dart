@@ -2,13 +2,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shishur_dinlipi/core/database/app_database.dart';
 
 void main() {
-  test('fresh database opens at schema version 8', () async {
+  test('fresh database opens at schema version 9', () async {
     final db = AppDatabase.memory();
     addTearDown(db.close);
 
     final row = await db.customSelect('PRAGMA user_version').getSingle();
-    expect(row.data['user_version'], 8);
-    expect(AppDatabase.currentSchemaVersion, 8);
+    expect(row.data['user_version'], 9);
+    expect(AppDatabase.currentSchemaVersion, 9);
 
     for (final table in [
       'children',
@@ -39,5 +39,9 @@ void main() {
     ]) {
       await db.customSelect('SELECT COUNT(*) AS c FROM $table').getSingle();
     }
+
+    final indexes = await db.customSelect('PRAGMA index_list(journal_entries)').get();
+    final names = indexes.map((r) => r.data['name'] as String).toSet();
+    expect(names.contains('journal_entries_child_event'), isTrue);
   });
 }

@@ -157,6 +157,15 @@ class SettingsScreen extends ConsumerWidget {
               onTap: () => context.push(AppRoutes.backup),
             ),
           ),
+          const SizedBox(height: 8),
+          Card(
+            child: ListTile(
+              leading: const Icon(Icons.storage_outlined),
+              title: Text(l10n.storageTitle),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => context.push(AppRoutes.storage),
+            ),
+          ),
           const SizedBox(height: 24),
           Text(
             l10n.settingsAbout,

@@ -2115,4 +2115,111 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get restoreStageFailed => 'Restore failed';
+
+  @override
+  String get stateLoading => 'Loading…';
+
+  @override
+  String get stateSaveProgress => 'Saving…';
+
+  @override
+  String get stateSaveSuccess => 'Saved.';
+
+  @override
+  String get stateSaveFailure => 'Could not save. Please try again.';
+
+  @override
+  String get stateNoSearchResults => 'No matching records.';
+
+  @override
+  String get statePermissionDenied => 'Permission is required to continue.';
+
+  @override
+  String get stateNotificationDenied =>
+      'Notifications are off. You can enable them in system settings.';
+
+  @override
+  String get stateMigration => 'Updating your journal…';
+
+  @override
+  String get stateStorageAlmostFull =>
+      'Storage is almost full. Free up space or clean exports.';
+
+  @override
+  String get storageTitle => 'Storage';
+
+  @override
+  String storageTotal(String size) {
+    return 'Using $size';
+  }
+
+  @override
+  String get storageAlmostFull => 'Storage is getting full on this device.';
+
+  @override
+  String storageFileCount(int count) {
+    return '$count files';
+  }
+
+  @override
+  String get storageOrphans => 'Orphan media';
+
+  @override
+  String storageOrphanCount(int count) {
+    return '$count items need attention';
+  }
+
+  @override
+  String get storageExports => 'Generated PDFs';
+
+  @override
+  String storageExportCount(int count) {
+    return '$count exports kept';
+  }
+
+  @override
+  String get storageCleanupTemp => 'Clean temporary files';
+
+  @override
+  String get storageCleanupExports => 'Remove older PDF exports';
+
+  @override
+  String get storageCleanupOrphans => 'Remove orphan media';
+
+  @override
+  String get storageTempCleaned => 'Temporary files cleaned.';
+
+  @override
+  String storageExportsCleaned(int count) {
+    return 'Removed $count older exports.';
+  }
+
+  @override
+  String storageOrphansCleaned(int count) {
+    return 'Removed $count orphan media items.';
+  }
+
+  @override
+  String get storageCatDatabase => 'Database';
+
+  @override
+  String get storageCatImages => 'Photos';
+
+  @override
+  String get storageCatThumbnails => 'Thumbnails';
+
+  @override
+  String get storageCatDocuments => 'Documents';
+
+  @override
+  String get storageCatPdf => 'PDF exports';
+
+  @override
+  String get storageCatAlbumImages => 'Album images';
+
+  @override
+  String get storageCatBackups => 'Backups';
+
+  @override
+  String get storageCatTemp => 'Temporary';
 }

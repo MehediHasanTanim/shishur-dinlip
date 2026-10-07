@@ -1,6 +1,10 @@
 import 'package:drift/drift.dart';
 
 @DataClassName('FirstWordRow')
+@TableIndex(
+  name: 'first_words_child_event',
+  columns: {#childId, #eventDate},
+)
 class FirstWords extends Table {
   TextColumn get id => text()();
   TextColumn get childId => text()();
