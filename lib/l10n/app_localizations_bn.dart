@@ -435,7 +435,255 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get addComingSoonMessage =>
-      'বৃদ্ধি, মাইলস্টোন ও স্বাস্থ্য রেকর্ড পরের স্প্রিন্টে আসবে।';
+      'স্কুল ও স্বাস্থ্য রেকর্ড পরের স্প্রিন্টে আসবে।';
+
+  @override
+  String get addGroupDevelopment => 'বিকাশ';
+
+  @override
+  String get addGrowth => 'বৃদ্ধি যোগ করুন';
+
+  @override
+  String get editGrowth => 'বৃদ্ধি সম্পাদনা';
+
+  @override
+  String get addGrowthSubtitle => 'উচ্চতা ও ওজন লিখুন।';
+
+  @override
+  String get addMilestone => 'মাইলস্টোন যোগ করুন';
+
+  @override
+  String get editMilestone => 'মাইলস্টোন সম্পাদনা';
+
+  @override
+  String get addMilestoneSubtitle => 'প্রথম হাঁটা, কথা ও আরও।';
+
+  @override
+  String get addFirstWord => 'প্রথম কথা যোগ করুন';
+
+  @override
+  String get editFirstWord => 'প্রথম কথা সম্পাদনা';
+
+  @override
+  String get addFirstWordSubtitle => 'প্রথম উচ্চারিত শব্দ রাখুন।';
+
+  @override
+  String get growthTitle => 'বৃদ্ধি';
+
+  @override
+  String get growthHistory => 'বৃদ্ধির ইতিহাস';
+
+  @override
+  String get growthDetail => 'পরিমাপ';
+
+  @override
+  String get growthHeight => 'উচ্চতা';
+
+  @override
+  String get growthWeight => 'ওজন';
+
+  @override
+  String get growthHeightCm => 'উচ্চতা (সেমি)';
+
+  @override
+  String get growthHeightFt => 'ফুট';
+
+  @override
+  String get growthHeightIn => 'ইঞ্চি';
+
+  @override
+  String get growthWeightKg => 'ওজন (কেজি)';
+
+  @override
+  String get growthWeightLb => 'ওজন (পাউন্ড)';
+
+  @override
+  String get growthNeedValue => 'উচ্চতা, ওজন বা দুটোই দিন।';
+
+  @override
+  String growthPreviousContext(String height, String weight) {
+    return 'আগের: $height · $weight';
+  }
+
+  @override
+  String get saveGrowth => 'পরিমাপ সংরক্ষণ';
+
+  @override
+  String get growthHeightChart => 'উচ্চতা';
+
+  @override
+  String get growthWeightChart => 'ওজন';
+
+  @override
+  String get growthRange6m => '৬ মাস';
+
+  @override
+  String get growthRange1y => '১ বছর';
+
+  @override
+  String get growthRangeAll => 'সব';
+
+  @override
+  String get growthChartNeedMore => 'চার্ট দেখতে অন্তত দুটি পরিমাপ লাগবে।';
+
+  @override
+  String get unitCm => 'উচ্চতা সেমিতে';
+
+  @override
+  String get unitFtIn => 'উচ্চতা ফুট/ইঞ্চিতে';
+
+  @override
+  String get unitKg => 'ওজন কেজিতে';
+
+  @override
+  String get unitLb => 'ওজন পাউন্ডে';
+
+  @override
+  String get deleteGrowthTitle => 'এই পরিমাপ মুছবেন?';
+
+  @override
+  String get deleteGrowthMessage => 'এই বৃদ্ধির রেকর্ড এই ডিভাইস থেকে সরবে।';
+
+  @override
+  String get milestonesTitle => 'মাইলস্টোন';
+
+  @override
+  String get milestoneCategories => 'বিভাগ';
+
+  @override
+  String get milestoneTemplates => 'দ্রুত মাইলস্টোন';
+
+  @override
+  String get recentMilestones => 'সাম্প্রতিক মাইলস্টোন';
+
+  @override
+  String get milestonesEmpty => 'এখনো কোনো মাইলস্টোন নেই। প্রথমটি উদযাপন করুন!';
+
+  @override
+  String get milestoneTitleField => 'শিরোনাম';
+
+  @override
+  String get milestoneTitleRequired => 'মাইলস্টোনের শিরোনাম আবশ্যক।';
+
+  @override
+  String get saveMilestone => 'মাইলস্টোন সংরক্ষণ';
+
+  @override
+  String get milestoneMovement => 'চলাফেরা';
+
+  @override
+  String get milestoneSpeech => 'কথা';
+
+  @override
+  String get milestoneSocial => 'সামাজিক';
+
+  @override
+  String get milestoneSelfCare => 'নিজের যত্ন';
+
+  @override
+  String get milestoneLearning => 'শেখা';
+
+  @override
+  String get milestoneCustom => 'কাস্টম';
+
+  @override
+  String get templateFirstCrawl => 'প্রথম হামাগুড়ি';
+
+  @override
+  String get templateFirstStand => 'প্রথম দাঁড়ানো';
+
+  @override
+  String get templateFirstStep => 'প্রথম পা';
+
+  @override
+  String get templateFirstWalk => 'প্রথম হাঁটা';
+
+  @override
+  String get templateFirstRun => 'প্রথম দৌড়';
+
+  @override
+  String get templateFirstBicycle => 'প্রথম সাইকেল';
+
+  @override
+  String get templateFirstWord => 'প্রথম কথা';
+
+  @override
+  String get templateFirstSentence => 'প্রথম বাক্য';
+
+  @override
+  String get templateWroteOwnName => 'নিজের নাম লেখা';
+
+  @override
+  String get deleteMilestoneTitle => 'এই মাইলস্টোন মুছবেন?';
+
+  @override
+  String get deleteMilestoneMessage => 'এই মাইলস্টোন এই ডিভাইস থেকে সরবে।';
+
+  @override
+  String get datePrecisionLabel => 'তারিখ কতটা নিশ্চিত?';
+
+  @override
+  String get datePrecisionExact => 'সঠিক তারিখ';
+
+  @override
+  String get datePrecisionMonth => 'শুধু মাস';
+
+  @override
+  String get datePrecisionYear => 'শুধু বছর';
+
+  @override
+  String get datePrecisionApproximate => 'আনুমানিক';
+
+  @override
+  String get datePrecisionUnknown => 'অজানা';
+
+  @override
+  String get datePrecisionPick => 'তারিখ বেছে নিন';
+
+  @override
+  String get datePrecisionPickMonth => 'মাস বেছে নিন';
+
+  @override
+  String get datePrecisionPickYear => 'বছর বেছে নিন';
+
+  @override
+  String get firstWordsTitle => 'প্রথম কথা';
+
+  @override
+  String get firstWordsEmpty => 'এখনো কোনো প্রথম কথা নেই।';
+
+  @override
+  String get firstWordDetail => 'প্রথম কথা';
+
+  @override
+  String get firstWordField => 'শব্দ';
+
+  @override
+  String get firstWordRequired => 'শব্দ আবশ্যক।';
+
+  @override
+  String get firstWordLanguage => 'ভাষা';
+
+  @override
+  String get firstWordLanguageHint => 'বাংলা, ইংরেজি…';
+
+  @override
+  String get firstWordContext => 'গল্প / প্রসঙ্গ';
+
+  @override
+  String get firstWordAudioPlaceholder => 'অডিও পরে আসবে';
+
+  @override
+  String get firstWordAudioHint => 'ভবিষ্যতে অডিও রেকর্ডের জন্য চিহ্নিত করুন।';
+
+  @override
+  String get saveFirstWord => 'প্রথম কথা সংরক্ষণ';
+
+  @override
+  String get deleteFirstWordTitle => 'এই প্রথম কথা মুছবেন?';
+
+  @override
+  String get deleteFirstWordMessage => 'এই প্রথম কথা এই ডিভাইস থেকে সরবে।';
 
   @override
   String get addMemory => 'স্মৃতি যোগ করুন';

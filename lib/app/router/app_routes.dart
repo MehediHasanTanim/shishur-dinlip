@@ -22,6 +22,14 @@ abstract final class AppRoutes {
   static const funnyCreate = '/funny/create';
   static const achievementCreate = '/achievements/create';
 
+  static const growth = '/growth';
+  static const growthHistory = '/growth/history';
+  static const growthCreate = '/growth/create';
+  static const milestones = '/milestones';
+  static const milestoneCreate = '/milestones/create';
+  static const firstWords = '/first-words';
+  static const firstWordCreate = '/first-words/create';
+
   static String childDetailPath(String id) => '/children/$id';
   static String childEditPath(String id) => '/children/$id/edit';
 
@@ -36,4 +44,27 @@ abstract final class AppRoutes {
   static String funnyEditPath(String id) => '/funny/$id/edit';
   static String achievementDetailPath(String id) => '/achievements/$id';
   static String achievementEditPath(String id) => '/achievements/$id/edit';
+
+  static String growthDetailPath(String id) => '/growth/$id';
+  static String growthEditPath(String id) => '/growth/$id/edit';
+
+  static String milestoneCreatePath({String? template, String? category}) {
+    final params = <String, String>{};
+    if (template != null && template.isNotEmpty) {
+      params['template'] = template;
+    }
+    if (category != null && category.isNotEmpty) {
+      params['category'] = category;
+    }
+    if (params.isEmpty) return milestoneCreate;
+    return Uri(path: milestoneCreate, queryParameters: params).toString();
+  }
+
+  static String milestoneDetailPath(String id) => '/milestones/$id';
+  static String milestoneEditPath(String id) => '/milestones/$id/edit';
+  static String milestonesByCategoryPath(String category) =>
+      '/milestones/category/$category';
+
+  static String firstWordDetailPath(String id) => '/first-words/$id';
+  static String firstWordEditPath(String id) => '/first-words/$id/edit';
 }

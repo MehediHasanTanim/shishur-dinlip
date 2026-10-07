@@ -4,9 +4,12 @@ import 'package:shishur_dinlipi/core/database/daos/achievements_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/attachments_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/audit_events_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/children_dao.dart';
+import 'package:shishur_dinlipi/core/database/daos/first_words_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/funny_moments_dao.dart';
+import 'package:shishur_dinlipi/core/database/daos/growth_records_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/journal_entries_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/media_assets_dao.dart';
+import 'package:shishur_dinlipi/core/database/daos/milestones_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/reminders_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/settings_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/tags_dao.dart';
@@ -14,9 +17,12 @@ import 'package:shishur_dinlipi/core/database/tables/achievements_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/attachments_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/audit_events_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/children_table.dart';
+import 'package:shishur_dinlipi/core/database/tables/first_words_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/funny_moments_table.dart';
+import 'package:shishur_dinlipi/core/database/tables/growth_records_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/journal_entries_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/media_assets_table.dart';
+import 'package:shishur_dinlipi/core/database/tables/milestones_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/reminders_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/settings_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/tag_links_table.dart';
@@ -38,6 +44,9 @@ part 'app_database.g.dart';
     JournalEntries,
     FunnyMoments,
     Achievements,
+    GrowthRecords,
+    Milestones,
+    FirstWords,
   ],
   daos: [
     ChildrenDao,
@@ -50,6 +59,9 @@ part 'app_database.g.dart';
     JournalEntriesDao,
     FunnyMomentsDao,
     AchievementsDao,
+    GrowthRecordsDao,
+    MilestonesDao,
+    FirstWordsDao,
   ],
 )
 class AppDatabase extends _$AppDatabase {
@@ -60,7 +72,7 @@ class AppDatabase extends _$AppDatabase {
   factory AppDatabase.memory() => AppDatabase(openMemoryConnection());
 
   /// Bump when schema changes; add steps in [migration].
-  static const int currentSchemaVersion = 2;
+  static const int currentSchemaVersion = 3;
 
   @override
   int get schemaVersion => currentSchemaVersion;
@@ -79,6 +91,11 @@ class AppDatabase extends _$AppDatabase {
         await m.createTable(journalEntries);
         await m.createTable(funnyMoments);
         await m.createTable(achievements);
+      }
+      if (from < 3) {
+        await m.createTable(growthRecords);
+        await m.createTable(milestones);
+        await m.createTable(firstWords);
       }
     },
     beforeOpen: (details) async {

@@ -12,6 +12,18 @@ import 'package:shishur_dinlipi/features/children/child_detail_screen.dart';
 import 'package:shishur_dinlipi/features/children/child_editor_screen.dart';
 import 'package:shishur_dinlipi/features/children/children_list_screen.dart';
 import 'package:shishur_dinlipi/features/home/home_screen.dart';
+import 'package:shishur_dinlipi/features/development/first_word_detail_screen.dart';
+import 'package:shishur_dinlipi/features/development/first_word_editor_screen.dart';
+import 'package:shishur_dinlipi/features/development/first_words_list_screen.dart';
+import 'package:shishur_dinlipi/features/development/growth_detail_screen.dart';
+import 'package:shishur_dinlipi/features/development/growth_editor_screen.dart';
+import 'package:shishur_dinlipi/features/development/growth_history_screen.dart';
+import 'package:shishur_dinlipi/features/development/growth_overview_screen.dart';
+import 'package:shishur_dinlipi/features/development/milestone_detail_screen.dart';
+import 'package:shishur_dinlipi/features/development/milestone_editor_screen.dart';
+import 'package:shishur_dinlipi/features/development/milestone_list_screen.dart';
+import 'package:shishur_dinlipi/features/development/milestone_templates.dart';
+import 'package:shishur_dinlipi/features/development/milestones_overview_screen.dart';
 import 'package:shishur_dinlipi/features/memories/achievement_detail_screen.dart';
 import 'package:shishur_dinlipi/features/memories/achievement_editor_screen.dart';
 import 'package:shishur_dinlipi/features/memories/funny_moment_detail_screen.dart';
@@ -183,6 +195,111 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             parentNavigatorKey: _rootNavigatorKey,
             builder: (context, state) => AchievementEditorScreen(
               achievementId: state.pathParameters['id'],
+            ),
+          ),
+        ],
+      ),
+      GoRoute(
+        path: AppRoutes.growth,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const GrowthOverviewScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.growthHistory,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const GrowthHistoryScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.growthCreate,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const GrowthEditorScreen(),
+      ),
+      GoRoute(
+        path: '/growth/:id',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => GrowthDetailScreen(
+          recordId: state.pathParameters['id']!,
+        ),
+        routes: [
+          GoRoute(
+            path: 'edit',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (context, state) => GrowthEditorScreen(
+              recordId: state.pathParameters['id'],
+            ),
+          ),
+        ],
+      ),
+      GoRoute(
+        path: AppRoutes.milestones,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const MilestonesOverviewScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.milestoneCreate,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) {
+          final raw = state.uri.queryParameters['template'];
+          MilestoneTemplate? template;
+          if (raw != null) {
+            for (final value in MilestoneTemplate.values) {
+              if (value.name == raw) {
+                template = value;
+                break;
+              }
+            }
+          }
+          return MilestoneEditorScreen(
+            template: template,
+            initialCategory: state.uri.queryParameters['category'],
+          );
+        },
+      ),
+      GoRoute(
+        path: '/milestones/category/:category',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => MilestoneListScreen(
+          category: state.pathParameters['category']!,
+        ),
+      ),
+      GoRoute(
+        path: '/milestones/:id',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => MilestoneDetailScreen(
+          milestoneId: state.pathParameters['id']!,
+        ),
+        routes: [
+          GoRoute(
+            path: 'edit',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (context, state) => MilestoneEditorScreen(
+              milestoneId: state.pathParameters['id'],
+            ),
+          ),
+        ],
+      ),
+      GoRoute(
+        path: AppRoutes.firstWords,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const FirstWordsListScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.firstWordCreate,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const FirstWordEditorScreen(),
+      ),
+      GoRoute(
+        path: '/first-words/:id',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => FirstWordDetailScreen(
+          wordId: state.pathParameters['id']!,
+        ),
+        routes: [
+          GoRoute(
+            path: 'edit',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (context, state) => FirstWordEditorScreen(
+              wordId: state.pathParameters['id'],
             ),
           ),
         ],

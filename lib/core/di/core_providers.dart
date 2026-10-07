@@ -8,8 +8,11 @@ import 'package:shishur_dinlipi/core/permissions/permission_service.dart';
 import 'package:shishur_dinlipi/core/repository/achievements_repository.dart';
 import 'package:shishur_dinlipi/core/repository/attachment_repository.dart';
 import 'package:shishur_dinlipi/core/repository/children_repository.dart';
+import 'package:shishur_dinlipi/core/repository/first_words_repository.dart';
 import 'package:shishur_dinlipi/core/repository/funny_moments_repository.dart';
+import 'package:shishur_dinlipi/core/repository/growth_repository.dart';
 import 'package:shishur_dinlipi/core/repository/journal_repository.dart';
+import 'package:shishur_dinlipi/core/repository/milestones_repository.dart';
 import 'package:shishur_dinlipi/core/repository/tags_repository.dart';
 import 'package:shishur_dinlipi/core/settings/settings_repository.dart';
 import 'package:shishur_dinlipi/features/children/profile_photo_service.dart';
@@ -94,4 +97,19 @@ final achievementsRepositoryProvider = Provider<AchievementsRepository>((ref) {
     ref.watch(appDatabaseProvider),
     attachments: ref.watch(attachmentRepositoryProvider),
   );
+});
+
+final growthRepositoryProvider = Provider<GrowthRepository>((ref) {
+  return DriftGrowthRepository(ref.watch(appDatabaseProvider));
+});
+
+final milestonesRepositoryProvider = Provider<MilestonesRepository>((ref) {
+  return DriftMilestonesRepository(
+    ref.watch(appDatabaseProvider),
+    attachments: ref.watch(attachmentRepositoryProvider),
+  );
+});
+
+final firstWordsRepositoryProvider = Provider<FirstWordsRepository>((ref) {
+  return DriftFirstWordsRepository(ref.watch(appDatabaseProvider));
 });

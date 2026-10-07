@@ -917,8 +917,500 @@ abstract class AppLocalizations {
   /// No description provided for @addComingSoonMessage.
   ///
   /// In en, this message translates to:
-  /// **'Growth, milestones, and health records arrive in later sprints.'**
+  /// **'School and health records arrive in later sprints.'**
   String get addComingSoonMessage;
+
+  /// No description provided for @addGroupDevelopment.
+  ///
+  /// In en, this message translates to:
+  /// **'Development'**
+  String get addGroupDevelopment;
+
+  /// No description provided for @addGrowth.
+  ///
+  /// In en, this message translates to:
+  /// **'Add growth'**
+  String get addGrowth;
+
+  /// No description provided for @editGrowth.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit growth'**
+  String get editGrowth;
+
+  /// No description provided for @addGrowthSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Record height and weight.'**
+  String get addGrowthSubtitle;
+
+  /// No description provided for @addMilestone.
+  ///
+  /// In en, this message translates to:
+  /// **'Add milestone'**
+  String get addMilestone;
+
+  /// No description provided for @editMilestone.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit milestone'**
+  String get editMilestone;
+
+  /// No description provided for @addMilestoneSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'First steps, words, and more.'**
+  String get addMilestoneSubtitle;
+
+  /// No description provided for @addFirstWord.
+  ///
+  /// In en, this message translates to:
+  /// **'Add first word'**
+  String get addFirstWord;
+
+  /// No description provided for @editFirstWord.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit first word'**
+  String get editFirstWord;
+
+  /// No description provided for @addFirstWordSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Capture the first spoken word.'**
+  String get addFirstWordSubtitle;
+
+  /// No description provided for @growthTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Growth'**
+  String get growthTitle;
+
+  /// No description provided for @growthHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Growth history'**
+  String get growthHistory;
+
+  /// No description provided for @growthDetail.
+  ///
+  /// In en, this message translates to:
+  /// **'Measurement'**
+  String get growthDetail;
+
+  /// No description provided for @growthHeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Height'**
+  String get growthHeight;
+
+  /// No description provided for @growthWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight'**
+  String get growthWeight;
+
+  /// No description provided for @growthHeightCm.
+  ///
+  /// In en, this message translates to:
+  /// **'Height (cm)'**
+  String get growthHeightCm;
+
+  /// No description provided for @growthHeightFt.
+  ///
+  /// In en, this message translates to:
+  /// **'Feet'**
+  String get growthHeightFt;
+
+  /// No description provided for @growthHeightIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Inches'**
+  String get growthHeightIn;
+
+  /// No description provided for @growthWeightKg.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight (kg)'**
+  String get growthWeightKg;
+
+  /// No description provided for @growthWeightLb.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight (lb)'**
+  String get growthWeightLb;
+
+  /// No description provided for @growthNeedValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter height, weight, or both.'**
+  String get growthNeedValue;
+
+  /// No description provided for @growthPreviousContext.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous: {height} · {weight}'**
+  String growthPreviousContext(String height, String weight);
+
+  /// No description provided for @saveGrowth.
+  ///
+  /// In en, this message translates to:
+  /// **'Save measurement'**
+  String get saveGrowth;
+
+  /// No description provided for @growthHeightChart.
+  ///
+  /// In en, this message translates to:
+  /// **'Height'**
+  String get growthHeightChart;
+
+  /// No description provided for @growthWeightChart.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight'**
+  String get growthWeightChart;
+
+  /// No description provided for @growthRange6m.
+  ///
+  /// In en, this message translates to:
+  /// **'6 mo'**
+  String get growthRange6m;
+
+  /// No description provided for @growthRange1y.
+  ///
+  /// In en, this message translates to:
+  /// **'1 yr'**
+  String get growthRange1y;
+
+  /// No description provided for @growthRangeAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get growthRangeAll;
+
+  /// No description provided for @growthChartNeedMore.
+  ///
+  /// In en, this message translates to:
+  /// **'Add at least two measurements to see a chart.'**
+  String get growthChartNeedMore;
+
+  /// No description provided for @unitCm.
+  ///
+  /// In en, this message translates to:
+  /// **'Height in cm'**
+  String get unitCm;
+
+  /// No description provided for @unitFtIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Height in ft/in'**
+  String get unitFtIn;
+
+  /// No description provided for @unitKg.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight in kg'**
+  String get unitKg;
+
+  /// No description provided for @unitLb.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight in lb'**
+  String get unitLb;
+
+  /// No description provided for @deleteGrowthTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this measurement?'**
+  String get deleteGrowthTitle;
+
+  /// No description provided for @deleteGrowthMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This growth record will be removed from this device.'**
+  String get deleteGrowthMessage;
+
+  /// No description provided for @milestonesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Milestones'**
+  String get milestonesTitle;
+
+  /// No description provided for @milestoneCategories.
+  ///
+  /// In en, this message translates to:
+  /// **'Categories'**
+  String get milestoneCategories;
+
+  /// No description provided for @milestoneTemplates.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick milestones'**
+  String get milestoneTemplates;
+
+  /// No description provided for @recentMilestones.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent milestones'**
+  String get recentMilestones;
+
+  /// No description provided for @milestonesEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No milestones yet. Celebrate a first!'**
+  String get milestonesEmpty;
+
+  /// No description provided for @milestoneTitleField.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get milestoneTitleField;
+
+  /// No description provided for @milestoneTitleRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Milestone title is required.'**
+  String get milestoneTitleRequired;
+
+  /// No description provided for @saveMilestone.
+  ///
+  /// In en, this message translates to:
+  /// **'Save milestone'**
+  String get saveMilestone;
+
+  /// No description provided for @milestoneMovement.
+  ///
+  /// In en, this message translates to:
+  /// **'Movement'**
+  String get milestoneMovement;
+
+  /// No description provided for @milestoneSpeech.
+  ///
+  /// In en, this message translates to:
+  /// **'Speech'**
+  String get milestoneSpeech;
+
+  /// No description provided for @milestoneSocial.
+  ///
+  /// In en, this message translates to:
+  /// **'Social'**
+  String get milestoneSocial;
+
+  /// No description provided for @milestoneSelfCare.
+  ///
+  /// In en, this message translates to:
+  /// **'Self-care'**
+  String get milestoneSelfCare;
+
+  /// No description provided for @milestoneLearning.
+  ///
+  /// In en, this message translates to:
+  /// **'Learning'**
+  String get milestoneLearning;
+
+  /// No description provided for @milestoneCustom.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom'**
+  String get milestoneCustom;
+
+  /// No description provided for @templateFirstCrawl.
+  ///
+  /// In en, this message translates to:
+  /// **'First crawl'**
+  String get templateFirstCrawl;
+
+  /// No description provided for @templateFirstStand.
+  ///
+  /// In en, this message translates to:
+  /// **'First stand'**
+  String get templateFirstStand;
+
+  /// No description provided for @templateFirstStep.
+  ///
+  /// In en, this message translates to:
+  /// **'First step'**
+  String get templateFirstStep;
+
+  /// No description provided for @templateFirstWalk.
+  ///
+  /// In en, this message translates to:
+  /// **'First walk'**
+  String get templateFirstWalk;
+
+  /// No description provided for @templateFirstRun.
+  ///
+  /// In en, this message translates to:
+  /// **'First run'**
+  String get templateFirstRun;
+
+  /// No description provided for @templateFirstBicycle.
+  ///
+  /// In en, this message translates to:
+  /// **'First bicycle ride'**
+  String get templateFirstBicycle;
+
+  /// No description provided for @templateFirstWord.
+  ///
+  /// In en, this message translates to:
+  /// **'First word'**
+  String get templateFirstWord;
+
+  /// No description provided for @templateFirstSentence.
+  ///
+  /// In en, this message translates to:
+  /// **'First sentence'**
+  String get templateFirstSentence;
+
+  /// No description provided for @templateWroteOwnName.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrote own name'**
+  String get templateWroteOwnName;
+
+  /// No description provided for @deleteMilestoneTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this milestone?'**
+  String get deleteMilestoneTitle;
+
+  /// No description provided for @deleteMilestoneMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This milestone will be removed from this device.'**
+  String get deleteMilestoneMessage;
+
+  /// No description provided for @datePrecisionLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'How sure are you about the date?'**
+  String get datePrecisionLabel;
+
+  /// No description provided for @datePrecisionExact.
+  ///
+  /// In en, this message translates to:
+  /// **'Exact date'**
+  String get datePrecisionExact;
+
+  /// No description provided for @datePrecisionMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'Month only'**
+  String get datePrecisionMonth;
+
+  /// No description provided for @datePrecisionYear.
+  ///
+  /// In en, this message translates to:
+  /// **'Year only'**
+  String get datePrecisionYear;
+
+  /// No description provided for @datePrecisionApproximate.
+  ///
+  /// In en, this message translates to:
+  /// **'Approximate'**
+  String get datePrecisionApproximate;
+
+  /// No description provided for @datePrecisionUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown'**
+  String get datePrecisionUnknown;
+
+  /// No description provided for @datePrecisionPick.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a date'**
+  String get datePrecisionPick;
+
+  /// No description provided for @datePrecisionPickMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose month'**
+  String get datePrecisionPickMonth;
+
+  /// No description provided for @datePrecisionPickYear.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose year'**
+  String get datePrecisionPickYear;
+
+  /// No description provided for @firstWordsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'First words'**
+  String get firstWordsTitle;
+
+  /// No description provided for @firstWordsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No first words yet.'**
+  String get firstWordsEmpty;
+
+  /// No description provided for @firstWordDetail.
+  ///
+  /// In en, this message translates to:
+  /// **'First word'**
+  String get firstWordDetail;
+
+  /// No description provided for @firstWordField.
+  ///
+  /// In en, this message translates to:
+  /// **'Word'**
+  String get firstWordField;
+
+  /// No description provided for @firstWordRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Word is required.'**
+  String get firstWordRequired;
+
+  /// No description provided for @firstWordLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get firstWordLanguage;
+
+  /// No description provided for @firstWordLanguageHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Bangla, English…'**
+  String get firstWordLanguageHint;
+
+  /// No description provided for @firstWordContext.
+  ///
+  /// In en, this message translates to:
+  /// **'Story / context'**
+  String get firstWordContext;
+
+  /// No description provided for @firstWordAudioPlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Audio coming later'**
+  String get firstWordAudioPlaceholder;
+
+  /// No description provided for @firstWordAudioHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Mark this for future audio recording support.'**
+  String get firstWordAudioHint;
+
+  /// No description provided for @saveFirstWord.
+  ///
+  /// In en, this message translates to:
+  /// **'Save first word'**
+  String get saveFirstWord;
+
+  /// No description provided for @deleteFirstWordTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this first word?'**
+  String get deleteFirstWordTitle;
+
+  /// No description provided for @deleteFirstWordMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This first word will be removed from this device.'**
+  String get deleteFirstWordMessage;
 
   /// No description provided for @addMemory.
   ///

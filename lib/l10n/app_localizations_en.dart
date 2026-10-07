@@ -438,7 +438,260 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get addComingSoonMessage =>
-      'Growth, milestones, and health records arrive in later sprints.';
+      'School and health records arrive in later sprints.';
+
+  @override
+  String get addGroupDevelopment => 'Development';
+
+  @override
+  String get addGrowth => 'Add growth';
+
+  @override
+  String get editGrowth => 'Edit growth';
+
+  @override
+  String get addGrowthSubtitle => 'Record height and weight.';
+
+  @override
+  String get addMilestone => 'Add milestone';
+
+  @override
+  String get editMilestone => 'Edit milestone';
+
+  @override
+  String get addMilestoneSubtitle => 'First steps, words, and more.';
+
+  @override
+  String get addFirstWord => 'Add first word';
+
+  @override
+  String get editFirstWord => 'Edit first word';
+
+  @override
+  String get addFirstWordSubtitle => 'Capture the first spoken word.';
+
+  @override
+  String get growthTitle => 'Growth';
+
+  @override
+  String get growthHistory => 'Growth history';
+
+  @override
+  String get growthDetail => 'Measurement';
+
+  @override
+  String get growthHeight => 'Height';
+
+  @override
+  String get growthWeight => 'Weight';
+
+  @override
+  String get growthHeightCm => 'Height (cm)';
+
+  @override
+  String get growthHeightFt => 'Feet';
+
+  @override
+  String get growthHeightIn => 'Inches';
+
+  @override
+  String get growthWeightKg => 'Weight (kg)';
+
+  @override
+  String get growthWeightLb => 'Weight (lb)';
+
+  @override
+  String get growthNeedValue => 'Enter height, weight, or both.';
+
+  @override
+  String growthPreviousContext(String height, String weight) {
+    return 'Previous: $height · $weight';
+  }
+
+  @override
+  String get saveGrowth => 'Save measurement';
+
+  @override
+  String get growthHeightChart => 'Height';
+
+  @override
+  String get growthWeightChart => 'Weight';
+
+  @override
+  String get growthRange6m => '6 mo';
+
+  @override
+  String get growthRange1y => '1 yr';
+
+  @override
+  String get growthRangeAll => 'All';
+
+  @override
+  String get growthChartNeedMore =>
+      'Add at least two measurements to see a chart.';
+
+  @override
+  String get unitCm => 'Height in cm';
+
+  @override
+  String get unitFtIn => 'Height in ft/in';
+
+  @override
+  String get unitKg => 'Weight in kg';
+
+  @override
+  String get unitLb => 'Weight in lb';
+
+  @override
+  String get deleteGrowthTitle => 'Delete this measurement?';
+
+  @override
+  String get deleteGrowthMessage =>
+      'This growth record will be removed from this device.';
+
+  @override
+  String get milestonesTitle => 'Milestones';
+
+  @override
+  String get milestoneCategories => 'Categories';
+
+  @override
+  String get milestoneTemplates => 'Quick milestones';
+
+  @override
+  String get recentMilestones => 'Recent milestones';
+
+  @override
+  String get milestonesEmpty => 'No milestones yet. Celebrate a first!';
+
+  @override
+  String get milestoneTitleField => 'Title';
+
+  @override
+  String get milestoneTitleRequired => 'Milestone title is required.';
+
+  @override
+  String get saveMilestone => 'Save milestone';
+
+  @override
+  String get milestoneMovement => 'Movement';
+
+  @override
+  String get milestoneSpeech => 'Speech';
+
+  @override
+  String get milestoneSocial => 'Social';
+
+  @override
+  String get milestoneSelfCare => 'Self-care';
+
+  @override
+  String get milestoneLearning => 'Learning';
+
+  @override
+  String get milestoneCustom => 'Custom';
+
+  @override
+  String get templateFirstCrawl => 'First crawl';
+
+  @override
+  String get templateFirstStand => 'First stand';
+
+  @override
+  String get templateFirstStep => 'First step';
+
+  @override
+  String get templateFirstWalk => 'First walk';
+
+  @override
+  String get templateFirstRun => 'First run';
+
+  @override
+  String get templateFirstBicycle => 'First bicycle ride';
+
+  @override
+  String get templateFirstWord => 'First word';
+
+  @override
+  String get templateFirstSentence => 'First sentence';
+
+  @override
+  String get templateWroteOwnName => 'Wrote own name';
+
+  @override
+  String get deleteMilestoneTitle => 'Delete this milestone?';
+
+  @override
+  String get deleteMilestoneMessage =>
+      'This milestone will be removed from this device.';
+
+  @override
+  String get datePrecisionLabel => 'How sure are you about the date?';
+
+  @override
+  String get datePrecisionExact => 'Exact date';
+
+  @override
+  String get datePrecisionMonth => 'Month only';
+
+  @override
+  String get datePrecisionYear => 'Year only';
+
+  @override
+  String get datePrecisionApproximate => 'Approximate';
+
+  @override
+  String get datePrecisionUnknown => 'Unknown';
+
+  @override
+  String get datePrecisionPick => 'Choose a date';
+
+  @override
+  String get datePrecisionPickMonth => 'Choose month';
+
+  @override
+  String get datePrecisionPickYear => 'Choose year';
+
+  @override
+  String get firstWordsTitle => 'First words';
+
+  @override
+  String get firstWordsEmpty => 'No first words yet.';
+
+  @override
+  String get firstWordDetail => 'First word';
+
+  @override
+  String get firstWordField => 'Word';
+
+  @override
+  String get firstWordRequired => 'Word is required.';
+
+  @override
+  String get firstWordLanguage => 'Language';
+
+  @override
+  String get firstWordLanguageHint => 'Bangla, English…';
+
+  @override
+  String get firstWordContext => 'Story / context';
+
+  @override
+  String get firstWordAudioPlaceholder => 'Audio coming later';
+
+  @override
+  String get firstWordAudioHint =>
+      'Mark this for future audio recording support.';
+
+  @override
+  String get saveFirstWord => 'Save first word';
+
+  @override
+  String get deleteFirstWordTitle => 'Delete this first word?';
+
+  @override
+  String get deleteFirstWordMessage =>
+      'This first word will be removed from this device.';
 
   @override
   String get addMemory => 'Add memory';

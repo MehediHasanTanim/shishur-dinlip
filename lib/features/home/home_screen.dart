@@ -6,7 +6,9 @@ import 'package:shishur_dinlipi/core/domain/age.dart';
 import 'package:shishur_dinlipi/core/settings/settings_controller.dart';
 import 'package:shishur_dinlipi/features/children/child_controller.dart';
 import 'package:shishur_dinlipi/features/children/widgets/child_switcher_sheet.dart';
-import 'package:shishur_dinlipi/features/memories/journal_templates.dart';
+import 'package:shishur_dinlipi/core/domain/unit_conversion.dart';
+import 'package:shishur_dinlipi/core/settings/app_settings.dart';
+import 'package:shishur_dinlipi/features/development/growth_providers.dart';
 import 'package:shishur_dinlipi/features/memories/recent_memories_provider.dart';
 import 'package:shishur_dinlipi/l10n/app_localizations.dart';
 import 'package:shishur_dinlipi/shared/widgets/child_avatar.dart';
@@ -101,10 +103,7 @@ class HomeScreen extends ConsumerWidget {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     const SizedBox(height: 8),
-                    _PlaceholderCard(
-                      icon: Icons.show_chart,
-                      message: l10n.growthEmpty,
-                    ),
+                    const _GrowthSnapshotCard(),
                     const SizedBox(height: 24),
                     Text(
                       l10n.quickAdd,
@@ -121,13 +120,14 @@ class HomeScreen extends ConsumerWidget {
                           onTap: () => context.push(AppRoutes.journalCreate),
                         ),
                         _QuickAddChip(
-                          label: l10n.quickAddPhoto,
-                          icon: Icons.photo_outlined,
-                          onTap: () => context.push(
-                            AppRoutes.journalCreatePath(
-                              template: JournalTemplate.photoMemory.name,
-                            ),
-                          ),
+                          label: l10n.quickAddGrowth,
+                          icon: Icons.monitor_weight_outlined,
+                          onTap: () => context.push(AppRoutes.growthCreate),
+                        ),
+                        _QuickAddChip(
+                          label: l10n.quickAddMilestone,
+                          icon: Icons.stairs_outlined,
+                          onTap: () => context.push(AppRoutes.milestoneCreate),
                         ),
                         _QuickAddChip(
                           label: l10n.addFunnyMoment,
@@ -262,6 +262,75 @@ class _QuickAddChip extends StatelessWidget {
       avatar: Icon(icon, size: 18),
       label: Text(label),
       onPressed: onTap,
+    );
+  }
+}
+
+class _GrowthSnapshotCard extends ConsumerWidget {
+  const _GrowthSnapshotCard();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final settings = ref.watch(settingsControllerProvider).valueOrNull;
+    final bangla = Localizations.localeOf(context).languageCode == 'bn';
+    final useBn = settings?.useBengaliDigits ?? false;
+    final latestAsync = ref.watch(latestGrowthProvider);
+
+    return latestAsync.when(
+      loading: () => const Card(
+        child: Padding(
+          padding: EdgeInsets.all(16),
+          child: LinearProgressIndicator(),
+        ),
+      ),
+      error: (_, _) => _PlaceholderCard(
+        icon: Icons.show_chart,
+        message: l10n.errorGeneric,
+      ),
+      data: (latest) {
+        if (latest == null) {
+          return Card(
+            child: ListTile(
+              leading: Icon(
+                Icons.show_chart,
+                color: Theme.of(context).colorScheme.primary,
+              ),
+              title: Text(l10n.growthEmpty),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => context.push(AppRoutes.growthCreate),
+            ),
+          );
+        }
+        final height = UnitConversion.formatHeight(
+          heightCm: latest.heightCm,
+          unit: settings?.heightUnit ?? HeightUnit.cm,
+          bangla: bangla,
+          useBengaliDigits: useBn,
+        );
+        final weight = UnitConversion.formatWeight(
+          weightKg: latest.weightKg,
+          unit: settings?.weightUnit ?? WeightUnit.kg,
+          bangla: bangla,
+          useBengaliDigits: useBn,
+        );
+        return Card(
+          child: ListTile(
+            leading: Icon(
+              Icons.show_chart,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+            title: Text('$height · $weight'),
+            subtitle: Text(
+              MaterialLocalizations.of(
+                context,
+              ).formatMediumDate(latest.measuredAt),
+            ),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => context.push(AppRoutes.growth),
+          ),
+        );
+      },
     );
   }
 }

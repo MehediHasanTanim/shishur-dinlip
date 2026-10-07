@@ -3,6 +3,9 @@ abstract final class EntityTypes {
   static const journalEntry = 'journal_entry';
   static const funnyMoment = 'funny_moment';
   static const achievement = 'achievement';
+  static const milestone = 'milestone';
+  static const firstWord = 'first_word';
+  static const growthRecord = 'growth_record';
 }
 
 abstract final class JournalEntryTypes {

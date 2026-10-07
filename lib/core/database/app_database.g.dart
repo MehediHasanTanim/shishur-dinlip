@@ -6807,6 +6807,2091 @@ class AchievementsCompanion extends UpdateCompanion<AchievementRow> {
   }
 }
 
+class $GrowthRecordsTable extends GrowthRecords
+    with TableInfo<$GrowthRecordsTable, GrowthRecordRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $GrowthRecordsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _childIdMeta = const VerificationMeta(
+    'childId',
+  );
+  @override
+  late final GeneratedColumn<String> childId = GeneratedColumn<String>(
+    'child_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _measuredAtMeta = const VerificationMeta(
+    'measuredAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> measuredAt = GeneratedColumn<DateTime>(
+    'measured_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _heightCmMeta = const VerificationMeta(
+    'heightCm',
+  );
+  @override
+  late final GeneratedColumn<double> heightCm = GeneratedColumn<double>(
+    'height_cm',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _weightKgMeta = const VerificationMeta(
+    'weightKg',
+  );
+  @override
+  late final GeneratedColumn<double> weightKg = GeneratedColumn<double>(
+    'weight_kg',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _measurementLocationMeta =
+      const VerificationMeta('measurementLocation');
+  @override
+  late final GeneratedColumn<String> measurementLocation =
+      GeneratedColumn<String>(
+        'measurement_location',
+        aliasedName,
+        true,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _notesMeta = const VerificationMeta('notes');
+  @override
+  late final GeneratedColumn<String> notes = GeneratedColumn<String>(
+    'notes',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    childId,
+    measuredAt,
+    heightCm,
+    weightKg,
+    measurementLocation,
+    notes,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'growth_records';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<GrowthRecordRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('child_id')) {
+      context.handle(
+        _childIdMeta,
+        childId.isAcceptableOrUnknown(data['child_id']!, _childIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_childIdMeta);
+    }
+    if (data.containsKey('measured_at')) {
+      context.handle(
+        _measuredAtMeta,
+        measuredAt.isAcceptableOrUnknown(data['measured_at']!, _measuredAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_measuredAtMeta);
+    }
+    if (data.containsKey('height_cm')) {
+      context.handle(
+        _heightCmMeta,
+        heightCm.isAcceptableOrUnknown(data['height_cm']!, _heightCmMeta),
+      );
+    }
+    if (data.containsKey('weight_kg')) {
+      context.handle(
+        _weightKgMeta,
+        weightKg.isAcceptableOrUnknown(data['weight_kg']!, _weightKgMeta),
+      );
+    }
+    if (data.containsKey('measurement_location')) {
+      context.handle(
+        _measurementLocationMeta,
+        measurementLocation.isAcceptableOrUnknown(
+          data['measurement_location']!,
+          _measurementLocationMeta,
+        ),
+      );
+    }
+    if (data.containsKey('notes')) {
+      context.handle(
+        _notesMeta,
+        notes.isAcceptableOrUnknown(data['notes']!, _notesMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  GrowthRecordRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return GrowthRecordRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      childId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}child_id'],
+      )!,
+      measuredAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}measured_at'],
+      )!,
+      heightCm: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}height_cm'],
+      ),
+      weightKg: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}weight_kg'],
+      ),
+      measurementLocation: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}measurement_location'],
+      ),
+      notes: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}notes'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+    );
+  }
+
+  @override
+  $GrowthRecordsTable createAlias(String alias) {
+    return $GrowthRecordsTable(attachedDatabase, alias);
+  }
+}
+
+class GrowthRecordRow extends DataClass implements Insertable<GrowthRecordRow> {
+  final String id;
+  final String childId;
+  final DateTime measuredAt;
+  final double? heightCm;
+  final double? weightKg;
+  final String? measurementLocation;
+  final String? notes;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final DateTime? deletedAt;
+  const GrowthRecordRow({
+    required this.id,
+    required this.childId,
+    required this.measuredAt,
+    this.heightCm,
+    this.weightKg,
+    this.measurementLocation,
+    this.notes,
+    required this.createdAt,
+    required this.updatedAt,
+    this.deletedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['child_id'] = Variable<String>(childId);
+    map['measured_at'] = Variable<DateTime>(measuredAt);
+    if (!nullToAbsent || heightCm != null) {
+      map['height_cm'] = Variable<double>(heightCm);
+    }
+    if (!nullToAbsent || weightKg != null) {
+      map['weight_kg'] = Variable<double>(weightKg);
+    }
+    if (!nullToAbsent || measurementLocation != null) {
+      map['measurement_location'] = Variable<String>(measurementLocation);
+    }
+    if (!nullToAbsent || notes != null) {
+      map['notes'] = Variable<String>(notes);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    return map;
+  }
+
+  GrowthRecordsCompanion toCompanion(bool nullToAbsent) {
+    return GrowthRecordsCompanion(
+      id: Value(id),
+      childId: Value(childId),
+      measuredAt: Value(measuredAt),
+      heightCm: heightCm == null && nullToAbsent
+          ? const Value.absent()
+          : Value(heightCm),
+      weightKg: weightKg == null && nullToAbsent
+          ? const Value.absent()
+          : Value(weightKg),
+      measurementLocation: measurementLocation == null && nullToAbsent
+          ? const Value.absent()
+          : Value(measurementLocation),
+      notes: notes == null && nullToAbsent
+          ? const Value.absent()
+          : Value(notes),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+    );
+  }
+
+  factory GrowthRecordRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return GrowthRecordRow(
+      id: serializer.fromJson<String>(json['id']),
+      childId: serializer.fromJson<String>(json['childId']),
+      measuredAt: serializer.fromJson<DateTime>(json['measuredAt']),
+      heightCm: serializer.fromJson<double?>(json['heightCm']),
+      weightKg: serializer.fromJson<double?>(json['weightKg']),
+      measurementLocation: serializer.fromJson<String?>(
+        json['measurementLocation'],
+      ),
+      notes: serializer.fromJson<String?>(json['notes']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'childId': serializer.toJson<String>(childId),
+      'measuredAt': serializer.toJson<DateTime>(measuredAt),
+      'heightCm': serializer.toJson<double?>(heightCm),
+      'weightKg': serializer.toJson<double?>(weightKg),
+      'measurementLocation': serializer.toJson<String?>(measurementLocation),
+      'notes': serializer.toJson<String?>(notes),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+    };
+  }
+
+  GrowthRecordRow copyWith({
+    String? id,
+    String? childId,
+    DateTime? measuredAt,
+    Value<double?> heightCm = const Value.absent(),
+    Value<double?> weightKg = const Value.absent(),
+    Value<String?> measurementLocation = const Value.absent(),
+    Value<String?> notes = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> deletedAt = const Value.absent(),
+  }) => GrowthRecordRow(
+    id: id ?? this.id,
+    childId: childId ?? this.childId,
+    measuredAt: measuredAt ?? this.measuredAt,
+    heightCm: heightCm.present ? heightCm.value : this.heightCm,
+    weightKg: weightKg.present ? weightKg.value : this.weightKg,
+    measurementLocation: measurementLocation.present
+        ? measurementLocation.value
+        : this.measurementLocation,
+    notes: notes.present ? notes.value : this.notes,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+  );
+  GrowthRecordRow copyWithCompanion(GrowthRecordsCompanion data) {
+    return GrowthRecordRow(
+      id: data.id.present ? data.id.value : this.id,
+      childId: data.childId.present ? data.childId.value : this.childId,
+      measuredAt: data.measuredAt.present
+          ? data.measuredAt.value
+          : this.measuredAt,
+      heightCm: data.heightCm.present ? data.heightCm.value : this.heightCm,
+      weightKg: data.weightKg.present ? data.weightKg.value : this.weightKg,
+      measurementLocation: data.measurementLocation.present
+          ? data.measurementLocation.value
+          : this.measurementLocation,
+      notes: data.notes.present ? data.notes.value : this.notes,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('GrowthRecordRow(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('measuredAt: $measuredAt, ')
+          ..write('heightCm: $heightCm, ')
+          ..write('weightKg: $weightKg, ')
+          ..write('measurementLocation: $measurementLocation, ')
+          ..write('notes: $notes, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    childId,
+    measuredAt,
+    heightCm,
+    weightKg,
+    measurementLocation,
+    notes,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is GrowthRecordRow &&
+          other.id == this.id &&
+          other.childId == this.childId &&
+          other.measuredAt == this.measuredAt &&
+          other.heightCm == this.heightCm &&
+          other.weightKg == this.weightKg &&
+          other.measurementLocation == this.measurementLocation &&
+          other.notes == this.notes &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.deletedAt == this.deletedAt);
+}
+
+class GrowthRecordsCompanion extends UpdateCompanion<GrowthRecordRow> {
+  final Value<String> id;
+  final Value<String> childId;
+  final Value<DateTime> measuredAt;
+  final Value<double?> heightCm;
+  final Value<double?> weightKg;
+  final Value<String?> measurementLocation;
+  final Value<String?> notes;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> deletedAt;
+  final Value<int> rowid;
+  const GrowthRecordsCompanion({
+    this.id = const Value.absent(),
+    this.childId = const Value.absent(),
+    this.measuredAt = const Value.absent(),
+    this.heightCm = const Value.absent(),
+    this.weightKg = const Value.absent(),
+    this.measurementLocation = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  GrowthRecordsCompanion.insert({
+    required String id,
+    required String childId,
+    required DateTime measuredAt,
+    this.heightCm = const Value.absent(),
+    this.weightKg = const Value.absent(),
+    this.measurementLocation = const Value.absent(),
+    this.notes = const Value.absent(),
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       childId = Value(childId),
+       measuredAt = Value(measuredAt),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt);
+  static Insertable<GrowthRecordRow> custom({
+    Expression<String>? id,
+    Expression<String>? childId,
+    Expression<DateTime>? measuredAt,
+    Expression<double>? heightCm,
+    Expression<double>? weightKg,
+    Expression<String>? measurementLocation,
+    Expression<String>? notes,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? deletedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (childId != null) 'child_id': childId,
+      if (measuredAt != null) 'measured_at': measuredAt,
+      if (heightCm != null) 'height_cm': heightCm,
+      if (weightKg != null) 'weight_kg': weightKg,
+      if (measurementLocation != null)
+        'measurement_location': measurementLocation,
+      if (notes != null) 'notes': notes,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  GrowthRecordsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? childId,
+    Value<DateTime>? measuredAt,
+    Value<double?>? heightCm,
+    Value<double?>? weightKg,
+    Value<String?>? measurementLocation,
+    Value<String?>? notes,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? deletedAt,
+    Value<int>? rowid,
+  }) {
+    return GrowthRecordsCompanion(
+      id: id ?? this.id,
+      childId: childId ?? this.childId,
+      measuredAt: measuredAt ?? this.measuredAt,
+      heightCm: heightCm ?? this.heightCm,
+      weightKg: weightKg ?? this.weightKg,
+      measurementLocation: measurementLocation ?? this.measurementLocation,
+      notes: notes ?? this.notes,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (childId.present) {
+      map['child_id'] = Variable<String>(childId.value);
+    }
+    if (measuredAt.present) {
+      map['measured_at'] = Variable<DateTime>(measuredAt.value);
+    }
+    if (heightCm.present) {
+      map['height_cm'] = Variable<double>(heightCm.value);
+    }
+    if (weightKg.present) {
+      map['weight_kg'] = Variable<double>(weightKg.value);
+    }
+    if (measurementLocation.present) {
+      map['measurement_location'] = Variable<String>(measurementLocation.value);
+    }
+    if (notes.present) {
+      map['notes'] = Variable<String>(notes.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('GrowthRecordsCompanion(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('measuredAt: $measuredAt, ')
+          ..write('heightCm: $heightCm, ')
+          ..write('weightKg: $weightKg, ')
+          ..write('measurementLocation: $measurementLocation, ')
+          ..write('notes: $notes, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $MilestonesTable extends Milestones
+    with TableInfo<$MilestonesTable, MilestoneRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $MilestonesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _childIdMeta = const VerificationMeta(
+    'childId',
+  );
+  @override
+  late final GeneratedColumn<String> childId = GeneratedColumn<String>(
+    'child_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _categoryMeta = const VerificationMeta(
+    'category',
+  );
+  @override
+  late final GeneratedColumn<String> category = GeneratedColumn<String>(
+    'category',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _titleMeta = const VerificationMeta('title');
+  @override
+  late final GeneratedColumn<String> title = GeneratedColumn<String>(
+    'title',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _eventDateMeta = const VerificationMeta(
+    'eventDate',
+  );
+  @override
+  late final GeneratedColumn<DateTime> eventDate = GeneratedColumn<DateTime>(
+    'event_date',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _datePrecisionMeta = const VerificationMeta(
+    'datePrecision',
+  );
+  @override
+  late final GeneratedColumn<String> datePrecision = GeneratedColumn<String>(
+    'date_precision',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _descriptionMeta = const VerificationMeta(
+    'description',
+  );
+  @override
+  late final GeneratedColumn<String> description = GeneratedColumn<String>(
+    'description',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _locationTextMeta = const VerificationMeta(
+    'locationText',
+  );
+  @override
+  late final GeneratedColumn<String> locationText = GeneratedColumn<String>(
+    'location_text',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _peoplePresentMeta = const VerificationMeta(
+    'peoplePresent',
+  );
+  @override
+  late final GeneratedColumn<String> peoplePresent = GeneratedColumn<String>(
+    'people_present',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    childId,
+    category,
+    title,
+    eventDate,
+    datePrecision,
+    description,
+    locationText,
+    peoplePresent,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'milestones';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<MilestoneRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('child_id')) {
+      context.handle(
+        _childIdMeta,
+        childId.isAcceptableOrUnknown(data['child_id']!, _childIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_childIdMeta);
+    }
+    if (data.containsKey('category')) {
+      context.handle(
+        _categoryMeta,
+        category.isAcceptableOrUnknown(data['category']!, _categoryMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_categoryMeta);
+    }
+    if (data.containsKey('title')) {
+      context.handle(
+        _titleMeta,
+        title.isAcceptableOrUnknown(data['title']!, _titleMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_titleMeta);
+    }
+    if (data.containsKey('event_date')) {
+      context.handle(
+        _eventDateMeta,
+        eventDate.isAcceptableOrUnknown(data['event_date']!, _eventDateMeta),
+      );
+    }
+    if (data.containsKey('date_precision')) {
+      context.handle(
+        _datePrecisionMeta,
+        datePrecision.isAcceptableOrUnknown(
+          data['date_precision']!,
+          _datePrecisionMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_datePrecisionMeta);
+    }
+    if (data.containsKey('description')) {
+      context.handle(
+        _descriptionMeta,
+        description.isAcceptableOrUnknown(
+          data['description']!,
+          _descriptionMeta,
+        ),
+      );
+    }
+    if (data.containsKey('location_text')) {
+      context.handle(
+        _locationTextMeta,
+        locationText.isAcceptableOrUnknown(
+          data['location_text']!,
+          _locationTextMeta,
+        ),
+      );
+    }
+    if (data.containsKey('people_present')) {
+      context.handle(
+        _peoplePresentMeta,
+        peoplePresent.isAcceptableOrUnknown(
+          data['people_present']!,
+          _peoplePresentMeta,
+        ),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  MilestoneRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return MilestoneRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      childId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}child_id'],
+      )!,
+      category: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}category'],
+      )!,
+      title: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}title'],
+      )!,
+      eventDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}event_date'],
+      ),
+      datePrecision: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}date_precision'],
+      )!,
+      description: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}description'],
+      ),
+      locationText: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}location_text'],
+      ),
+      peoplePresent: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}people_present'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+    );
+  }
+
+  @override
+  $MilestonesTable createAlias(String alias) {
+    return $MilestonesTable(attachedDatabase, alias);
+  }
+}
+
+class MilestoneRow extends DataClass implements Insertable<MilestoneRow> {
+  final String id;
+  final String childId;
+  final String category;
+  final String title;
+  final DateTime? eventDate;
+  final String datePrecision;
+  final String? description;
+  final String? locationText;
+  final String? peoplePresent;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final DateTime? deletedAt;
+  const MilestoneRow({
+    required this.id,
+    required this.childId,
+    required this.category,
+    required this.title,
+    this.eventDate,
+    required this.datePrecision,
+    this.description,
+    this.locationText,
+    this.peoplePresent,
+    required this.createdAt,
+    required this.updatedAt,
+    this.deletedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['child_id'] = Variable<String>(childId);
+    map['category'] = Variable<String>(category);
+    map['title'] = Variable<String>(title);
+    if (!nullToAbsent || eventDate != null) {
+      map['event_date'] = Variable<DateTime>(eventDate);
+    }
+    map['date_precision'] = Variable<String>(datePrecision);
+    if (!nullToAbsent || description != null) {
+      map['description'] = Variable<String>(description);
+    }
+    if (!nullToAbsent || locationText != null) {
+      map['location_text'] = Variable<String>(locationText);
+    }
+    if (!nullToAbsent || peoplePresent != null) {
+      map['people_present'] = Variable<String>(peoplePresent);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    return map;
+  }
+
+  MilestonesCompanion toCompanion(bool nullToAbsent) {
+    return MilestonesCompanion(
+      id: Value(id),
+      childId: Value(childId),
+      category: Value(category),
+      title: Value(title),
+      eventDate: eventDate == null && nullToAbsent
+          ? const Value.absent()
+          : Value(eventDate),
+      datePrecision: Value(datePrecision),
+      description: description == null && nullToAbsent
+          ? const Value.absent()
+          : Value(description),
+      locationText: locationText == null && nullToAbsent
+          ? const Value.absent()
+          : Value(locationText),
+      peoplePresent: peoplePresent == null && nullToAbsent
+          ? const Value.absent()
+          : Value(peoplePresent),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+    );
+  }
+
+  factory MilestoneRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return MilestoneRow(
+      id: serializer.fromJson<String>(json['id']),
+      childId: serializer.fromJson<String>(json['childId']),
+      category: serializer.fromJson<String>(json['category']),
+      title: serializer.fromJson<String>(json['title']),
+      eventDate: serializer.fromJson<DateTime?>(json['eventDate']),
+      datePrecision: serializer.fromJson<String>(json['datePrecision']),
+      description: serializer.fromJson<String?>(json['description']),
+      locationText: serializer.fromJson<String?>(json['locationText']),
+      peoplePresent: serializer.fromJson<String?>(json['peoplePresent']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'childId': serializer.toJson<String>(childId),
+      'category': serializer.toJson<String>(category),
+      'title': serializer.toJson<String>(title),
+      'eventDate': serializer.toJson<DateTime?>(eventDate),
+      'datePrecision': serializer.toJson<String>(datePrecision),
+      'description': serializer.toJson<String?>(description),
+      'locationText': serializer.toJson<String?>(locationText),
+      'peoplePresent': serializer.toJson<String?>(peoplePresent),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+    };
+  }
+
+  MilestoneRow copyWith({
+    String? id,
+    String? childId,
+    String? category,
+    String? title,
+    Value<DateTime?> eventDate = const Value.absent(),
+    String? datePrecision,
+    Value<String?> description = const Value.absent(),
+    Value<String?> locationText = const Value.absent(),
+    Value<String?> peoplePresent = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> deletedAt = const Value.absent(),
+  }) => MilestoneRow(
+    id: id ?? this.id,
+    childId: childId ?? this.childId,
+    category: category ?? this.category,
+    title: title ?? this.title,
+    eventDate: eventDate.present ? eventDate.value : this.eventDate,
+    datePrecision: datePrecision ?? this.datePrecision,
+    description: description.present ? description.value : this.description,
+    locationText: locationText.present ? locationText.value : this.locationText,
+    peoplePresent: peoplePresent.present
+        ? peoplePresent.value
+        : this.peoplePresent,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+  );
+  MilestoneRow copyWithCompanion(MilestonesCompanion data) {
+    return MilestoneRow(
+      id: data.id.present ? data.id.value : this.id,
+      childId: data.childId.present ? data.childId.value : this.childId,
+      category: data.category.present ? data.category.value : this.category,
+      title: data.title.present ? data.title.value : this.title,
+      eventDate: data.eventDate.present ? data.eventDate.value : this.eventDate,
+      datePrecision: data.datePrecision.present
+          ? data.datePrecision.value
+          : this.datePrecision,
+      description: data.description.present
+          ? data.description.value
+          : this.description,
+      locationText: data.locationText.present
+          ? data.locationText.value
+          : this.locationText,
+      peoplePresent: data.peoplePresent.present
+          ? data.peoplePresent.value
+          : this.peoplePresent,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MilestoneRow(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('category: $category, ')
+          ..write('title: $title, ')
+          ..write('eventDate: $eventDate, ')
+          ..write('datePrecision: $datePrecision, ')
+          ..write('description: $description, ')
+          ..write('locationText: $locationText, ')
+          ..write('peoplePresent: $peoplePresent, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    childId,
+    category,
+    title,
+    eventDate,
+    datePrecision,
+    description,
+    locationText,
+    peoplePresent,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is MilestoneRow &&
+          other.id == this.id &&
+          other.childId == this.childId &&
+          other.category == this.category &&
+          other.title == this.title &&
+          other.eventDate == this.eventDate &&
+          other.datePrecision == this.datePrecision &&
+          other.description == this.description &&
+          other.locationText == this.locationText &&
+          other.peoplePresent == this.peoplePresent &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.deletedAt == this.deletedAt);
+}
+
+class MilestonesCompanion extends UpdateCompanion<MilestoneRow> {
+  final Value<String> id;
+  final Value<String> childId;
+  final Value<String> category;
+  final Value<String> title;
+  final Value<DateTime?> eventDate;
+  final Value<String> datePrecision;
+  final Value<String?> description;
+  final Value<String?> locationText;
+  final Value<String?> peoplePresent;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> deletedAt;
+  final Value<int> rowid;
+  const MilestonesCompanion({
+    this.id = const Value.absent(),
+    this.childId = const Value.absent(),
+    this.category = const Value.absent(),
+    this.title = const Value.absent(),
+    this.eventDate = const Value.absent(),
+    this.datePrecision = const Value.absent(),
+    this.description = const Value.absent(),
+    this.locationText = const Value.absent(),
+    this.peoplePresent = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  MilestonesCompanion.insert({
+    required String id,
+    required String childId,
+    required String category,
+    required String title,
+    this.eventDate = const Value.absent(),
+    required String datePrecision,
+    this.description = const Value.absent(),
+    this.locationText = const Value.absent(),
+    this.peoplePresent = const Value.absent(),
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       childId = Value(childId),
+       category = Value(category),
+       title = Value(title),
+       datePrecision = Value(datePrecision),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt);
+  static Insertable<MilestoneRow> custom({
+    Expression<String>? id,
+    Expression<String>? childId,
+    Expression<String>? category,
+    Expression<String>? title,
+    Expression<DateTime>? eventDate,
+    Expression<String>? datePrecision,
+    Expression<String>? description,
+    Expression<String>? locationText,
+    Expression<String>? peoplePresent,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? deletedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (childId != null) 'child_id': childId,
+      if (category != null) 'category': category,
+      if (title != null) 'title': title,
+      if (eventDate != null) 'event_date': eventDate,
+      if (datePrecision != null) 'date_precision': datePrecision,
+      if (description != null) 'description': description,
+      if (locationText != null) 'location_text': locationText,
+      if (peoplePresent != null) 'people_present': peoplePresent,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  MilestonesCompanion copyWith({
+    Value<String>? id,
+    Value<String>? childId,
+    Value<String>? category,
+    Value<String>? title,
+    Value<DateTime?>? eventDate,
+    Value<String>? datePrecision,
+    Value<String?>? description,
+    Value<String?>? locationText,
+    Value<String?>? peoplePresent,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? deletedAt,
+    Value<int>? rowid,
+  }) {
+    return MilestonesCompanion(
+      id: id ?? this.id,
+      childId: childId ?? this.childId,
+      category: category ?? this.category,
+      title: title ?? this.title,
+      eventDate: eventDate ?? this.eventDate,
+      datePrecision: datePrecision ?? this.datePrecision,
+      description: description ?? this.description,
+      locationText: locationText ?? this.locationText,
+      peoplePresent: peoplePresent ?? this.peoplePresent,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (childId.present) {
+      map['child_id'] = Variable<String>(childId.value);
+    }
+    if (category.present) {
+      map['category'] = Variable<String>(category.value);
+    }
+    if (title.present) {
+      map['title'] = Variable<String>(title.value);
+    }
+    if (eventDate.present) {
+      map['event_date'] = Variable<DateTime>(eventDate.value);
+    }
+    if (datePrecision.present) {
+      map['date_precision'] = Variable<String>(datePrecision.value);
+    }
+    if (description.present) {
+      map['description'] = Variable<String>(description.value);
+    }
+    if (locationText.present) {
+      map['location_text'] = Variable<String>(locationText.value);
+    }
+    if (peoplePresent.present) {
+      map['people_present'] = Variable<String>(peoplePresent.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MilestonesCompanion(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('category: $category, ')
+          ..write('title: $title, ')
+          ..write('eventDate: $eventDate, ')
+          ..write('datePrecision: $datePrecision, ')
+          ..write('description: $description, ')
+          ..write('locationText: $locationText, ')
+          ..write('peoplePresent: $peoplePresent, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $FirstWordsTable extends FirstWords
+    with TableInfo<$FirstWordsTable, FirstWordRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $FirstWordsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _childIdMeta = const VerificationMeta(
+    'childId',
+  );
+  @override
+  late final GeneratedColumn<String> childId = GeneratedColumn<String>(
+    'child_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _wordMeta = const VerificationMeta('word');
+  @override
+  late final GeneratedColumn<String> word = GeneratedColumn<String>(
+    'word',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _languageCodeMeta = const VerificationMeta(
+    'languageCode',
+  );
+  @override
+  late final GeneratedColumn<String> languageCode = GeneratedColumn<String>(
+    'language_code',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _eventDateMeta = const VerificationMeta(
+    'eventDate',
+  );
+  @override
+  late final GeneratedColumn<DateTime> eventDate = GeneratedColumn<DateTime>(
+    'event_date',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _datePrecisionMeta = const VerificationMeta(
+    'datePrecision',
+  );
+  @override
+  late final GeneratedColumn<String> datePrecision = GeneratedColumn<String>(
+    'date_precision',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _contextNoteMeta = const VerificationMeta(
+    'contextNote',
+  );
+  @override
+  late final GeneratedColumn<String> contextNote = GeneratedColumn<String>(
+    'context_note',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _audioAssetIdMeta = const VerificationMeta(
+    'audioAssetId',
+  );
+  @override
+  late final GeneratedColumn<String> audioAssetId = GeneratedColumn<String>(
+    'audio_asset_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _audioPlaceholderMeta = const VerificationMeta(
+    'audioPlaceholder',
+  );
+  @override
+  late final GeneratedColumn<bool> audioPlaceholder = GeneratedColumn<bool>(
+    'audio_placeholder',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("audio_placeholder" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    childId,
+    word,
+    languageCode,
+    eventDate,
+    datePrecision,
+    contextNote,
+    audioAssetId,
+    audioPlaceholder,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'first_words';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<FirstWordRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('child_id')) {
+      context.handle(
+        _childIdMeta,
+        childId.isAcceptableOrUnknown(data['child_id']!, _childIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_childIdMeta);
+    }
+    if (data.containsKey('word')) {
+      context.handle(
+        _wordMeta,
+        word.isAcceptableOrUnknown(data['word']!, _wordMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_wordMeta);
+    }
+    if (data.containsKey('language_code')) {
+      context.handle(
+        _languageCodeMeta,
+        languageCode.isAcceptableOrUnknown(
+          data['language_code']!,
+          _languageCodeMeta,
+        ),
+      );
+    }
+    if (data.containsKey('event_date')) {
+      context.handle(
+        _eventDateMeta,
+        eventDate.isAcceptableOrUnknown(data['event_date']!, _eventDateMeta),
+      );
+    }
+    if (data.containsKey('date_precision')) {
+      context.handle(
+        _datePrecisionMeta,
+        datePrecision.isAcceptableOrUnknown(
+          data['date_precision']!,
+          _datePrecisionMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_datePrecisionMeta);
+    }
+    if (data.containsKey('context_note')) {
+      context.handle(
+        _contextNoteMeta,
+        contextNote.isAcceptableOrUnknown(
+          data['context_note']!,
+          _contextNoteMeta,
+        ),
+      );
+    }
+    if (data.containsKey('audio_asset_id')) {
+      context.handle(
+        _audioAssetIdMeta,
+        audioAssetId.isAcceptableOrUnknown(
+          data['audio_asset_id']!,
+          _audioAssetIdMeta,
+        ),
+      );
+    }
+    if (data.containsKey('audio_placeholder')) {
+      context.handle(
+        _audioPlaceholderMeta,
+        audioPlaceholder.isAcceptableOrUnknown(
+          data['audio_placeholder']!,
+          _audioPlaceholderMeta,
+        ),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  FirstWordRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return FirstWordRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      childId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}child_id'],
+      )!,
+      word: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}word'],
+      )!,
+      languageCode: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}language_code'],
+      ),
+      eventDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}event_date'],
+      ),
+      datePrecision: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}date_precision'],
+      )!,
+      contextNote: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}context_note'],
+      ),
+      audioAssetId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}audio_asset_id'],
+      ),
+      audioPlaceholder: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}audio_placeholder'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+    );
+  }
+
+  @override
+  $FirstWordsTable createAlias(String alias) {
+    return $FirstWordsTable(attachedDatabase, alias);
+  }
+}
+
+class FirstWordRow extends DataClass implements Insertable<FirstWordRow> {
+  final String id;
+  final String childId;
+  final String word;
+  final String? languageCode;
+  final DateTime? eventDate;
+  final String datePrecision;
+  final String? contextNote;
+  final String? audioAssetId;
+  final bool audioPlaceholder;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final DateTime? deletedAt;
+  const FirstWordRow({
+    required this.id,
+    required this.childId,
+    required this.word,
+    this.languageCode,
+    this.eventDate,
+    required this.datePrecision,
+    this.contextNote,
+    this.audioAssetId,
+    required this.audioPlaceholder,
+    required this.createdAt,
+    required this.updatedAt,
+    this.deletedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['child_id'] = Variable<String>(childId);
+    map['word'] = Variable<String>(word);
+    if (!nullToAbsent || languageCode != null) {
+      map['language_code'] = Variable<String>(languageCode);
+    }
+    if (!nullToAbsent || eventDate != null) {
+      map['event_date'] = Variable<DateTime>(eventDate);
+    }
+    map['date_precision'] = Variable<String>(datePrecision);
+    if (!nullToAbsent || contextNote != null) {
+      map['context_note'] = Variable<String>(contextNote);
+    }
+    if (!nullToAbsent || audioAssetId != null) {
+      map['audio_asset_id'] = Variable<String>(audioAssetId);
+    }
+    map['audio_placeholder'] = Variable<bool>(audioPlaceholder);
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    return map;
+  }
+
+  FirstWordsCompanion toCompanion(bool nullToAbsent) {
+    return FirstWordsCompanion(
+      id: Value(id),
+      childId: Value(childId),
+      word: Value(word),
+      languageCode: languageCode == null && nullToAbsent
+          ? const Value.absent()
+          : Value(languageCode),
+      eventDate: eventDate == null && nullToAbsent
+          ? const Value.absent()
+          : Value(eventDate),
+      datePrecision: Value(datePrecision),
+      contextNote: contextNote == null && nullToAbsent
+          ? const Value.absent()
+          : Value(contextNote),
+      audioAssetId: audioAssetId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(audioAssetId),
+      audioPlaceholder: Value(audioPlaceholder),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+    );
+  }
+
+  factory FirstWordRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return FirstWordRow(
+      id: serializer.fromJson<String>(json['id']),
+      childId: serializer.fromJson<String>(json['childId']),
+      word: serializer.fromJson<String>(json['word']),
+      languageCode: serializer.fromJson<String?>(json['languageCode']),
+      eventDate: serializer.fromJson<DateTime?>(json['eventDate']),
+      datePrecision: serializer.fromJson<String>(json['datePrecision']),
+      contextNote: serializer.fromJson<String?>(json['contextNote']),
+      audioAssetId: serializer.fromJson<String?>(json['audioAssetId']),
+      audioPlaceholder: serializer.fromJson<bool>(json['audioPlaceholder']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'childId': serializer.toJson<String>(childId),
+      'word': serializer.toJson<String>(word),
+      'languageCode': serializer.toJson<String?>(languageCode),
+      'eventDate': serializer.toJson<DateTime?>(eventDate),
+      'datePrecision': serializer.toJson<String>(datePrecision),
+      'contextNote': serializer.toJson<String?>(contextNote),
+      'audioAssetId': serializer.toJson<String?>(audioAssetId),
+      'audioPlaceholder': serializer.toJson<bool>(audioPlaceholder),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+    };
+  }
+
+  FirstWordRow copyWith({
+    String? id,
+    String? childId,
+    String? word,
+    Value<String?> languageCode = const Value.absent(),
+    Value<DateTime?> eventDate = const Value.absent(),
+    String? datePrecision,
+    Value<String?> contextNote = const Value.absent(),
+    Value<String?> audioAssetId = const Value.absent(),
+    bool? audioPlaceholder,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> deletedAt = const Value.absent(),
+  }) => FirstWordRow(
+    id: id ?? this.id,
+    childId: childId ?? this.childId,
+    word: word ?? this.word,
+    languageCode: languageCode.present ? languageCode.value : this.languageCode,
+    eventDate: eventDate.present ? eventDate.value : this.eventDate,
+    datePrecision: datePrecision ?? this.datePrecision,
+    contextNote: contextNote.present ? contextNote.value : this.contextNote,
+    audioAssetId: audioAssetId.present ? audioAssetId.value : this.audioAssetId,
+    audioPlaceholder: audioPlaceholder ?? this.audioPlaceholder,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+  );
+  FirstWordRow copyWithCompanion(FirstWordsCompanion data) {
+    return FirstWordRow(
+      id: data.id.present ? data.id.value : this.id,
+      childId: data.childId.present ? data.childId.value : this.childId,
+      word: data.word.present ? data.word.value : this.word,
+      languageCode: data.languageCode.present
+          ? data.languageCode.value
+          : this.languageCode,
+      eventDate: data.eventDate.present ? data.eventDate.value : this.eventDate,
+      datePrecision: data.datePrecision.present
+          ? data.datePrecision.value
+          : this.datePrecision,
+      contextNote: data.contextNote.present
+          ? data.contextNote.value
+          : this.contextNote,
+      audioAssetId: data.audioAssetId.present
+          ? data.audioAssetId.value
+          : this.audioAssetId,
+      audioPlaceholder: data.audioPlaceholder.present
+          ? data.audioPlaceholder.value
+          : this.audioPlaceholder,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('FirstWordRow(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('word: $word, ')
+          ..write('languageCode: $languageCode, ')
+          ..write('eventDate: $eventDate, ')
+          ..write('datePrecision: $datePrecision, ')
+          ..write('contextNote: $contextNote, ')
+          ..write('audioAssetId: $audioAssetId, ')
+          ..write('audioPlaceholder: $audioPlaceholder, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    childId,
+    word,
+    languageCode,
+    eventDate,
+    datePrecision,
+    contextNote,
+    audioAssetId,
+    audioPlaceholder,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is FirstWordRow &&
+          other.id == this.id &&
+          other.childId == this.childId &&
+          other.word == this.word &&
+          other.languageCode == this.languageCode &&
+          other.eventDate == this.eventDate &&
+          other.datePrecision == this.datePrecision &&
+          other.contextNote == this.contextNote &&
+          other.audioAssetId == this.audioAssetId &&
+          other.audioPlaceholder == this.audioPlaceholder &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.deletedAt == this.deletedAt);
+}
+
+class FirstWordsCompanion extends UpdateCompanion<FirstWordRow> {
+  final Value<String> id;
+  final Value<String> childId;
+  final Value<String> word;
+  final Value<String?> languageCode;
+  final Value<DateTime?> eventDate;
+  final Value<String> datePrecision;
+  final Value<String?> contextNote;
+  final Value<String?> audioAssetId;
+  final Value<bool> audioPlaceholder;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> deletedAt;
+  final Value<int> rowid;
+  const FirstWordsCompanion({
+    this.id = const Value.absent(),
+    this.childId = const Value.absent(),
+    this.word = const Value.absent(),
+    this.languageCode = const Value.absent(),
+    this.eventDate = const Value.absent(),
+    this.datePrecision = const Value.absent(),
+    this.contextNote = const Value.absent(),
+    this.audioAssetId = const Value.absent(),
+    this.audioPlaceholder = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  FirstWordsCompanion.insert({
+    required String id,
+    required String childId,
+    required String word,
+    this.languageCode = const Value.absent(),
+    this.eventDate = const Value.absent(),
+    required String datePrecision,
+    this.contextNote = const Value.absent(),
+    this.audioAssetId = const Value.absent(),
+    this.audioPlaceholder = const Value.absent(),
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       childId = Value(childId),
+       word = Value(word),
+       datePrecision = Value(datePrecision),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt);
+  static Insertable<FirstWordRow> custom({
+    Expression<String>? id,
+    Expression<String>? childId,
+    Expression<String>? word,
+    Expression<String>? languageCode,
+    Expression<DateTime>? eventDate,
+    Expression<String>? datePrecision,
+    Expression<String>? contextNote,
+    Expression<String>? audioAssetId,
+    Expression<bool>? audioPlaceholder,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? deletedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (childId != null) 'child_id': childId,
+      if (word != null) 'word': word,
+      if (languageCode != null) 'language_code': languageCode,
+      if (eventDate != null) 'event_date': eventDate,
+      if (datePrecision != null) 'date_precision': datePrecision,
+      if (contextNote != null) 'context_note': contextNote,
+      if (audioAssetId != null) 'audio_asset_id': audioAssetId,
+      if (audioPlaceholder != null) 'audio_placeholder': audioPlaceholder,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  FirstWordsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? childId,
+    Value<String>? word,
+    Value<String?>? languageCode,
+    Value<DateTime?>? eventDate,
+    Value<String>? datePrecision,
+    Value<String?>? contextNote,
+    Value<String?>? audioAssetId,
+    Value<bool>? audioPlaceholder,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? deletedAt,
+    Value<int>? rowid,
+  }) {
+    return FirstWordsCompanion(
+      id: id ?? this.id,
+      childId: childId ?? this.childId,
+      word: word ?? this.word,
+      languageCode: languageCode ?? this.languageCode,
+      eventDate: eventDate ?? this.eventDate,
+      datePrecision: datePrecision ?? this.datePrecision,
+      contextNote: contextNote ?? this.contextNote,
+      audioAssetId: audioAssetId ?? this.audioAssetId,
+      audioPlaceholder: audioPlaceholder ?? this.audioPlaceholder,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (childId.present) {
+      map['child_id'] = Variable<String>(childId.value);
+    }
+    if (word.present) {
+      map['word'] = Variable<String>(word.value);
+    }
+    if (languageCode.present) {
+      map['language_code'] = Variable<String>(languageCode.value);
+    }
+    if (eventDate.present) {
+      map['event_date'] = Variable<DateTime>(eventDate.value);
+    }
+    if (datePrecision.present) {
+      map['date_precision'] = Variable<String>(datePrecision.value);
+    }
+    if (contextNote.present) {
+      map['context_note'] = Variable<String>(contextNote.value);
+    }
+    if (audioAssetId.present) {
+      map['audio_asset_id'] = Variable<String>(audioAssetId.value);
+    }
+    if (audioPlaceholder.present) {
+      map['audio_placeholder'] = Variable<bool>(audioPlaceholder.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('FirstWordsCompanion(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('word: $word, ')
+          ..write('languageCode: $languageCode, ')
+          ..write('eventDate: $eventDate, ')
+          ..write('datePrecision: $datePrecision, ')
+          ..write('contextNote: $contextNote, ')
+          ..write('audioAssetId: $audioAssetId, ')
+          ..write('audioPlaceholder: $audioPlaceholder, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -6821,6 +8906,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $JournalEntriesTable journalEntries = $JournalEntriesTable(this);
   late final $FunnyMomentsTable funnyMoments = $FunnyMomentsTable(this);
   late final $AchievementsTable achievements = $AchievementsTable(this);
+  late final $GrowthRecordsTable growthRecords = $GrowthRecordsTable(this);
+  late final $MilestonesTable milestones = $MilestonesTable(this);
+  late final $FirstWordsTable firstWords = $FirstWordsTable(this);
   late final ChildrenDao childrenDao = ChildrenDao(this as AppDatabase);
   late final SettingsDao settingsDao = SettingsDao(this as AppDatabase);
   late final MediaAssetsDao mediaAssetsDao = MediaAssetsDao(
@@ -6843,6 +8931,11 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final AchievementsDao achievementsDao = AchievementsDao(
     this as AppDatabase,
   );
+  late final GrowthRecordsDao growthRecordsDao = GrowthRecordsDao(
+    this as AppDatabase,
+  );
+  late final MilestonesDao milestonesDao = MilestonesDao(this as AppDatabase);
+  late final FirstWordsDao firstWordsDao = FirstWordsDao(this as AppDatabase);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -6859,6 +8952,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     journalEntries,
     funnyMoments,
     achievements,
+    growthRecords,
+    milestones,
+    firstWords,
   ];
   @override
   DriftDatabaseOptions get options =>
@@ -10245,6 +12341,1012 @@ typedef $$AchievementsTableProcessedTableManager =
       AchievementRow,
       PrefetchHooks Function()
     >;
+typedef $$GrowthRecordsTableCreateCompanionBuilder =
+    GrowthRecordsCompanion Function({
+      required String id,
+      required String childId,
+      required DateTime measuredAt,
+      Value<double?> heightCm,
+      Value<double?> weightKg,
+      Value<String?> measurementLocation,
+      Value<String?> notes,
+      required DateTime createdAt,
+      required DateTime updatedAt,
+      Value<DateTime?> deletedAt,
+      Value<int> rowid,
+    });
+typedef $$GrowthRecordsTableUpdateCompanionBuilder =
+    GrowthRecordsCompanion Function({
+      Value<String> id,
+      Value<String> childId,
+      Value<DateTime> measuredAt,
+      Value<double?> heightCm,
+      Value<double?> weightKg,
+      Value<String?> measurementLocation,
+      Value<String?> notes,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<DateTime?> deletedAt,
+      Value<int> rowid,
+    });
+
+class $$GrowthRecordsTableFilterComposer
+    extends Composer<_$AppDatabase, $GrowthRecordsTable> {
+  $$GrowthRecordsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get measuredAt => $composableBuilder(
+    column: $table.measuredAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get heightCm => $composableBuilder(
+    column: $table.heightCm,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get weightKg => $composableBuilder(
+    column: $table.weightKg,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get measurementLocation => $composableBuilder(
+    column: $table.measurementLocation,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$GrowthRecordsTableOrderingComposer
+    extends Composer<_$AppDatabase, $GrowthRecordsTable> {
+  $$GrowthRecordsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get measuredAt => $composableBuilder(
+    column: $table.measuredAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get heightCm => $composableBuilder(
+    column: $table.heightCm,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get weightKg => $composableBuilder(
+    column: $table.weightKg,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get measurementLocation => $composableBuilder(
+    column: $table.measurementLocation,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$GrowthRecordsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $GrowthRecordsTable> {
+  $$GrowthRecordsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get childId =>
+      $composableBuilder(column: $table.childId, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get measuredAt => $composableBuilder(
+    column: $table.measuredAt,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get heightCm =>
+      $composableBuilder(column: $table.heightCm, builder: (column) => column);
+
+  GeneratedColumn<double> get weightKg =>
+      $composableBuilder(column: $table.weightKg, builder: (column) => column);
+
+  GeneratedColumn<String> get measurementLocation => $composableBuilder(
+    column: $table.measurementLocation,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get notes =>
+      $composableBuilder(column: $table.notes, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+}
+
+class $$GrowthRecordsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $GrowthRecordsTable,
+          GrowthRecordRow,
+          $$GrowthRecordsTableFilterComposer,
+          $$GrowthRecordsTableOrderingComposer,
+          $$GrowthRecordsTableAnnotationComposer,
+          $$GrowthRecordsTableCreateCompanionBuilder,
+          $$GrowthRecordsTableUpdateCompanionBuilder,
+          (
+            GrowthRecordRow,
+            BaseReferences<_$AppDatabase, $GrowthRecordsTable, GrowthRecordRow>,
+          ),
+          GrowthRecordRow,
+          PrefetchHooks Function()
+        > {
+  $$GrowthRecordsTableTableManager(_$AppDatabase db, $GrowthRecordsTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$GrowthRecordsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$GrowthRecordsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$GrowthRecordsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> childId = const Value.absent(),
+                Value<DateTime> measuredAt = const Value.absent(),
+                Value<double?> heightCm = const Value.absent(),
+                Value<double?> weightKg = const Value.absent(),
+                Value<String?> measurementLocation = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => GrowthRecordsCompanion(
+                id: id,
+                childId: childId,
+                measuredAt: measuredAt,
+                heightCm: heightCm,
+                weightKg: weightKg,
+                measurementLocation: measurementLocation,
+                notes: notes,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String childId,
+                required DateTime measuredAt,
+                Value<double?> heightCm = const Value.absent(),
+                Value<double?> weightKg = const Value.absent(),
+                Value<String?> measurementLocation = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => GrowthRecordsCompanion.insert(
+                id: id,
+                childId: childId,
+                measuredAt: measuredAt,
+                heightCm: heightCm,
+                weightKg: weightKg,
+                measurementLocation: measurementLocation,
+                notes: notes,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$GrowthRecordsTable, GrowthRecordRow>(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $GrowthRecordsTable,
+                    GrowthRecordRow
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$GrowthRecordsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $GrowthRecordsTable,
+      GrowthRecordRow,
+      $$GrowthRecordsTableFilterComposer,
+      $$GrowthRecordsTableOrderingComposer,
+      $$GrowthRecordsTableAnnotationComposer,
+      $$GrowthRecordsTableCreateCompanionBuilder,
+      $$GrowthRecordsTableUpdateCompanionBuilder,
+      (
+        GrowthRecordRow,
+        BaseReferences<_$AppDatabase, $GrowthRecordsTable, GrowthRecordRow>,
+      ),
+      GrowthRecordRow,
+      PrefetchHooks Function()
+    >;
+typedef $$MilestonesTableCreateCompanionBuilder = MilestonesCompanion Function({
+  required String id,
+  required String childId,
+  required String category,
+  required String title,
+  Value<DateTime?> eventDate,
+  required String datePrecision,
+  Value<String?> description,
+  Value<String?> locationText,
+  Value<String?> peoplePresent,
+  required DateTime createdAt,
+  required DateTime updatedAt,
+  Value<DateTime?> deletedAt,
+  Value<int> rowid,
+});
+typedef $$MilestonesTableUpdateCompanionBuilder = MilestonesCompanion Function({
+  Value<String> id,
+  Value<String> childId,
+  Value<String> category,
+  Value<String> title,
+  Value<DateTime?> eventDate,
+  Value<String> datePrecision,
+  Value<String?> description,
+  Value<String?> locationText,
+  Value<String?> peoplePresent,
+  Value<DateTime> createdAt,
+  Value<DateTime> updatedAt,
+  Value<DateTime?> deletedAt,
+  Value<int> rowid,
+});
+
+class $$MilestonesTableFilterComposer
+    extends Composer<_$AppDatabase, $MilestonesTable> {
+  $$MilestonesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get category => $composableBuilder(
+    column: $table.category,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get eventDate => $composableBuilder(
+    column: $table.eventDate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get datePrecision => $composableBuilder(
+    column: $table.datePrecision,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get locationText => $composableBuilder(
+    column: $table.locationText,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get peoplePresent => $composableBuilder(
+    column: $table.peoplePresent,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$MilestonesTableOrderingComposer
+    extends Composer<_$AppDatabase, $MilestonesTable> {
+  $$MilestonesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get category => $composableBuilder(
+    column: $table.category,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get eventDate => $composableBuilder(
+    column: $table.eventDate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get datePrecision => $composableBuilder(
+    column: $table.datePrecision,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get locationText => $composableBuilder(
+    column: $table.locationText,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get peoplePresent => $composableBuilder(
+    column: $table.peoplePresent,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$MilestonesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $MilestonesTable> {
+  $$MilestonesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get childId =>
+      $composableBuilder(column: $table.childId, builder: (column) => column);
+
+  GeneratedColumn<String> get category =>
+      $composableBuilder(column: $table.category, builder: (column) => column);
+
+  GeneratedColumn<String> get title =>
+      $composableBuilder(column: $table.title, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get eventDate =>
+      $composableBuilder(column: $table.eventDate, builder: (column) => column);
+
+  GeneratedColumn<String> get datePrecision => $composableBuilder(
+    column: $table.datePrecision,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get description => $composableBuilder(
+    column: $table.description,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get locationText => $composableBuilder(
+    column: $table.locationText,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get peoplePresent => $composableBuilder(
+    column: $table.peoplePresent,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+}
+
+class $$MilestonesTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $MilestonesTable,
+          MilestoneRow,
+          $$MilestonesTableFilterComposer,
+          $$MilestonesTableOrderingComposer,
+          $$MilestonesTableAnnotationComposer,
+          $$MilestonesTableCreateCompanionBuilder,
+          $$MilestonesTableUpdateCompanionBuilder,
+          (
+            MilestoneRow,
+            BaseReferences<_$AppDatabase, $MilestonesTable, MilestoneRow>,
+          ),
+          MilestoneRow,
+          PrefetchHooks Function()
+        > {
+  $$MilestonesTableTableManager(_$AppDatabase db, $MilestonesTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$MilestonesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$MilestonesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$MilestonesTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> childId = const Value.absent(),
+                Value<String> category = const Value.absent(),
+                Value<String> title = const Value.absent(),
+                Value<DateTime?> eventDate = const Value.absent(),
+                Value<String> datePrecision = const Value.absent(),
+                Value<String?> description = const Value.absent(),
+                Value<String?> locationText = const Value.absent(),
+                Value<String?> peoplePresent = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => MilestonesCompanion(
+                id: id,
+                childId: childId,
+                category: category,
+                title: title,
+                eventDate: eventDate,
+                datePrecision: datePrecision,
+                description: description,
+                locationText: locationText,
+                peoplePresent: peoplePresent,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String childId,
+                required String category,
+                required String title,
+                Value<DateTime?> eventDate = const Value.absent(),
+                required String datePrecision,
+                Value<String?> description = const Value.absent(),
+                Value<String?> locationText = const Value.absent(),
+                Value<String?> peoplePresent = const Value.absent(),
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => MilestonesCompanion.insert(
+                id: id,
+                childId: childId,
+                category: category,
+                title: title,
+                eventDate: eventDate,
+                datePrecision: datePrecision,
+                description: description,
+                locationText: locationText,
+                peoplePresent: peoplePresent,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$MilestonesTable, MilestoneRow>(table),
+                  BaseReferences<_$AppDatabase, $MilestonesTable, MilestoneRow>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$MilestonesTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $MilestonesTable,
+      MilestoneRow,
+      $$MilestonesTableFilterComposer,
+      $$MilestonesTableOrderingComposer,
+      $$MilestonesTableAnnotationComposer,
+      $$MilestonesTableCreateCompanionBuilder,
+      $$MilestonesTableUpdateCompanionBuilder,
+      (
+        MilestoneRow,
+        BaseReferences<_$AppDatabase, $MilestonesTable, MilestoneRow>,
+      ),
+      MilestoneRow,
+      PrefetchHooks Function()
+    >;
+typedef $$FirstWordsTableCreateCompanionBuilder = FirstWordsCompanion Function({
+  required String id,
+  required String childId,
+  required String word,
+  Value<String?> languageCode,
+  Value<DateTime?> eventDate,
+  required String datePrecision,
+  Value<String?> contextNote,
+  Value<String?> audioAssetId,
+  Value<bool> audioPlaceholder,
+  required DateTime createdAt,
+  required DateTime updatedAt,
+  Value<DateTime?> deletedAt,
+  Value<int> rowid,
+});
+typedef $$FirstWordsTableUpdateCompanionBuilder = FirstWordsCompanion Function({
+  Value<String> id,
+  Value<String> childId,
+  Value<String> word,
+  Value<String?> languageCode,
+  Value<DateTime?> eventDate,
+  Value<String> datePrecision,
+  Value<String?> contextNote,
+  Value<String?> audioAssetId,
+  Value<bool> audioPlaceholder,
+  Value<DateTime> createdAt,
+  Value<DateTime> updatedAt,
+  Value<DateTime?> deletedAt,
+  Value<int> rowid,
+});
+
+class $$FirstWordsTableFilterComposer
+    extends Composer<_$AppDatabase, $FirstWordsTable> {
+  $$FirstWordsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get word => $composableBuilder(
+    column: $table.word,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get languageCode => $composableBuilder(
+    column: $table.languageCode,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get eventDate => $composableBuilder(
+    column: $table.eventDate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get datePrecision => $composableBuilder(
+    column: $table.datePrecision,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get contextNote => $composableBuilder(
+    column: $table.contextNote,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get audioAssetId => $composableBuilder(
+    column: $table.audioAssetId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get audioPlaceholder => $composableBuilder(
+    column: $table.audioPlaceholder,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$FirstWordsTableOrderingComposer
+    extends Composer<_$AppDatabase, $FirstWordsTable> {
+  $$FirstWordsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get word => $composableBuilder(
+    column: $table.word,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get languageCode => $composableBuilder(
+    column: $table.languageCode,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get eventDate => $composableBuilder(
+    column: $table.eventDate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get datePrecision => $composableBuilder(
+    column: $table.datePrecision,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get contextNote => $composableBuilder(
+    column: $table.contextNote,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get audioAssetId => $composableBuilder(
+    column: $table.audioAssetId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get audioPlaceholder => $composableBuilder(
+    column: $table.audioPlaceholder,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$FirstWordsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $FirstWordsTable> {
+  $$FirstWordsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get childId =>
+      $composableBuilder(column: $table.childId, builder: (column) => column);
+
+  GeneratedColumn<String> get word =>
+      $composableBuilder(column: $table.word, builder: (column) => column);
+
+  GeneratedColumn<String> get languageCode => $composableBuilder(
+    column: $table.languageCode,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get eventDate =>
+      $composableBuilder(column: $table.eventDate, builder: (column) => column);
+
+  GeneratedColumn<String> get datePrecision => $composableBuilder(
+    column: $table.datePrecision,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get contextNote => $composableBuilder(
+    column: $table.contextNote,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get audioAssetId => $composableBuilder(
+    column: $table.audioAssetId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get audioPlaceholder => $composableBuilder(
+    column: $table.audioPlaceholder,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+}
+
+class $$FirstWordsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $FirstWordsTable,
+          FirstWordRow,
+          $$FirstWordsTableFilterComposer,
+          $$FirstWordsTableOrderingComposer,
+          $$FirstWordsTableAnnotationComposer,
+          $$FirstWordsTableCreateCompanionBuilder,
+          $$FirstWordsTableUpdateCompanionBuilder,
+          (
+            FirstWordRow,
+            BaseReferences<_$AppDatabase, $FirstWordsTable, FirstWordRow>,
+          ),
+          FirstWordRow,
+          PrefetchHooks Function()
+        > {
+  $$FirstWordsTableTableManager(_$AppDatabase db, $FirstWordsTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$FirstWordsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$FirstWordsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$FirstWordsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> childId = const Value.absent(),
+                Value<String> word = const Value.absent(),
+                Value<String?> languageCode = const Value.absent(),
+                Value<DateTime?> eventDate = const Value.absent(),
+                Value<String> datePrecision = const Value.absent(),
+                Value<String?> contextNote = const Value.absent(),
+                Value<String?> audioAssetId = const Value.absent(),
+                Value<bool> audioPlaceholder = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => FirstWordsCompanion(
+                id: id,
+                childId: childId,
+                word: word,
+                languageCode: languageCode,
+                eventDate: eventDate,
+                datePrecision: datePrecision,
+                contextNote: contextNote,
+                audioAssetId: audioAssetId,
+                audioPlaceholder: audioPlaceholder,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String childId,
+                required String word,
+                Value<String?> languageCode = const Value.absent(),
+                Value<DateTime?> eventDate = const Value.absent(),
+                required String datePrecision,
+                Value<String?> contextNote = const Value.absent(),
+                Value<String?> audioAssetId = const Value.absent(),
+                Value<bool> audioPlaceholder = const Value.absent(),
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => FirstWordsCompanion.insert(
+                id: id,
+                childId: childId,
+                word: word,
+                languageCode: languageCode,
+                eventDate: eventDate,
+                datePrecision: datePrecision,
+                contextNote: contextNote,
+                audioAssetId: audioAssetId,
+                audioPlaceholder: audioPlaceholder,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$FirstWordsTable, FirstWordRow>(table),
+                  BaseReferences<_$AppDatabase, $FirstWordsTable, FirstWordRow>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$FirstWordsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $FirstWordsTable,
+      FirstWordRow,
+      $$FirstWordsTableFilterComposer,
+      $$FirstWordsTableOrderingComposer,
+      $$FirstWordsTableAnnotationComposer,
+      $$FirstWordsTableCreateCompanionBuilder,
+      $$FirstWordsTableUpdateCompanionBuilder,
+      (
+        FirstWordRow,
+        BaseReferences<_$AppDatabase, $FirstWordsTable, FirstWordRow>,
+      ),
+      FirstWordRow,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -10270,4 +13372,10 @@ class $AppDatabaseManager {
       $$FunnyMomentsTableTableManager(_db, _db.funnyMoments);
   $$AchievementsTableTableManager get achievements =>
       $$AchievementsTableTableManager(_db, _db.achievements);
+  $$GrowthRecordsTableTableManager get growthRecords =>
+      $$GrowthRecordsTableTableManager(_db, _db.growthRecords);
+  $$MilestonesTableTableManager get milestones =>
+      $$MilestonesTableTableManager(_db, _db.milestones);
+  $$FirstWordsTableTableManager get firstWords =>
+      $$FirstWordsTableTableManager(_db, _db.firstWords);
 }

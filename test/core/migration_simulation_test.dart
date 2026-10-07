@@ -2,13 +2,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shishur_dinlipi/core/database/app_database.dart';
 
 void main() {
-  test('fresh database opens at schema version 2', () async {
+  test('fresh database opens at schema version 3', () async {
     final db = AppDatabase.memory();
     addTearDown(db.close);
 
     final row = await db.customSelect('PRAGMA user_version').getSingle();
-    expect(row.data['user_version'], 2);
-    expect(AppDatabase.currentSchemaVersion, 2);
+    expect(row.data['user_version'], 3);
+    expect(AppDatabase.currentSchemaVersion, 3);
 
     await db.customSelect('SELECT COUNT(*) AS c FROM children').getSingle();
     await db.customSelect('SELECT COUNT(*) AS c FROM settings').getSingle();
@@ -25,5 +25,10 @@ void main() {
         .customSelect('SELECT COUNT(*) AS c FROM funny_moments')
         .getSingle();
     await db.customSelect('SELECT COUNT(*) AS c FROM achievements').getSingle();
+    await db
+        .customSelect('SELECT COUNT(*) AS c FROM growth_records')
+        .getSingle();
+    await db.customSelect('SELECT COUNT(*) AS c FROM milestones').getSingle();
+    await db.customSelect('SELECT COUNT(*) AS c FROM first_words').getSingle();
   });
 }

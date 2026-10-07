@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shishur_dinlipi/app/router/app_routes.dart';
 import 'package:shishur_dinlipi/features/children/child_controller.dart';
+import 'package:shishur_dinlipi/features/development/milestone_templates.dart';
 import 'package:shishur_dinlipi/features/memories/journal_templates.dart';
 import 'package:shishur_dinlipi/l10n/app_localizations.dart';
 
@@ -12,8 +13,7 @@ class AddScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context);
-    final hasChild =
-        ref.watch(selectedChildProvider).valueOrNull != null;
+    final hasChild = ref.watch(selectedChildProvider).valueOrNull != null;
 
     return SafeArea(
       child: ListView(
@@ -63,6 +63,30 @@ class AddScreen extends ConsumerWidget {
             ),
             const SizedBox(height: 24),
             Text(
+              l10n.addGroupDevelopment,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            const SizedBox(height: 12),
+            _AddTile(
+              icon: Icons.monitor_weight_outlined,
+              title: l10n.addGrowth,
+              subtitle: l10n.addGrowthSubtitle,
+              onTap: () => context.push(AppRoutes.growthCreate),
+            ),
+            _AddTile(
+              icon: Icons.stairs_outlined,
+              title: l10n.addMilestone,
+              subtitle: l10n.addMilestoneSubtitle,
+              onTap: () => context.push(AppRoutes.milestoneCreate),
+            ),
+            _AddTile(
+              icon: Icons.record_voice_over_outlined,
+              title: l10n.addFirstWord,
+              subtitle: l10n.addFirstWordSubtitle,
+              onTap: () => context.push(AppRoutes.firstWordCreate),
+            ),
+            const SizedBox(height: 24),
+            Text(
               l10n.quickTemplates,
               style: Theme.of(context).textTheme.titleLarge,
             ),
@@ -73,13 +97,28 @@ class AddScreen extends ConsumerWidget {
               children: [
                 for (final template in JournalTemplate.values)
                   ActionChip(
-                    label: Text(_templateLabel(l10n, template)),
+                    label: Text(_journalTemplateLabel(l10n, template)),
                     onPressed: () {
                       if (template.opensFunnyMoment) {
                         context.push(AppRoutes.funnyCreate);
                       } else {
                         context.push(
                           AppRoutes.journalCreatePath(template: template.name),
+                        );
+                      }
+                    },
+                  ),
+                for (final template in MilestoneTemplate.values)
+                  ActionChip(
+                    label: Text(_milestoneTemplateLabel(l10n, template)),
+                    onPressed: () {
+                      if (template.opensFirstWord) {
+                        context.push(AppRoutes.firstWordCreate);
+                      } else {
+                        context.push(
+                          AppRoutes.milestoneCreatePath(
+                            template: template.name,
+                          ),
                         );
                       }
                     },
@@ -104,7 +143,10 @@ class AddScreen extends ConsumerWidget {
     );
   }
 
-  String _templateLabel(AppLocalizations l10n, JournalTemplate template) {
+  String _journalTemplateLabel(
+    AppLocalizations l10n,
+    JournalTemplate template,
+  ) {
     return switch (template) {
       JournalTemplate.somethingFunny => l10n.templateSomethingFunny,
       JournalTemplate.somethingNew => l10n.templateSomethingNew,
@@ -112,6 +154,23 @@ class AddScreen extends ConsumerWidget {
       JournalTemplate.difficultDay => l10n.templateDifficultDay,
       JournalTemplate.favoriteMoment => l10n.templateFavoriteMoment,
       JournalTemplate.photoMemory => l10n.templatePhotoMemory,
+    };
+  }
+
+  String _milestoneTemplateLabel(
+    AppLocalizations l10n,
+    MilestoneTemplate template,
+  ) {
+    return switch (template) {
+      MilestoneTemplate.firstCrawl => l10n.templateFirstCrawl,
+      MilestoneTemplate.firstStand => l10n.templateFirstStand,
+      MilestoneTemplate.firstStep => l10n.templateFirstStep,
+      MilestoneTemplate.firstWalk => l10n.templateFirstWalk,
+      MilestoneTemplate.firstRun => l10n.templateFirstRun,
+      MilestoneTemplate.firstBicycle => l10n.templateFirstBicycle,
+      MilestoneTemplate.firstWord => l10n.templateFirstWord,
+      MilestoneTemplate.firstSentence => l10n.templateFirstSentence,
+      MilestoneTemplate.wroteOwnName => l10n.templateWroteOwnName,
     };
   }
 }
