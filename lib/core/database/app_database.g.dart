@@ -17940,6 +17940,2123 @@ class YearReviewPreferencesCompanion
   }
 }
 
+class $BirthdaysTable extends Birthdays
+    with TableInfo<$BirthdaysTable, BirthdayRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $BirthdaysTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _childIdMeta = const VerificationMeta(
+    'childId',
+  );
+  @override
+  late final GeneratedColumn<String> childId = GeneratedColumn<String>(
+    'child_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _ageMeta = const VerificationMeta('age');
+  @override
+  late final GeneratedColumn<int> age = GeneratedColumn<int>(
+    'age',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _birthdayDateMeta = const VerificationMeta(
+    'birthdayDate',
+  );
+  @override
+  late final GeneratedColumn<DateTime> birthdayDate = GeneratedColumn<DateTime>(
+    'birthday_date',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _locationTextMeta = const VerificationMeta(
+    'locationText',
+  );
+  @override
+  late final GeneratedColumn<String> locationText = GeneratedColumn<String>(
+    'location_text',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _themeMeta = const VerificationMeta('theme');
+  @override
+  late final GeneratedColumn<String> theme = GeneratedColumn<String>(
+    'theme',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _favoriteGiftMeta = const VerificationMeta(
+    'favoriteGift',
+  );
+  @override
+  late final GeneratedColumn<String> favoriteGift = GeneratedColumn<String>(
+    'favorite_gift',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _guestsTextMeta = const VerificationMeta(
+    'guestsText',
+  );
+  @override
+  late final GeneratedColumn<String> guestsText = GeneratedColumn<String>(
+    'guests_text',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _parentMessageMeta = const VerificationMeta(
+    'parentMessage',
+  );
+  @override
+  late final GeneratedColumn<String> parentMessage = GeneratedColumn<String>(
+    'parent_message',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _notesMeta = const VerificationMeta('notes');
+  @override
+  late final GeneratedColumn<String> notes = GeneratedColumn<String>(
+    'notes',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _coverAssetIdMeta = const VerificationMeta(
+    'coverAssetId',
+  );
+  @override
+  late final GeneratedColumn<String> coverAssetId = GeneratedColumn<String>(
+    'cover_asset_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _albumIdMeta = const VerificationMeta(
+    'albumId',
+  );
+  @override
+  late final GeneratedColumn<String> albumId = GeneratedColumn<String>(
+    'album_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    childId,
+    age,
+    birthdayDate,
+    locationText,
+    theme,
+    favoriteGift,
+    guestsText,
+    parentMessage,
+    notes,
+    coverAssetId,
+    albumId,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'birthdays';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<BirthdayRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('child_id')) {
+      context.handle(
+        _childIdMeta,
+        childId.isAcceptableOrUnknown(data['child_id']!, _childIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_childIdMeta);
+    }
+    if (data.containsKey('age')) {
+      context.handle(
+        _ageMeta,
+        age.isAcceptableOrUnknown(data['age']!, _ageMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_ageMeta);
+    }
+    if (data.containsKey('birthday_date')) {
+      context.handle(
+        _birthdayDateMeta,
+        birthdayDate.isAcceptableOrUnknown(
+          data['birthday_date']!,
+          _birthdayDateMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_birthdayDateMeta);
+    }
+    if (data.containsKey('location_text')) {
+      context.handle(
+        _locationTextMeta,
+        locationText.isAcceptableOrUnknown(
+          data['location_text']!,
+          _locationTextMeta,
+        ),
+      );
+    }
+    if (data.containsKey('theme')) {
+      context.handle(
+        _themeMeta,
+        theme.isAcceptableOrUnknown(data['theme']!, _themeMeta),
+      );
+    }
+    if (data.containsKey('favorite_gift')) {
+      context.handle(
+        _favoriteGiftMeta,
+        favoriteGift.isAcceptableOrUnknown(
+          data['favorite_gift']!,
+          _favoriteGiftMeta,
+        ),
+      );
+    }
+    if (data.containsKey('guests_text')) {
+      context.handle(
+        _guestsTextMeta,
+        guestsText.isAcceptableOrUnknown(data['guests_text']!, _guestsTextMeta),
+      );
+    }
+    if (data.containsKey('parent_message')) {
+      context.handle(
+        _parentMessageMeta,
+        parentMessage.isAcceptableOrUnknown(
+          data['parent_message']!,
+          _parentMessageMeta,
+        ),
+      );
+    }
+    if (data.containsKey('notes')) {
+      context.handle(
+        _notesMeta,
+        notes.isAcceptableOrUnknown(data['notes']!, _notesMeta),
+      );
+    }
+    if (data.containsKey('cover_asset_id')) {
+      context.handle(
+        _coverAssetIdMeta,
+        coverAssetId.isAcceptableOrUnknown(
+          data['cover_asset_id']!,
+          _coverAssetIdMeta,
+        ),
+      );
+    }
+    if (data.containsKey('album_id')) {
+      context.handle(
+        _albumIdMeta,
+        albumId.isAcceptableOrUnknown(data['album_id']!, _albumIdMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  BirthdayRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return BirthdayRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      childId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}child_id'],
+      )!,
+      age: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}age'],
+      )!,
+      birthdayDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}birthday_date'],
+      )!,
+      locationText: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}location_text'],
+      ),
+      theme: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}theme'],
+      ),
+      favoriteGift: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}favorite_gift'],
+      ),
+      guestsText: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}guests_text'],
+      ),
+      parentMessage: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}parent_message'],
+      ),
+      notes: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}notes'],
+      ),
+      coverAssetId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}cover_asset_id'],
+      ),
+      albumId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}album_id'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+    );
+  }
+
+  @override
+  $BirthdaysTable createAlias(String alias) {
+    return $BirthdaysTable(attachedDatabase, alias);
+  }
+}
+
+class BirthdayRow extends DataClass implements Insertable<BirthdayRow> {
+  final String id;
+  final String childId;
+  final int age;
+  final DateTime birthdayDate;
+  final String? locationText;
+  final String? theme;
+  final String? favoriteGift;
+  final String? guestsText;
+  final String? parentMessage;
+  final String? notes;
+  final String? coverAssetId;
+  final String? albumId;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final DateTime? deletedAt;
+  const BirthdayRow({
+    required this.id,
+    required this.childId,
+    required this.age,
+    required this.birthdayDate,
+    this.locationText,
+    this.theme,
+    this.favoriteGift,
+    this.guestsText,
+    this.parentMessage,
+    this.notes,
+    this.coverAssetId,
+    this.albumId,
+    required this.createdAt,
+    required this.updatedAt,
+    this.deletedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['child_id'] = Variable<String>(childId);
+    map['age'] = Variable<int>(age);
+    map['birthday_date'] = Variable<DateTime>(birthdayDate);
+    if (!nullToAbsent || locationText != null) {
+      map['location_text'] = Variable<String>(locationText);
+    }
+    if (!nullToAbsent || theme != null) {
+      map['theme'] = Variable<String>(theme);
+    }
+    if (!nullToAbsent || favoriteGift != null) {
+      map['favorite_gift'] = Variable<String>(favoriteGift);
+    }
+    if (!nullToAbsent || guestsText != null) {
+      map['guests_text'] = Variable<String>(guestsText);
+    }
+    if (!nullToAbsent || parentMessage != null) {
+      map['parent_message'] = Variable<String>(parentMessage);
+    }
+    if (!nullToAbsent || notes != null) {
+      map['notes'] = Variable<String>(notes);
+    }
+    if (!nullToAbsent || coverAssetId != null) {
+      map['cover_asset_id'] = Variable<String>(coverAssetId);
+    }
+    if (!nullToAbsent || albumId != null) {
+      map['album_id'] = Variable<String>(albumId);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    return map;
+  }
+
+  BirthdaysCompanion toCompanion(bool nullToAbsent) {
+    return BirthdaysCompanion(
+      id: Value(id),
+      childId: Value(childId),
+      age: Value(age),
+      birthdayDate: Value(birthdayDate),
+      locationText: locationText == null && nullToAbsent
+          ? const Value.absent()
+          : Value(locationText),
+      theme: theme == null && nullToAbsent
+          ? const Value.absent()
+          : Value(theme),
+      favoriteGift: favoriteGift == null && nullToAbsent
+          ? const Value.absent()
+          : Value(favoriteGift),
+      guestsText: guestsText == null && nullToAbsent
+          ? const Value.absent()
+          : Value(guestsText),
+      parentMessage: parentMessage == null && nullToAbsent
+          ? const Value.absent()
+          : Value(parentMessage),
+      notes: notes == null && nullToAbsent
+          ? const Value.absent()
+          : Value(notes),
+      coverAssetId: coverAssetId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(coverAssetId),
+      albumId: albumId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(albumId),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+    );
+  }
+
+  factory BirthdayRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return BirthdayRow(
+      id: serializer.fromJson<String>(json['id']),
+      childId: serializer.fromJson<String>(json['childId']),
+      age: serializer.fromJson<int>(json['age']),
+      birthdayDate: serializer.fromJson<DateTime>(json['birthdayDate']),
+      locationText: serializer.fromJson<String?>(json['locationText']),
+      theme: serializer.fromJson<String?>(json['theme']),
+      favoriteGift: serializer.fromJson<String?>(json['favoriteGift']),
+      guestsText: serializer.fromJson<String?>(json['guestsText']),
+      parentMessage: serializer.fromJson<String?>(json['parentMessage']),
+      notes: serializer.fromJson<String?>(json['notes']),
+      coverAssetId: serializer.fromJson<String?>(json['coverAssetId']),
+      albumId: serializer.fromJson<String?>(json['albumId']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'childId': serializer.toJson<String>(childId),
+      'age': serializer.toJson<int>(age),
+      'birthdayDate': serializer.toJson<DateTime>(birthdayDate),
+      'locationText': serializer.toJson<String?>(locationText),
+      'theme': serializer.toJson<String?>(theme),
+      'favoriteGift': serializer.toJson<String?>(favoriteGift),
+      'guestsText': serializer.toJson<String?>(guestsText),
+      'parentMessage': serializer.toJson<String?>(parentMessage),
+      'notes': serializer.toJson<String?>(notes),
+      'coverAssetId': serializer.toJson<String?>(coverAssetId),
+      'albumId': serializer.toJson<String?>(albumId),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+    };
+  }
+
+  BirthdayRow copyWith({
+    String? id,
+    String? childId,
+    int? age,
+    DateTime? birthdayDate,
+    Value<String?> locationText = const Value.absent(),
+    Value<String?> theme = const Value.absent(),
+    Value<String?> favoriteGift = const Value.absent(),
+    Value<String?> guestsText = const Value.absent(),
+    Value<String?> parentMessage = const Value.absent(),
+    Value<String?> notes = const Value.absent(),
+    Value<String?> coverAssetId = const Value.absent(),
+    Value<String?> albumId = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> deletedAt = const Value.absent(),
+  }) => BirthdayRow(
+    id: id ?? this.id,
+    childId: childId ?? this.childId,
+    age: age ?? this.age,
+    birthdayDate: birthdayDate ?? this.birthdayDate,
+    locationText: locationText.present ? locationText.value : this.locationText,
+    theme: theme.present ? theme.value : this.theme,
+    favoriteGift: favoriteGift.present ? favoriteGift.value : this.favoriteGift,
+    guestsText: guestsText.present ? guestsText.value : this.guestsText,
+    parentMessage: parentMessage.present
+        ? parentMessage.value
+        : this.parentMessage,
+    notes: notes.present ? notes.value : this.notes,
+    coverAssetId: coverAssetId.present ? coverAssetId.value : this.coverAssetId,
+    albumId: albumId.present ? albumId.value : this.albumId,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+  );
+  BirthdayRow copyWithCompanion(BirthdaysCompanion data) {
+    return BirthdayRow(
+      id: data.id.present ? data.id.value : this.id,
+      childId: data.childId.present ? data.childId.value : this.childId,
+      age: data.age.present ? data.age.value : this.age,
+      birthdayDate: data.birthdayDate.present
+          ? data.birthdayDate.value
+          : this.birthdayDate,
+      locationText: data.locationText.present
+          ? data.locationText.value
+          : this.locationText,
+      theme: data.theme.present ? data.theme.value : this.theme,
+      favoriteGift: data.favoriteGift.present
+          ? data.favoriteGift.value
+          : this.favoriteGift,
+      guestsText: data.guestsText.present
+          ? data.guestsText.value
+          : this.guestsText,
+      parentMessage: data.parentMessage.present
+          ? data.parentMessage.value
+          : this.parentMessage,
+      notes: data.notes.present ? data.notes.value : this.notes,
+      coverAssetId: data.coverAssetId.present
+          ? data.coverAssetId.value
+          : this.coverAssetId,
+      albumId: data.albumId.present ? data.albumId.value : this.albumId,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('BirthdayRow(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('age: $age, ')
+          ..write('birthdayDate: $birthdayDate, ')
+          ..write('locationText: $locationText, ')
+          ..write('theme: $theme, ')
+          ..write('favoriteGift: $favoriteGift, ')
+          ..write('guestsText: $guestsText, ')
+          ..write('parentMessage: $parentMessage, ')
+          ..write('notes: $notes, ')
+          ..write('coverAssetId: $coverAssetId, ')
+          ..write('albumId: $albumId, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    childId,
+    age,
+    birthdayDate,
+    locationText,
+    theme,
+    favoriteGift,
+    guestsText,
+    parentMessage,
+    notes,
+    coverAssetId,
+    albumId,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is BirthdayRow &&
+          other.id == this.id &&
+          other.childId == this.childId &&
+          other.age == this.age &&
+          other.birthdayDate == this.birthdayDate &&
+          other.locationText == this.locationText &&
+          other.theme == this.theme &&
+          other.favoriteGift == this.favoriteGift &&
+          other.guestsText == this.guestsText &&
+          other.parentMessage == this.parentMessage &&
+          other.notes == this.notes &&
+          other.coverAssetId == this.coverAssetId &&
+          other.albumId == this.albumId &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.deletedAt == this.deletedAt);
+}
+
+class BirthdaysCompanion extends UpdateCompanion<BirthdayRow> {
+  final Value<String> id;
+  final Value<String> childId;
+  final Value<int> age;
+  final Value<DateTime> birthdayDate;
+  final Value<String?> locationText;
+  final Value<String?> theme;
+  final Value<String?> favoriteGift;
+  final Value<String?> guestsText;
+  final Value<String?> parentMessage;
+  final Value<String?> notes;
+  final Value<String?> coverAssetId;
+  final Value<String?> albumId;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> deletedAt;
+  final Value<int> rowid;
+  const BirthdaysCompanion({
+    this.id = const Value.absent(),
+    this.childId = const Value.absent(),
+    this.age = const Value.absent(),
+    this.birthdayDate = const Value.absent(),
+    this.locationText = const Value.absent(),
+    this.theme = const Value.absent(),
+    this.favoriteGift = const Value.absent(),
+    this.guestsText = const Value.absent(),
+    this.parentMessage = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.coverAssetId = const Value.absent(),
+    this.albumId = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  BirthdaysCompanion.insert({
+    required String id,
+    required String childId,
+    required int age,
+    required DateTime birthdayDate,
+    this.locationText = const Value.absent(),
+    this.theme = const Value.absent(),
+    this.favoriteGift = const Value.absent(),
+    this.guestsText = const Value.absent(),
+    this.parentMessage = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.coverAssetId = const Value.absent(),
+    this.albumId = const Value.absent(),
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       childId = Value(childId),
+       age = Value(age),
+       birthdayDate = Value(birthdayDate),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt);
+  static Insertable<BirthdayRow> custom({
+    Expression<String>? id,
+    Expression<String>? childId,
+    Expression<int>? age,
+    Expression<DateTime>? birthdayDate,
+    Expression<String>? locationText,
+    Expression<String>? theme,
+    Expression<String>? favoriteGift,
+    Expression<String>? guestsText,
+    Expression<String>? parentMessage,
+    Expression<String>? notes,
+    Expression<String>? coverAssetId,
+    Expression<String>? albumId,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? deletedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (childId != null) 'child_id': childId,
+      if (age != null) 'age': age,
+      if (birthdayDate != null) 'birthday_date': birthdayDate,
+      if (locationText != null) 'location_text': locationText,
+      if (theme != null) 'theme': theme,
+      if (favoriteGift != null) 'favorite_gift': favoriteGift,
+      if (guestsText != null) 'guests_text': guestsText,
+      if (parentMessage != null) 'parent_message': parentMessage,
+      if (notes != null) 'notes': notes,
+      if (coverAssetId != null) 'cover_asset_id': coverAssetId,
+      if (albumId != null) 'album_id': albumId,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  BirthdaysCompanion copyWith({
+    Value<String>? id,
+    Value<String>? childId,
+    Value<int>? age,
+    Value<DateTime>? birthdayDate,
+    Value<String?>? locationText,
+    Value<String?>? theme,
+    Value<String?>? favoriteGift,
+    Value<String?>? guestsText,
+    Value<String?>? parentMessage,
+    Value<String?>? notes,
+    Value<String?>? coverAssetId,
+    Value<String?>? albumId,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? deletedAt,
+    Value<int>? rowid,
+  }) {
+    return BirthdaysCompanion(
+      id: id ?? this.id,
+      childId: childId ?? this.childId,
+      age: age ?? this.age,
+      birthdayDate: birthdayDate ?? this.birthdayDate,
+      locationText: locationText ?? this.locationText,
+      theme: theme ?? this.theme,
+      favoriteGift: favoriteGift ?? this.favoriteGift,
+      guestsText: guestsText ?? this.guestsText,
+      parentMessage: parentMessage ?? this.parentMessage,
+      notes: notes ?? this.notes,
+      coverAssetId: coverAssetId ?? this.coverAssetId,
+      albumId: albumId ?? this.albumId,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (childId.present) {
+      map['child_id'] = Variable<String>(childId.value);
+    }
+    if (age.present) {
+      map['age'] = Variable<int>(age.value);
+    }
+    if (birthdayDate.present) {
+      map['birthday_date'] = Variable<DateTime>(birthdayDate.value);
+    }
+    if (locationText.present) {
+      map['location_text'] = Variable<String>(locationText.value);
+    }
+    if (theme.present) {
+      map['theme'] = Variable<String>(theme.value);
+    }
+    if (favoriteGift.present) {
+      map['favorite_gift'] = Variable<String>(favoriteGift.value);
+    }
+    if (guestsText.present) {
+      map['guests_text'] = Variable<String>(guestsText.value);
+    }
+    if (parentMessage.present) {
+      map['parent_message'] = Variable<String>(parentMessage.value);
+    }
+    if (notes.present) {
+      map['notes'] = Variable<String>(notes.value);
+    }
+    if (coverAssetId.present) {
+      map['cover_asset_id'] = Variable<String>(coverAssetId.value);
+    }
+    if (albumId.present) {
+      map['album_id'] = Variable<String>(albumId.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('BirthdaysCompanion(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('age: $age, ')
+          ..write('birthdayDate: $birthdayDate, ')
+          ..write('locationText: $locationText, ')
+          ..write('theme: $theme, ')
+          ..write('favoriteGift: $favoriteGift, ')
+          ..write('guestsText: $guestsText, ')
+          ..write('parentMessage: $parentMessage, ')
+          ..write('notes: $notes, ')
+          ..write('coverAssetId: $coverAssetId, ')
+          ..write('albumId: $albumId, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $BirthdayAnswersTable extends BirthdayAnswers
+    with TableInfo<$BirthdayAnswersTable, BirthdayAnswerRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $BirthdayAnswersTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _birthdayIdMeta = const VerificationMeta(
+    'birthdayId',
+  );
+  @override
+  late final GeneratedColumn<String> birthdayId = GeneratedColumn<String>(
+    'birthday_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _questionKeyMeta = const VerificationMeta(
+    'questionKey',
+  );
+  @override
+  late final GeneratedColumn<String> questionKey = GeneratedColumn<String>(
+    'question_key',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _answerMeta = const VerificationMeta('answer');
+  @override
+  late final GeneratedColumn<String> answer = GeneratedColumn<String>(
+    'answer',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _sortOrderMeta = const VerificationMeta(
+    'sortOrder',
+  );
+  @override
+  late final GeneratedColumn<int> sortOrder = GeneratedColumn<int>(
+    'sort_order',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    birthdayId,
+    questionKey,
+    answer,
+    sortOrder,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'birthday_answers';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<BirthdayAnswerRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('birthday_id')) {
+      context.handle(
+        _birthdayIdMeta,
+        birthdayId.isAcceptableOrUnknown(data['birthday_id']!, _birthdayIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_birthdayIdMeta);
+    }
+    if (data.containsKey('question_key')) {
+      context.handle(
+        _questionKeyMeta,
+        questionKey.isAcceptableOrUnknown(
+          data['question_key']!,
+          _questionKeyMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_questionKeyMeta);
+    }
+    if (data.containsKey('answer')) {
+      context.handle(
+        _answerMeta,
+        answer.isAcceptableOrUnknown(data['answer']!, _answerMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_answerMeta);
+    }
+    if (data.containsKey('sort_order')) {
+      context.handle(
+        _sortOrderMeta,
+        sortOrder.isAcceptableOrUnknown(data['sort_order']!, _sortOrderMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  BirthdayAnswerRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return BirthdayAnswerRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      birthdayId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}birthday_id'],
+      )!,
+      questionKey: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}question_key'],
+      )!,
+      answer: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}answer'],
+      )!,
+      sortOrder: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}sort_order'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+    );
+  }
+
+  @override
+  $BirthdayAnswersTable createAlias(String alias) {
+    return $BirthdayAnswersTable(attachedDatabase, alias);
+  }
+}
+
+class BirthdayAnswerRow extends DataClass
+    implements Insertable<BirthdayAnswerRow> {
+  final String id;
+  final String birthdayId;
+  final String questionKey;
+  final String answer;
+  final int sortOrder;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final DateTime? deletedAt;
+  const BirthdayAnswerRow({
+    required this.id,
+    required this.birthdayId,
+    required this.questionKey,
+    required this.answer,
+    required this.sortOrder,
+    required this.createdAt,
+    required this.updatedAt,
+    this.deletedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['birthday_id'] = Variable<String>(birthdayId);
+    map['question_key'] = Variable<String>(questionKey);
+    map['answer'] = Variable<String>(answer);
+    map['sort_order'] = Variable<int>(sortOrder);
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    return map;
+  }
+
+  BirthdayAnswersCompanion toCompanion(bool nullToAbsent) {
+    return BirthdayAnswersCompanion(
+      id: Value(id),
+      birthdayId: Value(birthdayId),
+      questionKey: Value(questionKey),
+      answer: Value(answer),
+      sortOrder: Value(sortOrder),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+    );
+  }
+
+  factory BirthdayAnswerRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return BirthdayAnswerRow(
+      id: serializer.fromJson<String>(json['id']),
+      birthdayId: serializer.fromJson<String>(json['birthdayId']),
+      questionKey: serializer.fromJson<String>(json['questionKey']),
+      answer: serializer.fromJson<String>(json['answer']),
+      sortOrder: serializer.fromJson<int>(json['sortOrder']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'birthdayId': serializer.toJson<String>(birthdayId),
+      'questionKey': serializer.toJson<String>(questionKey),
+      'answer': serializer.toJson<String>(answer),
+      'sortOrder': serializer.toJson<int>(sortOrder),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+    };
+  }
+
+  BirthdayAnswerRow copyWith({
+    String? id,
+    String? birthdayId,
+    String? questionKey,
+    String? answer,
+    int? sortOrder,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> deletedAt = const Value.absent(),
+  }) => BirthdayAnswerRow(
+    id: id ?? this.id,
+    birthdayId: birthdayId ?? this.birthdayId,
+    questionKey: questionKey ?? this.questionKey,
+    answer: answer ?? this.answer,
+    sortOrder: sortOrder ?? this.sortOrder,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+  );
+  BirthdayAnswerRow copyWithCompanion(BirthdayAnswersCompanion data) {
+    return BirthdayAnswerRow(
+      id: data.id.present ? data.id.value : this.id,
+      birthdayId: data.birthdayId.present
+          ? data.birthdayId.value
+          : this.birthdayId,
+      questionKey: data.questionKey.present
+          ? data.questionKey.value
+          : this.questionKey,
+      answer: data.answer.present ? data.answer.value : this.answer,
+      sortOrder: data.sortOrder.present ? data.sortOrder.value : this.sortOrder,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('BirthdayAnswerRow(')
+          ..write('id: $id, ')
+          ..write('birthdayId: $birthdayId, ')
+          ..write('questionKey: $questionKey, ')
+          ..write('answer: $answer, ')
+          ..write('sortOrder: $sortOrder, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    birthdayId,
+    questionKey,
+    answer,
+    sortOrder,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is BirthdayAnswerRow &&
+          other.id == this.id &&
+          other.birthdayId == this.birthdayId &&
+          other.questionKey == this.questionKey &&
+          other.answer == this.answer &&
+          other.sortOrder == this.sortOrder &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.deletedAt == this.deletedAt);
+}
+
+class BirthdayAnswersCompanion extends UpdateCompanion<BirthdayAnswerRow> {
+  final Value<String> id;
+  final Value<String> birthdayId;
+  final Value<String> questionKey;
+  final Value<String> answer;
+  final Value<int> sortOrder;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> deletedAt;
+  final Value<int> rowid;
+  const BirthdayAnswersCompanion({
+    this.id = const Value.absent(),
+    this.birthdayId = const Value.absent(),
+    this.questionKey = const Value.absent(),
+    this.answer = const Value.absent(),
+    this.sortOrder = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  BirthdayAnswersCompanion.insert({
+    required String id,
+    required String birthdayId,
+    required String questionKey,
+    required String answer,
+    this.sortOrder = const Value.absent(),
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       birthdayId = Value(birthdayId),
+       questionKey = Value(questionKey),
+       answer = Value(answer),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt);
+  static Insertable<BirthdayAnswerRow> custom({
+    Expression<String>? id,
+    Expression<String>? birthdayId,
+    Expression<String>? questionKey,
+    Expression<String>? answer,
+    Expression<int>? sortOrder,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? deletedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (birthdayId != null) 'birthday_id': birthdayId,
+      if (questionKey != null) 'question_key': questionKey,
+      if (answer != null) 'answer': answer,
+      if (sortOrder != null) 'sort_order': sortOrder,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  BirthdayAnswersCompanion copyWith({
+    Value<String>? id,
+    Value<String>? birthdayId,
+    Value<String>? questionKey,
+    Value<String>? answer,
+    Value<int>? sortOrder,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? deletedAt,
+    Value<int>? rowid,
+  }) {
+    return BirthdayAnswersCompanion(
+      id: id ?? this.id,
+      birthdayId: birthdayId ?? this.birthdayId,
+      questionKey: questionKey ?? this.questionKey,
+      answer: answer ?? this.answer,
+      sortOrder: sortOrder ?? this.sortOrder,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (birthdayId.present) {
+      map['birthday_id'] = Variable<String>(birthdayId.value);
+    }
+    if (questionKey.present) {
+      map['question_key'] = Variable<String>(questionKey.value);
+    }
+    if (answer.present) {
+      map['answer'] = Variable<String>(answer.value);
+    }
+    if (sortOrder.present) {
+      map['sort_order'] = Variable<int>(sortOrder.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('BirthdayAnswersCompanion(')
+          ..write('id: $id, ')
+          ..write('birthdayId: $birthdayId, ')
+          ..write('questionKey: $questionKey, ')
+          ..write('answer: $answer, ')
+          ..write('sortOrder: $sortOrder, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $FavoritesTable extends Favorites
+    with TableInfo<$FavoritesTable, FavoriteRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $FavoritesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _childIdMeta = const VerificationMeta(
+    'childId',
+  );
+  @override
+  late final GeneratedColumn<String> childId = GeneratedColumn<String>(
+    'child_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _categoryMeta = const VerificationMeta(
+    'category',
+  );
+  @override
+  late final GeneratedColumn<String> category = GeneratedColumn<String>(
+    'category',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _valueMeta = const VerificationMeta('value');
+  @override
+  late final GeneratedColumn<String> value = GeneratedColumn<String>(
+    'value',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _startDateMeta = const VerificationMeta(
+    'startDate',
+  );
+  @override
+  late final GeneratedColumn<DateTime> startDate = GeneratedColumn<DateTime>(
+    'start_date',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _endDateMeta = const VerificationMeta(
+    'endDate',
+  );
+  @override
+  late final GeneratedColumn<DateTime> endDate = GeneratedColumn<DateTime>(
+    'end_date',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _notesMeta = const VerificationMeta('notes');
+  @override
+  late final GeneratedColumn<String> notes = GeneratedColumn<String>(
+    'notes',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _sourceBirthdayIdMeta = const VerificationMeta(
+    'sourceBirthdayId',
+  );
+  @override
+  late final GeneratedColumn<String> sourceBirthdayId = GeneratedColumn<String>(
+    'source_birthday_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _recordedAgeMeta = const VerificationMeta(
+    'recordedAge',
+  );
+  @override
+  late final GeneratedColumn<int> recordedAge = GeneratedColumn<int>(
+    'recorded_age',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    childId,
+    category,
+    value,
+    startDate,
+    endDate,
+    notes,
+    sourceBirthdayId,
+    recordedAge,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'favorites';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<FavoriteRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('child_id')) {
+      context.handle(
+        _childIdMeta,
+        childId.isAcceptableOrUnknown(data['child_id']!, _childIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_childIdMeta);
+    }
+    if (data.containsKey('category')) {
+      context.handle(
+        _categoryMeta,
+        category.isAcceptableOrUnknown(data['category']!, _categoryMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_categoryMeta);
+    }
+    if (data.containsKey('value')) {
+      context.handle(
+        _valueMeta,
+        value.isAcceptableOrUnknown(data['value']!, _valueMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_valueMeta);
+    }
+    if (data.containsKey('start_date')) {
+      context.handle(
+        _startDateMeta,
+        startDate.isAcceptableOrUnknown(data['start_date']!, _startDateMeta),
+      );
+    }
+    if (data.containsKey('end_date')) {
+      context.handle(
+        _endDateMeta,
+        endDate.isAcceptableOrUnknown(data['end_date']!, _endDateMeta),
+      );
+    }
+    if (data.containsKey('notes')) {
+      context.handle(
+        _notesMeta,
+        notes.isAcceptableOrUnknown(data['notes']!, _notesMeta),
+      );
+    }
+    if (data.containsKey('source_birthday_id')) {
+      context.handle(
+        _sourceBirthdayIdMeta,
+        sourceBirthdayId.isAcceptableOrUnknown(
+          data['source_birthday_id']!,
+          _sourceBirthdayIdMeta,
+        ),
+      );
+    }
+    if (data.containsKey('recorded_age')) {
+      context.handle(
+        _recordedAgeMeta,
+        recordedAge.isAcceptableOrUnknown(
+          data['recorded_age']!,
+          _recordedAgeMeta,
+        ),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  FavoriteRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return FavoriteRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      childId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}child_id'],
+      )!,
+      category: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}category'],
+      )!,
+      value: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}value'],
+      )!,
+      startDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}start_date'],
+      ),
+      endDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}end_date'],
+      ),
+      notes: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}notes'],
+      ),
+      sourceBirthdayId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}source_birthday_id'],
+      ),
+      recordedAge: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}recorded_age'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+    );
+  }
+
+  @override
+  $FavoritesTable createAlias(String alias) {
+    return $FavoritesTable(attachedDatabase, alias);
+  }
+}
+
+class FavoriteRow extends DataClass implements Insertable<FavoriteRow> {
+  final String id;
+  final String childId;
+  final String category;
+  final String value;
+  final DateTime? startDate;
+  final DateTime? endDate;
+  final String? notes;
+
+  /// Optional link to the birthday interview that set this value.
+  final String? sourceBirthdayId;
+  final int? recordedAge;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final DateTime? deletedAt;
+  const FavoriteRow({
+    required this.id,
+    required this.childId,
+    required this.category,
+    required this.value,
+    this.startDate,
+    this.endDate,
+    this.notes,
+    this.sourceBirthdayId,
+    this.recordedAge,
+    required this.createdAt,
+    required this.updatedAt,
+    this.deletedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['child_id'] = Variable<String>(childId);
+    map['category'] = Variable<String>(category);
+    map['value'] = Variable<String>(value);
+    if (!nullToAbsent || startDate != null) {
+      map['start_date'] = Variable<DateTime>(startDate);
+    }
+    if (!nullToAbsent || endDate != null) {
+      map['end_date'] = Variable<DateTime>(endDate);
+    }
+    if (!nullToAbsent || notes != null) {
+      map['notes'] = Variable<String>(notes);
+    }
+    if (!nullToAbsent || sourceBirthdayId != null) {
+      map['source_birthday_id'] = Variable<String>(sourceBirthdayId);
+    }
+    if (!nullToAbsent || recordedAge != null) {
+      map['recorded_age'] = Variable<int>(recordedAge);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    return map;
+  }
+
+  FavoritesCompanion toCompanion(bool nullToAbsent) {
+    return FavoritesCompanion(
+      id: Value(id),
+      childId: Value(childId),
+      category: Value(category),
+      value: Value(value),
+      startDate: startDate == null && nullToAbsent
+          ? const Value.absent()
+          : Value(startDate),
+      endDate: endDate == null && nullToAbsent
+          ? const Value.absent()
+          : Value(endDate),
+      notes: notes == null && nullToAbsent
+          ? const Value.absent()
+          : Value(notes),
+      sourceBirthdayId: sourceBirthdayId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(sourceBirthdayId),
+      recordedAge: recordedAge == null && nullToAbsent
+          ? const Value.absent()
+          : Value(recordedAge),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+    );
+  }
+
+  factory FavoriteRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return FavoriteRow(
+      id: serializer.fromJson<String>(json['id']),
+      childId: serializer.fromJson<String>(json['childId']),
+      category: serializer.fromJson<String>(json['category']),
+      value: serializer.fromJson<String>(json['value']),
+      startDate: serializer.fromJson<DateTime?>(json['startDate']),
+      endDate: serializer.fromJson<DateTime?>(json['endDate']),
+      notes: serializer.fromJson<String?>(json['notes']),
+      sourceBirthdayId: serializer.fromJson<String?>(json['sourceBirthdayId']),
+      recordedAge: serializer.fromJson<int?>(json['recordedAge']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'childId': serializer.toJson<String>(childId),
+      'category': serializer.toJson<String>(category),
+      'value': serializer.toJson<String>(value),
+      'startDate': serializer.toJson<DateTime?>(startDate),
+      'endDate': serializer.toJson<DateTime?>(endDate),
+      'notes': serializer.toJson<String?>(notes),
+      'sourceBirthdayId': serializer.toJson<String?>(sourceBirthdayId),
+      'recordedAge': serializer.toJson<int?>(recordedAge),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+    };
+  }
+
+  FavoriteRow copyWith({
+    String? id,
+    String? childId,
+    String? category,
+    String? value,
+    Value<DateTime?> startDate = const Value.absent(),
+    Value<DateTime?> endDate = const Value.absent(),
+    Value<String?> notes = const Value.absent(),
+    Value<String?> sourceBirthdayId = const Value.absent(),
+    Value<int?> recordedAge = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> deletedAt = const Value.absent(),
+  }) => FavoriteRow(
+    id: id ?? this.id,
+    childId: childId ?? this.childId,
+    category: category ?? this.category,
+    value: value ?? this.value,
+    startDate: startDate.present ? startDate.value : this.startDate,
+    endDate: endDate.present ? endDate.value : this.endDate,
+    notes: notes.present ? notes.value : this.notes,
+    sourceBirthdayId: sourceBirthdayId.present
+        ? sourceBirthdayId.value
+        : this.sourceBirthdayId,
+    recordedAge: recordedAge.present ? recordedAge.value : this.recordedAge,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+  );
+  FavoriteRow copyWithCompanion(FavoritesCompanion data) {
+    return FavoriteRow(
+      id: data.id.present ? data.id.value : this.id,
+      childId: data.childId.present ? data.childId.value : this.childId,
+      category: data.category.present ? data.category.value : this.category,
+      value: data.value.present ? data.value.value : this.value,
+      startDate: data.startDate.present ? data.startDate.value : this.startDate,
+      endDate: data.endDate.present ? data.endDate.value : this.endDate,
+      notes: data.notes.present ? data.notes.value : this.notes,
+      sourceBirthdayId: data.sourceBirthdayId.present
+          ? data.sourceBirthdayId.value
+          : this.sourceBirthdayId,
+      recordedAge: data.recordedAge.present
+          ? data.recordedAge.value
+          : this.recordedAge,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('FavoriteRow(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('category: $category, ')
+          ..write('value: $value, ')
+          ..write('startDate: $startDate, ')
+          ..write('endDate: $endDate, ')
+          ..write('notes: $notes, ')
+          ..write('sourceBirthdayId: $sourceBirthdayId, ')
+          ..write('recordedAge: $recordedAge, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    childId,
+    category,
+    value,
+    startDate,
+    endDate,
+    notes,
+    sourceBirthdayId,
+    recordedAge,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is FavoriteRow &&
+          other.id == this.id &&
+          other.childId == this.childId &&
+          other.category == this.category &&
+          other.value == this.value &&
+          other.startDate == this.startDate &&
+          other.endDate == this.endDate &&
+          other.notes == this.notes &&
+          other.sourceBirthdayId == this.sourceBirthdayId &&
+          other.recordedAge == this.recordedAge &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.deletedAt == this.deletedAt);
+}
+
+class FavoritesCompanion extends UpdateCompanion<FavoriteRow> {
+  final Value<String> id;
+  final Value<String> childId;
+  final Value<String> category;
+  final Value<String> value;
+  final Value<DateTime?> startDate;
+  final Value<DateTime?> endDate;
+  final Value<String?> notes;
+  final Value<String?> sourceBirthdayId;
+  final Value<int?> recordedAge;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> deletedAt;
+  final Value<int> rowid;
+  const FavoritesCompanion({
+    this.id = const Value.absent(),
+    this.childId = const Value.absent(),
+    this.category = const Value.absent(),
+    this.value = const Value.absent(),
+    this.startDate = const Value.absent(),
+    this.endDate = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.sourceBirthdayId = const Value.absent(),
+    this.recordedAge = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  FavoritesCompanion.insert({
+    required String id,
+    required String childId,
+    required String category,
+    required String value,
+    this.startDate = const Value.absent(),
+    this.endDate = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.sourceBirthdayId = const Value.absent(),
+    this.recordedAge = const Value.absent(),
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       childId = Value(childId),
+       category = Value(category),
+       value = Value(value),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt);
+  static Insertable<FavoriteRow> custom({
+    Expression<String>? id,
+    Expression<String>? childId,
+    Expression<String>? category,
+    Expression<String>? value,
+    Expression<DateTime>? startDate,
+    Expression<DateTime>? endDate,
+    Expression<String>? notes,
+    Expression<String>? sourceBirthdayId,
+    Expression<int>? recordedAge,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? deletedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (childId != null) 'child_id': childId,
+      if (category != null) 'category': category,
+      if (value != null) 'value': value,
+      if (startDate != null) 'start_date': startDate,
+      if (endDate != null) 'end_date': endDate,
+      if (notes != null) 'notes': notes,
+      if (sourceBirthdayId != null) 'source_birthday_id': sourceBirthdayId,
+      if (recordedAge != null) 'recorded_age': recordedAge,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  FavoritesCompanion copyWith({
+    Value<String>? id,
+    Value<String>? childId,
+    Value<String>? category,
+    Value<String>? value,
+    Value<DateTime?>? startDate,
+    Value<DateTime?>? endDate,
+    Value<String?>? notes,
+    Value<String?>? sourceBirthdayId,
+    Value<int?>? recordedAge,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? deletedAt,
+    Value<int>? rowid,
+  }) {
+    return FavoritesCompanion(
+      id: id ?? this.id,
+      childId: childId ?? this.childId,
+      category: category ?? this.category,
+      value: value ?? this.value,
+      startDate: startDate ?? this.startDate,
+      endDate: endDate ?? this.endDate,
+      notes: notes ?? this.notes,
+      sourceBirthdayId: sourceBirthdayId ?? this.sourceBirthdayId,
+      recordedAge: recordedAge ?? this.recordedAge,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (childId.present) {
+      map['child_id'] = Variable<String>(childId.value);
+    }
+    if (category.present) {
+      map['category'] = Variable<String>(category.value);
+    }
+    if (value.present) {
+      map['value'] = Variable<String>(value.value);
+    }
+    if (startDate.present) {
+      map['start_date'] = Variable<DateTime>(startDate.value);
+    }
+    if (endDate.present) {
+      map['end_date'] = Variable<DateTime>(endDate.value);
+    }
+    if (notes.present) {
+      map['notes'] = Variable<String>(notes.value);
+    }
+    if (sourceBirthdayId.present) {
+      map['source_birthday_id'] = Variable<String>(sourceBirthdayId.value);
+    }
+    if (recordedAge.present) {
+      map['recorded_age'] = Variable<int>(recordedAge.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('FavoritesCompanion(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('category: $category, ')
+          ..write('value: $value, ')
+          ..write('startDate: $startDate, ')
+          ..write('endDate: $endDate, ')
+          ..write('notes: $notes, ')
+          ..write('sourceBirthdayId: $sourceBirthdayId, ')
+          ..write('recordedAge: $recordedAge, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -17977,6 +20094,11 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   );
   late final $YearReviewPreferencesTable yearReviewPreferences =
       $YearReviewPreferencesTable(this);
+  late final $BirthdaysTable birthdays = $BirthdaysTable(this);
+  late final $BirthdayAnswersTable birthdayAnswers = $BirthdayAnswersTable(
+    this,
+  );
+  late final $FavoritesTable favorites = $FavoritesTable(this);
   late final Index mediaAssetsChild = Index(
     'media_assets_child',
     'CREATE INDEX media_assets_child ON media_assets (child_id)',
@@ -18073,6 +20195,22 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     'doctor_visits_child_visit',
     'CREATE INDEX doctor_visits_child_visit ON doctor_visits (child_id, visit_date)',
   );
+  late final Index birthdaysChildAge = Index(
+    'birthdays_child_age',
+    'CREATE INDEX birthdays_child_age ON birthdays (child_id, age)',
+  );
+  late final Index birthdaysChildDate = Index(
+    'birthdays_child_date',
+    'CREATE INDEX birthdays_child_date ON birthdays (child_id, birthday_date)',
+  );
+  late final Index birthdayAnswersBirthday = Index(
+    'birthday_answers_birthday',
+    'CREATE INDEX birthday_answers_birthday ON birthday_answers (birthday_id, sort_order)',
+  );
+  late final Index favoritesChildCategory = Index(
+    'favorites_child_category',
+    'CREATE INDEX favorites_child_category ON favorites (child_id, category)',
+  );
   late final ChildrenDao childrenDao = ChildrenDao(this as AppDatabase);
   late final SettingsDao settingsDao = SettingsDao(this as AppDatabase);
   late final MediaAssetsDao mediaAssetsDao = MediaAssetsDao(
@@ -18128,6 +20266,8 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   );
   late final YearReviewPreferencesDao yearReviewPreferencesDao =
       YearReviewPreferencesDao(this as AppDatabase);
+  late final BirthdaysDao birthdaysDao = BirthdaysDao(this as AppDatabase);
+  late final FavoritesDao favoritesDao = FavoritesDao(this as AppDatabase);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -18159,6 +20299,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     albumItems,
     generatedExports,
     yearReviewPreferences,
+    birthdays,
+    birthdayAnswers,
+    favorites,
     mediaAssetsChild,
     mediaAssetsChecksum,
     mediaAssetsFavorite,
@@ -18183,6 +20326,10 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     vaccinationsName,
     illnessEpisodesChildStart,
     doctorVisitsChildVisit,
+    birthdaysChildAge,
+    birthdaysChildDate,
+    birthdayAnswersBirthday,
+    favoritesChildCategory,
   ];
   @override
   DriftDatabaseOptions get options =>
@@ -26957,6 +29104,1035 @@ typedef $$YearReviewPreferencesTableProcessedTableManager =
       YearReviewPreferenceRow,
       PrefetchHooks Function()
     >;
+typedef $$BirthdaysTableCreateCompanionBuilder = BirthdaysCompanion Function({
+  required String id,
+  required String childId,
+  required int age,
+  required DateTime birthdayDate,
+  Value<String?> locationText,
+  Value<String?> theme,
+  Value<String?> favoriteGift,
+  Value<String?> guestsText,
+  Value<String?> parentMessage,
+  Value<String?> notes,
+  Value<String?> coverAssetId,
+  Value<String?> albumId,
+  required DateTime createdAt,
+  required DateTime updatedAt,
+  Value<DateTime?> deletedAt,
+  Value<int> rowid,
+});
+typedef $$BirthdaysTableUpdateCompanionBuilder = BirthdaysCompanion Function({
+  Value<String> id,
+  Value<String> childId,
+  Value<int> age,
+  Value<DateTime> birthdayDate,
+  Value<String?> locationText,
+  Value<String?> theme,
+  Value<String?> favoriteGift,
+  Value<String?> guestsText,
+  Value<String?> parentMessage,
+  Value<String?> notes,
+  Value<String?> coverAssetId,
+  Value<String?> albumId,
+  Value<DateTime> createdAt,
+  Value<DateTime> updatedAt,
+  Value<DateTime?> deletedAt,
+  Value<int> rowid,
+});
+
+class $$BirthdaysTableFilterComposer
+    extends Composer<_$AppDatabase, $BirthdaysTable> {
+  $$BirthdaysTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get age => $composableBuilder(
+    column: $table.age,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get birthdayDate => $composableBuilder(
+    column: $table.birthdayDate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get locationText => $composableBuilder(
+    column: $table.locationText,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get theme => $composableBuilder(
+    column: $table.theme,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get favoriteGift => $composableBuilder(
+    column: $table.favoriteGift,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get guestsText => $composableBuilder(
+    column: $table.guestsText,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get parentMessage => $composableBuilder(
+    column: $table.parentMessage,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get coverAssetId => $composableBuilder(
+    column: $table.coverAssetId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get albumId => $composableBuilder(
+    column: $table.albumId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$BirthdaysTableOrderingComposer
+    extends Composer<_$AppDatabase, $BirthdaysTable> {
+  $$BirthdaysTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get age => $composableBuilder(
+    column: $table.age,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get birthdayDate => $composableBuilder(
+    column: $table.birthdayDate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get locationText => $composableBuilder(
+    column: $table.locationText,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get theme => $composableBuilder(
+    column: $table.theme,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get favoriteGift => $composableBuilder(
+    column: $table.favoriteGift,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get guestsText => $composableBuilder(
+    column: $table.guestsText,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get parentMessage => $composableBuilder(
+    column: $table.parentMessage,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get coverAssetId => $composableBuilder(
+    column: $table.coverAssetId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get albumId => $composableBuilder(
+    column: $table.albumId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$BirthdaysTableAnnotationComposer
+    extends Composer<_$AppDatabase, $BirthdaysTable> {
+  $$BirthdaysTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get childId =>
+      $composableBuilder(column: $table.childId, builder: (column) => column);
+
+  GeneratedColumn<int> get age =>
+      $composableBuilder(column: $table.age, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get birthdayDate => $composableBuilder(
+    column: $table.birthdayDate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get locationText => $composableBuilder(
+    column: $table.locationText,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get theme =>
+      $composableBuilder(column: $table.theme, builder: (column) => column);
+
+  GeneratedColumn<String> get favoriteGift => $composableBuilder(
+    column: $table.favoriteGift,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get guestsText => $composableBuilder(
+    column: $table.guestsText,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get parentMessage => $composableBuilder(
+    column: $table.parentMessage,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get notes =>
+      $composableBuilder(column: $table.notes, builder: (column) => column);
+
+  GeneratedColumn<String> get coverAssetId => $composableBuilder(
+    column: $table.coverAssetId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get albumId =>
+      $composableBuilder(column: $table.albumId, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+}
+
+class $$BirthdaysTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $BirthdaysTable,
+          BirthdayRow,
+          $$BirthdaysTableFilterComposer,
+          $$BirthdaysTableOrderingComposer,
+          $$BirthdaysTableAnnotationComposer,
+          $$BirthdaysTableCreateCompanionBuilder,
+          $$BirthdaysTableUpdateCompanionBuilder,
+          (
+            BirthdayRow,
+            BaseReferences<_$AppDatabase, $BirthdaysTable, BirthdayRow>,
+          ),
+          BirthdayRow,
+          PrefetchHooks Function()
+        > {
+  $$BirthdaysTableTableManager(_$AppDatabase db, $BirthdaysTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$BirthdaysTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$BirthdaysTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$BirthdaysTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> childId = const Value.absent(),
+                Value<int> age = const Value.absent(),
+                Value<DateTime> birthdayDate = const Value.absent(),
+                Value<String?> locationText = const Value.absent(),
+                Value<String?> theme = const Value.absent(),
+                Value<String?> favoriteGift = const Value.absent(),
+                Value<String?> guestsText = const Value.absent(),
+                Value<String?> parentMessage = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                Value<String?> coverAssetId = const Value.absent(),
+                Value<String?> albumId = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => BirthdaysCompanion(
+                id: id,
+                childId: childId,
+                age: age,
+                birthdayDate: birthdayDate,
+                locationText: locationText,
+                theme: theme,
+                favoriteGift: favoriteGift,
+                guestsText: guestsText,
+                parentMessage: parentMessage,
+                notes: notes,
+                coverAssetId: coverAssetId,
+                albumId: albumId,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String childId,
+                required int age,
+                required DateTime birthdayDate,
+                Value<String?> locationText = const Value.absent(),
+                Value<String?> theme = const Value.absent(),
+                Value<String?> favoriteGift = const Value.absent(),
+                Value<String?> guestsText = const Value.absent(),
+                Value<String?> parentMessage = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                Value<String?> coverAssetId = const Value.absent(),
+                Value<String?> albumId = const Value.absent(),
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => BirthdaysCompanion.insert(
+                id: id,
+                childId: childId,
+                age: age,
+                birthdayDate: birthdayDate,
+                locationText: locationText,
+                theme: theme,
+                favoriteGift: favoriteGift,
+                guestsText: guestsText,
+                parentMessage: parentMessage,
+                notes: notes,
+                coverAssetId: coverAssetId,
+                albumId: albumId,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$BirthdaysTable, BirthdayRow>(table),
+                  BaseReferences<_$AppDatabase, $BirthdaysTable, BirthdayRow>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$BirthdaysTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $BirthdaysTable,
+      BirthdayRow,
+      $$BirthdaysTableFilterComposer,
+      $$BirthdaysTableOrderingComposer,
+      $$BirthdaysTableAnnotationComposer,
+      $$BirthdaysTableCreateCompanionBuilder,
+      $$BirthdaysTableUpdateCompanionBuilder,
+      (
+        BirthdayRow,
+        BaseReferences<_$AppDatabase, $BirthdaysTable, BirthdayRow>,
+      ),
+      BirthdayRow,
+      PrefetchHooks Function()
+    >;
+typedef $$BirthdayAnswersTableCreateCompanionBuilder =
+    BirthdayAnswersCompanion Function({
+      required String id,
+      required String birthdayId,
+      required String questionKey,
+      required String answer,
+      Value<int> sortOrder,
+      required DateTime createdAt,
+      required DateTime updatedAt,
+      Value<DateTime?> deletedAt,
+      Value<int> rowid,
+    });
+typedef $$BirthdayAnswersTableUpdateCompanionBuilder =
+    BirthdayAnswersCompanion Function({
+      Value<String> id,
+      Value<String> birthdayId,
+      Value<String> questionKey,
+      Value<String> answer,
+      Value<int> sortOrder,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<DateTime?> deletedAt,
+      Value<int> rowid,
+    });
+
+class $$BirthdayAnswersTableFilterComposer
+    extends Composer<_$AppDatabase, $BirthdayAnswersTable> {
+  $$BirthdayAnswersTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get birthdayId => $composableBuilder(
+    column: $table.birthdayId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get questionKey => $composableBuilder(
+    column: $table.questionKey,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get answer => $composableBuilder(
+    column: $table.answer,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get sortOrder => $composableBuilder(
+    column: $table.sortOrder,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$BirthdayAnswersTableOrderingComposer
+    extends Composer<_$AppDatabase, $BirthdayAnswersTable> {
+  $$BirthdayAnswersTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get birthdayId => $composableBuilder(
+    column: $table.birthdayId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get questionKey => $composableBuilder(
+    column: $table.questionKey,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get answer => $composableBuilder(
+    column: $table.answer,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get sortOrder => $composableBuilder(
+    column: $table.sortOrder,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$BirthdayAnswersTableAnnotationComposer
+    extends Composer<_$AppDatabase, $BirthdayAnswersTable> {
+  $$BirthdayAnswersTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get birthdayId => $composableBuilder(
+    column: $table.birthdayId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get questionKey => $composableBuilder(
+    column: $table.questionKey,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get answer =>
+      $composableBuilder(column: $table.answer, builder: (column) => column);
+
+  GeneratedColumn<int> get sortOrder =>
+      $composableBuilder(column: $table.sortOrder, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+}
+
+class $$BirthdayAnswersTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $BirthdayAnswersTable,
+          BirthdayAnswerRow,
+          $$BirthdayAnswersTableFilterComposer,
+          $$BirthdayAnswersTableOrderingComposer,
+          $$BirthdayAnswersTableAnnotationComposer,
+          $$BirthdayAnswersTableCreateCompanionBuilder,
+          $$BirthdayAnswersTableUpdateCompanionBuilder,
+          (
+            BirthdayAnswerRow,
+            BaseReferences<
+              _$AppDatabase,
+              $BirthdayAnswersTable,
+              BirthdayAnswerRow
+            >,
+          ),
+          BirthdayAnswerRow,
+          PrefetchHooks Function()
+        > {
+  $$BirthdayAnswersTableTableManager(
+    _$AppDatabase db,
+    $BirthdayAnswersTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$BirthdayAnswersTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$BirthdayAnswersTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$BirthdayAnswersTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> birthdayId = const Value.absent(),
+                Value<String> questionKey = const Value.absent(),
+                Value<String> answer = const Value.absent(),
+                Value<int> sortOrder = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => BirthdayAnswersCompanion(
+                id: id,
+                birthdayId: birthdayId,
+                questionKey: questionKey,
+                answer: answer,
+                sortOrder: sortOrder,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String birthdayId,
+                required String questionKey,
+                required String answer,
+                Value<int> sortOrder = const Value.absent(),
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => BirthdayAnswersCompanion.insert(
+                id: id,
+                birthdayId: birthdayId,
+                questionKey: questionKey,
+                answer: answer,
+                sortOrder: sortOrder,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$BirthdayAnswersTable, BirthdayAnswerRow>(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $BirthdayAnswersTable,
+                    BirthdayAnswerRow
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$BirthdayAnswersTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $BirthdayAnswersTable,
+      BirthdayAnswerRow,
+      $$BirthdayAnswersTableFilterComposer,
+      $$BirthdayAnswersTableOrderingComposer,
+      $$BirthdayAnswersTableAnnotationComposer,
+      $$BirthdayAnswersTableCreateCompanionBuilder,
+      $$BirthdayAnswersTableUpdateCompanionBuilder,
+      (
+        BirthdayAnswerRow,
+        BaseReferences<_$AppDatabase, $BirthdayAnswersTable, BirthdayAnswerRow>,
+      ),
+      BirthdayAnswerRow,
+      PrefetchHooks Function()
+    >;
+typedef $$FavoritesTableCreateCompanionBuilder = FavoritesCompanion Function({
+  required String id,
+  required String childId,
+  required String category,
+  required String value,
+  Value<DateTime?> startDate,
+  Value<DateTime?> endDate,
+  Value<String?> notes,
+  Value<String?> sourceBirthdayId,
+  Value<int?> recordedAge,
+  required DateTime createdAt,
+  required DateTime updatedAt,
+  Value<DateTime?> deletedAt,
+  Value<int> rowid,
+});
+typedef $$FavoritesTableUpdateCompanionBuilder = FavoritesCompanion Function({
+  Value<String> id,
+  Value<String> childId,
+  Value<String> category,
+  Value<String> value,
+  Value<DateTime?> startDate,
+  Value<DateTime?> endDate,
+  Value<String?> notes,
+  Value<String?> sourceBirthdayId,
+  Value<int?> recordedAge,
+  Value<DateTime> createdAt,
+  Value<DateTime> updatedAt,
+  Value<DateTime?> deletedAt,
+  Value<int> rowid,
+});
+
+class $$FavoritesTableFilterComposer
+    extends Composer<_$AppDatabase, $FavoritesTable> {
+  $$FavoritesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get category => $composableBuilder(
+    column: $table.category,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get value => $composableBuilder(
+    column: $table.value,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get startDate => $composableBuilder(
+    column: $table.startDate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get endDate => $composableBuilder(
+    column: $table.endDate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get sourceBirthdayId => $composableBuilder(
+    column: $table.sourceBirthdayId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get recordedAge => $composableBuilder(
+    column: $table.recordedAge,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$FavoritesTableOrderingComposer
+    extends Composer<_$AppDatabase, $FavoritesTable> {
+  $$FavoritesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get category => $composableBuilder(
+    column: $table.category,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get value => $composableBuilder(
+    column: $table.value,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get startDate => $composableBuilder(
+    column: $table.startDate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get endDate => $composableBuilder(
+    column: $table.endDate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get sourceBirthdayId => $composableBuilder(
+    column: $table.sourceBirthdayId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get recordedAge => $composableBuilder(
+    column: $table.recordedAge,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$FavoritesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $FavoritesTable> {
+  $$FavoritesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get childId =>
+      $composableBuilder(column: $table.childId, builder: (column) => column);
+
+  GeneratedColumn<String> get category =>
+      $composableBuilder(column: $table.category, builder: (column) => column);
+
+  GeneratedColumn<String> get value =>
+      $composableBuilder(column: $table.value, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get startDate =>
+      $composableBuilder(column: $table.startDate, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get endDate =>
+      $composableBuilder(column: $table.endDate, builder: (column) => column);
+
+  GeneratedColumn<String> get notes =>
+      $composableBuilder(column: $table.notes, builder: (column) => column);
+
+  GeneratedColumn<String> get sourceBirthdayId => $composableBuilder(
+    column: $table.sourceBirthdayId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get recordedAge => $composableBuilder(
+    column: $table.recordedAge,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+}
+
+class $$FavoritesTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $FavoritesTable,
+          FavoriteRow,
+          $$FavoritesTableFilterComposer,
+          $$FavoritesTableOrderingComposer,
+          $$FavoritesTableAnnotationComposer,
+          $$FavoritesTableCreateCompanionBuilder,
+          $$FavoritesTableUpdateCompanionBuilder,
+          (
+            FavoriteRow,
+            BaseReferences<_$AppDatabase, $FavoritesTable, FavoriteRow>,
+          ),
+          FavoriteRow,
+          PrefetchHooks Function()
+        > {
+  $$FavoritesTableTableManager(_$AppDatabase db, $FavoritesTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$FavoritesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$FavoritesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$FavoritesTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> childId = const Value.absent(),
+                Value<String> category = const Value.absent(),
+                Value<String> value = const Value.absent(),
+                Value<DateTime?> startDate = const Value.absent(),
+                Value<DateTime?> endDate = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                Value<String?> sourceBirthdayId = const Value.absent(),
+                Value<int?> recordedAge = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => FavoritesCompanion(
+                id: id,
+                childId: childId,
+                category: category,
+                value: value,
+                startDate: startDate,
+                endDate: endDate,
+                notes: notes,
+                sourceBirthdayId: sourceBirthdayId,
+                recordedAge: recordedAge,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String childId,
+                required String category,
+                required String value,
+                Value<DateTime?> startDate = const Value.absent(),
+                Value<DateTime?> endDate = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                Value<String?> sourceBirthdayId = const Value.absent(),
+                Value<int?> recordedAge = const Value.absent(),
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => FavoritesCompanion.insert(
+                id: id,
+                childId: childId,
+                category: category,
+                value: value,
+                startDate: startDate,
+                endDate: endDate,
+                notes: notes,
+                sourceBirthdayId: sourceBirthdayId,
+                recordedAge: recordedAge,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$FavoritesTable, FavoriteRow>(table),
+                  BaseReferences<_$AppDatabase, $FavoritesTable, FavoriteRow>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$FavoritesTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $FavoritesTable,
+      FavoriteRow,
+      $$FavoritesTableFilterComposer,
+      $$FavoritesTableOrderingComposer,
+      $$FavoritesTableAnnotationComposer,
+      $$FavoritesTableCreateCompanionBuilder,
+      $$FavoritesTableUpdateCompanionBuilder,
+      (
+        FavoriteRow,
+        BaseReferences<_$AppDatabase, $FavoritesTable, FavoriteRow>,
+      ),
+      FavoriteRow,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -27012,4 +30188,10 @@ class $AppDatabaseManager {
       $$GeneratedExportsTableTableManager(_db, _db.generatedExports);
   $$YearReviewPreferencesTableTableManager get yearReviewPreferences =>
       $$YearReviewPreferencesTableTableManager(_db, _db.yearReviewPreferences);
+  $$BirthdaysTableTableManager get birthdays =>
+      $$BirthdaysTableTableManager(_db, _db.birthdays);
+  $$BirthdayAnswersTableTableManager get birthdayAnswers =>
+      $$BirthdayAnswersTableTableManager(_db, _db.birthdayAnswers);
+  $$FavoritesTableTableManager get favorites =>
+      $$FavoritesTableTableManager(_db, _db.favorites);
 }

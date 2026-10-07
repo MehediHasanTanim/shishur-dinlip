@@ -47,7 +47,7 @@ class YearReviewQueryService extends RepositoryBase {
       candidates.addAll(await _schoolEvents(childId, start, end));
       candidates.addAll(await _journals(childId, start, end));
       candidates.addAll(await _photos(childId, start, end));
-      candidates.add(_birthdayItem(childRow.name, dob, year));
+      candidates.add(await _birthdayItem(childId, childRow.name, dob, year));
       candidates.addAll(await _health(childId, start, end));
 
       if (growth.hasData) {
@@ -324,15 +324,26 @@ class YearReviewQueryService extends RepositoryBase {
     return items;
   }
 
-  YearReviewItem _birthdayItem(String name, DateTime dob, int year) {
+  Future<YearReviewItem> _birthdayItem(
+    String childId,
+    String name,
+    DateTime dob,
+    int year,
+  ) async {
     final birthday = DateTime(year, dob.month, dob.day);
     final ageYears = AgeCalculator.at(dob, birthday).years;
+    final record = await db.birthdaysDao.forChildAge(childId, ageYears);
     return YearReviewItem(
-      id: 'birthday-$year',
+      id: record?.id ?? 'birthday-$year',
       section: YearReviewSection.birthday,
       title: '$name turned $ageYears',
-      subtitle: 'Birthday',
-      eventDate: birthday,
+      subtitle: record?.theme ??
+          record?.favoriteGift ??
+          'Birthday',
+      eventDate: record?.birthdayDate ?? birthday,
+      mediaAssetId: record?.coverAssetId,
+      entityType: record == null ? null : 'birthday',
+      entityId: record?.id,
       priority: YearReviewPriorities.birthday,
       included: true,
       sortOrder: 0,

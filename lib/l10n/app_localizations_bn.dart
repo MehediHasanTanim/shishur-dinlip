@@ -2199,4 +2199,162 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get storageCatTemp => 'সাময়িক';
+
+  @override
+  String get birthdaysTitle => 'জন্মদিন';
+
+  @override
+  String get birthdayDetailTitle => 'জন্মদিন';
+
+  @override
+  String get addBirthday => 'জন্মদিন যোগ করুন';
+
+  @override
+  String get editBirthday => 'জন্মদিন সম্পাদনা';
+
+  @override
+  String get birthdayAge => 'বয়স';
+
+  @override
+  String get birthdayDate => 'জন্মদিনের তারিখ';
+
+  @override
+  String get birthdayLocation => 'স্থান';
+
+  @override
+  String get birthdayTheme => 'থিম';
+
+  @override
+  String get birthdayFavoriteGift => 'প্রিয় উপহার';
+
+  @override
+  String get birthdayGuests => 'অতিথি';
+
+  @override
+  String get birthdayParentMessage => 'বাবা-মার বার্তা';
+
+  @override
+  String get birthdayNotes => 'নোট';
+
+  @override
+  String get birthdayInterview => 'বার্ষিক সাক্ষাৎকার';
+
+  @override
+  String get birthdayInterviewTitle => 'জন্মদিনের সাক্ষাৎকার';
+
+  @override
+  String get birthdayCompareTitle => 'বয়স অনুযায়ী তুলনা';
+
+  @override
+  String get birthdayAlbumCreate => 'জন্মদিনের অ্যালবাম তৈরি';
+
+  @override
+  String get birthdayAlbumReady => 'জন্মদিনের অ্যালবাম প্রস্তুত।';
+
+  @override
+  String get birthdayPdfGenerate => 'জন্মদিনের পিডিএফ তৈরি';
+
+  @override
+  String get birthdayPdfReady => 'জন্মদিনের পিডিএফ প্রস্তুত।';
+
+  @override
+  String get birthdayEmpty => 'এখনো কোনো জন্মদিনের স্মৃতি নেই।';
+
+  @override
+  String get birthdayEmptyHint =>
+      'প্রতি বছরের উৎসব ও সাক্ষাৎকারের উত্তর সংরক্ষণ করুন।';
+
+  @override
+  String get birthdayQFavoriteFood => 'প্রিয় খাবার?';
+
+  @override
+  String get birthdayQFavoriteColor => 'প্রিয় রং?';
+
+  @override
+  String get birthdayQFavoriteCartoon => 'প্রিয় কার্টুন?';
+
+  @override
+  String get birthdayQFavoriteBook => 'প্রিয় বই?';
+
+  @override
+  String get birthdayQFavoriteGame => 'প্রিয় খেলা?';
+
+  @override
+  String get birthdayQFavoriteFriend => 'প্রিয় বন্ধু?';
+
+  @override
+  String get birthdayQWantToBe => 'বড় হয়ে কী হতে চাও?';
+
+  @override
+  String get birthdayQMakesHappy => 'কী তোমাকে খুশি করে?';
+
+  @override
+  String get favoritesTitle => 'প্রিয় বিষয়';
+
+  @override
+  String get addFavorite => 'প্রিয় যোগ করুন';
+
+  @override
+  String get editFavorite => 'প্রিয় সম্পাদনা';
+
+  @override
+  String get favoriteCategory => 'ক্যাটাগরি';
+
+  @override
+  String get favoriteValue => 'মান';
+
+  @override
+  String get favoriteStartDate => 'শুরুর তারিখ';
+
+  @override
+  String get favoriteEndDate => 'শেষ তারিখ (ঐচ্ছিক)';
+
+  @override
+  String get favoriteNotes => 'নোট';
+
+  @override
+  String get favoriteEmpty => 'এখনো কোনো প্রিয় নেই।';
+
+  @override
+  String get favoriteEmptyHint =>
+      'খাবার, রং, বইসহ প্রিয় বিষয়গুলো বছর ধরে রাখুন।';
+
+  @override
+  String get favoriteCurrent => 'বর্তমান';
+
+  @override
+  String get favoriteHistory => 'ইতিহাস';
+
+  @override
+  String get favoriteCatFood => 'খাবার';
+
+  @override
+  String get favoriteCatColor => 'রং';
+
+  @override
+  String get favoriteCatCartoon => 'কার্টুন';
+
+  @override
+  String get favoriteCatBook => 'বই';
+
+  @override
+  String get favoriteCatGame => 'খেলা';
+
+  @override
+  String get favoriteCatFriend => 'বন্ধু';
+
+  @override
+  String get searchTypeBirthday => 'জন্মদিন';
+
+  @override
+  String get searchTypeFavorite => 'প্রিয়';
+
+  @override
+  String get addGroupMemoriesExtra => 'জন্মদিন ও প্রিয়';
+
+  @override
+  String get addBirthdaySubtitle => 'পার্টি, উপহার ও বার্ষিক সাক্ষাৎকার';
+
+  @override
+  String get addFavoriteSubtitle => 'খাবার, রং, কার্টুন, বই, খেলা, বন্ধু';
 }

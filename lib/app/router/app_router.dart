@@ -9,6 +9,13 @@ import 'package:shishur_dinlipi/core/settings/app_settings.dart';
 import 'package:shishur_dinlipi/core/settings/settings_controller.dart';
 import 'package:shishur_dinlipi/features/backup/backup_screen.dart';
 import 'package:shishur_dinlipi/features/backup/restore_screen.dart';
+import 'package:shishur_dinlipi/features/birthdays/birthday_compare_screen.dart';
+import 'package:shishur_dinlipi/features/birthdays/birthday_detail_screen.dart';
+import 'package:shishur_dinlipi/features/birthdays/birthday_editor_screen.dart';
+import 'package:shishur_dinlipi/features/birthdays/birthday_interview_screen.dart';
+import 'package:shishur_dinlipi/features/birthdays/birthdays_list_screen.dart';
+import 'package:shishur_dinlipi/features/birthdays/favorite_editor_screen.dart';
+import 'package:shishur_dinlipi/features/birthdays/favorites_overview_screen.dart';
 import 'package:shishur_dinlipi/features/security/security_settings_screen.dart';
 import 'package:shishur_dinlipi/features/security/unlock_screen.dart';
 import 'package:shishur_dinlipi/features/storage/storage_screen.dart';
@@ -601,6 +608,61 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             ),
           ),
         ],
+      ),
+      GoRoute(
+        path: AppRoutes.birthdays,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const BirthdaysListScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.birthdayCreate,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const BirthdayEditorScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.birthdayCompare,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const BirthdayCompareScreen(),
+      ),
+      GoRoute(
+        path: '/birthdays/:id',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => BirthdayDetailScreen(
+          birthdayId: state.pathParameters['id']!,
+        ),
+        routes: [
+          GoRoute(
+            path: 'edit',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (context, state) => BirthdayEditorScreen(
+              birthdayId: state.pathParameters['id'],
+            ),
+          ),
+          GoRoute(
+            path: 'interview',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (context, state) => BirthdayInterviewScreen(
+              birthdayId: state.pathParameters['id']!,
+            ),
+          ),
+        ],
+      ),
+      GoRoute(
+        path: AppRoutes.favorites,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const FavoritesOverviewScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.favoriteCreate,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const FavoriteEditorScreen(),
+      ),
+      GoRoute(
+        path: '/favorites/:id/edit',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => FavoriteEditorScreen(
+          favoriteId: state.pathParameters['id'],
+        ),
       ),
       GoRoute(
         path: AppRoutes.yearReview,

@@ -13,6 +13,8 @@ String searchTypeLabel(AppLocalizations l10n, SearchResultType type) {
     SearchResultType.illness => l10n.searchTypeIllness,
     SearchResultType.schoolEvent => l10n.searchTypeSchool,
     SearchResultType.achievement => l10n.searchTypeAchievement,
+    SearchResultType.birthday => l10n.searchTypeBirthday,
+    SearchResultType.favorite => l10n.searchTypeFavorite,
   };
 }
 
@@ -25,6 +27,8 @@ IconData searchTypeIcon(SearchResultType type) {
     SearchResultType.illness => Icons.healing_outlined,
     SearchResultType.schoolEvent => Icons.school_outlined,
     SearchResultType.achievement => Icons.emoji_events_outlined,
+    SearchResultType.birthday => Icons.cake_outlined,
+    SearchResultType.favorite => Icons.favorite_outline,
   };
 }
 
@@ -37,6 +41,8 @@ String? searchResultDetailPath(SearchResult result) {
     SearchResultType.illness => AppRoutes.illnessDetailPath(result.id),
     SearchResultType.schoolEvent => AppRoutes.schoolEventDetailPath(result.id),
     SearchResultType.achievement => AppRoutes.achievementDetailPath(result.id),
+    SearchResultType.birthday => AppRoutes.birthdayDetailPath(result.id),
+    SearchResultType.favorite => AppRoutes.favoriteEditPath(result.id),
   };
 }
 

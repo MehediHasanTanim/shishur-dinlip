@@ -285,6 +285,86 @@ class SearchService extends RepositoryBase {
         }
       }
 
+      if (query.type == null || query.type == SearchResultType.birthday) {
+        final rows = await db.customSelect(
+          '''
+          SELECT id, child_id, age, birthday_date, theme, favorite_gift,
+                 location_text, parent_message, notes
+          FROM birthdays
+          WHERE child_id = ? AND deleted_at IS NULL
+            AND (IFNULL(theme, '') LIKE ? OR IFNULL(favorite_gift, '') LIKE ?
+                 OR IFNULL(location_text, '') LIKE ?
+                 OR IFNULL(parent_message, '') LIKE ?
+                 OR IFNULL(notes, '') LIKE ?
+                 OR CAST(age AS TEXT) LIKE ?)
+          ORDER BY birthday_date DESC
+          LIMIT ?
+          ''',
+          variables: [
+            Variable.withString(query.childId),
+            Variable.withString(pattern),
+            Variable.withString(pattern),
+            Variable.withString(pattern),
+            Variable.withString(pattern),
+            Variable.withString(pattern),
+            Variable.withString(pattern),
+            Variable.withInt(query.limit),
+          ],
+          readsFrom: {db.birthdays},
+        ).get();
+        for (final row in rows) {
+          final age = row.data['age'] as int? ?? 0;
+          addIfAllowed(
+            SearchResultType.birthday,
+            SearchResult(
+              id: row.data['id'] as String,
+              childId: row.data['child_id'] as String,
+              type: SearchResultType.birthday,
+              title: 'Age $age',
+              subtitle: row.data['theme'] as String?,
+              snippet: row.data['favorite_gift'] as String? ??
+                  row.data['parent_message'] as String?,
+              eventDate: _readDate(row.data['birthday_date']),
+            ),
+          );
+        }
+      }
+
+      if (query.type == null || query.type == SearchResultType.favorite) {
+        final rows = await db.customSelect(
+          '''
+          SELECT id, child_id, category, value, notes, start_date, recorded_age
+          FROM favorites
+          WHERE child_id = ? AND deleted_at IS NULL
+            AND (value LIKE ? OR category LIKE ? OR IFNULL(notes, '') LIKE ?)
+          ORDER BY IFNULL(start_date, created_at) DESC
+          LIMIT ?
+          ''',
+          variables: [
+            Variable.withString(query.childId),
+            Variable.withString(pattern),
+            Variable.withString(pattern),
+            Variable.withString(pattern),
+            Variable.withInt(query.limit),
+          ],
+          readsFrom: {db.favorites},
+        ).get();
+        for (final row in rows) {
+          addIfAllowed(
+            SearchResultType.favorite,
+            SearchResult(
+              id: row.data['id'] as String,
+              childId: row.data['child_id'] as String,
+              type: SearchResultType.favorite,
+              title: row.data['value'] as String,
+              subtitle: row.data['category'] as String?,
+              snippet: row.data['notes'] as String?,
+              eventDate: _readDate(row.data['start_date']),
+            ),
+          );
+        }
+      }
+
       results.sort((a, b) => b.eventDate.compareTo(a.eventDate));
       if (results.length > query.limit) {
         return results.take(query.limit).toList();

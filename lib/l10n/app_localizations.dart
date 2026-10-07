@@ -4351,6 +4351,318 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Temporary'**
   String get storageCatTemp;
+
+  /// No description provided for @birthdaysTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Birthdays'**
+  String get birthdaysTitle;
+
+  /// No description provided for @birthdayDetailTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Birthday'**
+  String get birthdayDetailTitle;
+
+  /// No description provided for @addBirthday.
+  ///
+  /// In en, this message translates to:
+  /// **'Add birthday'**
+  String get addBirthday;
+
+  /// No description provided for @editBirthday.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit birthday'**
+  String get editBirthday;
+
+  /// No description provided for @birthdayAge.
+  ///
+  /// In en, this message translates to:
+  /// **'Age'**
+  String get birthdayAge;
+
+  /// No description provided for @birthdayDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Birthday date'**
+  String get birthdayDate;
+
+  /// No description provided for @birthdayLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Location'**
+  String get birthdayLocation;
+
+  /// No description provided for @birthdayTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get birthdayTheme;
+
+  /// No description provided for @birthdayFavoriteGift.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite gift'**
+  String get birthdayFavoriteGift;
+
+  /// No description provided for @birthdayGuests.
+  ///
+  /// In en, this message translates to:
+  /// **'Guests'**
+  String get birthdayGuests;
+
+  /// No description provided for @birthdayParentMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Parent message'**
+  String get birthdayParentMessage;
+
+  /// No description provided for @birthdayNotes.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get birthdayNotes;
+
+  /// No description provided for @birthdayInterview.
+  ///
+  /// In en, this message translates to:
+  /// **'Annual interview'**
+  String get birthdayInterview;
+
+  /// No description provided for @birthdayInterviewTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Birthday interview'**
+  String get birthdayInterviewTitle;
+
+  /// No description provided for @birthdayCompareTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Compare by age'**
+  String get birthdayCompareTitle;
+
+  /// No description provided for @birthdayAlbumCreate.
+  ///
+  /// In en, this message translates to:
+  /// **'Create birthday album'**
+  String get birthdayAlbumCreate;
+
+  /// No description provided for @birthdayAlbumReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Birthday album ready.'**
+  String get birthdayAlbumReady;
+
+  /// No description provided for @birthdayPdfGenerate.
+  ///
+  /// In en, this message translates to:
+  /// **'Generate birthday PDF'**
+  String get birthdayPdfGenerate;
+
+  /// No description provided for @birthdayPdfReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Birthday PDF ready.'**
+  String get birthdayPdfReady;
+
+  /// No description provided for @birthdayEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No birthday memories yet.'**
+  String get birthdayEmpty;
+
+  /// No description provided for @birthdayEmptyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Capture each year’s celebration and interview answers.'**
+  String get birthdayEmptyHint;
+
+  /// No description provided for @birthdayQFavoriteFood.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite food?'**
+  String get birthdayQFavoriteFood;
+
+  /// No description provided for @birthdayQFavoriteColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite color?'**
+  String get birthdayQFavoriteColor;
+
+  /// No description provided for @birthdayQFavoriteCartoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite cartoon?'**
+  String get birthdayQFavoriteCartoon;
+
+  /// No description provided for @birthdayQFavoriteBook.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite book?'**
+  String get birthdayQFavoriteBook;
+
+  /// No description provided for @birthdayQFavoriteGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite game?'**
+  String get birthdayQFavoriteGame;
+
+  /// No description provided for @birthdayQFavoriteFriend.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite friend?'**
+  String get birthdayQFavoriteFriend;
+
+  /// No description provided for @birthdayQWantToBe.
+  ///
+  /// In en, this message translates to:
+  /// **'What do you want to be?'**
+  String get birthdayQWantToBe;
+
+  /// No description provided for @birthdayQMakesHappy.
+  ///
+  /// In en, this message translates to:
+  /// **'What makes you happy?'**
+  String get birthdayQMakesHappy;
+
+  /// No description provided for @favoritesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorites'**
+  String get favoritesTitle;
+
+  /// No description provided for @addFavorite.
+  ///
+  /// In en, this message translates to:
+  /// **'Add favorite'**
+  String get addFavorite;
+
+  /// No description provided for @editFavorite.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit favorite'**
+  String get editFavorite;
+
+  /// No description provided for @favoriteCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get favoriteCategory;
+
+  /// No description provided for @favoriteValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Value'**
+  String get favoriteValue;
+
+  /// No description provided for @favoriteStartDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Start date'**
+  String get favoriteStartDate;
+
+  /// No description provided for @favoriteEndDate.
+  ///
+  /// In en, this message translates to:
+  /// **'End date (optional)'**
+  String get favoriteEndDate;
+
+  /// No description provided for @favoriteNotes.
+  ///
+  /// In en, this message translates to:
+  /// **'Note'**
+  String get favoriteNotes;
+
+  /// No description provided for @favoriteEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No favorites yet.'**
+  String get favoriteEmpty;
+
+  /// No description provided for @favoriteEmptyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Track favorite food, colors, books, and more over the years.'**
+  String get favoriteEmptyHint;
+
+  /// No description provided for @favoriteCurrent.
+  ///
+  /// In en, this message translates to:
+  /// **'Current'**
+  String get favoriteCurrent;
+
+  /// No description provided for @favoriteHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'History'**
+  String get favoriteHistory;
+
+  /// No description provided for @favoriteCatFood.
+  ///
+  /// In en, this message translates to:
+  /// **'Food'**
+  String get favoriteCatFood;
+
+  /// No description provided for @favoriteCatColor.
+  ///
+  /// In en, this message translates to:
+  /// **'Color'**
+  String get favoriteCatColor;
+
+  /// No description provided for @favoriteCatCartoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Cartoon'**
+  String get favoriteCatCartoon;
+
+  /// No description provided for @favoriteCatBook.
+  ///
+  /// In en, this message translates to:
+  /// **'Book'**
+  String get favoriteCatBook;
+
+  /// No description provided for @favoriteCatGame.
+  ///
+  /// In en, this message translates to:
+  /// **'Game'**
+  String get favoriteCatGame;
+
+  /// No description provided for @favoriteCatFriend.
+  ///
+  /// In en, this message translates to:
+  /// **'Friend'**
+  String get favoriteCatFriend;
+
+  /// No description provided for @searchTypeBirthday.
+  ///
+  /// In en, this message translates to:
+  /// **'Birthday'**
+  String get searchTypeBirthday;
+
+  /// No description provided for @searchTypeFavorite.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite'**
+  String get searchTypeFavorite;
+
+  /// No description provided for @addGroupMemoriesExtra.
+  ///
+  /// In en, this message translates to:
+  /// **'Birthdays & favorites'**
+  String get addGroupMemoriesExtra;
+
+  /// No description provided for @addBirthdaySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Party, gifts, and annual interview'**
+  String get addBirthdaySubtitle;
+
+  /// No description provided for @addFavoriteSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Food, color, cartoon, book, game, friend'**
+  String get addFavoriteSubtitle;
 }
 
 class _AppLocalizationsDelegate

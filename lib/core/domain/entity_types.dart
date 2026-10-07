@@ -15,6 +15,8 @@ abstract final class EntityTypes {
   static const medicalDocument = 'medical_document';
   static const mediaAsset = 'media_asset';
   static const album = 'album';
+  static const birthday = 'birthday';
+  static const favorite = 'favorite';
 }
 
 abstract final class JournalEntryTypes {

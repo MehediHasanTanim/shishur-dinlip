@@ -63,6 +63,24 @@ class AddScreen extends ConsumerWidget {
             ),
             const SizedBox(height: 24),
             Text(
+              l10n.addGroupMemoriesExtra,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            const SizedBox(height: 12),
+            _AddTile(
+              icon: Icons.cake_outlined,
+              title: l10n.addBirthday,
+              subtitle: l10n.addBirthdaySubtitle,
+              onTap: () => context.push(AppRoutes.birthdayCreate),
+            ),
+            _AddTile(
+              icon: Icons.favorite_outline,
+              title: l10n.addFavorite,
+              subtitle: l10n.addFavoriteSubtitle,
+              onTap: () => context.push(AppRoutes.favoriteCreate),
+            ),
+            const SizedBox(height: 24),
+            Text(
               l10n.addGroupDevelopment,
               style: Theme.of(context).textTheme.titleLarge,
             ),

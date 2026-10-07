@@ -9,7 +9,9 @@ import 'package:shishur_dinlipi/core/photos/photo_library_service.dart';
 import 'package:shishur_dinlipi/core/repository/achievements_repository.dart';
 import 'package:shishur_dinlipi/core/repository/albums_repository.dart';
 import 'package:shishur_dinlipi/core/repository/attachment_repository.dart';
+import 'package:shishur_dinlipi/core/repository/birthdays_repository.dart';
 import 'package:shishur_dinlipi/core/repository/children_repository.dart';
+import 'package:shishur_dinlipi/core/repository/favorites_repository.dart';
 import 'package:shishur_dinlipi/core/repository/doctor_visits_repository.dart';
 import 'package:shishur_dinlipi/core/repository/first_words_repository.dart';
 import 'package:shishur_dinlipi/core/repository/funny_moments_repository.dart';
@@ -30,6 +32,7 @@ import 'package:shishur_dinlipi/core/search/search_service.dart';
 import 'package:shishur_dinlipi/core/settings/settings_repository.dart';
 import 'package:shishur_dinlipi/core/timeline/timeline_service.dart';
 import 'package:shishur_dinlipi/core/year_review/year_review_query_service.dart';
+import 'package:shishur_dinlipi/core/pdf/birthday_pdf_generator.dart';
 import 'package:shishur_dinlipi/core/pdf/year_review_pdf_generator.dart';
 import 'package:shishur_dinlipi/core/backup/backup_service.dart';
 import 'package:shishur_dinlipi/core/backup/restore_service.dart';
@@ -216,6 +219,21 @@ final photoLibraryServiceProvider = Provider<PhotoLibraryService>((ref) {
 
 final albumsRepositoryProvider = Provider<AlbumsRepository>((ref) {
   return DriftAlbumsRepository(ref.watch(appDatabaseProvider));
+});
+
+final birthdaysRepositoryProvider = Provider<BirthdaysRepository>((ref) {
+  return DriftBirthdaysRepository(ref.watch(appDatabaseProvider));
+});
+
+final favoritesRepositoryProvider = Provider<FavoritesRepository>((ref) {
+  return DriftFavoritesRepository(ref.watch(appDatabaseProvider));
+});
+
+final birthdayPdfGeneratorProvider = Provider<BirthdayPdfGenerator>((ref) {
+  return BirthdayPdfGenerator(
+    ref.watch(appDatabaseProvider),
+    storage: ref.watch(fileStorageServiceProvider),
+  );
 });
 
 final yearReviewPreferencesRepositoryProvider =

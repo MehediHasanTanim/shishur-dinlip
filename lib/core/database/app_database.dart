@@ -4,7 +4,9 @@ import 'package:shishur_dinlipi/core/database/daos/achievements_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/albums_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/attachments_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/audit_events_dao.dart';
+import 'package:shishur_dinlipi/core/database/daos/birthdays_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/children_dao.dart';
+import 'package:shishur_dinlipi/core/database/daos/favorites_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/doctor_visits_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/first_words_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/funny_moments_dao.dart';
@@ -29,7 +31,10 @@ import 'package:shishur_dinlipi/core/database/tables/album_items_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/albums_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/attachments_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/audit_events_table.dart';
+import 'package:shishur_dinlipi/core/database/tables/birthday_answers_table.dart';
+import 'package:shishur_dinlipi/core/database/tables/birthdays_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/children_table.dart';
+import 'package:shishur_dinlipi/core/database/tables/favorites_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/doctor_visits_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/first_words_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/funny_moments_table.dart';
@@ -82,6 +87,9 @@ part 'app_database.g.dart';
     AlbumItems,
     GeneratedExports,
     YearReviewPreferences,
+    Birthdays,
+    BirthdayAnswers,
+    Favorites,
   ],
   daos: [
     ChildrenDao,
@@ -108,6 +116,8 @@ part 'app_database.g.dart';
     AlbumsDao,
     GeneratedExportsDao,
     YearReviewPreferencesDao,
+    BirthdaysDao,
+    FavoritesDao,
   ],
 )
 class AppDatabase extends _$AppDatabase {
@@ -118,7 +128,7 @@ class AppDatabase extends _$AppDatabase {
   factory AppDatabase.memory() => AppDatabase(openMemoryConnection());
 
   /// Bump when schema changes; add steps in [migration].
-  static const int currentSchemaVersion = 9;
+  static const int currentSchemaVersion = 10;
 
   @override
   int get schemaVersion => currentSchemaVersion;
@@ -172,6 +182,12 @@ class AppDatabase extends _$AppDatabase {
         // Performance indexes (also declared via @TableIndex for fresh installs).
         await _ensurePerformanceIndexes(m);
       }
+      if (from < 10) {
+        await m.createTable(birthdays);
+        await m.createTable(birthdayAnswers);
+        await m.createTable(favorites);
+        await _ensurePerformanceIndexes(m);
+      }
     },
     beforeOpen: (details) async {
       await customStatement('PRAGMA foreign_keys = ON');
@@ -214,6 +230,10 @@ class AppDatabase extends _$AppDatabase {
       'CREATE INDEX IF NOT EXISTS vaccinations_child_scheduled ON vaccinations (child_id, scheduled_date)',
       'CREATE INDEX IF NOT EXISTS vaccinations_name ON vaccinations (vaccine_name)',
       'CREATE INDEX IF NOT EXISTS first_words_child_event ON first_words (child_id, event_date)',
+      'CREATE INDEX IF NOT EXISTS birthdays_child_age ON birthdays (child_id, age)',
+      'CREATE INDEX IF NOT EXISTS birthdays_child_date ON birthdays (child_id, birthday_date)',
+      'CREATE INDEX IF NOT EXISTS birthday_answers_birthday ON birthday_answers (birthday_id, sort_order)',
+      'CREATE INDEX IF NOT EXISTS favorites_child_category ON favorites (child_id, category)',
     ];
     for (final sql in statements) {
       await customStatement(sql);

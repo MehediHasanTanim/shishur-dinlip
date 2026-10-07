@@ -8,6 +8,8 @@ enum SearchResultType {
   illness,
   schoolEvent,
   achievement,
+  birthday,
+  favorite,
 }
 
 @immutable

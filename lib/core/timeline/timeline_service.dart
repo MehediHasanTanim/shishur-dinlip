@@ -253,7 +253,50 @@ class TimelineService extends RepositoryBase {
       );
     }
 
+    final birthdays = await db.birthdaysDao.forChild(childId);
+    final birthdayCoverIds = <String, String>{};
+    for (final row in birthdays) {
+      if (row.coverAssetId != null) {
+        birthdayCoverIds[row.id] = row.coverAssetId!;
+      }
+      items.add(
+        TimelineItem(
+          id: row.id,
+          childId: childId,
+          type: TimelineItemType.birthday,
+          eventDate: row.birthdayDate,
+          title: 'Age ${row.age}',
+          subtitle: row.theme ?? row.favoriteGift,
+          sortKey: TimelineItem.typeSortKey(TimelineItemType.birthday),
+        ),
+      );
+    }
+
     await _attachPhotos(items);
+
+    for (var i = 0; i < items.length; i++) {
+      final item = items[i];
+      if (item.type != TimelineItemType.birthday) continue;
+      if (item.thumbnailRelativePath != null) continue;
+      final coverId = birthdayCoverIds[item.id];
+      if (coverId == null) continue;
+      final media = await db.mediaAssetsDao.getById(coverId);
+      if (media == null) continue;
+      final asset = MediaAssetMapper.toDomain(media);
+      items[i] = TimelineItem(
+        id: item.id,
+        childId: item.childId,
+        type: item.type,
+        eventDate: item.eventDate,
+        title: item.title,
+        subtitle: item.subtitle,
+        thumbnailRelativePath: asset.thumbnailPath ?? asset.localPath,
+        favorite: item.favorite,
+        hasPhoto: true,
+        sortKey: item.sortKey,
+      );
+    }
+
     return items;
   }
 
@@ -305,6 +348,7 @@ class TimelineService extends RepositoryBase {
     await enrich(TimelineItemType.vaccination, EntityTypes.vaccination);
     await enrich(TimelineItemType.illness, EntityTypes.illnessEpisode);
     await enrich(TimelineItemType.doctorVisit, EntityTypes.doctorVisit);
+    await enrich(TimelineItemType.birthday, EntityTypes.birthday);
   }
 
   void _sort(List<TimelineItem> items) {

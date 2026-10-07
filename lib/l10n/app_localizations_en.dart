@@ -2222,4 +2222,162 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get storageCatTemp => 'Temporary';
+
+  @override
+  String get birthdaysTitle => 'Birthdays';
+
+  @override
+  String get birthdayDetailTitle => 'Birthday';
+
+  @override
+  String get addBirthday => 'Add birthday';
+
+  @override
+  String get editBirthday => 'Edit birthday';
+
+  @override
+  String get birthdayAge => 'Age';
+
+  @override
+  String get birthdayDate => 'Birthday date';
+
+  @override
+  String get birthdayLocation => 'Location';
+
+  @override
+  String get birthdayTheme => 'Theme';
+
+  @override
+  String get birthdayFavoriteGift => 'Favorite gift';
+
+  @override
+  String get birthdayGuests => 'Guests';
+
+  @override
+  String get birthdayParentMessage => 'Parent message';
+
+  @override
+  String get birthdayNotes => 'Notes';
+
+  @override
+  String get birthdayInterview => 'Annual interview';
+
+  @override
+  String get birthdayInterviewTitle => 'Birthday interview';
+
+  @override
+  String get birthdayCompareTitle => 'Compare by age';
+
+  @override
+  String get birthdayAlbumCreate => 'Create birthday album';
+
+  @override
+  String get birthdayAlbumReady => 'Birthday album ready.';
+
+  @override
+  String get birthdayPdfGenerate => 'Generate birthday PDF';
+
+  @override
+  String get birthdayPdfReady => 'Birthday PDF ready.';
+
+  @override
+  String get birthdayEmpty => 'No birthday memories yet.';
+
+  @override
+  String get birthdayEmptyHint =>
+      'Capture each year’s celebration and interview answers.';
+
+  @override
+  String get birthdayQFavoriteFood => 'Favorite food?';
+
+  @override
+  String get birthdayQFavoriteColor => 'Favorite color?';
+
+  @override
+  String get birthdayQFavoriteCartoon => 'Favorite cartoon?';
+
+  @override
+  String get birthdayQFavoriteBook => 'Favorite book?';
+
+  @override
+  String get birthdayQFavoriteGame => 'Favorite game?';
+
+  @override
+  String get birthdayQFavoriteFriend => 'Favorite friend?';
+
+  @override
+  String get birthdayQWantToBe => 'What do you want to be?';
+
+  @override
+  String get birthdayQMakesHappy => 'What makes you happy?';
+
+  @override
+  String get favoritesTitle => 'Favorites';
+
+  @override
+  String get addFavorite => 'Add favorite';
+
+  @override
+  String get editFavorite => 'Edit favorite';
+
+  @override
+  String get favoriteCategory => 'Category';
+
+  @override
+  String get favoriteValue => 'Value';
+
+  @override
+  String get favoriteStartDate => 'Start date';
+
+  @override
+  String get favoriteEndDate => 'End date (optional)';
+
+  @override
+  String get favoriteNotes => 'Note';
+
+  @override
+  String get favoriteEmpty => 'No favorites yet.';
+
+  @override
+  String get favoriteEmptyHint =>
+      'Track favorite food, colors, books, and more over the years.';
+
+  @override
+  String get favoriteCurrent => 'Current';
+
+  @override
+  String get favoriteHistory => 'History';
+
+  @override
+  String get favoriteCatFood => 'Food';
+
+  @override
+  String get favoriteCatColor => 'Color';
+
+  @override
+  String get favoriteCatCartoon => 'Cartoon';
+
+  @override
+  String get favoriteCatBook => 'Book';
+
+  @override
+  String get favoriteCatGame => 'Game';
+
+  @override
+  String get favoriteCatFriend => 'Friend';
+
+  @override
+  String get searchTypeBirthday => 'Birthday';
+
+  @override
+  String get searchTypeFavorite => 'Favorite';
+
+  @override
+  String get addGroupMemoriesExtra => 'Birthdays & favorites';
+
+  @override
+  String get addBirthdaySubtitle => 'Party, gifts, and annual interview';
+
+  @override
+  String get addFavoriteSubtitle => 'Food, color, cartoon, book, game, friend';
 }

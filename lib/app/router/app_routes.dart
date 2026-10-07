@@ -63,6 +63,12 @@ abstract final class AppRoutes {
   static const reminderDetail = '/reminders/:id';
   static const reminderEdit = '/reminders/:id/edit';
 
+  static const birthdays = '/birthdays';
+  static const birthdayCreate = '/birthdays/create';
+  static const birthdayCompare = '/birthdays/compare';
+  static const favorites = '/favorites';
+  static const favoriteCreate = '/favorites/create';
+
   static String childDetailPath(String id) => '/children/$id';
   static String childEditPath(String id) => '/children/$id/edit';
 
@@ -147,4 +153,9 @@ abstract final class AppRoutes {
   static String yearReviewEditorPath(int year) => '/year-review/$year';
   static String yearReviewGeneratePath(int year) =>
       '/year-review/$year/generate';
+
+  static String birthdayDetailPath(String id) => '/birthdays/$id';
+  static String birthdayEditPath(String id) => '/birthdays/$id/edit';
+  static String birthdayInterviewPath(String id) => '/birthdays/$id/interview';
+  static String favoriteEditPath(String id) => '/favorites/$id/edit';
 }

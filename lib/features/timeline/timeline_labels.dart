@@ -59,7 +59,7 @@ String? timelineDetailPath(TimelineItem item) {
     TimelineItemType.vaccination => AppRoutes.vaccinationDetailPath(item.id),
     TimelineItemType.illness => AppRoutes.illnessDetailPath(item.id),
     TimelineItemType.doctorVisit => AppRoutes.doctorVisitDetailPath(item.id),
-    TimelineItemType.birthday => null,
+    TimelineItemType.birthday => AppRoutes.birthdayDetailPath(item.id),
   };
 }
 
