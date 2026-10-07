@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shishur_dinlipi/app/router/app_routes.dart';
 import 'package:shishur_dinlipi/core/config/app_config.dart';
+import 'package:shishur_dinlipi/core/security/app_lock_controller.dart';
 import 'package:shishur_dinlipi/core/settings/settings_controller.dart';
 import 'package:shishur_dinlipi/l10n/app_localizations.dart';
 
@@ -17,21 +18,27 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future<void>.delayed(const Duration(milliseconds: 900), _goNext);
+    Future<void>.delayed(const Duration(milliseconds: 700), _goNext);
   }
 
-  void _goNext() {
+  Future<void> _goNext() async {
     if (!mounted) return;
     final settings = ref.read(settingsControllerProvider).valueOrNull;
     if (settings == null) {
       Future<void>.delayed(const Duration(milliseconds: 200), _goNext);
       return;
     }
-    context.go(
-      settings.onboardingComplete
-          ? AppRoutes.home
-          : AppRoutes.onboardingLanguage,
-    );
+
+    await ref.read(appUnlockedProvider.notifier).bootstrap();
+    if (!mounted) return;
+
+    if (!settings.onboardingComplete) {
+      context.go(AppRoutes.onboardingLanguage);
+      return;
+    }
+
+    final unlocked = ref.read(appUnlockedProvider);
+    context.go(unlocked ? AppRoutes.home : AppRoutes.unlock);
   }
 
   @override

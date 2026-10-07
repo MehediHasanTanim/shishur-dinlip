@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:shishur_dinlipi/app/router/app_routes.dart';
 import 'package:shishur_dinlipi/core/config/app_config.dart';
 import 'package:shishur_dinlipi/core/settings/app_settings.dart';
 import 'package:shishur_dinlipi/core/settings/settings_controller.dart';
@@ -131,6 +133,29 @@ class SettingsScreen extends ConsumerWidget {
             subtitle: const Text('Show numbers using বাংলা digits when useful'),
             value: settings.useBengaliDigits,
             onChanged: controller.setUseBengaliDigits,
+          ),
+          const SizedBox(height: 24),
+          Text(
+            l10n.securitySettingsTitle,
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+          const SizedBox(height: 8),
+          Card(
+            child: ListTile(
+              leading: const Icon(Icons.lock_outline),
+              title: Text(l10n.securityAppLock),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => context.push(AppRoutes.security),
+            ),
+          ),
+          const SizedBox(height: 8),
+          Card(
+            child: ListTile(
+              leading: const Icon(Icons.backup_outlined),
+              title: Text(l10n.backupTitle),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => context.push(AppRoutes.backup),
+            ),
           ),
           const SizedBox(height: 24),
           Text(

@@ -38,7 +38,16 @@ void main() {
       unlocked: false,
       state: _FakeGoRouterState(AppRoutes.home),
     );
-    expect(result, AppRoutes.splash);
+    expect(result, AppRoutes.unlock);
+  });
+
+  test('allows unlock route while locked', () {
+    final result = resolveAppRedirect(
+      settings: const AppSettings(onboardingComplete: true),
+      unlocked: false,
+      state: _FakeGoRouterState(AppRoutes.unlock),
+    );
+    expect(result, isNull);
   });
 
   test('moves completed users off splash to home', () {

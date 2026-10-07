@@ -1890,4 +1890,229 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get yearReviewSectionHealth => 'Health';
+
+  @override
+  String get unlockTitle => 'Unlock journal';
+
+  @override
+  String get unlockSubtitle => 'Enter your PIN to open private memories.';
+
+  @override
+  String get unlockPinLabel => 'PIN';
+
+  @override
+  String get unlockCta => 'Unlock';
+
+  @override
+  String get unlockBiometric => 'Use biometrics';
+
+  @override
+  String get unlockPinWrong => 'Incorrect PIN.';
+
+  @override
+  String get securitySettingsTitle => 'Privacy & security';
+
+  @override
+  String get securityAppLock => 'App lock';
+
+  @override
+  String get securityConfirmPin => 'Confirm PIN';
+
+  @override
+  String get securityCurrentPin => 'Current PIN';
+
+  @override
+  String get securityNewPin => 'New PIN';
+
+  @override
+  String get securityChangePin => 'Change PIN';
+
+  @override
+  String get securityRemovePin => 'Remove PIN';
+
+  @override
+  String get securityPinMismatch => 'PINs do not match.';
+
+  @override
+  String get securityPinSet => 'PIN is set.';
+
+  @override
+  String get securityPinChanged => 'PIN updated.';
+
+  @override
+  String get securityPinRemoved => 'PIN removed.';
+
+  @override
+  String get securityDisableBiometrics => 'Disable biometrics';
+
+  @override
+  String get securityBiometricsHint =>
+      'Unlock with Face ID or fingerprint. Falls back to PIN.';
+
+  @override
+  String get securityAutoLock => 'Auto-lock';
+
+  @override
+  String get securityAutoLockImmediate => 'Immediately';
+
+  @override
+  String get securityAutoLock1m => 'After 1 minute';
+
+  @override
+  String get securityAutoLock5m => 'After 5 minutes';
+
+  @override
+  String get securityAutoLock15m => 'After 15 minutes';
+
+  @override
+  String get securityLockNow => 'Lock now';
+
+  @override
+  String get securityEncryptionTitle => 'Local encryption';
+
+  @override
+  String get securityEncryptionBody =>
+      'Your database is encrypted on this device. The encryption key is stored in the system keychain and never leaves the phone.';
+
+  @override
+  String get backupTitle => 'Backup & restore';
+
+  @override
+  String get backupSubtitle =>
+      'Create an encrypted offline backup of journals, photos, and health records.';
+
+  @override
+  String get backupPassword => 'Backup password';
+
+  @override
+  String get backupPasswordConfirm => 'Confirm password';
+
+  @override
+  String get backupCreate => 'Create backup';
+
+  @override
+  String get backupCreated => 'Backup created.';
+
+  @override
+  String get backupRestoreCta => 'Restore';
+
+  @override
+  String get backupHistory => 'Local backups';
+
+  @override
+  String get backupHistoryEmpty => 'No local backups yet.';
+
+  @override
+  String get backupStagePreparing => 'Preparing…';
+
+  @override
+  String get backupStageDatabase => 'Snapshotting database…';
+
+  @override
+  String get backupStageMedia => 'Collecting photos & documents…';
+
+  @override
+  String get backupStageArchive => 'Building archive…';
+
+  @override
+  String get backupStageEncrypting => 'Encrypting…';
+
+  @override
+  String get backupStageSaving => 'Saving…';
+
+  @override
+  String get backupStageComplete => 'Complete';
+
+  @override
+  String get backupStageFailed => 'Backup failed';
+
+  @override
+  String get restoreTitle => 'Restore backup';
+
+  @override
+  String get restoreSubtitle =>
+      'Choose an encrypted .sdjbackup file. Your current data can be safety-backed up first.';
+
+  @override
+  String get restorePick => 'Choose backup file';
+
+  @override
+  String get restoreValidate => 'Validate backup';
+
+  @override
+  String get restorePreviewTitle => 'Backup summary';
+
+  @override
+  String restorePreviewChildren(int count) {
+    return '$count children';
+  }
+
+  @override
+  String restorePreviewAssets(int count) {
+    return '$count media files';
+  }
+
+  @override
+  String restorePreviewSchema(int version) {
+    return 'Schema version $version';
+  }
+
+  @override
+  String restorePreviewApp(String version) {
+    return 'App $version';
+  }
+
+  @override
+  String get restoreSafetyPassword => 'Safety backup password (optional)';
+
+  @override
+  String get restoreSafetyPasswordHint =>
+      'Creates a backup of current data before overwrite.';
+
+  @override
+  String get restoreConfirmTitle => 'Replace all data?';
+
+  @override
+  String get restoreConfirmBody =>
+      'This will replace journals, photos, and settings on this device with the backup.';
+
+  @override
+  String get restoreConfirmCta => 'Restore';
+
+  @override
+  String get restoreCommit => 'Restore now';
+
+  @override
+  String get restoreRestartRequired =>
+      'Restore finished. Please fully close and reopen the app.';
+
+  @override
+  String get restoreStageReading => 'Reading backup…';
+
+  @override
+  String get restoreStageDecrypting => 'Decrypting…';
+
+  @override
+  String get restoreStageValidating => 'Checking integrity…';
+
+  @override
+  String get restoreStagePreview => 'Ready to preview';
+
+  @override
+  String get restoreStageSafety => 'Creating safety backup…';
+
+  @override
+  String get restoreStageRestoring => 'Restoring files…';
+
+  @override
+  String get restoreStageMigrating => 'Running migrations…';
+
+  @override
+  String get restoreStageRebuilding => 'Rebuilding reminders…';
+
+  @override
+  String get restoreStageComplete => 'Complete';
+
+  @override
+  String get restoreStageFailed => 'Restore failed';
 }

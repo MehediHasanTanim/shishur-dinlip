@@ -13,8 +13,12 @@ String? resolveAppRedirect({
   final isOnboarding = location == AppRoutes.onboarding ||
       location.startsWith('${AppRoutes.onboarding}/');
 
-  if (!unlocked && !isSplash) {
-    return AppRoutes.splash;
+  final isUnlock = location == AppRoutes.unlock;
+  if (!unlocked && !isSplash && !isUnlock && !isOnboarding) {
+    return AppRoutes.unlock;
+  }
+  if (unlocked && isUnlock) {
+    return AppRoutes.home;
   }
 
   if (!settings.onboardingComplete) {

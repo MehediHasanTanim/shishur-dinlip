@@ -67,6 +67,3 @@ class SettingsController extends AsyncNotifier<AppSettings> {
     await _persist(current.copyWith(useBengaliDigits: enabled));
   }
 }
-
-/// Future app-lock gate. Defaults unlocked until security sprint wires PIN/biometrics.
-final appUnlockedProvider = StateProvider<bool>((ref) => true);

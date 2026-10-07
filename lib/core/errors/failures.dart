@@ -43,6 +43,12 @@ final class PdfGenerationFailure extends AppFailure {
   const PdfGenerationFailure({super.message, super.cause});
 }
 
+final class SecurityFailure extends AppFailure {
+  const SecurityFailure({super.message, super.cause, this.lockedOut = false});
+
+  final bool lockedOut;
+}
+
 final class UnknownFailure extends AppFailure {
   const UnknownFailure({super.message, super.cause});
 }

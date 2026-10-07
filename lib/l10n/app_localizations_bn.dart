@@ -1867,4 +1867,229 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get yearReviewSectionHealth => 'স্বাস্থ্য';
+
+  @override
+  String get unlockTitle => 'জার্নাল আনলক';
+
+  @override
+  String get unlockSubtitle => 'ব্যক্তিগত স্মৃতি খুলতে আপনার পিন দিন।';
+
+  @override
+  String get unlockPinLabel => 'পিন';
+
+  @override
+  String get unlockCta => 'আনলক';
+
+  @override
+  String get unlockBiometric => 'বায়োমেট্রিক্স ব্যবহার করুন';
+
+  @override
+  String get unlockPinWrong => 'পিন ভুল।';
+
+  @override
+  String get securitySettingsTitle => 'গোপনীয়তা ও নিরাপত্তা';
+
+  @override
+  String get securityAppLock => 'অ্যাপ লক';
+
+  @override
+  String get securityConfirmPin => 'পিন নিশ্চিত করুন';
+
+  @override
+  String get securityCurrentPin => 'বর্তমান পিন';
+
+  @override
+  String get securityNewPin => 'নতুন পিন';
+
+  @override
+  String get securityChangePin => 'পিন পরিবর্তন';
+
+  @override
+  String get securityRemovePin => 'পিন সরান';
+
+  @override
+  String get securityPinMismatch => 'পিন মিলছে না।';
+
+  @override
+  String get securityPinSet => 'পিন সেট হয়েছে।';
+
+  @override
+  String get securityPinChanged => 'পিন আপডেট হয়েছে।';
+
+  @override
+  String get securityPinRemoved => 'পিন সরানো হয়েছে।';
+
+  @override
+  String get securityDisableBiometrics => 'বায়োমেট্রিক্স বন্ধ করুন';
+
+  @override
+  String get securityBiometricsHint =>
+      'Face ID বা ফিংগারপ্রিন্ট দিয়ে আনলক। ব্যর্থ হলে পিন ব্যবহার হবে।';
+
+  @override
+  String get securityAutoLock => 'অটো-লক';
+
+  @override
+  String get securityAutoLockImmediate => 'তৎক্ষণাৎ';
+
+  @override
+  String get securityAutoLock1m => '১ মিনিট পর';
+
+  @override
+  String get securityAutoLock5m => '৫ মিনিট পর';
+
+  @override
+  String get securityAutoLock15m => '১৫ মিনিট পর';
+
+  @override
+  String get securityLockNow => 'এখনই লক করুন';
+
+  @override
+  String get securityEncryptionTitle => 'স্থানীয় এনক্রিপশন';
+
+  @override
+  String get securityEncryptionBody =>
+      'আপনার ডাটাবেস এই ডিভাইসে এনক্রিপ্ট করা থাকে। এনক্রিপশন কী সিস্টেম কিচেইনে থাকে এবং ফোন ছাড়ে না।';
+
+  @override
+  String get backupTitle => 'ব্যাকআপ ও রিস্টোর';
+
+  @override
+  String get backupSubtitle =>
+      'জার্নাল, ছবি ও স্বাস্থ্য রেকর্ডের এনক্রিপ্টেড অফলাইন ব্যাকআপ তৈরি করুন।';
+
+  @override
+  String get backupPassword => 'ব্যাকআপ পাসওয়ার্ড';
+
+  @override
+  String get backupPasswordConfirm => 'পাসওয়ার্ড নিশ্চিত করুন';
+
+  @override
+  String get backupCreate => 'ব্যাকআপ তৈরি';
+
+  @override
+  String get backupCreated => 'ব্যাকআপ তৈরি হয়েছে।';
+
+  @override
+  String get backupRestoreCta => 'রিস্টোর';
+
+  @override
+  String get backupHistory => 'স্থানীয় ব্যাকআপ';
+
+  @override
+  String get backupHistoryEmpty => 'এখনো কোনো স্থানীয় ব্যাকআপ নেই।';
+
+  @override
+  String get backupStagePreparing => 'প্রস্তুত হচ্ছে…';
+
+  @override
+  String get backupStageDatabase => 'ডাটাবেস স্ন্যাপশট…';
+
+  @override
+  String get backupStageMedia => 'ছবি ও নথি সংগ্রহ…';
+
+  @override
+  String get backupStageArchive => 'আর্কাইভ তৈরি…';
+
+  @override
+  String get backupStageEncrypting => 'এনক্রিপ্ট হচ্ছে…';
+
+  @override
+  String get backupStageSaving => 'সংরক্ষণ…';
+
+  @override
+  String get backupStageComplete => 'সম্পন্ন';
+
+  @override
+  String get backupStageFailed => 'ব্যাকআপ ব্যর্থ';
+
+  @override
+  String get restoreTitle => 'ব্যাকআপ রিস্টোর';
+
+  @override
+  String get restoreSubtitle =>
+      'একটি এনক্রিপ্টেড .sdjbackup ফাইল বেছে নিন। বর্তমান ডেটার সেফটি ব্যাকআপ আগে নেওয়া যায়।';
+
+  @override
+  String get restorePick => 'ব্যাকআপ ফাইল বেছে নিন';
+
+  @override
+  String get restoreValidate => 'ব্যাকআপ যাচাই';
+
+  @override
+  String get restorePreviewTitle => 'ব্যাকআপ সারাংশ';
+
+  @override
+  String restorePreviewChildren(int count) {
+    return '$count জন শিশু';
+  }
+
+  @override
+  String restorePreviewAssets(int count) {
+    return '$countটি মিডিয়া ফাইল';
+  }
+
+  @override
+  String restorePreviewSchema(int version) {
+    return 'স্কিমা সংস্করণ $version';
+  }
+
+  @override
+  String restorePreviewApp(String version) {
+    return 'অ্যাপ $version';
+  }
+
+  @override
+  String get restoreSafetyPassword => 'সেফটি ব্যাকআপ পাসওয়ার্ড (ঐচ্ছিক)';
+
+  @override
+  String get restoreSafetyPasswordHint =>
+      'ওভাররাইটের আগে বর্তমান ডেটার ব্যাকআপ তৈরি করে।';
+
+  @override
+  String get restoreConfirmTitle => 'সব ডেটা প্রতিস্থাপন করবেন?';
+
+  @override
+  String get restoreConfirmBody =>
+      'এই ডিভাইসের জার্নাল, ছবি ও সেটিংস ব্যাকআপ দিয়ে প্রতিস্থাপিত হবে।';
+
+  @override
+  String get restoreConfirmCta => 'রিস্টোর';
+
+  @override
+  String get restoreCommit => 'এখনই রিস্টোর';
+
+  @override
+  String get restoreRestartRequired =>
+      'রিস্টোর সম্পন্ন। অ্যাপ সম্পূর্ণ বন্ধ করে আবার খুলুন।';
+
+  @override
+  String get restoreStageReading => 'ব্যাকআপ পড়া হচ্ছে…';
+
+  @override
+  String get restoreStageDecrypting => 'ডিক্রিপ্ট হচ্ছে…';
+
+  @override
+  String get restoreStageValidating => 'অখণ্ডতা যাচাই…';
+
+  @override
+  String get restoreStagePreview => 'প্রিভিউ প্রস্তুত';
+
+  @override
+  String get restoreStageSafety => 'সেফটি ব্যাকআপ…';
+
+  @override
+  String get restoreStageRestoring => 'ফাইল রিস্টোর…';
+
+  @override
+  String get restoreStageMigrating => 'মাইগ্রেশন চলছে…';
+
+  @override
+  String get restoreStageRebuilding => 'রিমাইন্ডার পুনর্নির্মাণ…';
+
+  @override
+  String get restoreStageComplete => 'সম্পন্ন';
+
+  @override
+  String get restoreStageFailed => 'রিস্টোর ব্যর্থ';
 }

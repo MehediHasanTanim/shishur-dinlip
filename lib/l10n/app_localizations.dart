@@ -3745,6 +3745,426 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Health'**
   String get yearReviewSectionHealth;
+
+  /// No description provided for @unlockTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock journal'**
+  String get unlockTitle;
+
+  /// No description provided for @unlockSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your PIN to open private memories.'**
+  String get unlockSubtitle;
+
+  /// No description provided for @unlockPinLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'PIN'**
+  String get unlockPinLabel;
+
+  /// No description provided for @unlockCta.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock'**
+  String get unlockCta;
+
+  /// No description provided for @unlockBiometric.
+  ///
+  /// In en, this message translates to:
+  /// **'Use biometrics'**
+  String get unlockBiometric;
+
+  /// No description provided for @unlockPinWrong.
+  ///
+  /// In en, this message translates to:
+  /// **'Incorrect PIN.'**
+  String get unlockPinWrong;
+
+  /// No description provided for @securitySettingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy & security'**
+  String get securitySettingsTitle;
+
+  /// No description provided for @securityAppLock.
+  ///
+  /// In en, this message translates to:
+  /// **'App lock'**
+  String get securityAppLock;
+
+  /// No description provided for @securityConfirmPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm PIN'**
+  String get securityConfirmPin;
+
+  /// No description provided for @securityCurrentPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Current PIN'**
+  String get securityCurrentPin;
+
+  /// No description provided for @securityNewPin.
+  ///
+  /// In en, this message translates to:
+  /// **'New PIN'**
+  String get securityNewPin;
+
+  /// No description provided for @securityChangePin.
+  ///
+  /// In en, this message translates to:
+  /// **'Change PIN'**
+  String get securityChangePin;
+
+  /// No description provided for @securityRemovePin.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove PIN'**
+  String get securityRemovePin;
+
+  /// No description provided for @securityPinMismatch.
+  ///
+  /// In en, this message translates to:
+  /// **'PINs do not match.'**
+  String get securityPinMismatch;
+
+  /// No description provided for @securityPinSet.
+  ///
+  /// In en, this message translates to:
+  /// **'PIN is set.'**
+  String get securityPinSet;
+
+  /// No description provided for @securityPinChanged.
+  ///
+  /// In en, this message translates to:
+  /// **'PIN updated.'**
+  String get securityPinChanged;
+
+  /// No description provided for @securityPinRemoved.
+  ///
+  /// In en, this message translates to:
+  /// **'PIN removed.'**
+  String get securityPinRemoved;
+
+  /// No description provided for @securityDisableBiometrics.
+  ///
+  /// In en, this message translates to:
+  /// **'Disable biometrics'**
+  String get securityDisableBiometrics;
+
+  /// No description provided for @securityBiometricsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock with Face ID or fingerprint. Falls back to PIN.'**
+  String get securityBiometricsHint;
+
+  /// No description provided for @securityAutoLock.
+  ///
+  /// In en, this message translates to:
+  /// **'Auto-lock'**
+  String get securityAutoLock;
+
+  /// No description provided for @securityAutoLockImmediate.
+  ///
+  /// In en, this message translates to:
+  /// **'Immediately'**
+  String get securityAutoLockImmediate;
+
+  /// No description provided for @securityAutoLock1m.
+  ///
+  /// In en, this message translates to:
+  /// **'After 1 minute'**
+  String get securityAutoLock1m;
+
+  /// No description provided for @securityAutoLock5m.
+  ///
+  /// In en, this message translates to:
+  /// **'After 5 minutes'**
+  String get securityAutoLock5m;
+
+  /// No description provided for @securityAutoLock15m.
+  ///
+  /// In en, this message translates to:
+  /// **'After 15 minutes'**
+  String get securityAutoLock15m;
+
+  /// No description provided for @securityLockNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Lock now'**
+  String get securityLockNow;
+
+  /// No description provided for @securityEncryptionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Local encryption'**
+  String get securityEncryptionTitle;
+
+  /// No description provided for @securityEncryptionBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Your database is encrypted on this device. The encryption key is stored in the system keychain and never leaves the phone.'**
+  String get securityEncryptionBody;
+
+  /// No description provided for @backupTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup & restore'**
+  String get backupTitle;
+
+  /// No description provided for @backupSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Create an encrypted offline backup of journals, photos, and health records.'**
+  String get backupSubtitle;
+
+  /// No description provided for @backupPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup password'**
+  String get backupPassword;
+
+  /// No description provided for @backupPasswordConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm password'**
+  String get backupPasswordConfirm;
+
+  /// No description provided for @backupCreate.
+  ///
+  /// In en, this message translates to:
+  /// **'Create backup'**
+  String get backupCreate;
+
+  /// No description provided for @backupCreated.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup created.'**
+  String get backupCreated;
+
+  /// No description provided for @backupRestoreCta.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore'**
+  String get backupRestoreCta;
+
+  /// No description provided for @backupHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'Local backups'**
+  String get backupHistory;
+
+  /// No description provided for @backupHistoryEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No local backups yet.'**
+  String get backupHistoryEmpty;
+
+  /// No description provided for @backupStagePreparing.
+  ///
+  /// In en, this message translates to:
+  /// **'Preparing…'**
+  String get backupStagePreparing;
+
+  /// No description provided for @backupStageDatabase.
+  ///
+  /// In en, this message translates to:
+  /// **'Snapshotting database…'**
+  String get backupStageDatabase;
+
+  /// No description provided for @backupStageMedia.
+  ///
+  /// In en, this message translates to:
+  /// **'Collecting photos & documents…'**
+  String get backupStageMedia;
+
+  /// No description provided for @backupStageArchive.
+  ///
+  /// In en, this message translates to:
+  /// **'Building archive…'**
+  String get backupStageArchive;
+
+  /// No description provided for @backupStageEncrypting.
+  ///
+  /// In en, this message translates to:
+  /// **'Encrypting…'**
+  String get backupStageEncrypting;
+
+  /// No description provided for @backupStageSaving.
+  ///
+  /// In en, this message translates to:
+  /// **'Saving…'**
+  String get backupStageSaving;
+
+  /// No description provided for @backupStageComplete.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete'**
+  String get backupStageComplete;
+
+  /// No description provided for @backupStageFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup failed'**
+  String get backupStageFailed;
+
+  /// No description provided for @restoreTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore backup'**
+  String get restoreTitle;
+
+  /// No description provided for @restoreSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose an encrypted .sdjbackup file. Your current data can be safety-backed up first.'**
+  String get restoreSubtitle;
+
+  /// No description provided for @restorePick.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose backup file'**
+  String get restorePick;
+
+  /// No description provided for @restoreValidate.
+  ///
+  /// In en, this message translates to:
+  /// **'Validate backup'**
+  String get restoreValidate;
+
+  /// No description provided for @restorePreviewTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Backup summary'**
+  String get restorePreviewTitle;
+
+  /// No description provided for @restorePreviewChildren.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} children'**
+  String restorePreviewChildren(int count);
+
+  /// No description provided for @restorePreviewAssets.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} media files'**
+  String restorePreviewAssets(int count);
+
+  /// No description provided for @restorePreviewSchema.
+  ///
+  /// In en, this message translates to:
+  /// **'Schema version {version}'**
+  String restorePreviewSchema(int version);
+
+  /// No description provided for @restorePreviewApp.
+  ///
+  /// In en, this message translates to:
+  /// **'App {version}'**
+  String restorePreviewApp(String version);
+
+  /// No description provided for @restoreSafetyPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Safety backup password (optional)'**
+  String get restoreSafetyPassword;
+
+  /// No description provided for @restoreSafetyPasswordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Creates a backup of current data before overwrite.'**
+  String get restoreSafetyPasswordHint;
+
+  /// No description provided for @restoreConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Replace all data?'**
+  String get restoreConfirmTitle;
+
+  /// No description provided for @restoreConfirmBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This will replace journals, photos, and settings on this device with the backup.'**
+  String get restoreConfirmBody;
+
+  /// No description provided for @restoreConfirmCta.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore'**
+  String get restoreConfirmCta;
+
+  /// No description provided for @restoreCommit.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore now'**
+  String get restoreCommit;
+
+  /// No description provided for @restoreRestartRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore finished. Please fully close and reopen the app.'**
+  String get restoreRestartRequired;
+
+  /// No description provided for @restoreStageReading.
+  ///
+  /// In en, this message translates to:
+  /// **'Reading backup…'**
+  String get restoreStageReading;
+
+  /// No description provided for @restoreStageDecrypting.
+  ///
+  /// In en, this message translates to:
+  /// **'Decrypting…'**
+  String get restoreStageDecrypting;
+
+  /// No description provided for @restoreStageValidating.
+  ///
+  /// In en, this message translates to:
+  /// **'Checking integrity…'**
+  String get restoreStageValidating;
+
+  /// No description provided for @restoreStagePreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Ready to preview'**
+  String get restoreStagePreview;
+
+  /// No description provided for @restoreStageSafety.
+  ///
+  /// In en, this message translates to:
+  /// **'Creating safety backup…'**
+  String get restoreStageSafety;
+
+  /// No description provided for @restoreStageRestoring.
+  ///
+  /// In en, this message translates to:
+  /// **'Restoring files…'**
+  String get restoreStageRestoring;
+
+  /// No description provided for @restoreStageMigrating.
+  ///
+  /// In en, this message translates to:
+  /// **'Running migrations…'**
+  String get restoreStageMigrating;
+
+  /// No description provided for @restoreStageRebuilding.
+  ///
+  /// In en, this message translates to:
+  /// **'Rebuilding reminders…'**
+  String get restoreStageRebuilding;
+
+  /// No description provided for @restoreStageComplete.
+  ///
+  /// In en, this message translates to:
+  /// **'Complete'**
+  String get restoreStageComplete;
+
+  /// No description provided for @restoreStageFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore failed'**
+  String get restoreStageFailed;
 }
 
 class _AppLocalizationsDelegate

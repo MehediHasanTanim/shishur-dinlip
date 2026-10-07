@@ -20,6 +20,7 @@ abstract final class ErrorMapper {
       BackupFailure() => l10n.errorBackup,
       RestoreFailure() => l10n.errorRestore,
       PdfGenerationFailure() => l10n.errorPdf,
+      SecurityFailure() => failure.message ?? l10n.errorGeneric,
       UnknownFailure() => l10n.errorGeneric,
     };
   }

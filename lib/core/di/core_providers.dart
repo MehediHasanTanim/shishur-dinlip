@@ -31,6 +31,13 @@ import 'package:shishur_dinlipi/core/settings/settings_repository.dart';
 import 'package:shishur_dinlipi/core/timeline/timeline_service.dart';
 import 'package:shishur_dinlipi/core/year_review/year_review_query_service.dart';
 import 'package:shishur_dinlipi/core/pdf/year_review_pdf_generator.dart';
+import 'package:shishur_dinlipi/core/backup/backup_service.dart';
+import 'package:shishur_dinlipi/core/backup/restore_service.dart';
+import 'package:shishur_dinlipi/core/security/biometric_service.dart';
+import 'package:shishur_dinlipi/core/security/db_encryption_key_store.dart';
+import 'package:shishur_dinlipi/core/security/pin_service.dart';
+import 'package:shishur_dinlipi/core/security/secure_storage_service.dart';
+import 'package:shishur_dinlipi/core/security/security_settings_store.dart';
 import 'package:shishur_dinlipi/features/children/profile_photo_service.dart';
 
 final appDatabaseProvider = Provider<AppDatabase>((ref) {
@@ -225,5 +232,41 @@ final yearReviewPdfGeneratorProvider = Provider<YearReviewPdfGenerator>((ref) {
   return YearReviewPdfGenerator(
     ref.watch(appDatabaseProvider),
     storage: ref.watch(fileStorageServiceProvider),
+  );
+});
+
+final secureStorageServiceProvider = Provider<SecureStorageService>((ref) {
+  return SecureStorageService();
+});
+
+final dbEncryptionKeyStoreProvider = Provider<DbEncryptionKeyStore>((ref) {
+  return DbEncryptionKeyStore(ref.watch(secureStorageServiceProvider));
+});
+
+final pinServiceProvider = Provider<PinService>((ref) {
+  return PinService(ref.watch(secureStorageServiceProvider));
+});
+
+final biometricServiceProvider = Provider<BiometricService>((ref) {
+  return BiometricService(ref.watch(secureStorageServiceProvider));
+});
+
+final securitySettingsStoreProvider = Provider<SecuritySettingsStore>((ref) {
+  return SecuritySettingsStore(ref.watch(secureStorageServiceProvider));
+});
+
+final backupServiceProvider = Provider<BackupService>((ref) {
+  return BackupService(
+    db: ref.watch(appDatabaseProvider),
+    storage: ref.watch(fileStorageServiceProvider),
+  );
+});
+
+final restoreServiceProvider = Provider<RestoreService>((ref) {
+  return RestoreService(
+    db: ref.watch(appDatabaseProvider),
+    storage: ref.watch(fileStorageServiceProvider),
+    backupService: ref.watch(backupServiceProvider),
+    reminders: ref.watch(remindersRepositoryProvider),
   );
 });
