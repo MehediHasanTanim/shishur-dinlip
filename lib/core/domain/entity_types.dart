@@ -8,6 +8,11 @@ abstract final class EntityTypes {
   static const growthRecord = 'growth_record';
   static const schoolProfile = 'school_profile';
   static const schoolEvent = 'school_event';
+  static const vaccination = 'vaccination';
+  static const illnessEpisode = 'illness_episode';
+  static const medicine = 'medicine';
+  static const doctorVisit = 'doctor_visit';
+  static const medicalDocument = 'medical_document';
 }
 
 abstract final class JournalEntryTypes {

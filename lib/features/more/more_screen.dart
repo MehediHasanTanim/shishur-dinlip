@@ -54,6 +54,15 @@ class MoreScreen extends StatelessWidget {
           const SizedBox(height: 8),
           Card(
             child: ListTile(
+              leading: const Icon(Icons.health_and_safety_outlined),
+              title: Text(l10n.healthTitle),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => context.push(AppRoutes.health),
+            ),
+          ),
+          const SizedBox(height: 8),
+          Card(
+            child: ListTile(
               leading: const Icon(Icons.settings_outlined),
               title: Text(l10n.settingsTitle),
               trailing: const Icon(Icons.chevron_right),

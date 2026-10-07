@@ -8,14 +8,19 @@ import 'package:shishur_dinlipi/core/permissions/permission_service.dart';
 import 'package:shishur_dinlipi/core/repository/achievements_repository.dart';
 import 'package:shishur_dinlipi/core/repository/attachment_repository.dart';
 import 'package:shishur_dinlipi/core/repository/children_repository.dart';
+import 'package:shishur_dinlipi/core/repository/doctor_visits_repository.dart';
 import 'package:shishur_dinlipi/core/repository/first_words_repository.dart';
 import 'package:shishur_dinlipi/core/repository/funny_moments_repository.dart';
 import 'package:shishur_dinlipi/core/repository/growth_repository.dart';
+import 'package:shishur_dinlipi/core/repository/illness_episodes_repository.dart';
 import 'package:shishur_dinlipi/core/repository/journal_repository.dart';
+import 'package:shishur_dinlipi/core/repository/medical_documents_repository.dart';
+import 'package:shishur_dinlipi/core/repository/medicines_repository.dart';
 import 'package:shishur_dinlipi/core/repository/milestones_repository.dart';
 import 'package:shishur_dinlipi/core/repository/school_events_repository.dart';
 import 'package:shishur_dinlipi/core/repository/school_profiles_repository.dart';
 import 'package:shishur_dinlipi/core/repository/tags_repository.dart';
+import 'package:shishur_dinlipi/core/repository/vaccinations_repository.dart';
 import 'package:shishur_dinlipi/core/settings/settings_repository.dart';
 import 'package:shishur_dinlipi/features/children/profile_photo_service.dart';
 
@@ -128,3 +133,38 @@ final schoolEventsRepositoryProvider = Provider<SchoolEventsRepository>((ref) {
     attachments: ref.watch(attachmentRepositoryProvider),
   );
 });
+
+final vaccinationsRepositoryProvider = Provider<VaccinationsRepository>((ref) {
+  return DriftVaccinationsRepository(
+    ref.watch(appDatabaseProvider),
+    attachments: ref.watch(attachmentRepositoryProvider),
+  );
+});
+
+final illnessEpisodesRepositoryProvider = Provider<IllnessEpisodesRepository>((
+  ref,
+) {
+  return DriftIllnessEpisodesRepository(
+    ref.watch(appDatabaseProvider),
+    attachments: ref.watch(attachmentRepositoryProvider),
+  );
+});
+
+final medicinesRepositoryProvider = Provider<MedicinesRepository>((ref) {
+  return DriftMedicinesRepository(ref.watch(appDatabaseProvider));
+});
+
+final doctorVisitsRepositoryProvider = Provider<DoctorVisitsRepository>((ref) {
+  return DriftDoctorVisitsRepository(
+    ref.watch(appDatabaseProvider),
+    attachments: ref.watch(attachmentRepositoryProvider),
+  );
+});
+
+final medicalDocumentsRepositoryProvider =
+    Provider<MedicalDocumentsRepository>((ref) {
+      return DriftMedicalDocumentsRepository(
+        ref.watch(appDatabaseProvider),
+        media: ref.watch(mediaServiceProvider),
+      );
+    });

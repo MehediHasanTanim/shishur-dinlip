@@ -10181,6 +10181,4868 @@ class SchoolEventsCompanion extends UpdateCompanion<SchoolEventRow> {
   }
 }
 
+class $VaccinationsTable extends Vaccinations
+    with TableInfo<$VaccinationsTable, VaccinationRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $VaccinationsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _childIdMeta = const VerificationMeta(
+    'childId',
+  );
+  @override
+  late final GeneratedColumn<String> childId = GeneratedColumn<String>(
+    'child_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _vaccineNameMeta = const VerificationMeta(
+    'vaccineName',
+  );
+  @override
+  late final GeneratedColumn<String> vaccineName = GeneratedColumn<String>(
+    'vaccine_name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _doseLabelMeta = const VerificationMeta(
+    'doseLabel',
+  );
+  @override
+  late final GeneratedColumn<String> doseLabel = GeneratedColumn<String>(
+    'dose_label',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _scheduledDateMeta = const VerificationMeta(
+    'scheduledDate',
+  );
+  @override
+  late final GeneratedColumn<DateTime> scheduledDate =
+      GeneratedColumn<DateTime>(
+        'scheduled_date',
+        aliasedName,
+        true,
+        type: DriftSqlType.dateTime,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _givenDateMeta = const VerificationMeta(
+    'givenDate',
+  );
+  @override
+  late final GeneratedColumn<DateTime> givenDate = GeneratedColumn<DateTime>(
+    'given_date',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _statusMeta = const VerificationMeta('status');
+  @override
+  late final GeneratedColumn<String> status = GeneratedColumn<String>(
+    'status',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _providerNameMeta = const VerificationMeta(
+    'providerName',
+  );
+  @override
+  late final GeneratedColumn<String> providerName = GeneratedColumn<String>(
+    'provider_name',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _clinicNameMeta = const VerificationMeta(
+    'clinicName',
+  );
+  @override
+  late final GeneratedColumn<String> clinicName = GeneratedColumn<String>(
+    'clinic_name',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _batchNumberMeta = const VerificationMeta(
+    'batchNumber',
+  );
+  @override
+  late final GeneratedColumn<String> batchNumber = GeneratedColumn<String>(
+    'batch_number',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _notesMeta = const VerificationMeta('notes');
+  @override
+  late final GeneratedColumn<String> notes = GeneratedColumn<String>(
+    'notes',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    childId,
+    vaccineName,
+    doseLabel,
+    scheduledDate,
+    givenDate,
+    status,
+    providerName,
+    clinicName,
+    batchNumber,
+    notes,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'vaccinations';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<VaccinationRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('child_id')) {
+      context.handle(
+        _childIdMeta,
+        childId.isAcceptableOrUnknown(data['child_id']!, _childIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_childIdMeta);
+    }
+    if (data.containsKey('vaccine_name')) {
+      context.handle(
+        _vaccineNameMeta,
+        vaccineName.isAcceptableOrUnknown(
+          data['vaccine_name']!,
+          _vaccineNameMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_vaccineNameMeta);
+    }
+    if (data.containsKey('dose_label')) {
+      context.handle(
+        _doseLabelMeta,
+        doseLabel.isAcceptableOrUnknown(data['dose_label']!, _doseLabelMeta),
+      );
+    }
+    if (data.containsKey('scheduled_date')) {
+      context.handle(
+        _scheduledDateMeta,
+        scheduledDate.isAcceptableOrUnknown(
+          data['scheduled_date']!,
+          _scheduledDateMeta,
+        ),
+      );
+    }
+    if (data.containsKey('given_date')) {
+      context.handle(
+        _givenDateMeta,
+        givenDate.isAcceptableOrUnknown(data['given_date']!, _givenDateMeta),
+      );
+    }
+    if (data.containsKey('status')) {
+      context.handle(
+        _statusMeta,
+        status.isAcceptableOrUnknown(data['status']!, _statusMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_statusMeta);
+    }
+    if (data.containsKey('provider_name')) {
+      context.handle(
+        _providerNameMeta,
+        providerName.isAcceptableOrUnknown(
+          data['provider_name']!,
+          _providerNameMeta,
+        ),
+      );
+    }
+    if (data.containsKey('clinic_name')) {
+      context.handle(
+        _clinicNameMeta,
+        clinicName.isAcceptableOrUnknown(data['clinic_name']!, _clinicNameMeta),
+      );
+    }
+    if (data.containsKey('batch_number')) {
+      context.handle(
+        _batchNumberMeta,
+        batchNumber.isAcceptableOrUnknown(
+          data['batch_number']!,
+          _batchNumberMeta,
+        ),
+      );
+    }
+    if (data.containsKey('notes')) {
+      context.handle(
+        _notesMeta,
+        notes.isAcceptableOrUnknown(data['notes']!, _notesMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  VaccinationRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return VaccinationRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      childId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}child_id'],
+      )!,
+      vaccineName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}vaccine_name'],
+      )!,
+      doseLabel: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}dose_label'],
+      ),
+      scheduledDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}scheduled_date'],
+      ),
+      givenDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}given_date'],
+      ),
+      status: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}status'],
+      )!,
+      providerName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}provider_name'],
+      ),
+      clinicName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}clinic_name'],
+      ),
+      batchNumber: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}batch_number'],
+      ),
+      notes: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}notes'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+    );
+  }
+
+  @override
+  $VaccinationsTable createAlias(String alias) {
+    return $VaccinationsTable(attachedDatabase, alias);
+  }
+}
+
+class VaccinationRow extends DataClass implements Insertable<VaccinationRow> {
+  final String id;
+  final String childId;
+  final String vaccineName;
+  final String? doseLabel;
+  final DateTime? scheduledDate;
+  final DateTime? givenDate;
+  final String status;
+  final String? providerName;
+  final String? clinicName;
+  final String? batchNumber;
+  final String? notes;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final DateTime? deletedAt;
+  const VaccinationRow({
+    required this.id,
+    required this.childId,
+    required this.vaccineName,
+    this.doseLabel,
+    this.scheduledDate,
+    this.givenDate,
+    required this.status,
+    this.providerName,
+    this.clinicName,
+    this.batchNumber,
+    this.notes,
+    required this.createdAt,
+    required this.updatedAt,
+    this.deletedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['child_id'] = Variable<String>(childId);
+    map['vaccine_name'] = Variable<String>(vaccineName);
+    if (!nullToAbsent || doseLabel != null) {
+      map['dose_label'] = Variable<String>(doseLabel);
+    }
+    if (!nullToAbsent || scheduledDate != null) {
+      map['scheduled_date'] = Variable<DateTime>(scheduledDate);
+    }
+    if (!nullToAbsent || givenDate != null) {
+      map['given_date'] = Variable<DateTime>(givenDate);
+    }
+    map['status'] = Variable<String>(status);
+    if (!nullToAbsent || providerName != null) {
+      map['provider_name'] = Variable<String>(providerName);
+    }
+    if (!nullToAbsent || clinicName != null) {
+      map['clinic_name'] = Variable<String>(clinicName);
+    }
+    if (!nullToAbsent || batchNumber != null) {
+      map['batch_number'] = Variable<String>(batchNumber);
+    }
+    if (!nullToAbsent || notes != null) {
+      map['notes'] = Variable<String>(notes);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    return map;
+  }
+
+  VaccinationsCompanion toCompanion(bool nullToAbsent) {
+    return VaccinationsCompanion(
+      id: Value(id),
+      childId: Value(childId),
+      vaccineName: Value(vaccineName),
+      doseLabel: doseLabel == null && nullToAbsent
+          ? const Value.absent()
+          : Value(doseLabel),
+      scheduledDate: scheduledDate == null && nullToAbsent
+          ? const Value.absent()
+          : Value(scheduledDate),
+      givenDate: givenDate == null && nullToAbsent
+          ? const Value.absent()
+          : Value(givenDate),
+      status: Value(status),
+      providerName: providerName == null && nullToAbsent
+          ? const Value.absent()
+          : Value(providerName),
+      clinicName: clinicName == null && nullToAbsent
+          ? const Value.absent()
+          : Value(clinicName),
+      batchNumber: batchNumber == null && nullToAbsent
+          ? const Value.absent()
+          : Value(batchNumber),
+      notes: notes == null && nullToAbsent
+          ? const Value.absent()
+          : Value(notes),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+    );
+  }
+
+  factory VaccinationRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return VaccinationRow(
+      id: serializer.fromJson<String>(json['id']),
+      childId: serializer.fromJson<String>(json['childId']),
+      vaccineName: serializer.fromJson<String>(json['vaccineName']),
+      doseLabel: serializer.fromJson<String?>(json['doseLabel']),
+      scheduledDate: serializer.fromJson<DateTime?>(json['scheduledDate']),
+      givenDate: serializer.fromJson<DateTime?>(json['givenDate']),
+      status: serializer.fromJson<String>(json['status']),
+      providerName: serializer.fromJson<String?>(json['providerName']),
+      clinicName: serializer.fromJson<String?>(json['clinicName']),
+      batchNumber: serializer.fromJson<String?>(json['batchNumber']),
+      notes: serializer.fromJson<String?>(json['notes']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'childId': serializer.toJson<String>(childId),
+      'vaccineName': serializer.toJson<String>(vaccineName),
+      'doseLabel': serializer.toJson<String?>(doseLabel),
+      'scheduledDate': serializer.toJson<DateTime?>(scheduledDate),
+      'givenDate': serializer.toJson<DateTime?>(givenDate),
+      'status': serializer.toJson<String>(status),
+      'providerName': serializer.toJson<String?>(providerName),
+      'clinicName': serializer.toJson<String?>(clinicName),
+      'batchNumber': serializer.toJson<String?>(batchNumber),
+      'notes': serializer.toJson<String?>(notes),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+    };
+  }
+
+  VaccinationRow copyWith({
+    String? id,
+    String? childId,
+    String? vaccineName,
+    Value<String?> doseLabel = const Value.absent(),
+    Value<DateTime?> scheduledDate = const Value.absent(),
+    Value<DateTime?> givenDate = const Value.absent(),
+    String? status,
+    Value<String?> providerName = const Value.absent(),
+    Value<String?> clinicName = const Value.absent(),
+    Value<String?> batchNumber = const Value.absent(),
+    Value<String?> notes = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> deletedAt = const Value.absent(),
+  }) => VaccinationRow(
+    id: id ?? this.id,
+    childId: childId ?? this.childId,
+    vaccineName: vaccineName ?? this.vaccineName,
+    doseLabel: doseLabel.present ? doseLabel.value : this.doseLabel,
+    scheduledDate: scheduledDate.present
+        ? scheduledDate.value
+        : this.scheduledDate,
+    givenDate: givenDate.present ? givenDate.value : this.givenDate,
+    status: status ?? this.status,
+    providerName: providerName.present ? providerName.value : this.providerName,
+    clinicName: clinicName.present ? clinicName.value : this.clinicName,
+    batchNumber: batchNumber.present ? batchNumber.value : this.batchNumber,
+    notes: notes.present ? notes.value : this.notes,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+  );
+  VaccinationRow copyWithCompanion(VaccinationsCompanion data) {
+    return VaccinationRow(
+      id: data.id.present ? data.id.value : this.id,
+      childId: data.childId.present ? data.childId.value : this.childId,
+      vaccineName: data.vaccineName.present
+          ? data.vaccineName.value
+          : this.vaccineName,
+      doseLabel: data.doseLabel.present ? data.doseLabel.value : this.doseLabel,
+      scheduledDate: data.scheduledDate.present
+          ? data.scheduledDate.value
+          : this.scheduledDate,
+      givenDate: data.givenDate.present ? data.givenDate.value : this.givenDate,
+      status: data.status.present ? data.status.value : this.status,
+      providerName: data.providerName.present
+          ? data.providerName.value
+          : this.providerName,
+      clinicName: data.clinicName.present
+          ? data.clinicName.value
+          : this.clinicName,
+      batchNumber: data.batchNumber.present
+          ? data.batchNumber.value
+          : this.batchNumber,
+      notes: data.notes.present ? data.notes.value : this.notes,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('VaccinationRow(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('vaccineName: $vaccineName, ')
+          ..write('doseLabel: $doseLabel, ')
+          ..write('scheduledDate: $scheduledDate, ')
+          ..write('givenDate: $givenDate, ')
+          ..write('status: $status, ')
+          ..write('providerName: $providerName, ')
+          ..write('clinicName: $clinicName, ')
+          ..write('batchNumber: $batchNumber, ')
+          ..write('notes: $notes, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    childId,
+    vaccineName,
+    doseLabel,
+    scheduledDate,
+    givenDate,
+    status,
+    providerName,
+    clinicName,
+    batchNumber,
+    notes,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is VaccinationRow &&
+          other.id == this.id &&
+          other.childId == this.childId &&
+          other.vaccineName == this.vaccineName &&
+          other.doseLabel == this.doseLabel &&
+          other.scheduledDate == this.scheduledDate &&
+          other.givenDate == this.givenDate &&
+          other.status == this.status &&
+          other.providerName == this.providerName &&
+          other.clinicName == this.clinicName &&
+          other.batchNumber == this.batchNumber &&
+          other.notes == this.notes &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.deletedAt == this.deletedAt);
+}
+
+class VaccinationsCompanion extends UpdateCompanion<VaccinationRow> {
+  final Value<String> id;
+  final Value<String> childId;
+  final Value<String> vaccineName;
+  final Value<String?> doseLabel;
+  final Value<DateTime?> scheduledDate;
+  final Value<DateTime?> givenDate;
+  final Value<String> status;
+  final Value<String?> providerName;
+  final Value<String?> clinicName;
+  final Value<String?> batchNumber;
+  final Value<String?> notes;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> deletedAt;
+  final Value<int> rowid;
+  const VaccinationsCompanion({
+    this.id = const Value.absent(),
+    this.childId = const Value.absent(),
+    this.vaccineName = const Value.absent(),
+    this.doseLabel = const Value.absent(),
+    this.scheduledDate = const Value.absent(),
+    this.givenDate = const Value.absent(),
+    this.status = const Value.absent(),
+    this.providerName = const Value.absent(),
+    this.clinicName = const Value.absent(),
+    this.batchNumber = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  VaccinationsCompanion.insert({
+    required String id,
+    required String childId,
+    required String vaccineName,
+    this.doseLabel = const Value.absent(),
+    this.scheduledDate = const Value.absent(),
+    this.givenDate = const Value.absent(),
+    required String status,
+    this.providerName = const Value.absent(),
+    this.clinicName = const Value.absent(),
+    this.batchNumber = const Value.absent(),
+    this.notes = const Value.absent(),
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       childId = Value(childId),
+       vaccineName = Value(vaccineName),
+       status = Value(status),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt);
+  static Insertable<VaccinationRow> custom({
+    Expression<String>? id,
+    Expression<String>? childId,
+    Expression<String>? vaccineName,
+    Expression<String>? doseLabel,
+    Expression<DateTime>? scheduledDate,
+    Expression<DateTime>? givenDate,
+    Expression<String>? status,
+    Expression<String>? providerName,
+    Expression<String>? clinicName,
+    Expression<String>? batchNumber,
+    Expression<String>? notes,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? deletedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (childId != null) 'child_id': childId,
+      if (vaccineName != null) 'vaccine_name': vaccineName,
+      if (doseLabel != null) 'dose_label': doseLabel,
+      if (scheduledDate != null) 'scheduled_date': scheduledDate,
+      if (givenDate != null) 'given_date': givenDate,
+      if (status != null) 'status': status,
+      if (providerName != null) 'provider_name': providerName,
+      if (clinicName != null) 'clinic_name': clinicName,
+      if (batchNumber != null) 'batch_number': batchNumber,
+      if (notes != null) 'notes': notes,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  VaccinationsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? childId,
+    Value<String>? vaccineName,
+    Value<String?>? doseLabel,
+    Value<DateTime?>? scheduledDate,
+    Value<DateTime?>? givenDate,
+    Value<String>? status,
+    Value<String?>? providerName,
+    Value<String?>? clinicName,
+    Value<String?>? batchNumber,
+    Value<String?>? notes,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? deletedAt,
+    Value<int>? rowid,
+  }) {
+    return VaccinationsCompanion(
+      id: id ?? this.id,
+      childId: childId ?? this.childId,
+      vaccineName: vaccineName ?? this.vaccineName,
+      doseLabel: doseLabel ?? this.doseLabel,
+      scheduledDate: scheduledDate ?? this.scheduledDate,
+      givenDate: givenDate ?? this.givenDate,
+      status: status ?? this.status,
+      providerName: providerName ?? this.providerName,
+      clinicName: clinicName ?? this.clinicName,
+      batchNumber: batchNumber ?? this.batchNumber,
+      notes: notes ?? this.notes,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (childId.present) {
+      map['child_id'] = Variable<String>(childId.value);
+    }
+    if (vaccineName.present) {
+      map['vaccine_name'] = Variable<String>(vaccineName.value);
+    }
+    if (doseLabel.present) {
+      map['dose_label'] = Variable<String>(doseLabel.value);
+    }
+    if (scheduledDate.present) {
+      map['scheduled_date'] = Variable<DateTime>(scheduledDate.value);
+    }
+    if (givenDate.present) {
+      map['given_date'] = Variable<DateTime>(givenDate.value);
+    }
+    if (status.present) {
+      map['status'] = Variable<String>(status.value);
+    }
+    if (providerName.present) {
+      map['provider_name'] = Variable<String>(providerName.value);
+    }
+    if (clinicName.present) {
+      map['clinic_name'] = Variable<String>(clinicName.value);
+    }
+    if (batchNumber.present) {
+      map['batch_number'] = Variable<String>(batchNumber.value);
+    }
+    if (notes.present) {
+      map['notes'] = Variable<String>(notes.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('VaccinationsCompanion(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('vaccineName: $vaccineName, ')
+          ..write('doseLabel: $doseLabel, ')
+          ..write('scheduledDate: $scheduledDate, ')
+          ..write('givenDate: $givenDate, ')
+          ..write('status: $status, ')
+          ..write('providerName: $providerName, ')
+          ..write('clinicName: $clinicName, ')
+          ..write('batchNumber: $batchNumber, ')
+          ..write('notes: $notes, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $IllnessEpisodesTable extends IllnessEpisodes
+    with TableInfo<$IllnessEpisodesTable, IllnessEpisodeRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $IllnessEpisodesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _childIdMeta = const VerificationMeta(
+    'childId',
+  );
+  @override
+  late final GeneratedColumn<String> childId = GeneratedColumn<String>(
+    'child_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _titleMeta = const VerificationMeta('title');
+  @override
+  late final GeneratedColumn<String> title = GeneratedColumn<String>(
+    'title',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _startDateMeta = const VerificationMeta(
+    'startDate',
+  );
+  @override
+  late final GeneratedColumn<DateTime> startDate = GeneratedColumn<DateTime>(
+    'start_date',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _endDateMeta = const VerificationMeta(
+    'endDate',
+  );
+  @override
+  late final GeneratedColumn<DateTime> endDate = GeneratedColumn<DateTime>(
+    'end_date',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _symptomsJsonMeta = const VerificationMeta(
+    'symptomsJson',
+  );
+  @override
+  late final GeneratedColumn<String> symptomsJson = GeneratedColumn<String>(
+    'symptoms_json',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _maxTemperatureCMeta = const VerificationMeta(
+    'maxTemperatureC',
+  );
+  @override
+  late final GeneratedColumn<double> maxTemperatureC = GeneratedColumn<double>(
+    'max_temperature_c',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _diagnosisMeta = const VerificationMeta(
+    'diagnosis',
+  );
+  @override
+  late final GeneratedColumn<String> diagnosis = GeneratedColumn<String>(
+    'diagnosis',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _doctorVisitIdMeta = const VerificationMeta(
+    'doctorVisitId',
+  );
+  @override
+  late final GeneratedColumn<String> doctorVisitId = GeneratedColumn<String>(
+    'doctor_visit_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _recoveryNoteMeta = const VerificationMeta(
+    'recoveryNote',
+  );
+  @override
+  late final GeneratedColumn<String> recoveryNote = GeneratedColumn<String>(
+    'recovery_note',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _notesMeta = const VerificationMeta('notes');
+  @override
+  late final GeneratedColumn<String> notes = GeneratedColumn<String>(
+    'notes',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    childId,
+    title,
+    startDate,
+    endDate,
+    symptomsJson,
+    maxTemperatureC,
+    diagnosis,
+    doctorVisitId,
+    recoveryNote,
+    notes,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'illness_episodes';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<IllnessEpisodeRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('child_id')) {
+      context.handle(
+        _childIdMeta,
+        childId.isAcceptableOrUnknown(data['child_id']!, _childIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_childIdMeta);
+    }
+    if (data.containsKey('title')) {
+      context.handle(
+        _titleMeta,
+        title.isAcceptableOrUnknown(data['title']!, _titleMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_titleMeta);
+    }
+    if (data.containsKey('start_date')) {
+      context.handle(
+        _startDateMeta,
+        startDate.isAcceptableOrUnknown(data['start_date']!, _startDateMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_startDateMeta);
+    }
+    if (data.containsKey('end_date')) {
+      context.handle(
+        _endDateMeta,
+        endDate.isAcceptableOrUnknown(data['end_date']!, _endDateMeta),
+      );
+    }
+    if (data.containsKey('symptoms_json')) {
+      context.handle(
+        _symptomsJsonMeta,
+        symptomsJson.isAcceptableOrUnknown(
+          data['symptoms_json']!,
+          _symptomsJsonMeta,
+        ),
+      );
+    }
+    if (data.containsKey('max_temperature_c')) {
+      context.handle(
+        _maxTemperatureCMeta,
+        maxTemperatureC.isAcceptableOrUnknown(
+          data['max_temperature_c']!,
+          _maxTemperatureCMeta,
+        ),
+      );
+    }
+    if (data.containsKey('diagnosis')) {
+      context.handle(
+        _diagnosisMeta,
+        diagnosis.isAcceptableOrUnknown(data['diagnosis']!, _diagnosisMeta),
+      );
+    }
+    if (data.containsKey('doctor_visit_id')) {
+      context.handle(
+        _doctorVisitIdMeta,
+        doctorVisitId.isAcceptableOrUnknown(
+          data['doctor_visit_id']!,
+          _doctorVisitIdMeta,
+        ),
+      );
+    }
+    if (data.containsKey('recovery_note')) {
+      context.handle(
+        _recoveryNoteMeta,
+        recoveryNote.isAcceptableOrUnknown(
+          data['recovery_note']!,
+          _recoveryNoteMeta,
+        ),
+      );
+    }
+    if (data.containsKey('notes')) {
+      context.handle(
+        _notesMeta,
+        notes.isAcceptableOrUnknown(data['notes']!, _notesMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  IllnessEpisodeRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return IllnessEpisodeRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      childId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}child_id'],
+      )!,
+      title: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}title'],
+      )!,
+      startDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}start_date'],
+      )!,
+      endDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}end_date'],
+      ),
+      symptomsJson: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}symptoms_json'],
+      ),
+      maxTemperatureC: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}max_temperature_c'],
+      ),
+      diagnosis: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}diagnosis'],
+      ),
+      doctorVisitId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}doctor_visit_id'],
+      ),
+      recoveryNote: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}recovery_note'],
+      ),
+      notes: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}notes'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+    );
+  }
+
+  @override
+  $IllnessEpisodesTable createAlias(String alias) {
+    return $IllnessEpisodesTable(attachedDatabase, alias);
+  }
+}
+
+class IllnessEpisodeRow extends DataClass
+    implements Insertable<IllnessEpisodeRow> {
+  final String id;
+  final String childId;
+  final String title;
+  final DateTime startDate;
+  final DateTime? endDate;
+  final String? symptomsJson;
+  final double? maxTemperatureC;
+  final String? diagnosis;
+  final String? doctorVisitId;
+  final String? recoveryNote;
+  final String? notes;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final DateTime? deletedAt;
+  const IllnessEpisodeRow({
+    required this.id,
+    required this.childId,
+    required this.title,
+    required this.startDate,
+    this.endDate,
+    this.symptomsJson,
+    this.maxTemperatureC,
+    this.diagnosis,
+    this.doctorVisitId,
+    this.recoveryNote,
+    this.notes,
+    required this.createdAt,
+    required this.updatedAt,
+    this.deletedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['child_id'] = Variable<String>(childId);
+    map['title'] = Variable<String>(title);
+    map['start_date'] = Variable<DateTime>(startDate);
+    if (!nullToAbsent || endDate != null) {
+      map['end_date'] = Variable<DateTime>(endDate);
+    }
+    if (!nullToAbsent || symptomsJson != null) {
+      map['symptoms_json'] = Variable<String>(symptomsJson);
+    }
+    if (!nullToAbsent || maxTemperatureC != null) {
+      map['max_temperature_c'] = Variable<double>(maxTemperatureC);
+    }
+    if (!nullToAbsent || diagnosis != null) {
+      map['diagnosis'] = Variable<String>(diagnosis);
+    }
+    if (!nullToAbsent || doctorVisitId != null) {
+      map['doctor_visit_id'] = Variable<String>(doctorVisitId);
+    }
+    if (!nullToAbsent || recoveryNote != null) {
+      map['recovery_note'] = Variable<String>(recoveryNote);
+    }
+    if (!nullToAbsent || notes != null) {
+      map['notes'] = Variable<String>(notes);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    return map;
+  }
+
+  IllnessEpisodesCompanion toCompanion(bool nullToAbsent) {
+    return IllnessEpisodesCompanion(
+      id: Value(id),
+      childId: Value(childId),
+      title: Value(title),
+      startDate: Value(startDate),
+      endDate: endDate == null && nullToAbsent
+          ? const Value.absent()
+          : Value(endDate),
+      symptomsJson: symptomsJson == null && nullToAbsent
+          ? const Value.absent()
+          : Value(symptomsJson),
+      maxTemperatureC: maxTemperatureC == null && nullToAbsent
+          ? const Value.absent()
+          : Value(maxTemperatureC),
+      diagnosis: diagnosis == null && nullToAbsent
+          ? const Value.absent()
+          : Value(diagnosis),
+      doctorVisitId: doctorVisitId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(doctorVisitId),
+      recoveryNote: recoveryNote == null && nullToAbsent
+          ? const Value.absent()
+          : Value(recoveryNote),
+      notes: notes == null && nullToAbsent
+          ? const Value.absent()
+          : Value(notes),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+    );
+  }
+
+  factory IllnessEpisodeRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return IllnessEpisodeRow(
+      id: serializer.fromJson<String>(json['id']),
+      childId: serializer.fromJson<String>(json['childId']),
+      title: serializer.fromJson<String>(json['title']),
+      startDate: serializer.fromJson<DateTime>(json['startDate']),
+      endDate: serializer.fromJson<DateTime?>(json['endDate']),
+      symptomsJson: serializer.fromJson<String?>(json['symptomsJson']),
+      maxTemperatureC: serializer.fromJson<double?>(json['maxTemperatureC']),
+      diagnosis: serializer.fromJson<String?>(json['diagnosis']),
+      doctorVisitId: serializer.fromJson<String?>(json['doctorVisitId']),
+      recoveryNote: serializer.fromJson<String?>(json['recoveryNote']),
+      notes: serializer.fromJson<String?>(json['notes']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'childId': serializer.toJson<String>(childId),
+      'title': serializer.toJson<String>(title),
+      'startDate': serializer.toJson<DateTime>(startDate),
+      'endDate': serializer.toJson<DateTime?>(endDate),
+      'symptomsJson': serializer.toJson<String?>(symptomsJson),
+      'maxTemperatureC': serializer.toJson<double?>(maxTemperatureC),
+      'diagnosis': serializer.toJson<String?>(diagnosis),
+      'doctorVisitId': serializer.toJson<String?>(doctorVisitId),
+      'recoveryNote': serializer.toJson<String?>(recoveryNote),
+      'notes': serializer.toJson<String?>(notes),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+    };
+  }
+
+  IllnessEpisodeRow copyWith({
+    String? id,
+    String? childId,
+    String? title,
+    DateTime? startDate,
+    Value<DateTime?> endDate = const Value.absent(),
+    Value<String?> symptomsJson = const Value.absent(),
+    Value<double?> maxTemperatureC = const Value.absent(),
+    Value<String?> diagnosis = const Value.absent(),
+    Value<String?> doctorVisitId = const Value.absent(),
+    Value<String?> recoveryNote = const Value.absent(),
+    Value<String?> notes = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> deletedAt = const Value.absent(),
+  }) => IllnessEpisodeRow(
+    id: id ?? this.id,
+    childId: childId ?? this.childId,
+    title: title ?? this.title,
+    startDate: startDate ?? this.startDate,
+    endDate: endDate.present ? endDate.value : this.endDate,
+    symptomsJson: symptomsJson.present ? symptomsJson.value : this.symptomsJson,
+    maxTemperatureC: maxTemperatureC.present
+        ? maxTemperatureC.value
+        : this.maxTemperatureC,
+    diagnosis: diagnosis.present ? diagnosis.value : this.diagnosis,
+    doctorVisitId: doctorVisitId.present
+        ? doctorVisitId.value
+        : this.doctorVisitId,
+    recoveryNote: recoveryNote.present ? recoveryNote.value : this.recoveryNote,
+    notes: notes.present ? notes.value : this.notes,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+  );
+  IllnessEpisodeRow copyWithCompanion(IllnessEpisodesCompanion data) {
+    return IllnessEpisodeRow(
+      id: data.id.present ? data.id.value : this.id,
+      childId: data.childId.present ? data.childId.value : this.childId,
+      title: data.title.present ? data.title.value : this.title,
+      startDate: data.startDate.present ? data.startDate.value : this.startDate,
+      endDate: data.endDate.present ? data.endDate.value : this.endDate,
+      symptomsJson: data.symptomsJson.present
+          ? data.symptomsJson.value
+          : this.symptomsJson,
+      maxTemperatureC: data.maxTemperatureC.present
+          ? data.maxTemperatureC.value
+          : this.maxTemperatureC,
+      diagnosis: data.diagnosis.present ? data.diagnosis.value : this.diagnosis,
+      doctorVisitId: data.doctorVisitId.present
+          ? data.doctorVisitId.value
+          : this.doctorVisitId,
+      recoveryNote: data.recoveryNote.present
+          ? data.recoveryNote.value
+          : this.recoveryNote,
+      notes: data.notes.present ? data.notes.value : this.notes,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('IllnessEpisodeRow(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('title: $title, ')
+          ..write('startDate: $startDate, ')
+          ..write('endDate: $endDate, ')
+          ..write('symptomsJson: $symptomsJson, ')
+          ..write('maxTemperatureC: $maxTemperatureC, ')
+          ..write('diagnosis: $diagnosis, ')
+          ..write('doctorVisitId: $doctorVisitId, ')
+          ..write('recoveryNote: $recoveryNote, ')
+          ..write('notes: $notes, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    childId,
+    title,
+    startDate,
+    endDate,
+    symptomsJson,
+    maxTemperatureC,
+    diagnosis,
+    doctorVisitId,
+    recoveryNote,
+    notes,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is IllnessEpisodeRow &&
+          other.id == this.id &&
+          other.childId == this.childId &&
+          other.title == this.title &&
+          other.startDate == this.startDate &&
+          other.endDate == this.endDate &&
+          other.symptomsJson == this.symptomsJson &&
+          other.maxTemperatureC == this.maxTemperatureC &&
+          other.diagnosis == this.diagnosis &&
+          other.doctorVisitId == this.doctorVisitId &&
+          other.recoveryNote == this.recoveryNote &&
+          other.notes == this.notes &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.deletedAt == this.deletedAt);
+}
+
+class IllnessEpisodesCompanion extends UpdateCompanion<IllnessEpisodeRow> {
+  final Value<String> id;
+  final Value<String> childId;
+  final Value<String> title;
+  final Value<DateTime> startDate;
+  final Value<DateTime?> endDate;
+  final Value<String?> symptomsJson;
+  final Value<double?> maxTemperatureC;
+  final Value<String?> diagnosis;
+  final Value<String?> doctorVisitId;
+  final Value<String?> recoveryNote;
+  final Value<String?> notes;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> deletedAt;
+  final Value<int> rowid;
+  const IllnessEpisodesCompanion({
+    this.id = const Value.absent(),
+    this.childId = const Value.absent(),
+    this.title = const Value.absent(),
+    this.startDate = const Value.absent(),
+    this.endDate = const Value.absent(),
+    this.symptomsJson = const Value.absent(),
+    this.maxTemperatureC = const Value.absent(),
+    this.diagnosis = const Value.absent(),
+    this.doctorVisitId = const Value.absent(),
+    this.recoveryNote = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  IllnessEpisodesCompanion.insert({
+    required String id,
+    required String childId,
+    required String title,
+    required DateTime startDate,
+    this.endDate = const Value.absent(),
+    this.symptomsJson = const Value.absent(),
+    this.maxTemperatureC = const Value.absent(),
+    this.diagnosis = const Value.absent(),
+    this.doctorVisitId = const Value.absent(),
+    this.recoveryNote = const Value.absent(),
+    this.notes = const Value.absent(),
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       childId = Value(childId),
+       title = Value(title),
+       startDate = Value(startDate),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt);
+  static Insertable<IllnessEpisodeRow> custom({
+    Expression<String>? id,
+    Expression<String>? childId,
+    Expression<String>? title,
+    Expression<DateTime>? startDate,
+    Expression<DateTime>? endDate,
+    Expression<String>? symptomsJson,
+    Expression<double>? maxTemperatureC,
+    Expression<String>? diagnosis,
+    Expression<String>? doctorVisitId,
+    Expression<String>? recoveryNote,
+    Expression<String>? notes,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? deletedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (childId != null) 'child_id': childId,
+      if (title != null) 'title': title,
+      if (startDate != null) 'start_date': startDate,
+      if (endDate != null) 'end_date': endDate,
+      if (symptomsJson != null) 'symptoms_json': symptomsJson,
+      if (maxTemperatureC != null) 'max_temperature_c': maxTemperatureC,
+      if (diagnosis != null) 'diagnosis': diagnosis,
+      if (doctorVisitId != null) 'doctor_visit_id': doctorVisitId,
+      if (recoveryNote != null) 'recovery_note': recoveryNote,
+      if (notes != null) 'notes': notes,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  IllnessEpisodesCompanion copyWith({
+    Value<String>? id,
+    Value<String>? childId,
+    Value<String>? title,
+    Value<DateTime>? startDate,
+    Value<DateTime?>? endDate,
+    Value<String?>? symptomsJson,
+    Value<double?>? maxTemperatureC,
+    Value<String?>? diagnosis,
+    Value<String?>? doctorVisitId,
+    Value<String?>? recoveryNote,
+    Value<String?>? notes,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? deletedAt,
+    Value<int>? rowid,
+  }) {
+    return IllnessEpisodesCompanion(
+      id: id ?? this.id,
+      childId: childId ?? this.childId,
+      title: title ?? this.title,
+      startDate: startDate ?? this.startDate,
+      endDate: endDate ?? this.endDate,
+      symptomsJson: symptomsJson ?? this.symptomsJson,
+      maxTemperatureC: maxTemperatureC ?? this.maxTemperatureC,
+      diagnosis: diagnosis ?? this.diagnosis,
+      doctorVisitId: doctorVisitId ?? this.doctorVisitId,
+      recoveryNote: recoveryNote ?? this.recoveryNote,
+      notes: notes ?? this.notes,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (childId.present) {
+      map['child_id'] = Variable<String>(childId.value);
+    }
+    if (title.present) {
+      map['title'] = Variable<String>(title.value);
+    }
+    if (startDate.present) {
+      map['start_date'] = Variable<DateTime>(startDate.value);
+    }
+    if (endDate.present) {
+      map['end_date'] = Variable<DateTime>(endDate.value);
+    }
+    if (symptomsJson.present) {
+      map['symptoms_json'] = Variable<String>(symptomsJson.value);
+    }
+    if (maxTemperatureC.present) {
+      map['max_temperature_c'] = Variable<double>(maxTemperatureC.value);
+    }
+    if (diagnosis.present) {
+      map['diagnosis'] = Variable<String>(diagnosis.value);
+    }
+    if (doctorVisitId.present) {
+      map['doctor_visit_id'] = Variable<String>(doctorVisitId.value);
+    }
+    if (recoveryNote.present) {
+      map['recovery_note'] = Variable<String>(recoveryNote.value);
+    }
+    if (notes.present) {
+      map['notes'] = Variable<String>(notes.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('IllnessEpisodesCompanion(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('title: $title, ')
+          ..write('startDate: $startDate, ')
+          ..write('endDate: $endDate, ')
+          ..write('symptomsJson: $symptomsJson, ')
+          ..write('maxTemperatureC: $maxTemperatureC, ')
+          ..write('diagnosis: $diagnosis, ')
+          ..write('doctorVisitId: $doctorVisitId, ')
+          ..write('recoveryNote: $recoveryNote, ')
+          ..write('notes: $notes, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $MedicinesTable extends Medicines
+    with TableInfo<$MedicinesTable, MedicineRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $MedicinesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _childIdMeta = const VerificationMeta(
+    'childId',
+  );
+  @override
+  late final GeneratedColumn<String> childId = GeneratedColumn<String>(
+    'child_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _illnessIdMeta = const VerificationMeta(
+    'illnessId',
+  );
+  @override
+  late final GeneratedColumn<String> illnessId = GeneratedColumn<String>(
+    'illness_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _doctorVisitIdMeta = const VerificationMeta(
+    'doctorVisitId',
+  );
+  @override
+  late final GeneratedColumn<String> doctorVisitId = GeneratedColumn<String>(
+    'doctor_visit_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+    'name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _strengthMeta = const VerificationMeta(
+    'strength',
+  );
+  @override
+  late final GeneratedColumn<String> strength = GeneratedColumn<String>(
+    'strength',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _dosageMeta = const VerificationMeta('dosage');
+  @override
+  late final GeneratedColumn<String> dosage = GeneratedColumn<String>(
+    'dosage',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _frequencyTextMeta = const VerificationMeta(
+    'frequencyText',
+  );
+  @override
+  late final GeneratedColumn<String> frequencyText = GeneratedColumn<String>(
+    'frequency_text',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _startDateMeta = const VerificationMeta(
+    'startDate',
+  );
+  @override
+  late final GeneratedColumn<DateTime> startDate = GeneratedColumn<DateTime>(
+    'start_date',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _endDateMeta = const VerificationMeta(
+    'endDate',
+  );
+  @override
+  late final GeneratedColumn<DateTime> endDate = GeneratedColumn<DateTime>(
+    'end_date',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _reasonMeta = const VerificationMeta('reason');
+  @override
+  late final GeneratedColumn<String> reason = GeneratedColumn<String>(
+    'reason',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _prescribedByMeta = const VerificationMeta(
+    'prescribedBy',
+  );
+  @override
+  late final GeneratedColumn<String> prescribedBy = GeneratedColumn<String>(
+    'prescribed_by',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _statusMeta = const VerificationMeta('status');
+  @override
+  late final GeneratedColumn<String> status = GeneratedColumn<String>(
+    'status',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _notesMeta = const VerificationMeta('notes');
+  @override
+  late final GeneratedColumn<String> notes = GeneratedColumn<String>(
+    'notes',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    childId,
+    illnessId,
+    doctorVisitId,
+    name,
+    strength,
+    dosage,
+    frequencyText,
+    startDate,
+    endDate,
+    reason,
+    prescribedBy,
+    status,
+    notes,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'medicines';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<MedicineRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('child_id')) {
+      context.handle(
+        _childIdMeta,
+        childId.isAcceptableOrUnknown(data['child_id']!, _childIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_childIdMeta);
+    }
+    if (data.containsKey('illness_id')) {
+      context.handle(
+        _illnessIdMeta,
+        illnessId.isAcceptableOrUnknown(data['illness_id']!, _illnessIdMeta),
+      );
+    }
+    if (data.containsKey('doctor_visit_id')) {
+      context.handle(
+        _doctorVisitIdMeta,
+        doctorVisitId.isAcceptableOrUnknown(
+          data['doctor_visit_id']!,
+          _doctorVisitIdMeta,
+        ),
+      );
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_nameMeta);
+    }
+    if (data.containsKey('strength')) {
+      context.handle(
+        _strengthMeta,
+        strength.isAcceptableOrUnknown(data['strength']!, _strengthMeta),
+      );
+    }
+    if (data.containsKey('dosage')) {
+      context.handle(
+        _dosageMeta,
+        dosage.isAcceptableOrUnknown(data['dosage']!, _dosageMeta),
+      );
+    }
+    if (data.containsKey('frequency_text')) {
+      context.handle(
+        _frequencyTextMeta,
+        frequencyText.isAcceptableOrUnknown(
+          data['frequency_text']!,
+          _frequencyTextMeta,
+        ),
+      );
+    }
+    if (data.containsKey('start_date')) {
+      context.handle(
+        _startDateMeta,
+        startDate.isAcceptableOrUnknown(data['start_date']!, _startDateMeta),
+      );
+    }
+    if (data.containsKey('end_date')) {
+      context.handle(
+        _endDateMeta,
+        endDate.isAcceptableOrUnknown(data['end_date']!, _endDateMeta),
+      );
+    }
+    if (data.containsKey('reason')) {
+      context.handle(
+        _reasonMeta,
+        reason.isAcceptableOrUnknown(data['reason']!, _reasonMeta),
+      );
+    }
+    if (data.containsKey('prescribed_by')) {
+      context.handle(
+        _prescribedByMeta,
+        prescribedBy.isAcceptableOrUnknown(
+          data['prescribed_by']!,
+          _prescribedByMeta,
+        ),
+      );
+    }
+    if (data.containsKey('status')) {
+      context.handle(
+        _statusMeta,
+        status.isAcceptableOrUnknown(data['status']!, _statusMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_statusMeta);
+    }
+    if (data.containsKey('notes')) {
+      context.handle(
+        _notesMeta,
+        notes.isAcceptableOrUnknown(data['notes']!, _notesMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  MedicineRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return MedicineRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      childId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}child_id'],
+      )!,
+      illnessId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}illness_id'],
+      ),
+      doctorVisitId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}doctor_visit_id'],
+      ),
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      strength: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}strength'],
+      ),
+      dosage: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}dosage'],
+      ),
+      frequencyText: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}frequency_text'],
+      ),
+      startDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}start_date'],
+      ),
+      endDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}end_date'],
+      ),
+      reason: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}reason'],
+      ),
+      prescribedBy: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}prescribed_by'],
+      ),
+      status: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}status'],
+      )!,
+      notes: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}notes'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+    );
+  }
+
+  @override
+  $MedicinesTable createAlias(String alias) {
+    return $MedicinesTable(attachedDatabase, alias);
+  }
+}
+
+class MedicineRow extends DataClass implements Insertable<MedicineRow> {
+  final String id;
+  final String childId;
+  final String? illnessId;
+  final String? doctorVisitId;
+  final String name;
+  final String? strength;
+  final String? dosage;
+  final String? frequencyText;
+  final DateTime? startDate;
+  final DateTime? endDate;
+  final String? reason;
+  final String? prescribedBy;
+  final String status;
+  final String? notes;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final DateTime? deletedAt;
+  const MedicineRow({
+    required this.id,
+    required this.childId,
+    this.illnessId,
+    this.doctorVisitId,
+    required this.name,
+    this.strength,
+    this.dosage,
+    this.frequencyText,
+    this.startDate,
+    this.endDate,
+    this.reason,
+    this.prescribedBy,
+    required this.status,
+    this.notes,
+    required this.createdAt,
+    required this.updatedAt,
+    this.deletedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['child_id'] = Variable<String>(childId);
+    if (!nullToAbsent || illnessId != null) {
+      map['illness_id'] = Variable<String>(illnessId);
+    }
+    if (!nullToAbsent || doctorVisitId != null) {
+      map['doctor_visit_id'] = Variable<String>(doctorVisitId);
+    }
+    map['name'] = Variable<String>(name);
+    if (!nullToAbsent || strength != null) {
+      map['strength'] = Variable<String>(strength);
+    }
+    if (!nullToAbsent || dosage != null) {
+      map['dosage'] = Variable<String>(dosage);
+    }
+    if (!nullToAbsent || frequencyText != null) {
+      map['frequency_text'] = Variable<String>(frequencyText);
+    }
+    if (!nullToAbsent || startDate != null) {
+      map['start_date'] = Variable<DateTime>(startDate);
+    }
+    if (!nullToAbsent || endDate != null) {
+      map['end_date'] = Variable<DateTime>(endDate);
+    }
+    if (!nullToAbsent || reason != null) {
+      map['reason'] = Variable<String>(reason);
+    }
+    if (!nullToAbsent || prescribedBy != null) {
+      map['prescribed_by'] = Variable<String>(prescribedBy);
+    }
+    map['status'] = Variable<String>(status);
+    if (!nullToAbsent || notes != null) {
+      map['notes'] = Variable<String>(notes);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    return map;
+  }
+
+  MedicinesCompanion toCompanion(bool nullToAbsent) {
+    return MedicinesCompanion(
+      id: Value(id),
+      childId: Value(childId),
+      illnessId: illnessId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(illnessId),
+      doctorVisitId: doctorVisitId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(doctorVisitId),
+      name: Value(name),
+      strength: strength == null && nullToAbsent
+          ? const Value.absent()
+          : Value(strength),
+      dosage: dosage == null && nullToAbsent
+          ? const Value.absent()
+          : Value(dosage),
+      frequencyText: frequencyText == null && nullToAbsent
+          ? const Value.absent()
+          : Value(frequencyText),
+      startDate: startDate == null && nullToAbsent
+          ? const Value.absent()
+          : Value(startDate),
+      endDate: endDate == null && nullToAbsent
+          ? const Value.absent()
+          : Value(endDate),
+      reason: reason == null && nullToAbsent
+          ? const Value.absent()
+          : Value(reason),
+      prescribedBy: prescribedBy == null && nullToAbsent
+          ? const Value.absent()
+          : Value(prescribedBy),
+      status: Value(status),
+      notes: notes == null && nullToAbsent
+          ? const Value.absent()
+          : Value(notes),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+    );
+  }
+
+  factory MedicineRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return MedicineRow(
+      id: serializer.fromJson<String>(json['id']),
+      childId: serializer.fromJson<String>(json['childId']),
+      illnessId: serializer.fromJson<String?>(json['illnessId']),
+      doctorVisitId: serializer.fromJson<String?>(json['doctorVisitId']),
+      name: serializer.fromJson<String>(json['name']),
+      strength: serializer.fromJson<String?>(json['strength']),
+      dosage: serializer.fromJson<String?>(json['dosage']),
+      frequencyText: serializer.fromJson<String?>(json['frequencyText']),
+      startDate: serializer.fromJson<DateTime?>(json['startDate']),
+      endDate: serializer.fromJson<DateTime?>(json['endDate']),
+      reason: serializer.fromJson<String?>(json['reason']),
+      prescribedBy: serializer.fromJson<String?>(json['prescribedBy']),
+      status: serializer.fromJson<String>(json['status']),
+      notes: serializer.fromJson<String?>(json['notes']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'childId': serializer.toJson<String>(childId),
+      'illnessId': serializer.toJson<String?>(illnessId),
+      'doctorVisitId': serializer.toJson<String?>(doctorVisitId),
+      'name': serializer.toJson<String>(name),
+      'strength': serializer.toJson<String?>(strength),
+      'dosage': serializer.toJson<String?>(dosage),
+      'frequencyText': serializer.toJson<String?>(frequencyText),
+      'startDate': serializer.toJson<DateTime?>(startDate),
+      'endDate': serializer.toJson<DateTime?>(endDate),
+      'reason': serializer.toJson<String?>(reason),
+      'prescribedBy': serializer.toJson<String?>(prescribedBy),
+      'status': serializer.toJson<String>(status),
+      'notes': serializer.toJson<String?>(notes),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+    };
+  }
+
+  MedicineRow copyWith({
+    String? id,
+    String? childId,
+    Value<String?> illnessId = const Value.absent(),
+    Value<String?> doctorVisitId = const Value.absent(),
+    String? name,
+    Value<String?> strength = const Value.absent(),
+    Value<String?> dosage = const Value.absent(),
+    Value<String?> frequencyText = const Value.absent(),
+    Value<DateTime?> startDate = const Value.absent(),
+    Value<DateTime?> endDate = const Value.absent(),
+    Value<String?> reason = const Value.absent(),
+    Value<String?> prescribedBy = const Value.absent(),
+    String? status,
+    Value<String?> notes = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> deletedAt = const Value.absent(),
+  }) => MedicineRow(
+    id: id ?? this.id,
+    childId: childId ?? this.childId,
+    illnessId: illnessId.present ? illnessId.value : this.illnessId,
+    doctorVisitId: doctorVisitId.present
+        ? doctorVisitId.value
+        : this.doctorVisitId,
+    name: name ?? this.name,
+    strength: strength.present ? strength.value : this.strength,
+    dosage: dosage.present ? dosage.value : this.dosage,
+    frequencyText: frequencyText.present
+        ? frequencyText.value
+        : this.frequencyText,
+    startDate: startDate.present ? startDate.value : this.startDate,
+    endDate: endDate.present ? endDate.value : this.endDate,
+    reason: reason.present ? reason.value : this.reason,
+    prescribedBy: prescribedBy.present ? prescribedBy.value : this.prescribedBy,
+    status: status ?? this.status,
+    notes: notes.present ? notes.value : this.notes,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+  );
+  MedicineRow copyWithCompanion(MedicinesCompanion data) {
+    return MedicineRow(
+      id: data.id.present ? data.id.value : this.id,
+      childId: data.childId.present ? data.childId.value : this.childId,
+      illnessId: data.illnessId.present ? data.illnessId.value : this.illnessId,
+      doctorVisitId: data.doctorVisitId.present
+          ? data.doctorVisitId.value
+          : this.doctorVisitId,
+      name: data.name.present ? data.name.value : this.name,
+      strength: data.strength.present ? data.strength.value : this.strength,
+      dosage: data.dosage.present ? data.dosage.value : this.dosage,
+      frequencyText: data.frequencyText.present
+          ? data.frequencyText.value
+          : this.frequencyText,
+      startDate: data.startDate.present ? data.startDate.value : this.startDate,
+      endDate: data.endDate.present ? data.endDate.value : this.endDate,
+      reason: data.reason.present ? data.reason.value : this.reason,
+      prescribedBy: data.prescribedBy.present
+          ? data.prescribedBy.value
+          : this.prescribedBy,
+      status: data.status.present ? data.status.value : this.status,
+      notes: data.notes.present ? data.notes.value : this.notes,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MedicineRow(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('illnessId: $illnessId, ')
+          ..write('doctorVisitId: $doctorVisitId, ')
+          ..write('name: $name, ')
+          ..write('strength: $strength, ')
+          ..write('dosage: $dosage, ')
+          ..write('frequencyText: $frequencyText, ')
+          ..write('startDate: $startDate, ')
+          ..write('endDate: $endDate, ')
+          ..write('reason: $reason, ')
+          ..write('prescribedBy: $prescribedBy, ')
+          ..write('status: $status, ')
+          ..write('notes: $notes, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    childId,
+    illnessId,
+    doctorVisitId,
+    name,
+    strength,
+    dosage,
+    frequencyText,
+    startDate,
+    endDate,
+    reason,
+    prescribedBy,
+    status,
+    notes,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is MedicineRow &&
+          other.id == this.id &&
+          other.childId == this.childId &&
+          other.illnessId == this.illnessId &&
+          other.doctorVisitId == this.doctorVisitId &&
+          other.name == this.name &&
+          other.strength == this.strength &&
+          other.dosage == this.dosage &&
+          other.frequencyText == this.frequencyText &&
+          other.startDate == this.startDate &&
+          other.endDate == this.endDate &&
+          other.reason == this.reason &&
+          other.prescribedBy == this.prescribedBy &&
+          other.status == this.status &&
+          other.notes == this.notes &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.deletedAt == this.deletedAt);
+}
+
+class MedicinesCompanion extends UpdateCompanion<MedicineRow> {
+  final Value<String> id;
+  final Value<String> childId;
+  final Value<String?> illnessId;
+  final Value<String?> doctorVisitId;
+  final Value<String> name;
+  final Value<String?> strength;
+  final Value<String?> dosage;
+  final Value<String?> frequencyText;
+  final Value<DateTime?> startDate;
+  final Value<DateTime?> endDate;
+  final Value<String?> reason;
+  final Value<String?> prescribedBy;
+  final Value<String> status;
+  final Value<String?> notes;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> deletedAt;
+  final Value<int> rowid;
+  const MedicinesCompanion({
+    this.id = const Value.absent(),
+    this.childId = const Value.absent(),
+    this.illnessId = const Value.absent(),
+    this.doctorVisitId = const Value.absent(),
+    this.name = const Value.absent(),
+    this.strength = const Value.absent(),
+    this.dosage = const Value.absent(),
+    this.frequencyText = const Value.absent(),
+    this.startDate = const Value.absent(),
+    this.endDate = const Value.absent(),
+    this.reason = const Value.absent(),
+    this.prescribedBy = const Value.absent(),
+    this.status = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  MedicinesCompanion.insert({
+    required String id,
+    required String childId,
+    this.illnessId = const Value.absent(),
+    this.doctorVisitId = const Value.absent(),
+    required String name,
+    this.strength = const Value.absent(),
+    this.dosage = const Value.absent(),
+    this.frequencyText = const Value.absent(),
+    this.startDate = const Value.absent(),
+    this.endDate = const Value.absent(),
+    this.reason = const Value.absent(),
+    this.prescribedBy = const Value.absent(),
+    required String status,
+    this.notes = const Value.absent(),
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       childId = Value(childId),
+       name = Value(name),
+       status = Value(status),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt);
+  static Insertable<MedicineRow> custom({
+    Expression<String>? id,
+    Expression<String>? childId,
+    Expression<String>? illnessId,
+    Expression<String>? doctorVisitId,
+    Expression<String>? name,
+    Expression<String>? strength,
+    Expression<String>? dosage,
+    Expression<String>? frequencyText,
+    Expression<DateTime>? startDate,
+    Expression<DateTime>? endDate,
+    Expression<String>? reason,
+    Expression<String>? prescribedBy,
+    Expression<String>? status,
+    Expression<String>? notes,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? deletedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (childId != null) 'child_id': childId,
+      if (illnessId != null) 'illness_id': illnessId,
+      if (doctorVisitId != null) 'doctor_visit_id': doctorVisitId,
+      if (name != null) 'name': name,
+      if (strength != null) 'strength': strength,
+      if (dosage != null) 'dosage': dosage,
+      if (frequencyText != null) 'frequency_text': frequencyText,
+      if (startDate != null) 'start_date': startDate,
+      if (endDate != null) 'end_date': endDate,
+      if (reason != null) 'reason': reason,
+      if (prescribedBy != null) 'prescribed_by': prescribedBy,
+      if (status != null) 'status': status,
+      if (notes != null) 'notes': notes,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  MedicinesCompanion copyWith({
+    Value<String>? id,
+    Value<String>? childId,
+    Value<String?>? illnessId,
+    Value<String?>? doctorVisitId,
+    Value<String>? name,
+    Value<String?>? strength,
+    Value<String?>? dosage,
+    Value<String?>? frequencyText,
+    Value<DateTime?>? startDate,
+    Value<DateTime?>? endDate,
+    Value<String?>? reason,
+    Value<String?>? prescribedBy,
+    Value<String>? status,
+    Value<String?>? notes,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? deletedAt,
+    Value<int>? rowid,
+  }) {
+    return MedicinesCompanion(
+      id: id ?? this.id,
+      childId: childId ?? this.childId,
+      illnessId: illnessId ?? this.illnessId,
+      doctorVisitId: doctorVisitId ?? this.doctorVisitId,
+      name: name ?? this.name,
+      strength: strength ?? this.strength,
+      dosage: dosage ?? this.dosage,
+      frequencyText: frequencyText ?? this.frequencyText,
+      startDate: startDate ?? this.startDate,
+      endDate: endDate ?? this.endDate,
+      reason: reason ?? this.reason,
+      prescribedBy: prescribedBy ?? this.prescribedBy,
+      status: status ?? this.status,
+      notes: notes ?? this.notes,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (childId.present) {
+      map['child_id'] = Variable<String>(childId.value);
+    }
+    if (illnessId.present) {
+      map['illness_id'] = Variable<String>(illnessId.value);
+    }
+    if (doctorVisitId.present) {
+      map['doctor_visit_id'] = Variable<String>(doctorVisitId.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (strength.present) {
+      map['strength'] = Variable<String>(strength.value);
+    }
+    if (dosage.present) {
+      map['dosage'] = Variable<String>(dosage.value);
+    }
+    if (frequencyText.present) {
+      map['frequency_text'] = Variable<String>(frequencyText.value);
+    }
+    if (startDate.present) {
+      map['start_date'] = Variable<DateTime>(startDate.value);
+    }
+    if (endDate.present) {
+      map['end_date'] = Variable<DateTime>(endDate.value);
+    }
+    if (reason.present) {
+      map['reason'] = Variable<String>(reason.value);
+    }
+    if (prescribedBy.present) {
+      map['prescribed_by'] = Variable<String>(prescribedBy.value);
+    }
+    if (status.present) {
+      map['status'] = Variable<String>(status.value);
+    }
+    if (notes.present) {
+      map['notes'] = Variable<String>(notes.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MedicinesCompanion(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('illnessId: $illnessId, ')
+          ..write('doctorVisitId: $doctorVisitId, ')
+          ..write('name: $name, ')
+          ..write('strength: $strength, ')
+          ..write('dosage: $dosage, ')
+          ..write('frequencyText: $frequencyText, ')
+          ..write('startDate: $startDate, ')
+          ..write('endDate: $endDate, ')
+          ..write('reason: $reason, ')
+          ..write('prescribedBy: $prescribedBy, ')
+          ..write('status: $status, ')
+          ..write('notes: $notes, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $MedicineSchedulesTable extends MedicineSchedules
+    with TableInfo<$MedicineSchedulesTable, MedicineScheduleRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $MedicineSchedulesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _medicineIdMeta = const VerificationMeta(
+    'medicineId',
+  );
+  @override
+  late final GeneratedColumn<String> medicineId = GeneratedColumn<String>(
+    'medicine_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _timeOfDayMeta = const VerificationMeta(
+    'timeOfDay',
+  );
+  @override
+  late final GeneratedColumn<String> timeOfDay = GeneratedColumn<String>(
+    'time_of_day',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _daysJsonMeta = const VerificationMeta(
+    'daysJson',
+  );
+  @override
+  late final GeneratedColumn<String> daysJson = GeneratedColumn<String>(
+    'days_json',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _notificationEnabledMeta =
+      const VerificationMeta('notificationEnabled');
+  @override
+  late final GeneratedColumn<bool> notificationEnabled = GeneratedColumn<bool>(
+    'notification_enabled',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("notification_enabled" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  static const VerificationMeta _notificationIdMeta = const VerificationMeta(
+    'notificationId',
+  );
+  @override
+  late final GeneratedColumn<int> notificationId = GeneratedColumn<int>(
+    'notification_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    medicineId,
+    timeOfDay,
+    daysJson,
+    notificationEnabled,
+    notificationId,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'medicine_schedules';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<MedicineScheduleRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('medicine_id')) {
+      context.handle(
+        _medicineIdMeta,
+        medicineId.isAcceptableOrUnknown(data['medicine_id']!, _medicineIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_medicineIdMeta);
+    }
+    if (data.containsKey('time_of_day')) {
+      context.handle(
+        _timeOfDayMeta,
+        timeOfDay.isAcceptableOrUnknown(data['time_of_day']!, _timeOfDayMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_timeOfDayMeta);
+    }
+    if (data.containsKey('days_json')) {
+      context.handle(
+        _daysJsonMeta,
+        daysJson.isAcceptableOrUnknown(data['days_json']!, _daysJsonMeta),
+      );
+    }
+    if (data.containsKey('notification_enabled')) {
+      context.handle(
+        _notificationEnabledMeta,
+        notificationEnabled.isAcceptableOrUnknown(
+          data['notification_enabled']!,
+          _notificationEnabledMeta,
+        ),
+      );
+    }
+    if (data.containsKey('notification_id')) {
+      context.handle(
+        _notificationIdMeta,
+        notificationId.isAcceptableOrUnknown(
+          data['notification_id']!,
+          _notificationIdMeta,
+        ),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  MedicineScheduleRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return MedicineScheduleRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      medicineId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}medicine_id'],
+      )!,
+      timeOfDay: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}time_of_day'],
+      )!,
+      daysJson: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}days_json'],
+      ),
+      notificationEnabled: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}notification_enabled'],
+      )!,
+      notificationId: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}notification_id'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+    );
+  }
+
+  @override
+  $MedicineSchedulesTable createAlias(String alias) {
+    return $MedicineSchedulesTable(attachedDatabase, alias);
+  }
+}
+
+class MedicineScheduleRow extends DataClass
+    implements Insertable<MedicineScheduleRow> {
+  final String id;
+  final String medicineId;
+  final String timeOfDay;
+  final String? daysJson;
+  final bool notificationEnabled;
+  final int? notificationId;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final DateTime? deletedAt;
+  const MedicineScheduleRow({
+    required this.id,
+    required this.medicineId,
+    required this.timeOfDay,
+    this.daysJson,
+    required this.notificationEnabled,
+    this.notificationId,
+    required this.createdAt,
+    required this.updatedAt,
+    this.deletedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['medicine_id'] = Variable<String>(medicineId);
+    map['time_of_day'] = Variable<String>(timeOfDay);
+    if (!nullToAbsent || daysJson != null) {
+      map['days_json'] = Variable<String>(daysJson);
+    }
+    map['notification_enabled'] = Variable<bool>(notificationEnabled);
+    if (!nullToAbsent || notificationId != null) {
+      map['notification_id'] = Variable<int>(notificationId);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    return map;
+  }
+
+  MedicineSchedulesCompanion toCompanion(bool nullToAbsent) {
+    return MedicineSchedulesCompanion(
+      id: Value(id),
+      medicineId: Value(medicineId),
+      timeOfDay: Value(timeOfDay),
+      daysJson: daysJson == null && nullToAbsent
+          ? const Value.absent()
+          : Value(daysJson),
+      notificationEnabled: Value(notificationEnabled),
+      notificationId: notificationId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(notificationId),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+    );
+  }
+
+  factory MedicineScheduleRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return MedicineScheduleRow(
+      id: serializer.fromJson<String>(json['id']),
+      medicineId: serializer.fromJson<String>(json['medicineId']),
+      timeOfDay: serializer.fromJson<String>(json['timeOfDay']),
+      daysJson: serializer.fromJson<String?>(json['daysJson']),
+      notificationEnabled: serializer.fromJson<bool>(
+        json['notificationEnabled'],
+      ),
+      notificationId: serializer.fromJson<int?>(json['notificationId']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'medicineId': serializer.toJson<String>(medicineId),
+      'timeOfDay': serializer.toJson<String>(timeOfDay),
+      'daysJson': serializer.toJson<String?>(daysJson),
+      'notificationEnabled': serializer.toJson<bool>(notificationEnabled),
+      'notificationId': serializer.toJson<int?>(notificationId),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+    };
+  }
+
+  MedicineScheduleRow copyWith({
+    String? id,
+    String? medicineId,
+    String? timeOfDay,
+    Value<String?> daysJson = const Value.absent(),
+    bool? notificationEnabled,
+    Value<int?> notificationId = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> deletedAt = const Value.absent(),
+  }) => MedicineScheduleRow(
+    id: id ?? this.id,
+    medicineId: medicineId ?? this.medicineId,
+    timeOfDay: timeOfDay ?? this.timeOfDay,
+    daysJson: daysJson.present ? daysJson.value : this.daysJson,
+    notificationEnabled: notificationEnabled ?? this.notificationEnabled,
+    notificationId: notificationId.present
+        ? notificationId.value
+        : this.notificationId,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+  );
+  MedicineScheduleRow copyWithCompanion(MedicineSchedulesCompanion data) {
+    return MedicineScheduleRow(
+      id: data.id.present ? data.id.value : this.id,
+      medicineId: data.medicineId.present
+          ? data.medicineId.value
+          : this.medicineId,
+      timeOfDay: data.timeOfDay.present ? data.timeOfDay.value : this.timeOfDay,
+      daysJson: data.daysJson.present ? data.daysJson.value : this.daysJson,
+      notificationEnabled: data.notificationEnabled.present
+          ? data.notificationEnabled.value
+          : this.notificationEnabled,
+      notificationId: data.notificationId.present
+          ? data.notificationId.value
+          : this.notificationId,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MedicineScheduleRow(')
+          ..write('id: $id, ')
+          ..write('medicineId: $medicineId, ')
+          ..write('timeOfDay: $timeOfDay, ')
+          ..write('daysJson: $daysJson, ')
+          ..write('notificationEnabled: $notificationEnabled, ')
+          ..write('notificationId: $notificationId, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    medicineId,
+    timeOfDay,
+    daysJson,
+    notificationEnabled,
+    notificationId,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is MedicineScheduleRow &&
+          other.id == this.id &&
+          other.medicineId == this.medicineId &&
+          other.timeOfDay == this.timeOfDay &&
+          other.daysJson == this.daysJson &&
+          other.notificationEnabled == this.notificationEnabled &&
+          other.notificationId == this.notificationId &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.deletedAt == this.deletedAt);
+}
+
+class MedicineSchedulesCompanion extends UpdateCompanion<MedicineScheduleRow> {
+  final Value<String> id;
+  final Value<String> medicineId;
+  final Value<String> timeOfDay;
+  final Value<String?> daysJson;
+  final Value<bool> notificationEnabled;
+  final Value<int?> notificationId;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> deletedAt;
+  final Value<int> rowid;
+  const MedicineSchedulesCompanion({
+    this.id = const Value.absent(),
+    this.medicineId = const Value.absent(),
+    this.timeOfDay = const Value.absent(),
+    this.daysJson = const Value.absent(),
+    this.notificationEnabled = const Value.absent(),
+    this.notificationId = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  MedicineSchedulesCompanion.insert({
+    required String id,
+    required String medicineId,
+    required String timeOfDay,
+    this.daysJson = const Value.absent(),
+    this.notificationEnabled = const Value.absent(),
+    this.notificationId = const Value.absent(),
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       medicineId = Value(medicineId),
+       timeOfDay = Value(timeOfDay),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt);
+  static Insertable<MedicineScheduleRow> custom({
+    Expression<String>? id,
+    Expression<String>? medicineId,
+    Expression<String>? timeOfDay,
+    Expression<String>? daysJson,
+    Expression<bool>? notificationEnabled,
+    Expression<int>? notificationId,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? deletedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (medicineId != null) 'medicine_id': medicineId,
+      if (timeOfDay != null) 'time_of_day': timeOfDay,
+      if (daysJson != null) 'days_json': daysJson,
+      if (notificationEnabled != null)
+        'notification_enabled': notificationEnabled,
+      if (notificationId != null) 'notification_id': notificationId,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  MedicineSchedulesCompanion copyWith({
+    Value<String>? id,
+    Value<String>? medicineId,
+    Value<String>? timeOfDay,
+    Value<String?>? daysJson,
+    Value<bool>? notificationEnabled,
+    Value<int?>? notificationId,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? deletedAt,
+    Value<int>? rowid,
+  }) {
+    return MedicineSchedulesCompanion(
+      id: id ?? this.id,
+      medicineId: medicineId ?? this.medicineId,
+      timeOfDay: timeOfDay ?? this.timeOfDay,
+      daysJson: daysJson ?? this.daysJson,
+      notificationEnabled: notificationEnabled ?? this.notificationEnabled,
+      notificationId: notificationId ?? this.notificationId,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (medicineId.present) {
+      map['medicine_id'] = Variable<String>(medicineId.value);
+    }
+    if (timeOfDay.present) {
+      map['time_of_day'] = Variable<String>(timeOfDay.value);
+    }
+    if (daysJson.present) {
+      map['days_json'] = Variable<String>(daysJson.value);
+    }
+    if (notificationEnabled.present) {
+      map['notification_enabled'] = Variable<bool>(notificationEnabled.value);
+    }
+    if (notificationId.present) {
+      map['notification_id'] = Variable<int>(notificationId.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MedicineSchedulesCompanion(')
+          ..write('id: $id, ')
+          ..write('medicineId: $medicineId, ')
+          ..write('timeOfDay: $timeOfDay, ')
+          ..write('daysJson: $daysJson, ')
+          ..write('notificationEnabled: $notificationEnabled, ')
+          ..write('notificationId: $notificationId, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $DoctorVisitsTable extends DoctorVisits
+    with TableInfo<$DoctorVisitsTable, DoctorVisitRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $DoctorVisitsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _childIdMeta = const VerificationMeta(
+    'childId',
+  );
+  @override
+  late final GeneratedColumn<String> childId = GeneratedColumn<String>(
+    'child_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _visitDateMeta = const VerificationMeta(
+    'visitDate',
+  );
+  @override
+  late final GeneratedColumn<DateTime> visitDate = GeneratedColumn<DateTime>(
+    'visit_date',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _doctorNameMeta = const VerificationMeta(
+    'doctorName',
+  );
+  @override
+  late final GeneratedColumn<String> doctorName = GeneratedColumn<String>(
+    'doctor_name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _specialtyMeta = const VerificationMeta(
+    'specialty',
+  );
+  @override
+  late final GeneratedColumn<String> specialty = GeneratedColumn<String>(
+    'specialty',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _hospitalOrChamberMeta = const VerificationMeta(
+    'hospitalOrChamber',
+  );
+  @override
+  late final GeneratedColumn<String> hospitalOrChamber =
+      GeneratedColumn<String>(
+        'hospital_or_chamber',
+        aliasedName,
+        true,
+        type: DriftSqlType.string,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _reasonMeta = const VerificationMeta('reason');
+  @override
+  late final GeneratedColumn<String> reason = GeneratedColumn<String>(
+    'reason',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _symptomsMeta = const VerificationMeta(
+    'symptoms',
+  );
+  @override
+  late final GeneratedColumn<String> symptoms = GeneratedColumn<String>(
+    'symptoms',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _diagnosisMeta = const VerificationMeta(
+    'diagnosis',
+  );
+  @override
+  late final GeneratedColumn<String> diagnosis = GeneratedColumn<String>(
+    'diagnosis',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _testsAdvisedMeta = const VerificationMeta(
+    'testsAdvised',
+  );
+  @override
+  late final GeneratedColumn<String> testsAdvised = GeneratedColumn<String>(
+    'tests_advised',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _followUpDateMeta = const VerificationMeta(
+    'followUpDate',
+  );
+  @override
+  late final GeneratedColumn<DateTime> followUpDate = GeneratedColumn<DateTime>(
+    'follow_up_date',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _notesMeta = const VerificationMeta('notes');
+  @override
+  late final GeneratedColumn<String> notes = GeneratedColumn<String>(
+    'notes',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    childId,
+    visitDate,
+    doctorName,
+    specialty,
+    hospitalOrChamber,
+    reason,
+    symptoms,
+    diagnosis,
+    testsAdvised,
+    followUpDate,
+    notes,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'doctor_visits';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<DoctorVisitRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('child_id')) {
+      context.handle(
+        _childIdMeta,
+        childId.isAcceptableOrUnknown(data['child_id']!, _childIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_childIdMeta);
+    }
+    if (data.containsKey('visit_date')) {
+      context.handle(
+        _visitDateMeta,
+        visitDate.isAcceptableOrUnknown(data['visit_date']!, _visitDateMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_visitDateMeta);
+    }
+    if (data.containsKey('doctor_name')) {
+      context.handle(
+        _doctorNameMeta,
+        doctorName.isAcceptableOrUnknown(data['doctor_name']!, _doctorNameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_doctorNameMeta);
+    }
+    if (data.containsKey('specialty')) {
+      context.handle(
+        _specialtyMeta,
+        specialty.isAcceptableOrUnknown(data['specialty']!, _specialtyMeta),
+      );
+    }
+    if (data.containsKey('hospital_or_chamber')) {
+      context.handle(
+        _hospitalOrChamberMeta,
+        hospitalOrChamber.isAcceptableOrUnknown(
+          data['hospital_or_chamber']!,
+          _hospitalOrChamberMeta,
+        ),
+      );
+    }
+    if (data.containsKey('reason')) {
+      context.handle(
+        _reasonMeta,
+        reason.isAcceptableOrUnknown(data['reason']!, _reasonMeta),
+      );
+    }
+    if (data.containsKey('symptoms')) {
+      context.handle(
+        _symptomsMeta,
+        symptoms.isAcceptableOrUnknown(data['symptoms']!, _symptomsMeta),
+      );
+    }
+    if (data.containsKey('diagnosis')) {
+      context.handle(
+        _diagnosisMeta,
+        diagnosis.isAcceptableOrUnknown(data['diagnosis']!, _diagnosisMeta),
+      );
+    }
+    if (data.containsKey('tests_advised')) {
+      context.handle(
+        _testsAdvisedMeta,
+        testsAdvised.isAcceptableOrUnknown(
+          data['tests_advised']!,
+          _testsAdvisedMeta,
+        ),
+      );
+    }
+    if (data.containsKey('follow_up_date')) {
+      context.handle(
+        _followUpDateMeta,
+        followUpDate.isAcceptableOrUnknown(
+          data['follow_up_date']!,
+          _followUpDateMeta,
+        ),
+      );
+    }
+    if (data.containsKey('notes')) {
+      context.handle(
+        _notesMeta,
+        notes.isAcceptableOrUnknown(data['notes']!, _notesMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  DoctorVisitRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return DoctorVisitRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      childId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}child_id'],
+      )!,
+      visitDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}visit_date'],
+      )!,
+      doctorName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}doctor_name'],
+      )!,
+      specialty: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}specialty'],
+      ),
+      hospitalOrChamber: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}hospital_or_chamber'],
+      ),
+      reason: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}reason'],
+      ),
+      symptoms: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}symptoms'],
+      ),
+      diagnosis: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}diagnosis'],
+      ),
+      testsAdvised: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}tests_advised'],
+      ),
+      followUpDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}follow_up_date'],
+      ),
+      notes: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}notes'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+    );
+  }
+
+  @override
+  $DoctorVisitsTable createAlias(String alias) {
+    return $DoctorVisitsTable(attachedDatabase, alias);
+  }
+}
+
+class DoctorVisitRow extends DataClass implements Insertable<DoctorVisitRow> {
+  final String id;
+  final String childId;
+  final DateTime visitDate;
+  final String doctorName;
+  final String? specialty;
+  final String? hospitalOrChamber;
+  final String? reason;
+  final String? symptoms;
+  final String? diagnosis;
+  final String? testsAdvised;
+  final DateTime? followUpDate;
+  final String? notes;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final DateTime? deletedAt;
+  const DoctorVisitRow({
+    required this.id,
+    required this.childId,
+    required this.visitDate,
+    required this.doctorName,
+    this.specialty,
+    this.hospitalOrChamber,
+    this.reason,
+    this.symptoms,
+    this.diagnosis,
+    this.testsAdvised,
+    this.followUpDate,
+    this.notes,
+    required this.createdAt,
+    required this.updatedAt,
+    this.deletedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['child_id'] = Variable<String>(childId);
+    map['visit_date'] = Variable<DateTime>(visitDate);
+    map['doctor_name'] = Variable<String>(doctorName);
+    if (!nullToAbsent || specialty != null) {
+      map['specialty'] = Variable<String>(specialty);
+    }
+    if (!nullToAbsent || hospitalOrChamber != null) {
+      map['hospital_or_chamber'] = Variable<String>(hospitalOrChamber);
+    }
+    if (!nullToAbsent || reason != null) {
+      map['reason'] = Variable<String>(reason);
+    }
+    if (!nullToAbsent || symptoms != null) {
+      map['symptoms'] = Variable<String>(symptoms);
+    }
+    if (!nullToAbsent || diagnosis != null) {
+      map['diagnosis'] = Variable<String>(diagnosis);
+    }
+    if (!nullToAbsent || testsAdvised != null) {
+      map['tests_advised'] = Variable<String>(testsAdvised);
+    }
+    if (!nullToAbsent || followUpDate != null) {
+      map['follow_up_date'] = Variable<DateTime>(followUpDate);
+    }
+    if (!nullToAbsent || notes != null) {
+      map['notes'] = Variable<String>(notes);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    return map;
+  }
+
+  DoctorVisitsCompanion toCompanion(bool nullToAbsent) {
+    return DoctorVisitsCompanion(
+      id: Value(id),
+      childId: Value(childId),
+      visitDate: Value(visitDate),
+      doctorName: Value(doctorName),
+      specialty: specialty == null && nullToAbsent
+          ? const Value.absent()
+          : Value(specialty),
+      hospitalOrChamber: hospitalOrChamber == null && nullToAbsent
+          ? const Value.absent()
+          : Value(hospitalOrChamber),
+      reason: reason == null && nullToAbsent
+          ? const Value.absent()
+          : Value(reason),
+      symptoms: symptoms == null && nullToAbsent
+          ? const Value.absent()
+          : Value(symptoms),
+      diagnosis: diagnosis == null && nullToAbsent
+          ? const Value.absent()
+          : Value(diagnosis),
+      testsAdvised: testsAdvised == null && nullToAbsent
+          ? const Value.absent()
+          : Value(testsAdvised),
+      followUpDate: followUpDate == null && nullToAbsent
+          ? const Value.absent()
+          : Value(followUpDate),
+      notes: notes == null && nullToAbsent
+          ? const Value.absent()
+          : Value(notes),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+    );
+  }
+
+  factory DoctorVisitRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return DoctorVisitRow(
+      id: serializer.fromJson<String>(json['id']),
+      childId: serializer.fromJson<String>(json['childId']),
+      visitDate: serializer.fromJson<DateTime>(json['visitDate']),
+      doctorName: serializer.fromJson<String>(json['doctorName']),
+      specialty: serializer.fromJson<String?>(json['specialty']),
+      hospitalOrChamber: serializer.fromJson<String?>(
+        json['hospitalOrChamber'],
+      ),
+      reason: serializer.fromJson<String?>(json['reason']),
+      symptoms: serializer.fromJson<String?>(json['symptoms']),
+      diagnosis: serializer.fromJson<String?>(json['diagnosis']),
+      testsAdvised: serializer.fromJson<String?>(json['testsAdvised']),
+      followUpDate: serializer.fromJson<DateTime?>(json['followUpDate']),
+      notes: serializer.fromJson<String?>(json['notes']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'childId': serializer.toJson<String>(childId),
+      'visitDate': serializer.toJson<DateTime>(visitDate),
+      'doctorName': serializer.toJson<String>(doctorName),
+      'specialty': serializer.toJson<String?>(specialty),
+      'hospitalOrChamber': serializer.toJson<String?>(hospitalOrChamber),
+      'reason': serializer.toJson<String?>(reason),
+      'symptoms': serializer.toJson<String?>(symptoms),
+      'diagnosis': serializer.toJson<String?>(diagnosis),
+      'testsAdvised': serializer.toJson<String?>(testsAdvised),
+      'followUpDate': serializer.toJson<DateTime?>(followUpDate),
+      'notes': serializer.toJson<String?>(notes),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+    };
+  }
+
+  DoctorVisitRow copyWith({
+    String? id,
+    String? childId,
+    DateTime? visitDate,
+    String? doctorName,
+    Value<String?> specialty = const Value.absent(),
+    Value<String?> hospitalOrChamber = const Value.absent(),
+    Value<String?> reason = const Value.absent(),
+    Value<String?> symptoms = const Value.absent(),
+    Value<String?> diagnosis = const Value.absent(),
+    Value<String?> testsAdvised = const Value.absent(),
+    Value<DateTime?> followUpDate = const Value.absent(),
+    Value<String?> notes = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> deletedAt = const Value.absent(),
+  }) => DoctorVisitRow(
+    id: id ?? this.id,
+    childId: childId ?? this.childId,
+    visitDate: visitDate ?? this.visitDate,
+    doctorName: doctorName ?? this.doctorName,
+    specialty: specialty.present ? specialty.value : this.specialty,
+    hospitalOrChamber: hospitalOrChamber.present
+        ? hospitalOrChamber.value
+        : this.hospitalOrChamber,
+    reason: reason.present ? reason.value : this.reason,
+    symptoms: symptoms.present ? symptoms.value : this.symptoms,
+    diagnosis: diagnosis.present ? diagnosis.value : this.diagnosis,
+    testsAdvised: testsAdvised.present ? testsAdvised.value : this.testsAdvised,
+    followUpDate: followUpDate.present ? followUpDate.value : this.followUpDate,
+    notes: notes.present ? notes.value : this.notes,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+  );
+  DoctorVisitRow copyWithCompanion(DoctorVisitsCompanion data) {
+    return DoctorVisitRow(
+      id: data.id.present ? data.id.value : this.id,
+      childId: data.childId.present ? data.childId.value : this.childId,
+      visitDate: data.visitDate.present ? data.visitDate.value : this.visitDate,
+      doctorName: data.doctorName.present
+          ? data.doctorName.value
+          : this.doctorName,
+      specialty: data.specialty.present ? data.specialty.value : this.specialty,
+      hospitalOrChamber: data.hospitalOrChamber.present
+          ? data.hospitalOrChamber.value
+          : this.hospitalOrChamber,
+      reason: data.reason.present ? data.reason.value : this.reason,
+      symptoms: data.symptoms.present ? data.symptoms.value : this.symptoms,
+      diagnosis: data.diagnosis.present ? data.diagnosis.value : this.diagnosis,
+      testsAdvised: data.testsAdvised.present
+          ? data.testsAdvised.value
+          : this.testsAdvised,
+      followUpDate: data.followUpDate.present
+          ? data.followUpDate.value
+          : this.followUpDate,
+      notes: data.notes.present ? data.notes.value : this.notes,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('DoctorVisitRow(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('visitDate: $visitDate, ')
+          ..write('doctorName: $doctorName, ')
+          ..write('specialty: $specialty, ')
+          ..write('hospitalOrChamber: $hospitalOrChamber, ')
+          ..write('reason: $reason, ')
+          ..write('symptoms: $symptoms, ')
+          ..write('diagnosis: $diagnosis, ')
+          ..write('testsAdvised: $testsAdvised, ')
+          ..write('followUpDate: $followUpDate, ')
+          ..write('notes: $notes, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    childId,
+    visitDate,
+    doctorName,
+    specialty,
+    hospitalOrChamber,
+    reason,
+    symptoms,
+    diagnosis,
+    testsAdvised,
+    followUpDate,
+    notes,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is DoctorVisitRow &&
+          other.id == this.id &&
+          other.childId == this.childId &&
+          other.visitDate == this.visitDate &&
+          other.doctorName == this.doctorName &&
+          other.specialty == this.specialty &&
+          other.hospitalOrChamber == this.hospitalOrChamber &&
+          other.reason == this.reason &&
+          other.symptoms == this.symptoms &&
+          other.diagnosis == this.diagnosis &&
+          other.testsAdvised == this.testsAdvised &&
+          other.followUpDate == this.followUpDate &&
+          other.notes == this.notes &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.deletedAt == this.deletedAt);
+}
+
+class DoctorVisitsCompanion extends UpdateCompanion<DoctorVisitRow> {
+  final Value<String> id;
+  final Value<String> childId;
+  final Value<DateTime> visitDate;
+  final Value<String> doctorName;
+  final Value<String?> specialty;
+  final Value<String?> hospitalOrChamber;
+  final Value<String?> reason;
+  final Value<String?> symptoms;
+  final Value<String?> diagnosis;
+  final Value<String?> testsAdvised;
+  final Value<DateTime?> followUpDate;
+  final Value<String?> notes;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> deletedAt;
+  final Value<int> rowid;
+  const DoctorVisitsCompanion({
+    this.id = const Value.absent(),
+    this.childId = const Value.absent(),
+    this.visitDate = const Value.absent(),
+    this.doctorName = const Value.absent(),
+    this.specialty = const Value.absent(),
+    this.hospitalOrChamber = const Value.absent(),
+    this.reason = const Value.absent(),
+    this.symptoms = const Value.absent(),
+    this.diagnosis = const Value.absent(),
+    this.testsAdvised = const Value.absent(),
+    this.followUpDate = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  DoctorVisitsCompanion.insert({
+    required String id,
+    required String childId,
+    required DateTime visitDate,
+    required String doctorName,
+    this.specialty = const Value.absent(),
+    this.hospitalOrChamber = const Value.absent(),
+    this.reason = const Value.absent(),
+    this.symptoms = const Value.absent(),
+    this.diagnosis = const Value.absent(),
+    this.testsAdvised = const Value.absent(),
+    this.followUpDate = const Value.absent(),
+    this.notes = const Value.absent(),
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       childId = Value(childId),
+       visitDate = Value(visitDate),
+       doctorName = Value(doctorName),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt);
+  static Insertable<DoctorVisitRow> custom({
+    Expression<String>? id,
+    Expression<String>? childId,
+    Expression<DateTime>? visitDate,
+    Expression<String>? doctorName,
+    Expression<String>? specialty,
+    Expression<String>? hospitalOrChamber,
+    Expression<String>? reason,
+    Expression<String>? symptoms,
+    Expression<String>? diagnosis,
+    Expression<String>? testsAdvised,
+    Expression<DateTime>? followUpDate,
+    Expression<String>? notes,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? deletedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (childId != null) 'child_id': childId,
+      if (visitDate != null) 'visit_date': visitDate,
+      if (doctorName != null) 'doctor_name': doctorName,
+      if (specialty != null) 'specialty': specialty,
+      if (hospitalOrChamber != null) 'hospital_or_chamber': hospitalOrChamber,
+      if (reason != null) 'reason': reason,
+      if (symptoms != null) 'symptoms': symptoms,
+      if (diagnosis != null) 'diagnosis': diagnosis,
+      if (testsAdvised != null) 'tests_advised': testsAdvised,
+      if (followUpDate != null) 'follow_up_date': followUpDate,
+      if (notes != null) 'notes': notes,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  DoctorVisitsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? childId,
+    Value<DateTime>? visitDate,
+    Value<String>? doctorName,
+    Value<String?>? specialty,
+    Value<String?>? hospitalOrChamber,
+    Value<String?>? reason,
+    Value<String?>? symptoms,
+    Value<String?>? diagnosis,
+    Value<String?>? testsAdvised,
+    Value<DateTime?>? followUpDate,
+    Value<String?>? notes,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? deletedAt,
+    Value<int>? rowid,
+  }) {
+    return DoctorVisitsCompanion(
+      id: id ?? this.id,
+      childId: childId ?? this.childId,
+      visitDate: visitDate ?? this.visitDate,
+      doctorName: doctorName ?? this.doctorName,
+      specialty: specialty ?? this.specialty,
+      hospitalOrChamber: hospitalOrChamber ?? this.hospitalOrChamber,
+      reason: reason ?? this.reason,
+      symptoms: symptoms ?? this.symptoms,
+      diagnosis: diagnosis ?? this.diagnosis,
+      testsAdvised: testsAdvised ?? this.testsAdvised,
+      followUpDate: followUpDate ?? this.followUpDate,
+      notes: notes ?? this.notes,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (childId.present) {
+      map['child_id'] = Variable<String>(childId.value);
+    }
+    if (visitDate.present) {
+      map['visit_date'] = Variable<DateTime>(visitDate.value);
+    }
+    if (doctorName.present) {
+      map['doctor_name'] = Variable<String>(doctorName.value);
+    }
+    if (specialty.present) {
+      map['specialty'] = Variable<String>(specialty.value);
+    }
+    if (hospitalOrChamber.present) {
+      map['hospital_or_chamber'] = Variable<String>(hospitalOrChamber.value);
+    }
+    if (reason.present) {
+      map['reason'] = Variable<String>(reason.value);
+    }
+    if (symptoms.present) {
+      map['symptoms'] = Variable<String>(symptoms.value);
+    }
+    if (diagnosis.present) {
+      map['diagnosis'] = Variable<String>(diagnosis.value);
+    }
+    if (testsAdvised.present) {
+      map['tests_advised'] = Variable<String>(testsAdvised.value);
+    }
+    if (followUpDate.present) {
+      map['follow_up_date'] = Variable<DateTime>(followUpDate.value);
+    }
+    if (notes.present) {
+      map['notes'] = Variable<String>(notes.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('DoctorVisitsCompanion(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('visitDate: $visitDate, ')
+          ..write('doctorName: $doctorName, ')
+          ..write('specialty: $specialty, ')
+          ..write('hospitalOrChamber: $hospitalOrChamber, ')
+          ..write('reason: $reason, ')
+          ..write('symptoms: $symptoms, ')
+          ..write('diagnosis: $diagnosis, ')
+          ..write('testsAdvised: $testsAdvised, ')
+          ..write('followUpDate: $followUpDate, ')
+          ..write('notes: $notes, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $MedicalDocumentsTable extends MedicalDocuments
+    with TableInfo<$MedicalDocumentsTable, MedicalDocumentRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $MedicalDocumentsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _childIdMeta = const VerificationMeta(
+    'childId',
+  );
+  @override
+  late final GeneratedColumn<String> childId = GeneratedColumn<String>(
+    'child_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _documentTypeMeta = const VerificationMeta(
+    'documentType',
+  );
+  @override
+  late final GeneratedColumn<String> documentType = GeneratedColumn<String>(
+    'document_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _titleMeta = const VerificationMeta('title');
+  @override
+  late final GeneratedColumn<String> title = GeneratedColumn<String>(
+    'title',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _documentDateMeta = const VerificationMeta(
+    'documentDate',
+  );
+  @override
+  late final GeneratedColumn<DateTime> documentDate = GeneratedColumn<DateTime>(
+    'document_date',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _illnessIdMeta = const VerificationMeta(
+    'illnessId',
+  );
+  @override
+  late final GeneratedColumn<String> illnessId = GeneratedColumn<String>(
+    'illness_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _doctorVisitIdMeta = const VerificationMeta(
+    'doctorVisitId',
+  );
+  @override
+  late final GeneratedColumn<String> doctorVisitId = GeneratedColumn<String>(
+    'doctor_visit_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _vaccinationIdMeta = const VerificationMeta(
+    'vaccinationId',
+  );
+  @override
+  late final GeneratedColumn<String> vaccinationId = GeneratedColumn<String>(
+    'vaccination_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _mediaAssetIdMeta = const VerificationMeta(
+    'mediaAssetId',
+  );
+  @override
+  late final GeneratedColumn<String> mediaAssetId = GeneratedColumn<String>(
+    'media_asset_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _notesMeta = const VerificationMeta('notes');
+  @override
+  late final GeneratedColumn<String> notes = GeneratedColumn<String>(
+    'notes',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    childId,
+    documentType,
+    title,
+    documentDate,
+    illnessId,
+    doctorVisitId,
+    vaccinationId,
+    mediaAssetId,
+    notes,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'medical_documents';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<MedicalDocumentRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('child_id')) {
+      context.handle(
+        _childIdMeta,
+        childId.isAcceptableOrUnknown(data['child_id']!, _childIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_childIdMeta);
+    }
+    if (data.containsKey('document_type')) {
+      context.handle(
+        _documentTypeMeta,
+        documentType.isAcceptableOrUnknown(
+          data['document_type']!,
+          _documentTypeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_documentTypeMeta);
+    }
+    if (data.containsKey('title')) {
+      context.handle(
+        _titleMeta,
+        title.isAcceptableOrUnknown(data['title']!, _titleMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_titleMeta);
+    }
+    if (data.containsKey('document_date')) {
+      context.handle(
+        _documentDateMeta,
+        documentDate.isAcceptableOrUnknown(
+          data['document_date']!,
+          _documentDateMeta,
+        ),
+      );
+    }
+    if (data.containsKey('illness_id')) {
+      context.handle(
+        _illnessIdMeta,
+        illnessId.isAcceptableOrUnknown(data['illness_id']!, _illnessIdMeta),
+      );
+    }
+    if (data.containsKey('doctor_visit_id')) {
+      context.handle(
+        _doctorVisitIdMeta,
+        doctorVisitId.isAcceptableOrUnknown(
+          data['doctor_visit_id']!,
+          _doctorVisitIdMeta,
+        ),
+      );
+    }
+    if (data.containsKey('vaccination_id')) {
+      context.handle(
+        _vaccinationIdMeta,
+        vaccinationId.isAcceptableOrUnknown(
+          data['vaccination_id']!,
+          _vaccinationIdMeta,
+        ),
+      );
+    }
+    if (data.containsKey('media_asset_id')) {
+      context.handle(
+        _mediaAssetIdMeta,
+        mediaAssetId.isAcceptableOrUnknown(
+          data['media_asset_id']!,
+          _mediaAssetIdMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_mediaAssetIdMeta);
+    }
+    if (data.containsKey('notes')) {
+      context.handle(
+        _notesMeta,
+        notes.isAcceptableOrUnknown(data['notes']!, _notesMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  MedicalDocumentRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return MedicalDocumentRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      childId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}child_id'],
+      )!,
+      documentType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}document_type'],
+      )!,
+      title: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}title'],
+      )!,
+      documentDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}document_date'],
+      ),
+      illnessId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}illness_id'],
+      ),
+      doctorVisitId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}doctor_visit_id'],
+      ),
+      vaccinationId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}vaccination_id'],
+      ),
+      mediaAssetId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}media_asset_id'],
+      )!,
+      notes: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}notes'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+    );
+  }
+
+  @override
+  $MedicalDocumentsTable createAlias(String alias) {
+    return $MedicalDocumentsTable(attachedDatabase, alias);
+  }
+}
+
+class MedicalDocumentRow extends DataClass
+    implements Insertable<MedicalDocumentRow> {
+  final String id;
+  final String childId;
+  final String documentType;
+  final String title;
+  final DateTime? documentDate;
+  final String? illnessId;
+  final String? doctorVisitId;
+  final String? vaccinationId;
+  final String mediaAssetId;
+  final String? notes;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final DateTime? deletedAt;
+  const MedicalDocumentRow({
+    required this.id,
+    required this.childId,
+    required this.documentType,
+    required this.title,
+    this.documentDate,
+    this.illnessId,
+    this.doctorVisitId,
+    this.vaccinationId,
+    required this.mediaAssetId,
+    this.notes,
+    required this.createdAt,
+    required this.updatedAt,
+    this.deletedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['child_id'] = Variable<String>(childId);
+    map['document_type'] = Variable<String>(documentType);
+    map['title'] = Variable<String>(title);
+    if (!nullToAbsent || documentDate != null) {
+      map['document_date'] = Variable<DateTime>(documentDate);
+    }
+    if (!nullToAbsent || illnessId != null) {
+      map['illness_id'] = Variable<String>(illnessId);
+    }
+    if (!nullToAbsent || doctorVisitId != null) {
+      map['doctor_visit_id'] = Variable<String>(doctorVisitId);
+    }
+    if (!nullToAbsent || vaccinationId != null) {
+      map['vaccination_id'] = Variable<String>(vaccinationId);
+    }
+    map['media_asset_id'] = Variable<String>(mediaAssetId);
+    if (!nullToAbsent || notes != null) {
+      map['notes'] = Variable<String>(notes);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    return map;
+  }
+
+  MedicalDocumentsCompanion toCompanion(bool nullToAbsent) {
+    return MedicalDocumentsCompanion(
+      id: Value(id),
+      childId: Value(childId),
+      documentType: Value(documentType),
+      title: Value(title),
+      documentDate: documentDate == null && nullToAbsent
+          ? const Value.absent()
+          : Value(documentDate),
+      illnessId: illnessId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(illnessId),
+      doctorVisitId: doctorVisitId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(doctorVisitId),
+      vaccinationId: vaccinationId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(vaccinationId),
+      mediaAssetId: Value(mediaAssetId),
+      notes: notes == null && nullToAbsent
+          ? const Value.absent()
+          : Value(notes),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+    );
+  }
+
+  factory MedicalDocumentRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return MedicalDocumentRow(
+      id: serializer.fromJson<String>(json['id']),
+      childId: serializer.fromJson<String>(json['childId']),
+      documentType: serializer.fromJson<String>(json['documentType']),
+      title: serializer.fromJson<String>(json['title']),
+      documentDate: serializer.fromJson<DateTime?>(json['documentDate']),
+      illnessId: serializer.fromJson<String?>(json['illnessId']),
+      doctorVisitId: serializer.fromJson<String?>(json['doctorVisitId']),
+      vaccinationId: serializer.fromJson<String?>(json['vaccinationId']),
+      mediaAssetId: serializer.fromJson<String>(json['mediaAssetId']),
+      notes: serializer.fromJson<String?>(json['notes']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'childId': serializer.toJson<String>(childId),
+      'documentType': serializer.toJson<String>(documentType),
+      'title': serializer.toJson<String>(title),
+      'documentDate': serializer.toJson<DateTime?>(documentDate),
+      'illnessId': serializer.toJson<String?>(illnessId),
+      'doctorVisitId': serializer.toJson<String?>(doctorVisitId),
+      'vaccinationId': serializer.toJson<String?>(vaccinationId),
+      'mediaAssetId': serializer.toJson<String>(mediaAssetId),
+      'notes': serializer.toJson<String?>(notes),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+    };
+  }
+
+  MedicalDocumentRow copyWith({
+    String? id,
+    String? childId,
+    String? documentType,
+    String? title,
+    Value<DateTime?> documentDate = const Value.absent(),
+    Value<String?> illnessId = const Value.absent(),
+    Value<String?> doctorVisitId = const Value.absent(),
+    Value<String?> vaccinationId = const Value.absent(),
+    String? mediaAssetId,
+    Value<String?> notes = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> deletedAt = const Value.absent(),
+  }) => MedicalDocumentRow(
+    id: id ?? this.id,
+    childId: childId ?? this.childId,
+    documentType: documentType ?? this.documentType,
+    title: title ?? this.title,
+    documentDate: documentDate.present ? documentDate.value : this.documentDate,
+    illnessId: illnessId.present ? illnessId.value : this.illnessId,
+    doctorVisitId: doctorVisitId.present
+        ? doctorVisitId.value
+        : this.doctorVisitId,
+    vaccinationId: vaccinationId.present
+        ? vaccinationId.value
+        : this.vaccinationId,
+    mediaAssetId: mediaAssetId ?? this.mediaAssetId,
+    notes: notes.present ? notes.value : this.notes,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+  );
+  MedicalDocumentRow copyWithCompanion(MedicalDocumentsCompanion data) {
+    return MedicalDocumentRow(
+      id: data.id.present ? data.id.value : this.id,
+      childId: data.childId.present ? data.childId.value : this.childId,
+      documentType: data.documentType.present
+          ? data.documentType.value
+          : this.documentType,
+      title: data.title.present ? data.title.value : this.title,
+      documentDate: data.documentDate.present
+          ? data.documentDate.value
+          : this.documentDate,
+      illnessId: data.illnessId.present ? data.illnessId.value : this.illnessId,
+      doctorVisitId: data.doctorVisitId.present
+          ? data.doctorVisitId.value
+          : this.doctorVisitId,
+      vaccinationId: data.vaccinationId.present
+          ? data.vaccinationId.value
+          : this.vaccinationId,
+      mediaAssetId: data.mediaAssetId.present
+          ? data.mediaAssetId.value
+          : this.mediaAssetId,
+      notes: data.notes.present ? data.notes.value : this.notes,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MedicalDocumentRow(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('documentType: $documentType, ')
+          ..write('title: $title, ')
+          ..write('documentDate: $documentDate, ')
+          ..write('illnessId: $illnessId, ')
+          ..write('doctorVisitId: $doctorVisitId, ')
+          ..write('vaccinationId: $vaccinationId, ')
+          ..write('mediaAssetId: $mediaAssetId, ')
+          ..write('notes: $notes, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    childId,
+    documentType,
+    title,
+    documentDate,
+    illnessId,
+    doctorVisitId,
+    vaccinationId,
+    mediaAssetId,
+    notes,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is MedicalDocumentRow &&
+          other.id == this.id &&
+          other.childId == this.childId &&
+          other.documentType == this.documentType &&
+          other.title == this.title &&
+          other.documentDate == this.documentDate &&
+          other.illnessId == this.illnessId &&
+          other.doctorVisitId == this.doctorVisitId &&
+          other.vaccinationId == this.vaccinationId &&
+          other.mediaAssetId == this.mediaAssetId &&
+          other.notes == this.notes &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.deletedAt == this.deletedAt);
+}
+
+class MedicalDocumentsCompanion extends UpdateCompanion<MedicalDocumentRow> {
+  final Value<String> id;
+  final Value<String> childId;
+  final Value<String> documentType;
+  final Value<String> title;
+  final Value<DateTime?> documentDate;
+  final Value<String?> illnessId;
+  final Value<String?> doctorVisitId;
+  final Value<String?> vaccinationId;
+  final Value<String> mediaAssetId;
+  final Value<String?> notes;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> deletedAt;
+  final Value<int> rowid;
+  const MedicalDocumentsCompanion({
+    this.id = const Value.absent(),
+    this.childId = const Value.absent(),
+    this.documentType = const Value.absent(),
+    this.title = const Value.absent(),
+    this.documentDate = const Value.absent(),
+    this.illnessId = const Value.absent(),
+    this.doctorVisitId = const Value.absent(),
+    this.vaccinationId = const Value.absent(),
+    this.mediaAssetId = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  MedicalDocumentsCompanion.insert({
+    required String id,
+    required String childId,
+    required String documentType,
+    required String title,
+    this.documentDate = const Value.absent(),
+    this.illnessId = const Value.absent(),
+    this.doctorVisitId = const Value.absent(),
+    this.vaccinationId = const Value.absent(),
+    required String mediaAssetId,
+    this.notes = const Value.absent(),
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       childId = Value(childId),
+       documentType = Value(documentType),
+       title = Value(title),
+       mediaAssetId = Value(mediaAssetId),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt);
+  static Insertable<MedicalDocumentRow> custom({
+    Expression<String>? id,
+    Expression<String>? childId,
+    Expression<String>? documentType,
+    Expression<String>? title,
+    Expression<DateTime>? documentDate,
+    Expression<String>? illnessId,
+    Expression<String>? doctorVisitId,
+    Expression<String>? vaccinationId,
+    Expression<String>? mediaAssetId,
+    Expression<String>? notes,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? deletedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (childId != null) 'child_id': childId,
+      if (documentType != null) 'document_type': documentType,
+      if (title != null) 'title': title,
+      if (documentDate != null) 'document_date': documentDate,
+      if (illnessId != null) 'illness_id': illnessId,
+      if (doctorVisitId != null) 'doctor_visit_id': doctorVisitId,
+      if (vaccinationId != null) 'vaccination_id': vaccinationId,
+      if (mediaAssetId != null) 'media_asset_id': mediaAssetId,
+      if (notes != null) 'notes': notes,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  MedicalDocumentsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? childId,
+    Value<String>? documentType,
+    Value<String>? title,
+    Value<DateTime?>? documentDate,
+    Value<String?>? illnessId,
+    Value<String?>? doctorVisitId,
+    Value<String?>? vaccinationId,
+    Value<String>? mediaAssetId,
+    Value<String?>? notes,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? deletedAt,
+    Value<int>? rowid,
+  }) {
+    return MedicalDocumentsCompanion(
+      id: id ?? this.id,
+      childId: childId ?? this.childId,
+      documentType: documentType ?? this.documentType,
+      title: title ?? this.title,
+      documentDate: documentDate ?? this.documentDate,
+      illnessId: illnessId ?? this.illnessId,
+      doctorVisitId: doctorVisitId ?? this.doctorVisitId,
+      vaccinationId: vaccinationId ?? this.vaccinationId,
+      mediaAssetId: mediaAssetId ?? this.mediaAssetId,
+      notes: notes ?? this.notes,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (childId.present) {
+      map['child_id'] = Variable<String>(childId.value);
+    }
+    if (documentType.present) {
+      map['document_type'] = Variable<String>(documentType.value);
+    }
+    if (title.present) {
+      map['title'] = Variable<String>(title.value);
+    }
+    if (documentDate.present) {
+      map['document_date'] = Variable<DateTime>(documentDate.value);
+    }
+    if (illnessId.present) {
+      map['illness_id'] = Variable<String>(illnessId.value);
+    }
+    if (doctorVisitId.present) {
+      map['doctor_visit_id'] = Variable<String>(doctorVisitId.value);
+    }
+    if (vaccinationId.present) {
+      map['vaccination_id'] = Variable<String>(vaccinationId.value);
+    }
+    if (mediaAssetId.present) {
+      map['media_asset_id'] = Variable<String>(mediaAssetId.value);
+    }
+    if (notes.present) {
+      map['notes'] = Variable<String>(notes.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('MedicalDocumentsCompanion(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('documentType: $documentType, ')
+          ..write('title: $title, ')
+          ..write('documentDate: $documentDate, ')
+          ..write('illnessId: $illnessId, ')
+          ..write('doctorVisitId: $doctorVisitId, ')
+          ..write('vaccinationId: $vaccinationId, ')
+          ..write('mediaAssetId: $mediaAssetId, ')
+          ..write('notes: $notes, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -10200,6 +15062,17 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $FirstWordsTable firstWords = $FirstWordsTable(this);
   late final $SchoolProfilesTable schoolProfiles = $SchoolProfilesTable(this);
   late final $SchoolEventsTable schoolEvents = $SchoolEventsTable(this);
+  late final $VaccinationsTable vaccinations = $VaccinationsTable(this);
+  late final $IllnessEpisodesTable illnessEpisodes = $IllnessEpisodesTable(
+    this,
+  );
+  late final $MedicinesTable medicines = $MedicinesTable(this);
+  late final $MedicineSchedulesTable medicineSchedules =
+      $MedicineSchedulesTable(this);
+  late final $DoctorVisitsTable doctorVisits = $DoctorVisitsTable(this);
+  late final $MedicalDocumentsTable medicalDocuments = $MedicalDocumentsTable(
+    this,
+  );
   late final ChildrenDao childrenDao = ChildrenDao(this as AppDatabase);
   late final SettingsDao settingsDao = SettingsDao(this as AppDatabase);
   late final MediaAssetsDao mediaAssetsDao = MediaAssetsDao(
@@ -10233,6 +15106,22 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final SchoolEventsDao schoolEventsDao = SchoolEventsDao(
     this as AppDatabase,
   );
+  late final VaccinationsDao vaccinationsDao = VaccinationsDao(
+    this as AppDatabase,
+  );
+  late final IllnessEpisodesDao illnessEpisodesDao = IllnessEpisodesDao(
+    this as AppDatabase,
+  );
+  late final MedicinesDao medicinesDao = MedicinesDao(this as AppDatabase);
+  late final MedicineSchedulesDao medicineSchedulesDao = MedicineSchedulesDao(
+    this as AppDatabase,
+  );
+  late final DoctorVisitsDao doctorVisitsDao = DoctorVisitsDao(
+    this as AppDatabase,
+  );
+  late final MedicalDocumentsDao medicalDocumentsDao = MedicalDocumentsDao(
+    this as AppDatabase,
+  );
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -10254,6 +15143,12 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     firstWords,
     schoolProfiles,
     schoolEvents,
+    vaccinations,
+    illnessEpisodes,
+    medicines,
+    medicineSchedules,
+    doctorVisits,
+    medicalDocuments,
   ];
   @override
   DriftDatabaseOptions get options =>
@@ -15287,6 +20182,2327 @@ typedef $$SchoolEventsTableProcessedTableManager =
       SchoolEventRow,
       PrefetchHooks Function()
     >;
+typedef $$VaccinationsTableCreateCompanionBuilder =
+    VaccinationsCompanion Function({
+      required String id,
+      required String childId,
+      required String vaccineName,
+      Value<String?> doseLabel,
+      Value<DateTime?> scheduledDate,
+      Value<DateTime?> givenDate,
+      required String status,
+      Value<String?> providerName,
+      Value<String?> clinicName,
+      Value<String?> batchNumber,
+      Value<String?> notes,
+      required DateTime createdAt,
+      required DateTime updatedAt,
+      Value<DateTime?> deletedAt,
+      Value<int> rowid,
+    });
+typedef $$VaccinationsTableUpdateCompanionBuilder =
+    VaccinationsCompanion Function({
+      Value<String> id,
+      Value<String> childId,
+      Value<String> vaccineName,
+      Value<String?> doseLabel,
+      Value<DateTime?> scheduledDate,
+      Value<DateTime?> givenDate,
+      Value<String> status,
+      Value<String?> providerName,
+      Value<String?> clinicName,
+      Value<String?> batchNumber,
+      Value<String?> notes,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<DateTime?> deletedAt,
+      Value<int> rowid,
+    });
+
+class $$VaccinationsTableFilterComposer
+    extends Composer<_$AppDatabase, $VaccinationsTable> {
+  $$VaccinationsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get vaccineName => $composableBuilder(
+    column: $table.vaccineName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get doseLabel => $composableBuilder(
+    column: $table.doseLabel,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get scheduledDate => $composableBuilder(
+    column: $table.scheduledDate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get givenDate => $composableBuilder(
+    column: $table.givenDate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get status => $composableBuilder(
+    column: $table.status,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get providerName => $composableBuilder(
+    column: $table.providerName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get clinicName => $composableBuilder(
+    column: $table.clinicName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get batchNumber => $composableBuilder(
+    column: $table.batchNumber,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$VaccinationsTableOrderingComposer
+    extends Composer<_$AppDatabase, $VaccinationsTable> {
+  $$VaccinationsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get vaccineName => $composableBuilder(
+    column: $table.vaccineName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get doseLabel => $composableBuilder(
+    column: $table.doseLabel,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get scheduledDate => $composableBuilder(
+    column: $table.scheduledDate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get givenDate => $composableBuilder(
+    column: $table.givenDate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get status => $composableBuilder(
+    column: $table.status,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get providerName => $composableBuilder(
+    column: $table.providerName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get clinicName => $composableBuilder(
+    column: $table.clinicName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get batchNumber => $composableBuilder(
+    column: $table.batchNumber,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$VaccinationsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $VaccinationsTable> {
+  $$VaccinationsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get childId =>
+      $composableBuilder(column: $table.childId, builder: (column) => column);
+
+  GeneratedColumn<String> get vaccineName => $composableBuilder(
+    column: $table.vaccineName,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get doseLabel =>
+      $composableBuilder(column: $table.doseLabel, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get scheduledDate => $composableBuilder(
+    column: $table.scheduledDate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get givenDate =>
+      $composableBuilder(column: $table.givenDate, builder: (column) => column);
+
+  GeneratedColumn<String> get status =>
+      $composableBuilder(column: $table.status, builder: (column) => column);
+
+  GeneratedColumn<String> get providerName => $composableBuilder(
+    column: $table.providerName,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get clinicName => $composableBuilder(
+    column: $table.clinicName,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get batchNumber => $composableBuilder(
+    column: $table.batchNumber,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get notes =>
+      $composableBuilder(column: $table.notes, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+}
+
+class $$VaccinationsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $VaccinationsTable,
+          VaccinationRow,
+          $$VaccinationsTableFilterComposer,
+          $$VaccinationsTableOrderingComposer,
+          $$VaccinationsTableAnnotationComposer,
+          $$VaccinationsTableCreateCompanionBuilder,
+          $$VaccinationsTableUpdateCompanionBuilder,
+          (
+            VaccinationRow,
+            BaseReferences<_$AppDatabase, $VaccinationsTable, VaccinationRow>,
+          ),
+          VaccinationRow,
+          PrefetchHooks Function()
+        > {
+  $$VaccinationsTableTableManager(_$AppDatabase db, $VaccinationsTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$VaccinationsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$VaccinationsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$VaccinationsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> childId = const Value.absent(),
+                Value<String> vaccineName = const Value.absent(),
+                Value<String?> doseLabel = const Value.absent(),
+                Value<DateTime?> scheduledDate = const Value.absent(),
+                Value<DateTime?> givenDate = const Value.absent(),
+                Value<String> status = const Value.absent(),
+                Value<String?> providerName = const Value.absent(),
+                Value<String?> clinicName = const Value.absent(),
+                Value<String?> batchNumber = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => VaccinationsCompanion(
+                id: id,
+                childId: childId,
+                vaccineName: vaccineName,
+                doseLabel: doseLabel,
+                scheduledDate: scheduledDate,
+                givenDate: givenDate,
+                status: status,
+                providerName: providerName,
+                clinicName: clinicName,
+                batchNumber: batchNumber,
+                notes: notes,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String childId,
+                required String vaccineName,
+                Value<String?> doseLabel = const Value.absent(),
+                Value<DateTime?> scheduledDate = const Value.absent(),
+                Value<DateTime?> givenDate = const Value.absent(),
+                required String status,
+                Value<String?> providerName = const Value.absent(),
+                Value<String?> clinicName = const Value.absent(),
+                Value<String?> batchNumber = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => VaccinationsCompanion.insert(
+                id: id,
+                childId: childId,
+                vaccineName: vaccineName,
+                doseLabel: doseLabel,
+                scheduledDate: scheduledDate,
+                givenDate: givenDate,
+                status: status,
+                providerName: providerName,
+                clinicName: clinicName,
+                batchNumber: batchNumber,
+                notes: notes,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$VaccinationsTable, VaccinationRow>(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $VaccinationsTable,
+                    VaccinationRow
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$VaccinationsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $VaccinationsTable,
+      VaccinationRow,
+      $$VaccinationsTableFilterComposer,
+      $$VaccinationsTableOrderingComposer,
+      $$VaccinationsTableAnnotationComposer,
+      $$VaccinationsTableCreateCompanionBuilder,
+      $$VaccinationsTableUpdateCompanionBuilder,
+      (
+        VaccinationRow,
+        BaseReferences<_$AppDatabase, $VaccinationsTable, VaccinationRow>,
+      ),
+      VaccinationRow,
+      PrefetchHooks Function()
+    >;
+typedef $$IllnessEpisodesTableCreateCompanionBuilder =
+    IllnessEpisodesCompanion Function({
+      required String id,
+      required String childId,
+      required String title,
+      required DateTime startDate,
+      Value<DateTime?> endDate,
+      Value<String?> symptomsJson,
+      Value<double?> maxTemperatureC,
+      Value<String?> diagnosis,
+      Value<String?> doctorVisitId,
+      Value<String?> recoveryNote,
+      Value<String?> notes,
+      required DateTime createdAt,
+      required DateTime updatedAt,
+      Value<DateTime?> deletedAt,
+      Value<int> rowid,
+    });
+typedef $$IllnessEpisodesTableUpdateCompanionBuilder =
+    IllnessEpisodesCompanion Function({
+      Value<String> id,
+      Value<String> childId,
+      Value<String> title,
+      Value<DateTime> startDate,
+      Value<DateTime?> endDate,
+      Value<String?> symptomsJson,
+      Value<double?> maxTemperatureC,
+      Value<String?> diagnosis,
+      Value<String?> doctorVisitId,
+      Value<String?> recoveryNote,
+      Value<String?> notes,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<DateTime?> deletedAt,
+      Value<int> rowid,
+    });
+
+class $$IllnessEpisodesTableFilterComposer
+    extends Composer<_$AppDatabase, $IllnessEpisodesTable> {
+  $$IllnessEpisodesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get startDate => $composableBuilder(
+    column: $table.startDate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get endDate => $composableBuilder(
+    column: $table.endDate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get symptomsJson => $composableBuilder(
+    column: $table.symptomsJson,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get maxTemperatureC => $composableBuilder(
+    column: $table.maxTemperatureC,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get diagnosis => $composableBuilder(
+    column: $table.diagnosis,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get doctorVisitId => $composableBuilder(
+    column: $table.doctorVisitId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get recoveryNote => $composableBuilder(
+    column: $table.recoveryNote,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$IllnessEpisodesTableOrderingComposer
+    extends Composer<_$AppDatabase, $IllnessEpisodesTable> {
+  $$IllnessEpisodesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get startDate => $composableBuilder(
+    column: $table.startDate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get endDate => $composableBuilder(
+    column: $table.endDate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get symptomsJson => $composableBuilder(
+    column: $table.symptomsJson,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<double> get maxTemperatureC => $composableBuilder(
+    column: $table.maxTemperatureC,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get diagnosis => $composableBuilder(
+    column: $table.diagnosis,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get doctorVisitId => $composableBuilder(
+    column: $table.doctorVisitId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get recoveryNote => $composableBuilder(
+    column: $table.recoveryNote,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$IllnessEpisodesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $IllnessEpisodesTable> {
+  $$IllnessEpisodesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get childId =>
+      $composableBuilder(column: $table.childId, builder: (column) => column);
+
+  GeneratedColumn<String> get title =>
+      $composableBuilder(column: $table.title, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get startDate =>
+      $composableBuilder(column: $table.startDate, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get endDate =>
+      $composableBuilder(column: $table.endDate, builder: (column) => column);
+
+  GeneratedColumn<String> get symptomsJson => $composableBuilder(
+    column: $table.symptomsJson,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<double> get maxTemperatureC => $composableBuilder(
+    column: $table.maxTemperatureC,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get diagnosis =>
+      $composableBuilder(column: $table.diagnosis, builder: (column) => column);
+
+  GeneratedColumn<String> get doctorVisitId => $composableBuilder(
+    column: $table.doctorVisitId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get recoveryNote => $composableBuilder(
+    column: $table.recoveryNote,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get notes =>
+      $composableBuilder(column: $table.notes, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+}
+
+class $$IllnessEpisodesTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $IllnessEpisodesTable,
+          IllnessEpisodeRow,
+          $$IllnessEpisodesTableFilterComposer,
+          $$IllnessEpisodesTableOrderingComposer,
+          $$IllnessEpisodesTableAnnotationComposer,
+          $$IllnessEpisodesTableCreateCompanionBuilder,
+          $$IllnessEpisodesTableUpdateCompanionBuilder,
+          (
+            IllnessEpisodeRow,
+            BaseReferences<
+              _$AppDatabase,
+              $IllnessEpisodesTable,
+              IllnessEpisodeRow
+            >,
+          ),
+          IllnessEpisodeRow,
+          PrefetchHooks Function()
+        > {
+  $$IllnessEpisodesTableTableManager(
+    _$AppDatabase db,
+    $IllnessEpisodesTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$IllnessEpisodesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$IllnessEpisodesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$IllnessEpisodesTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> childId = const Value.absent(),
+                Value<String> title = const Value.absent(),
+                Value<DateTime> startDate = const Value.absent(),
+                Value<DateTime?> endDate = const Value.absent(),
+                Value<String?> symptomsJson = const Value.absent(),
+                Value<double?> maxTemperatureC = const Value.absent(),
+                Value<String?> diagnosis = const Value.absent(),
+                Value<String?> doctorVisitId = const Value.absent(),
+                Value<String?> recoveryNote = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => IllnessEpisodesCompanion(
+                id: id,
+                childId: childId,
+                title: title,
+                startDate: startDate,
+                endDate: endDate,
+                symptomsJson: symptomsJson,
+                maxTemperatureC: maxTemperatureC,
+                diagnosis: diagnosis,
+                doctorVisitId: doctorVisitId,
+                recoveryNote: recoveryNote,
+                notes: notes,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String childId,
+                required String title,
+                required DateTime startDate,
+                Value<DateTime?> endDate = const Value.absent(),
+                Value<String?> symptomsJson = const Value.absent(),
+                Value<double?> maxTemperatureC = const Value.absent(),
+                Value<String?> diagnosis = const Value.absent(),
+                Value<String?> doctorVisitId = const Value.absent(),
+                Value<String?> recoveryNote = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => IllnessEpisodesCompanion.insert(
+                id: id,
+                childId: childId,
+                title: title,
+                startDate: startDate,
+                endDate: endDate,
+                symptomsJson: symptomsJson,
+                maxTemperatureC: maxTemperatureC,
+                diagnosis: diagnosis,
+                doctorVisitId: doctorVisitId,
+                recoveryNote: recoveryNote,
+                notes: notes,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$IllnessEpisodesTable, IllnessEpisodeRow>(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $IllnessEpisodesTable,
+                    IllnessEpisodeRow
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$IllnessEpisodesTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $IllnessEpisodesTable,
+      IllnessEpisodeRow,
+      $$IllnessEpisodesTableFilterComposer,
+      $$IllnessEpisodesTableOrderingComposer,
+      $$IllnessEpisodesTableAnnotationComposer,
+      $$IllnessEpisodesTableCreateCompanionBuilder,
+      $$IllnessEpisodesTableUpdateCompanionBuilder,
+      (
+        IllnessEpisodeRow,
+        BaseReferences<_$AppDatabase, $IllnessEpisodesTable, IllnessEpisodeRow>,
+      ),
+      IllnessEpisodeRow,
+      PrefetchHooks Function()
+    >;
+typedef $$MedicinesTableCreateCompanionBuilder = MedicinesCompanion Function({
+  required String id,
+  required String childId,
+  Value<String?> illnessId,
+  Value<String?> doctorVisitId,
+  required String name,
+  Value<String?> strength,
+  Value<String?> dosage,
+  Value<String?> frequencyText,
+  Value<DateTime?> startDate,
+  Value<DateTime?> endDate,
+  Value<String?> reason,
+  Value<String?> prescribedBy,
+  required String status,
+  Value<String?> notes,
+  required DateTime createdAt,
+  required DateTime updatedAt,
+  Value<DateTime?> deletedAt,
+  Value<int> rowid,
+});
+typedef $$MedicinesTableUpdateCompanionBuilder = MedicinesCompanion Function({
+  Value<String> id,
+  Value<String> childId,
+  Value<String?> illnessId,
+  Value<String?> doctorVisitId,
+  Value<String> name,
+  Value<String?> strength,
+  Value<String?> dosage,
+  Value<String?> frequencyText,
+  Value<DateTime?> startDate,
+  Value<DateTime?> endDate,
+  Value<String?> reason,
+  Value<String?> prescribedBy,
+  Value<String> status,
+  Value<String?> notes,
+  Value<DateTime> createdAt,
+  Value<DateTime> updatedAt,
+  Value<DateTime?> deletedAt,
+  Value<int> rowid,
+});
+
+class $$MedicinesTableFilterComposer
+    extends Composer<_$AppDatabase, $MedicinesTable> {
+  $$MedicinesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get illnessId => $composableBuilder(
+    column: $table.illnessId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get doctorVisitId => $composableBuilder(
+    column: $table.doctorVisitId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get strength => $composableBuilder(
+    column: $table.strength,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get dosage => $composableBuilder(
+    column: $table.dosage,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get frequencyText => $composableBuilder(
+    column: $table.frequencyText,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get startDate => $composableBuilder(
+    column: $table.startDate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get endDate => $composableBuilder(
+    column: $table.endDate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get reason => $composableBuilder(
+    column: $table.reason,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get prescribedBy => $composableBuilder(
+    column: $table.prescribedBy,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get status => $composableBuilder(
+    column: $table.status,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$MedicinesTableOrderingComposer
+    extends Composer<_$AppDatabase, $MedicinesTable> {
+  $$MedicinesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get illnessId => $composableBuilder(
+    column: $table.illnessId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get doctorVisitId => $composableBuilder(
+    column: $table.doctorVisitId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get strength => $composableBuilder(
+    column: $table.strength,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get dosage => $composableBuilder(
+    column: $table.dosage,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get frequencyText => $composableBuilder(
+    column: $table.frequencyText,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get startDate => $composableBuilder(
+    column: $table.startDate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get endDate => $composableBuilder(
+    column: $table.endDate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get reason => $composableBuilder(
+    column: $table.reason,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get prescribedBy => $composableBuilder(
+    column: $table.prescribedBy,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get status => $composableBuilder(
+    column: $table.status,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$MedicinesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $MedicinesTable> {
+  $$MedicinesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get childId =>
+      $composableBuilder(column: $table.childId, builder: (column) => column);
+
+  GeneratedColumn<String> get illnessId =>
+      $composableBuilder(column: $table.illnessId, builder: (column) => column);
+
+  GeneratedColumn<String> get doctorVisitId => $composableBuilder(
+    column: $table.doctorVisitId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<String> get strength =>
+      $composableBuilder(column: $table.strength, builder: (column) => column);
+
+  GeneratedColumn<String> get dosage =>
+      $composableBuilder(column: $table.dosage, builder: (column) => column);
+
+  GeneratedColumn<String> get frequencyText => $composableBuilder(
+    column: $table.frequencyText,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get startDate =>
+      $composableBuilder(column: $table.startDate, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get endDate =>
+      $composableBuilder(column: $table.endDate, builder: (column) => column);
+
+  GeneratedColumn<String> get reason =>
+      $composableBuilder(column: $table.reason, builder: (column) => column);
+
+  GeneratedColumn<String> get prescribedBy => $composableBuilder(
+    column: $table.prescribedBy,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get status =>
+      $composableBuilder(column: $table.status, builder: (column) => column);
+
+  GeneratedColumn<String> get notes =>
+      $composableBuilder(column: $table.notes, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+}
+
+class $$MedicinesTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $MedicinesTable,
+          MedicineRow,
+          $$MedicinesTableFilterComposer,
+          $$MedicinesTableOrderingComposer,
+          $$MedicinesTableAnnotationComposer,
+          $$MedicinesTableCreateCompanionBuilder,
+          $$MedicinesTableUpdateCompanionBuilder,
+          (
+            MedicineRow,
+            BaseReferences<_$AppDatabase, $MedicinesTable, MedicineRow>,
+          ),
+          MedicineRow,
+          PrefetchHooks Function()
+        > {
+  $$MedicinesTableTableManager(_$AppDatabase db, $MedicinesTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$MedicinesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$MedicinesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$MedicinesTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> childId = const Value.absent(),
+                Value<String?> illnessId = const Value.absent(),
+                Value<String?> doctorVisitId = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<String?> strength = const Value.absent(),
+                Value<String?> dosage = const Value.absent(),
+                Value<String?> frequencyText = const Value.absent(),
+                Value<DateTime?> startDate = const Value.absent(),
+                Value<DateTime?> endDate = const Value.absent(),
+                Value<String?> reason = const Value.absent(),
+                Value<String?> prescribedBy = const Value.absent(),
+                Value<String> status = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => MedicinesCompanion(
+                id: id,
+                childId: childId,
+                illnessId: illnessId,
+                doctorVisitId: doctorVisitId,
+                name: name,
+                strength: strength,
+                dosage: dosage,
+                frequencyText: frequencyText,
+                startDate: startDate,
+                endDate: endDate,
+                reason: reason,
+                prescribedBy: prescribedBy,
+                status: status,
+                notes: notes,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String childId,
+                Value<String?> illnessId = const Value.absent(),
+                Value<String?> doctorVisitId = const Value.absent(),
+                required String name,
+                Value<String?> strength = const Value.absent(),
+                Value<String?> dosage = const Value.absent(),
+                Value<String?> frequencyText = const Value.absent(),
+                Value<DateTime?> startDate = const Value.absent(),
+                Value<DateTime?> endDate = const Value.absent(),
+                Value<String?> reason = const Value.absent(),
+                Value<String?> prescribedBy = const Value.absent(),
+                required String status,
+                Value<String?> notes = const Value.absent(),
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => MedicinesCompanion.insert(
+                id: id,
+                childId: childId,
+                illnessId: illnessId,
+                doctorVisitId: doctorVisitId,
+                name: name,
+                strength: strength,
+                dosage: dosage,
+                frequencyText: frequencyText,
+                startDate: startDate,
+                endDate: endDate,
+                reason: reason,
+                prescribedBy: prescribedBy,
+                status: status,
+                notes: notes,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$MedicinesTable, MedicineRow>(table),
+                  BaseReferences<_$AppDatabase, $MedicinesTable, MedicineRow>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$MedicinesTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $MedicinesTable,
+      MedicineRow,
+      $$MedicinesTableFilterComposer,
+      $$MedicinesTableOrderingComposer,
+      $$MedicinesTableAnnotationComposer,
+      $$MedicinesTableCreateCompanionBuilder,
+      $$MedicinesTableUpdateCompanionBuilder,
+      (
+        MedicineRow,
+        BaseReferences<_$AppDatabase, $MedicinesTable, MedicineRow>,
+      ),
+      MedicineRow,
+      PrefetchHooks Function()
+    >;
+typedef $$MedicineSchedulesTableCreateCompanionBuilder =
+    MedicineSchedulesCompanion Function({
+      required String id,
+      required String medicineId,
+      required String timeOfDay,
+      Value<String?> daysJson,
+      Value<bool> notificationEnabled,
+      Value<int?> notificationId,
+      required DateTime createdAt,
+      required DateTime updatedAt,
+      Value<DateTime?> deletedAt,
+      Value<int> rowid,
+    });
+typedef $$MedicineSchedulesTableUpdateCompanionBuilder =
+    MedicineSchedulesCompanion Function({
+      Value<String> id,
+      Value<String> medicineId,
+      Value<String> timeOfDay,
+      Value<String?> daysJson,
+      Value<bool> notificationEnabled,
+      Value<int?> notificationId,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<DateTime?> deletedAt,
+      Value<int> rowid,
+    });
+
+class $$MedicineSchedulesTableFilterComposer
+    extends Composer<_$AppDatabase, $MedicineSchedulesTable> {
+  $$MedicineSchedulesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get medicineId => $composableBuilder(
+    column: $table.medicineId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get timeOfDay => $composableBuilder(
+    column: $table.timeOfDay,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get daysJson => $composableBuilder(
+    column: $table.daysJson,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get notificationEnabled => $composableBuilder(
+    column: $table.notificationEnabled,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get notificationId => $composableBuilder(
+    column: $table.notificationId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$MedicineSchedulesTableOrderingComposer
+    extends Composer<_$AppDatabase, $MedicineSchedulesTable> {
+  $$MedicineSchedulesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get medicineId => $composableBuilder(
+    column: $table.medicineId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get timeOfDay => $composableBuilder(
+    column: $table.timeOfDay,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get daysJson => $composableBuilder(
+    column: $table.daysJson,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get notificationEnabled => $composableBuilder(
+    column: $table.notificationEnabled,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get notificationId => $composableBuilder(
+    column: $table.notificationId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$MedicineSchedulesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $MedicineSchedulesTable> {
+  $$MedicineSchedulesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get medicineId => $composableBuilder(
+    column: $table.medicineId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get timeOfDay =>
+      $composableBuilder(column: $table.timeOfDay, builder: (column) => column);
+
+  GeneratedColumn<String> get daysJson =>
+      $composableBuilder(column: $table.daysJson, builder: (column) => column);
+
+  GeneratedColumn<bool> get notificationEnabled => $composableBuilder(
+    column: $table.notificationEnabled,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get notificationId => $composableBuilder(
+    column: $table.notificationId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+}
+
+class $$MedicineSchedulesTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $MedicineSchedulesTable,
+          MedicineScheduleRow,
+          $$MedicineSchedulesTableFilterComposer,
+          $$MedicineSchedulesTableOrderingComposer,
+          $$MedicineSchedulesTableAnnotationComposer,
+          $$MedicineSchedulesTableCreateCompanionBuilder,
+          $$MedicineSchedulesTableUpdateCompanionBuilder,
+          (
+            MedicineScheduleRow,
+            BaseReferences<
+              _$AppDatabase,
+              $MedicineSchedulesTable,
+              MedicineScheduleRow
+            >,
+          ),
+          MedicineScheduleRow,
+          PrefetchHooks Function()
+        > {
+  $$MedicineSchedulesTableTableManager(
+    _$AppDatabase db,
+    $MedicineSchedulesTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$MedicineSchedulesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$MedicineSchedulesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$MedicineSchedulesTableAnnotationComposer(
+                $db: db,
+                $table: table,
+              ),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> medicineId = const Value.absent(),
+                Value<String> timeOfDay = const Value.absent(),
+                Value<String?> daysJson = const Value.absent(),
+                Value<bool> notificationEnabled = const Value.absent(),
+                Value<int?> notificationId = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => MedicineSchedulesCompanion(
+                id: id,
+                medicineId: medicineId,
+                timeOfDay: timeOfDay,
+                daysJson: daysJson,
+                notificationEnabled: notificationEnabled,
+                notificationId: notificationId,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String medicineId,
+                required String timeOfDay,
+                Value<String?> daysJson = const Value.absent(),
+                Value<bool> notificationEnabled = const Value.absent(),
+                Value<int?> notificationId = const Value.absent(),
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => MedicineSchedulesCompanion.insert(
+                id: id,
+                medicineId: medicineId,
+                timeOfDay: timeOfDay,
+                daysJson: daysJson,
+                notificationEnabled: notificationEnabled,
+                notificationId: notificationId,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$MedicineSchedulesTable, MedicineScheduleRow>(
+                    table,
+                  ),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $MedicineSchedulesTable,
+                    MedicineScheduleRow
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$MedicineSchedulesTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $MedicineSchedulesTable,
+      MedicineScheduleRow,
+      $$MedicineSchedulesTableFilterComposer,
+      $$MedicineSchedulesTableOrderingComposer,
+      $$MedicineSchedulesTableAnnotationComposer,
+      $$MedicineSchedulesTableCreateCompanionBuilder,
+      $$MedicineSchedulesTableUpdateCompanionBuilder,
+      (
+        MedicineScheduleRow,
+        BaseReferences<
+          _$AppDatabase,
+          $MedicineSchedulesTable,
+          MedicineScheduleRow
+        >,
+      ),
+      MedicineScheduleRow,
+      PrefetchHooks Function()
+    >;
+typedef $$DoctorVisitsTableCreateCompanionBuilder =
+    DoctorVisitsCompanion Function({
+      required String id,
+      required String childId,
+      required DateTime visitDate,
+      required String doctorName,
+      Value<String?> specialty,
+      Value<String?> hospitalOrChamber,
+      Value<String?> reason,
+      Value<String?> symptoms,
+      Value<String?> diagnosis,
+      Value<String?> testsAdvised,
+      Value<DateTime?> followUpDate,
+      Value<String?> notes,
+      required DateTime createdAt,
+      required DateTime updatedAt,
+      Value<DateTime?> deletedAt,
+      Value<int> rowid,
+    });
+typedef $$DoctorVisitsTableUpdateCompanionBuilder =
+    DoctorVisitsCompanion Function({
+      Value<String> id,
+      Value<String> childId,
+      Value<DateTime> visitDate,
+      Value<String> doctorName,
+      Value<String?> specialty,
+      Value<String?> hospitalOrChamber,
+      Value<String?> reason,
+      Value<String?> symptoms,
+      Value<String?> diagnosis,
+      Value<String?> testsAdvised,
+      Value<DateTime?> followUpDate,
+      Value<String?> notes,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<DateTime?> deletedAt,
+      Value<int> rowid,
+    });
+
+class $$DoctorVisitsTableFilterComposer
+    extends Composer<_$AppDatabase, $DoctorVisitsTable> {
+  $$DoctorVisitsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get visitDate => $composableBuilder(
+    column: $table.visitDate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get doctorName => $composableBuilder(
+    column: $table.doctorName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get specialty => $composableBuilder(
+    column: $table.specialty,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get hospitalOrChamber => $composableBuilder(
+    column: $table.hospitalOrChamber,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get reason => $composableBuilder(
+    column: $table.reason,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get symptoms => $composableBuilder(
+    column: $table.symptoms,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get diagnosis => $composableBuilder(
+    column: $table.diagnosis,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get testsAdvised => $composableBuilder(
+    column: $table.testsAdvised,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get followUpDate => $composableBuilder(
+    column: $table.followUpDate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$DoctorVisitsTableOrderingComposer
+    extends Composer<_$AppDatabase, $DoctorVisitsTable> {
+  $$DoctorVisitsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get visitDate => $composableBuilder(
+    column: $table.visitDate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get doctorName => $composableBuilder(
+    column: $table.doctorName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get specialty => $composableBuilder(
+    column: $table.specialty,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get hospitalOrChamber => $composableBuilder(
+    column: $table.hospitalOrChamber,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get reason => $composableBuilder(
+    column: $table.reason,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get symptoms => $composableBuilder(
+    column: $table.symptoms,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get diagnosis => $composableBuilder(
+    column: $table.diagnosis,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get testsAdvised => $composableBuilder(
+    column: $table.testsAdvised,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get followUpDate => $composableBuilder(
+    column: $table.followUpDate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$DoctorVisitsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $DoctorVisitsTable> {
+  $$DoctorVisitsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get childId =>
+      $composableBuilder(column: $table.childId, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get visitDate =>
+      $composableBuilder(column: $table.visitDate, builder: (column) => column);
+
+  GeneratedColumn<String> get doctorName => $composableBuilder(
+    column: $table.doctorName,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get specialty =>
+      $composableBuilder(column: $table.specialty, builder: (column) => column);
+
+  GeneratedColumn<String> get hospitalOrChamber => $composableBuilder(
+    column: $table.hospitalOrChamber,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get reason =>
+      $composableBuilder(column: $table.reason, builder: (column) => column);
+
+  GeneratedColumn<String> get symptoms =>
+      $composableBuilder(column: $table.symptoms, builder: (column) => column);
+
+  GeneratedColumn<String> get diagnosis =>
+      $composableBuilder(column: $table.diagnosis, builder: (column) => column);
+
+  GeneratedColumn<String> get testsAdvised => $composableBuilder(
+    column: $table.testsAdvised,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get followUpDate => $composableBuilder(
+    column: $table.followUpDate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get notes =>
+      $composableBuilder(column: $table.notes, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+}
+
+class $$DoctorVisitsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $DoctorVisitsTable,
+          DoctorVisitRow,
+          $$DoctorVisitsTableFilterComposer,
+          $$DoctorVisitsTableOrderingComposer,
+          $$DoctorVisitsTableAnnotationComposer,
+          $$DoctorVisitsTableCreateCompanionBuilder,
+          $$DoctorVisitsTableUpdateCompanionBuilder,
+          (
+            DoctorVisitRow,
+            BaseReferences<_$AppDatabase, $DoctorVisitsTable, DoctorVisitRow>,
+          ),
+          DoctorVisitRow,
+          PrefetchHooks Function()
+        > {
+  $$DoctorVisitsTableTableManager(_$AppDatabase db, $DoctorVisitsTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$DoctorVisitsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$DoctorVisitsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$DoctorVisitsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> childId = const Value.absent(),
+                Value<DateTime> visitDate = const Value.absent(),
+                Value<String> doctorName = const Value.absent(),
+                Value<String?> specialty = const Value.absent(),
+                Value<String?> hospitalOrChamber = const Value.absent(),
+                Value<String?> reason = const Value.absent(),
+                Value<String?> symptoms = const Value.absent(),
+                Value<String?> diagnosis = const Value.absent(),
+                Value<String?> testsAdvised = const Value.absent(),
+                Value<DateTime?> followUpDate = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => DoctorVisitsCompanion(
+                id: id,
+                childId: childId,
+                visitDate: visitDate,
+                doctorName: doctorName,
+                specialty: specialty,
+                hospitalOrChamber: hospitalOrChamber,
+                reason: reason,
+                symptoms: symptoms,
+                diagnosis: diagnosis,
+                testsAdvised: testsAdvised,
+                followUpDate: followUpDate,
+                notes: notes,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String childId,
+                required DateTime visitDate,
+                required String doctorName,
+                Value<String?> specialty = const Value.absent(),
+                Value<String?> hospitalOrChamber = const Value.absent(),
+                Value<String?> reason = const Value.absent(),
+                Value<String?> symptoms = const Value.absent(),
+                Value<String?> diagnosis = const Value.absent(),
+                Value<String?> testsAdvised = const Value.absent(),
+                Value<DateTime?> followUpDate = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => DoctorVisitsCompanion.insert(
+                id: id,
+                childId: childId,
+                visitDate: visitDate,
+                doctorName: doctorName,
+                specialty: specialty,
+                hospitalOrChamber: hospitalOrChamber,
+                reason: reason,
+                symptoms: symptoms,
+                diagnosis: diagnosis,
+                testsAdvised: testsAdvised,
+                followUpDate: followUpDate,
+                notes: notes,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$DoctorVisitsTable, DoctorVisitRow>(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $DoctorVisitsTable,
+                    DoctorVisitRow
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$DoctorVisitsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $DoctorVisitsTable,
+      DoctorVisitRow,
+      $$DoctorVisitsTableFilterComposer,
+      $$DoctorVisitsTableOrderingComposer,
+      $$DoctorVisitsTableAnnotationComposer,
+      $$DoctorVisitsTableCreateCompanionBuilder,
+      $$DoctorVisitsTableUpdateCompanionBuilder,
+      (
+        DoctorVisitRow,
+        BaseReferences<_$AppDatabase, $DoctorVisitsTable, DoctorVisitRow>,
+      ),
+      DoctorVisitRow,
+      PrefetchHooks Function()
+    >;
+typedef $$MedicalDocumentsTableCreateCompanionBuilder =
+    MedicalDocumentsCompanion Function({
+      required String id,
+      required String childId,
+      required String documentType,
+      required String title,
+      Value<DateTime?> documentDate,
+      Value<String?> illnessId,
+      Value<String?> doctorVisitId,
+      Value<String?> vaccinationId,
+      required String mediaAssetId,
+      Value<String?> notes,
+      required DateTime createdAt,
+      required DateTime updatedAt,
+      Value<DateTime?> deletedAt,
+      Value<int> rowid,
+    });
+typedef $$MedicalDocumentsTableUpdateCompanionBuilder =
+    MedicalDocumentsCompanion Function({
+      Value<String> id,
+      Value<String> childId,
+      Value<String> documentType,
+      Value<String> title,
+      Value<DateTime?> documentDate,
+      Value<String?> illnessId,
+      Value<String?> doctorVisitId,
+      Value<String?> vaccinationId,
+      Value<String> mediaAssetId,
+      Value<String?> notes,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<DateTime?> deletedAt,
+      Value<int> rowid,
+    });
+
+class $$MedicalDocumentsTableFilterComposer
+    extends Composer<_$AppDatabase, $MedicalDocumentsTable> {
+  $$MedicalDocumentsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get documentType => $composableBuilder(
+    column: $table.documentType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get documentDate => $composableBuilder(
+    column: $table.documentDate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get illnessId => $composableBuilder(
+    column: $table.illnessId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get doctorVisitId => $composableBuilder(
+    column: $table.doctorVisitId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get vaccinationId => $composableBuilder(
+    column: $table.vaccinationId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get mediaAssetId => $composableBuilder(
+    column: $table.mediaAssetId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$MedicalDocumentsTableOrderingComposer
+    extends Composer<_$AppDatabase, $MedicalDocumentsTable> {
+  $$MedicalDocumentsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get documentType => $composableBuilder(
+    column: $table.documentType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get documentDate => $composableBuilder(
+    column: $table.documentDate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get illnessId => $composableBuilder(
+    column: $table.illnessId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get doctorVisitId => $composableBuilder(
+    column: $table.doctorVisitId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get vaccinationId => $composableBuilder(
+    column: $table.vaccinationId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get mediaAssetId => $composableBuilder(
+    column: $table.mediaAssetId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$MedicalDocumentsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $MedicalDocumentsTable> {
+  $$MedicalDocumentsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get childId =>
+      $composableBuilder(column: $table.childId, builder: (column) => column);
+
+  GeneratedColumn<String> get documentType => $composableBuilder(
+    column: $table.documentType,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get title =>
+      $composableBuilder(column: $table.title, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get documentDate => $composableBuilder(
+    column: $table.documentDate,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get illnessId =>
+      $composableBuilder(column: $table.illnessId, builder: (column) => column);
+
+  GeneratedColumn<String> get doctorVisitId => $composableBuilder(
+    column: $table.doctorVisitId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get vaccinationId => $composableBuilder(
+    column: $table.vaccinationId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get mediaAssetId => $composableBuilder(
+    column: $table.mediaAssetId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get notes =>
+      $composableBuilder(column: $table.notes, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+}
+
+class $$MedicalDocumentsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $MedicalDocumentsTable,
+          MedicalDocumentRow,
+          $$MedicalDocumentsTableFilterComposer,
+          $$MedicalDocumentsTableOrderingComposer,
+          $$MedicalDocumentsTableAnnotationComposer,
+          $$MedicalDocumentsTableCreateCompanionBuilder,
+          $$MedicalDocumentsTableUpdateCompanionBuilder,
+          (
+            MedicalDocumentRow,
+            BaseReferences<
+              _$AppDatabase,
+              $MedicalDocumentsTable,
+              MedicalDocumentRow
+            >,
+          ),
+          MedicalDocumentRow,
+          PrefetchHooks Function()
+        > {
+  $$MedicalDocumentsTableTableManager(
+    _$AppDatabase db,
+    $MedicalDocumentsTable table,
+  ) : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$MedicalDocumentsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$MedicalDocumentsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$MedicalDocumentsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> childId = const Value.absent(),
+                Value<String> documentType = const Value.absent(),
+                Value<String> title = const Value.absent(),
+                Value<DateTime?> documentDate = const Value.absent(),
+                Value<String?> illnessId = const Value.absent(),
+                Value<String?> doctorVisitId = const Value.absent(),
+                Value<String?> vaccinationId = const Value.absent(),
+                Value<String> mediaAssetId = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => MedicalDocumentsCompanion(
+                id: id,
+                childId: childId,
+                documentType: documentType,
+                title: title,
+                documentDate: documentDate,
+                illnessId: illnessId,
+                doctorVisitId: doctorVisitId,
+                vaccinationId: vaccinationId,
+                mediaAssetId: mediaAssetId,
+                notes: notes,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String childId,
+                required String documentType,
+                required String title,
+                Value<DateTime?> documentDate = const Value.absent(),
+                Value<String?> illnessId = const Value.absent(),
+                Value<String?> doctorVisitId = const Value.absent(),
+                Value<String?> vaccinationId = const Value.absent(),
+                required String mediaAssetId,
+                Value<String?> notes = const Value.absent(),
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => MedicalDocumentsCompanion.insert(
+                id: id,
+                childId: childId,
+                documentType: documentType,
+                title: title,
+                documentDate: documentDate,
+                illnessId: illnessId,
+                doctorVisitId: doctorVisitId,
+                vaccinationId: vaccinationId,
+                mediaAssetId: mediaAssetId,
+                notes: notes,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$MedicalDocumentsTable, MedicalDocumentRow>(
+                    table,
+                  ),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $MedicalDocumentsTable,
+                    MedicalDocumentRow
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$MedicalDocumentsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $MedicalDocumentsTable,
+      MedicalDocumentRow,
+      $$MedicalDocumentsTableFilterComposer,
+      $$MedicalDocumentsTableOrderingComposer,
+      $$MedicalDocumentsTableAnnotationComposer,
+      $$MedicalDocumentsTableCreateCompanionBuilder,
+      $$MedicalDocumentsTableUpdateCompanionBuilder,
+      (
+        MedicalDocumentRow,
+        BaseReferences<
+          _$AppDatabase,
+          $MedicalDocumentsTable,
+          MedicalDocumentRow
+        >,
+      ),
+      MedicalDocumentRow,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -15322,4 +22538,16 @@ class $AppDatabaseManager {
       $$SchoolProfilesTableTableManager(_db, _db.schoolProfiles);
   $$SchoolEventsTableTableManager get schoolEvents =>
       $$SchoolEventsTableTableManager(_db, _db.schoolEvents);
+  $$VaccinationsTableTableManager get vaccinations =>
+      $$VaccinationsTableTableManager(_db, _db.vaccinations);
+  $$IllnessEpisodesTableTableManager get illnessEpisodes =>
+      $$IllnessEpisodesTableTableManager(_db, _db.illnessEpisodes);
+  $$MedicinesTableTableManager get medicines =>
+      $$MedicinesTableTableManager(_db, _db.medicines);
+  $$MedicineSchedulesTableTableManager get medicineSchedules =>
+      $$MedicineSchedulesTableTableManager(_db, _db.medicineSchedules);
+  $$DoctorVisitsTableTableManager get doctorVisits =>
+      $$DoctorVisitsTableTableManager(_db, _db.doctorVisits);
+  $$MedicalDocumentsTableTableManager get medicalDocuments =>
+      $$MedicalDocumentsTableTableManager(_db, _db.medicalDocuments);
 }

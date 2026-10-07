@@ -115,6 +115,42 @@ class AddScreen extends ConsumerWidget {
             ),
             const SizedBox(height: 24),
             Text(
+              l10n.healthTitle,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            const SizedBox(height: 12),
+            _AddTile(
+              icon: Icons.vaccines_outlined,
+              title: l10n.addVaccination,
+              subtitle: l10n.vaccineAttachmentsHint,
+              onTap: () => context.push(AppRoutes.vaccinationCreate),
+            ),
+            _AddTile(
+              icon: Icons.healing_outlined,
+              title: l10n.addIllness,
+              subtitle: l10n.illnessAttachmentsHint,
+              onTap: () => context.push(AppRoutes.illnessCreate),
+            ),
+            _AddTile(
+              icon: Icons.medication_outlined,
+              title: l10n.addMedicine,
+              subtitle: l10n.medicineSchedule,
+              onTap: () => context.push(AppRoutes.medicineCreate),
+            ),
+            _AddTile(
+              icon: Icons.local_hospital_outlined,
+              title: l10n.addDoctorVisit,
+              subtitle: l10n.doctorAttachmentsHint,
+              onTap: () => context.push(AppRoutes.doctorVisitCreate),
+            ),
+            _AddTile(
+              icon: Icons.folder_outlined,
+              title: l10n.addMedicalDocument,
+              subtitle: l10n.medicalDocPickFile,
+              onTap: () => context.push(AppRoutes.medicalDocumentCreate),
+            ),
+            const SizedBox(height: 24),
+            Text(
               l10n.quickTemplates,
               style: Theme.of(context).textTheme.titleLarge,
             ),
@@ -152,18 +188,6 @@ class AddScreen extends ConsumerWidget {
                     },
                   ),
               ],
-            ),
-            const SizedBox(height: 32),
-            Text(
-              l10n.addGroupComingSoon,
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
-            const SizedBox(height: 8),
-            Text(
-              l10n.addComingSoonHealthOnly,
-              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: Theme.of(context).colorScheme.onSurfaceVariant,
-              ),
             ),
           ],
         ],

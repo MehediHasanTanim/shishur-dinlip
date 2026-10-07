@@ -35,6 +35,18 @@ abstract final class AppRoutes {
   static const schoolProfileCreate = '/school/profiles/create';
   static const schoolEventCreate = '/school/events/create';
 
+  static const health = '/health';
+  static const vaccinations = '/health/vaccinations';
+  static const vaccinationCreate = '/health/vaccinations/create';
+  static const illnesses = '/health/illnesses';
+  static const illnessCreate = '/health/illnesses/create';
+  static const medicines = '/health/medicines';
+  static const medicineCreate = '/health/medicines/create';
+  static const doctorVisits = '/health/doctor-visits';
+  static const doctorVisitCreate = '/health/doctor-visits/create';
+  static const medicalDocuments = '/health/documents';
+  static const medicalDocumentCreate = '/health/documents/create';
+
   static String childDetailPath(String id) => '/children/$id';
   static String childEditPath(String id) => '/children/$id/edit';
 
@@ -92,4 +104,20 @@ abstract final class AppRoutes {
     if (params.isEmpty) return schoolEventCreate;
     return Uri(path: schoolEventCreate, queryParameters: params).toString();
   }
+
+  static String vaccinationDetailPath(String id) => '/health/vaccinations/$id';
+  static String vaccinationEditPath(String id) =>
+      '/health/vaccinations/$id/edit';
+  static String illnessDetailPath(String id) => '/health/illnesses/$id';
+  static String illnessEditPath(String id) => '/health/illnesses/$id/edit';
+  static String medicineDetailPath(String id) => '/health/medicines/$id';
+  static String medicineEditPath(String id) => '/health/medicines/$id/edit';
+  static String doctorVisitDetailPath(String id) =>
+      '/health/doctor-visits/$id';
+  static String doctorVisitEditPath(String id) =>
+      '/health/doctor-visits/$id/edit';
+  static String medicalDocumentDetailPath(String id) =>
+      '/health/documents/$id';
+  static String medicalDocumentEditPath(String id) =>
+      '/health/documents/$id/edit';
 }

@@ -1053,4 +1053,415 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get kindAchievement => 'Achievement';
+
+  @override
+  String get healthTitle => 'Health';
+
+  @override
+  String get healthSummary => 'Health summary';
+
+  @override
+  String get healthDisclaimerShort =>
+      'Parent-entered notes — not a substitute for medical advice.';
+
+  @override
+  String get healthDisclaimerFull =>
+      'Information in Shishur Dinlipi is entered by the parent or caregiver and should not replace official medical records or professional medical advice.';
+
+  @override
+  String get healthBloodGroup => 'Blood group';
+
+  @override
+  String get healthLatestGrowth => 'Latest growth';
+
+  @override
+  String get healthCurrentMedicine => 'Current medicine';
+
+  @override
+  String get healthRecentIllness => 'Recent illness';
+
+  @override
+  String get healthVaccination => 'Vaccination';
+
+  @override
+  String get healthLastDoctorVisit => 'Last doctor visit';
+
+  @override
+  String get healthUpcoming => 'Upcoming';
+
+  @override
+  String get healthGridVaccinations => 'Vaccinations';
+
+  @override
+  String get healthGridIllness => 'Illness history';
+
+  @override
+  String get healthGridMedicines => 'Medicines';
+
+  @override
+  String get healthGridDoctorVisits => 'Doctor visits';
+
+  @override
+  String get healthGridDocuments => 'Documents';
+
+  @override
+  String get healthEmpty => 'No health records yet. Add the first one.';
+
+  @override
+  String get healthAdd => 'Add';
+
+  @override
+  String get commonNone => 'None';
+
+  @override
+  String get commonNotes => 'Notes';
+
+  @override
+  String get vaccinationTitle => 'Vaccinations';
+
+  @override
+  String get vaccinationsEmpty => 'No vaccinations yet.';
+
+  @override
+  String get addVaccination => 'Add vaccination';
+
+  @override
+  String get editVaccination => 'Edit vaccination';
+
+  @override
+  String get vaccineName => 'Vaccine name';
+
+  @override
+  String get vaccineNameRequired => 'Vaccine name is required.';
+
+  @override
+  String get vaccineDose => 'Dose';
+
+  @override
+  String get vaccineScheduledDate => 'Scheduled date';
+
+  @override
+  String get vaccineGivenDate => 'Given date';
+
+  @override
+  String get vaccineProvider => 'Provider';
+
+  @override
+  String get vaccineClinic => 'Clinic';
+
+  @override
+  String get vaccineBatch => 'Batch number';
+
+  @override
+  String get vaccineStatus => 'Status';
+
+  @override
+  String get vaccineStatusUpcoming => 'Upcoming';
+
+  @override
+  String get vaccineStatusCompleted => 'Completed';
+
+  @override
+  String get vaccineStatusDelayed => 'Delayed';
+
+  @override
+  String get vaccineStatusSkipped => 'Skipped';
+
+  @override
+  String get vaccineStatusUnknown => 'Unknown';
+
+  @override
+  String get saveVaccination => 'Save vaccination';
+
+  @override
+  String get deleteVaccinationTitle => 'Delete this vaccination?';
+
+  @override
+  String get deleteVaccinationMessage =>
+      'This vaccination record will be removed from this device.';
+
+  @override
+  String get vaccineAttachmentsHint =>
+      'Attach a vaccination card photo or PDF.';
+
+  @override
+  String get illnessTitle => 'Illness history';
+
+  @override
+  String get illnessesEmpty => 'No illness episodes yet.';
+
+  @override
+  String get addIllness => 'Add illness';
+
+  @override
+  String get editIllness => 'Edit illness';
+
+  @override
+  String get illnessTitleField => 'Title';
+
+  @override
+  String get illnessTitleRequired => 'Illness title is required.';
+
+  @override
+  String get illnessStartDate => 'Start date';
+
+  @override
+  String get illnessEndDate => 'End date';
+
+  @override
+  String get illnessOngoing => 'Still recovering (no end date)';
+
+  @override
+  String get illnessClearEndDate => 'Clear end date';
+
+  @override
+  String get illnessSymptoms => 'Symptoms';
+
+  @override
+  String get illnessTemperature => 'Max temperature (°C)';
+
+  @override
+  String get illnessDiagnosis => 'Diagnosis';
+
+  @override
+  String get illnessRecoveryNote => 'Recovery note';
+
+  @override
+  String get illnessLinkedVisit => 'Linked doctor visit';
+
+  @override
+  String get illnessNoLinkedVisit => 'None';
+
+  @override
+  String get saveIllness => 'Save illness';
+
+  @override
+  String get deleteIllnessTitle => 'Delete this illness?';
+
+  @override
+  String get deleteIllnessMessage =>
+      'This illness record will be removed from this device.';
+
+  @override
+  String get illnessAttachmentsHint =>
+      'Attach photos or documents from this illness.';
+
+  @override
+  String get symptomFever => 'Fever';
+
+  @override
+  String get symptomCough => 'Cough';
+
+  @override
+  String get symptomCold => 'Cold';
+
+  @override
+  String get symptomVomiting => 'Vomiting';
+
+  @override
+  String get symptomDiarrhea => 'Diarrhea';
+
+  @override
+  String get symptomRash => 'Rash';
+
+  @override
+  String get symptomHeadache => 'Headache';
+
+  @override
+  String get symptomStomachPain => 'Stomach pain';
+
+  @override
+  String get symptomBreathing => 'Breathing difficulty';
+
+  @override
+  String get symptomAllergy => 'Allergy';
+
+  @override
+  String get symptomInjury => 'Injury';
+
+  @override
+  String get symptomOther => 'Other';
+
+  @override
+  String get medicineTitle => 'Medicines';
+
+  @override
+  String get medicinesEmpty => 'No medicines yet.';
+
+  @override
+  String get addMedicine => 'Add medicine';
+
+  @override
+  String get editMedicine => 'Edit medicine';
+
+  @override
+  String get medicineName => 'Medicine name';
+
+  @override
+  String get medicineNameRequired => 'Medicine name is required.';
+
+  @override
+  String get medicineStrength => 'Strength';
+
+  @override
+  String get medicineDose => 'Dose';
+
+  @override
+  String get medicineFrequency => 'Frequency';
+
+  @override
+  String get medicineStartDate => 'Start date';
+
+  @override
+  String get medicineEndDate => 'End date';
+
+  @override
+  String get medicineReason => 'Reason';
+
+  @override
+  String get medicinePrescriber => 'Prescriber';
+
+  @override
+  String get medicineStatus => 'Status';
+
+  @override
+  String get medicineStatusActive => 'Active';
+
+  @override
+  String get medicineStatusCompleted => 'Completed';
+
+  @override
+  String get medicineStatusStopped => 'Stopped';
+
+  @override
+  String get medicineStatusAsNeeded => 'As needed';
+
+  @override
+  String get medicineSchedule => 'Schedule';
+
+  @override
+  String get medicineAddScheduleTime => 'Add time';
+
+  @override
+  String get saveMedicine => 'Save medicine';
+
+  @override
+  String get deleteMedicineTitle => 'Delete this medicine?';
+
+  @override
+  String get deleteMedicineMessage =>
+      'This medicine record will be removed from this device.';
+
+  @override
+  String get doctorVisitTitle => 'Doctor visits';
+
+  @override
+  String get doctorVisitsEmpty => 'No doctor visits yet.';
+
+  @override
+  String get addDoctorVisit => 'Add doctor visit';
+
+  @override
+  String get editDoctorVisit => 'Edit doctor visit';
+
+  @override
+  String get doctorName => 'Doctor';
+
+  @override
+  String get doctorNameRequired => 'Doctor name is required.';
+
+  @override
+  String get doctorSpecialty => 'Specialty';
+
+  @override
+  String get doctorHospital => 'Chamber / hospital';
+
+  @override
+  String get doctorReason => 'Reason';
+
+  @override
+  String get doctorSymptoms => 'Symptoms';
+
+  @override
+  String get doctorDiagnosis => 'Diagnosis';
+
+  @override
+  String get doctorTests => 'Tests advised';
+
+  @override
+  String get doctorFollowUp => 'Follow-up date';
+
+  @override
+  String get saveDoctorVisit => 'Save visit';
+
+  @override
+  String get deleteDoctorVisitTitle => 'Delete this visit?';
+
+  @override
+  String get deleteDoctorVisitMessage =>
+      'This doctor visit will be removed from this device.';
+
+  @override
+  String get doctorAttachmentsHint => 'Attach a prescription photo or PDF.';
+
+  @override
+  String get medicalDocsTitle => 'Medical documents';
+
+  @override
+  String get medicalDocsEmpty => 'No medical documents yet.';
+
+  @override
+  String get addMedicalDocument => 'Add document';
+
+  @override
+  String get editMedicalDocument => 'Edit document';
+
+  @override
+  String get medicalDocType => 'Document type';
+
+  @override
+  String get medicalDocTitle => 'Title';
+
+  @override
+  String get medicalDocTitleRequired => 'Document title is required.';
+
+  @override
+  String get medicalDocDate => 'Document date';
+
+  @override
+  String get medicalDocNotes => 'Notes';
+
+  @override
+  String get medicalDocFileRequired => 'A file is required.';
+
+  @override
+  String get medicalDocPickFile => 'Choose file';
+
+  @override
+  String get saveMedicalDocument => 'Save document';
+
+  @override
+  String get deleteMedicalDocumentTitle => 'Delete this document?';
+
+  @override
+  String get deleteMedicalDocumentMessage =>
+      'This medical document will be removed from this device.';
+
+  @override
+  String get docTypePrescription => 'Prescription';
+
+  @override
+  String get docTypeDiagnostic => 'Diagnostic report';
+
+  @override
+  String get docTypeVaccinationCard => 'Vaccination card';
+
+  @override
+  String get docTypeDischarge => 'Discharge summary';
+
+  @override
+  String get docTypeCertificate => 'Medical certificate';
+
+  @override
+  String get docTypeOther => 'Other';
 }

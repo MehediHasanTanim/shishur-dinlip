@@ -1038,4 +1038,409 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get kindAchievement => 'অর্জন';
+
+  @override
+  String get healthTitle => 'স্বাস্থ্য';
+
+  @override
+  String get healthSummary => 'স্বাস্থ্য সারসংক্ষেপ';
+
+  @override
+  String get healthDisclaimerShort =>
+      'অভিভাবকের নোট — চিকিৎসা পরামর্শের বিকল্প নয়।';
+
+  @override
+  String get healthDisclaimerFull =>
+      'শিশুর দিনলিপিতে তথ্য অভিভাবক বা যত্নকারী লিখে রাখেন। এটি অফিসিয়াল মেডিকেল রেকর্ড বা পেশাদার চিকিৎসা পরামর্শের বিকল্প নয়।';
+
+  @override
+  String get healthBloodGroup => 'রক্তের গ্রুপ';
+
+  @override
+  String get healthLatestGrowth => 'সর্বশেষ বৃদ্ধি';
+
+  @override
+  String get healthCurrentMedicine => 'চলতি ওষুধ';
+
+  @override
+  String get healthRecentIllness => 'সাম্প্রতিক অসুস্থতা';
+
+  @override
+  String get healthVaccination => 'টিকা';
+
+  @override
+  String get healthLastDoctorVisit => 'শেষ ডাক্তার দেখা';
+
+  @override
+  String get healthUpcoming => 'আসন্ন';
+
+  @override
+  String get healthGridVaccinations => 'টিকা';
+
+  @override
+  String get healthGridIllness => 'অসুস্থতার ইতিহাস';
+
+  @override
+  String get healthGridMedicines => 'ওষুধ';
+
+  @override
+  String get healthGridDoctorVisits => 'ডাক্তার দেখা';
+
+  @override
+  String get healthGridDocuments => 'নথি';
+
+  @override
+  String get healthEmpty => 'এখনো কোনো স্বাস্থ্য রেকর্ড নেই। প্রথমটি যোগ করুন।';
+
+  @override
+  String get healthAdd => 'যোগ করুন';
+
+  @override
+  String get commonNone => 'নেই';
+
+  @override
+  String get commonNotes => 'নোট';
+
+  @override
+  String get vaccinationTitle => 'টিকা';
+
+  @override
+  String get vaccinationsEmpty => 'এখনো কোনো টিকা নেই।';
+
+  @override
+  String get addVaccination => 'টিকা যোগ করুন';
+
+  @override
+  String get editVaccination => 'টিকা সম্পাদনা';
+
+  @override
+  String get vaccineName => 'টিকার নাম';
+
+  @override
+  String get vaccineNameRequired => 'টিকার নাম আবশ্যক।';
+
+  @override
+  String get vaccineDose => 'ডোজ';
+
+  @override
+  String get vaccineScheduledDate => 'নির্ধারিত তারিখ';
+
+  @override
+  String get vaccineGivenDate => 'দেওয়ার তারিখ';
+
+  @override
+  String get vaccineProvider => 'প্রদানকারী';
+
+  @override
+  String get vaccineClinic => 'ক্লিনিক';
+
+  @override
+  String get vaccineBatch => 'ব্যাচ নম্বর';
+
+  @override
+  String get vaccineStatus => 'অবস্থা';
+
+  @override
+  String get vaccineStatusUpcoming => 'আসন্ন';
+
+  @override
+  String get vaccineStatusCompleted => 'সম্পন্ন';
+
+  @override
+  String get vaccineStatusDelayed => 'বিলম্বিত';
+
+  @override
+  String get vaccineStatusSkipped => 'বাদ';
+
+  @override
+  String get vaccineStatusUnknown => 'অজানা';
+
+  @override
+  String get saveVaccination => 'টিকা সংরক্ষণ';
+
+  @override
+  String get deleteVaccinationTitle => 'এই টিকা মুছবেন?';
+
+  @override
+  String get deleteVaccinationMessage => 'এই টিকার রেকর্ড এই ডিভাইস থেকে সরবে।';
+
+  @override
+  String get vaccineAttachmentsHint => 'টিকা কার্ডের ছবি বা PDF যোগ করুন।';
+
+  @override
+  String get illnessTitle => 'অসুস্থতার ইতিহাস';
+
+  @override
+  String get illnessesEmpty => 'এখনো কোনো অসুস্থতার রেকর্ড নেই।';
+
+  @override
+  String get addIllness => 'অসুস্থতা যোগ করুন';
+
+  @override
+  String get editIllness => 'অসুস্থতা সম্পাদনা';
+
+  @override
+  String get illnessTitleField => 'শিরোনাম';
+
+  @override
+  String get illnessTitleRequired => 'অসুস্থতার শিরোনাম আবশ্যক।';
+
+  @override
+  String get illnessStartDate => 'শুরুর তারিখ';
+
+  @override
+  String get illnessEndDate => 'শেষ তারিখ';
+
+  @override
+  String get illnessOngoing => 'এখনো সুস্থ হয়নি (শেষ তারিখ নেই)';
+
+  @override
+  String get illnessClearEndDate => 'শেষ তারিখ সরান';
+
+  @override
+  String get illnessSymptoms => 'লক্ষণ';
+
+  @override
+  String get illnessTemperature => 'সর্বোচ্চ তাপমাত্রা (°C)';
+
+  @override
+  String get illnessDiagnosis => 'রোগ নির্ণয়';
+
+  @override
+  String get illnessRecoveryNote => 'সুস্থ হওয়ার নোট';
+
+  @override
+  String get illnessLinkedVisit => 'সংযুক্ত ডাক্তার দেখা';
+
+  @override
+  String get illnessNoLinkedVisit => 'নেই';
+
+  @override
+  String get saveIllness => 'অসুস্থতা সংরক্ষণ';
+
+  @override
+  String get deleteIllnessTitle => 'এই অসুস্থতা মুছবেন?';
+
+  @override
+  String get deleteIllnessMessage => 'এই অসুস্থতার রেকর্ড এই ডিভাইস থেকে সরবে।';
+
+  @override
+  String get illnessAttachmentsHint => 'এই অসুস্থতার ছবি বা নথি যোগ করুন।';
+
+  @override
+  String get symptomFever => 'জ্বর';
+
+  @override
+  String get symptomCough => 'কাশি';
+
+  @override
+  String get symptomCold => 'সর্দি';
+
+  @override
+  String get symptomVomiting => 'বমি';
+
+  @override
+  String get symptomDiarrhea => 'ডায়রিয়া';
+
+  @override
+  String get symptomRash => 'র‍্যাশ';
+
+  @override
+  String get symptomHeadache => 'মাথাব্যথা';
+
+  @override
+  String get symptomStomachPain => 'পেটব্যথা';
+
+  @override
+  String get symptomBreathing => 'শ্বাসকষ্ট';
+
+  @override
+  String get symptomAllergy => 'অ্যালার্জি';
+
+  @override
+  String get symptomInjury => 'আঘাত';
+
+  @override
+  String get symptomOther => 'অন্যান্য';
+
+  @override
+  String get medicineTitle => 'ওষুধ';
+
+  @override
+  String get medicinesEmpty => 'এখনো কোনো ওষুধ নেই।';
+
+  @override
+  String get addMedicine => 'ওষুধ যোগ করুন';
+
+  @override
+  String get editMedicine => 'ওষুধ সম্পাদনা';
+
+  @override
+  String get medicineName => 'ওষুধের নাম';
+
+  @override
+  String get medicineNameRequired => 'ওষুধের নাম আবশ্যক।';
+
+  @override
+  String get medicineStrength => 'শক্তি';
+
+  @override
+  String get medicineDose => 'ডোজ';
+
+  @override
+  String get medicineFrequency => 'পরিমাণ/সময়';
+
+  @override
+  String get medicineStartDate => 'শুরুর তারিখ';
+
+  @override
+  String get medicineEndDate => 'শেষ তারিখ';
+
+  @override
+  String get medicineReason => 'কারণ';
+
+  @override
+  String get medicinePrescriber => 'প্রেসক্রাইবার';
+
+  @override
+  String get medicineStatus => 'অবস্থা';
+
+  @override
+  String get medicineStatusActive => 'চলমান';
+
+  @override
+  String get medicineStatusCompleted => 'সম্পন্ন';
+
+  @override
+  String get medicineStatusStopped => 'বন্ধ';
+
+  @override
+  String get medicineStatusAsNeeded => 'প্রয়োজনমতো';
+
+  @override
+  String get medicineSchedule => 'সময়সূচি';
+
+  @override
+  String get medicineAddScheduleTime => 'সময় যোগ করুন';
+
+  @override
+  String get saveMedicine => 'ওষুধ সংরক্ষণ';
+
+  @override
+  String get deleteMedicineTitle => 'এই ওষুধ মুছবেন?';
+
+  @override
+  String get deleteMedicineMessage => 'এই ওষুধের রেকর্ড এই ডিভাইস থেকে সরবে।';
+
+  @override
+  String get doctorVisitTitle => 'ডাক্তার দেখা';
+
+  @override
+  String get doctorVisitsEmpty => 'এখনো কোনো ডাক্তার দেখা নেই।';
+
+  @override
+  String get addDoctorVisit => 'ডাক্তার দেখা যোগ করুন';
+
+  @override
+  String get editDoctorVisit => 'ডাক্তার দেখা সম্পাদনা';
+
+  @override
+  String get doctorName => 'ডাক্তার';
+
+  @override
+  String get doctorNameRequired => 'ডাক্তারের নাম আবশ্যক।';
+
+  @override
+  String get doctorSpecialty => 'বিশেষত্ব';
+
+  @override
+  String get doctorHospital => 'চেম্বার / হাসপাতাল';
+
+  @override
+  String get doctorReason => 'কারণ';
+
+  @override
+  String get doctorSymptoms => 'লক্ষণ';
+
+  @override
+  String get doctorDiagnosis => 'রোগ নির্ণয়';
+
+  @override
+  String get doctorTests => 'পরীক্ষা পরামর্শ';
+
+  @override
+  String get doctorFollowUp => 'ফলো-আপ তারিখ';
+
+  @override
+  String get saveDoctorVisit => 'দেখা সংরক্ষণ';
+
+  @override
+  String get deleteDoctorVisitTitle => 'এই দেখা মুছবেন?';
+
+  @override
+  String get deleteDoctorVisitMessage => 'এই ডাক্তার দেখা এই ডিভাইস থেকে সরবে।';
+
+  @override
+  String get doctorAttachmentsHint => 'প্রেসক্রিপশনের ছবি বা PDF যোগ করুন।';
+
+  @override
+  String get medicalDocsTitle => 'মেডিকেল নথি';
+
+  @override
+  String get medicalDocsEmpty => 'এখনো কোনো মেডিকেল নথি নেই।';
+
+  @override
+  String get addMedicalDocument => 'নথি যোগ করুন';
+
+  @override
+  String get editMedicalDocument => 'নথি সম্পাদনা';
+
+  @override
+  String get medicalDocType => 'নথির ধরন';
+
+  @override
+  String get medicalDocTitle => 'শিরোনাম';
+
+  @override
+  String get medicalDocTitleRequired => 'নথির শিরোনাম আবশ্যক।';
+
+  @override
+  String get medicalDocDate => 'নথির তারিখ';
+
+  @override
+  String get medicalDocNotes => 'নোট';
+
+  @override
+  String get medicalDocFileRequired => 'একটি ফাইল আবশ্যক।';
+
+  @override
+  String get medicalDocPickFile => 'ফাইল বেছে নিন';
+
+  @override
+  String get saveMedicalDocument => 'নথি সংরক্ষণ';
+
+  @override
+  String get deleteMedicalDocumentTitle => 'এই নথি মুছবেন?';
+
+  @override
+  String get deleteMedicalDocumentMessage =>
+      'এই মেডিকেল নথি এই ডিভাইস থেকে সরবে।';
+
+  @override
+  String get docTypePrescription => 'প্রেসক্রিপশন';
+
+  @override
+  String get docTypeDiagnostic => 'ডায়াগনস্টিক রিপোর্ট';
+
+  @override
+  String get docTypeVaccinationCard => 'টিকা কার্ড';
+
+  @override
+  String get docTypeDischarge => 'ডিসচার্জ সামারি';
+
+  @override
+  String get docTypeCertificate => 'মেডিকেল সনদ';
+
+  @override
+  String get docTypeOther => 'অন্যান্য';
 }

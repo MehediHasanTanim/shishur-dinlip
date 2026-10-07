@@ -2113,6 +2113,810 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Achievement'**
   String get kindAchievement;
+
+  /// No description provided for @healthTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Health'**
+  String get healthTitle;
+
+  /// No description provided for @healthSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Health summary'**
+  String get healthSummary;
+
+  /// No description provided for @healthDisclaimerShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Parent-entered notes — not a substitute for medical advice.'**
+  String get healthDisclaimerShort;
+
+  /// No description provided for @healthDisclaimerFull.
+  ///
+  /// In en, this message translates to:
+  /// **'Information in Shishur Dinlipi is entered by the parent or caregiver and should not replace official medical records or professional medical advice.'**
+  String get healthDisclaimerFull;
+
+  /// No description provided for @healthBloodGroup.
+  ///
+  /// In en, this message translates to:
+  /// **'Blood group'**
+  String get healthBloodGroup;
+
+  /// No description provided for @healthLatestGrowth.
+  ///
+  /// In en, this message translates to:
+  /// **'Latest growth'**
+  String get healthLatestGrowth;
+
+  /// No description provided for @healthCurrentMedicine.
+  ///
+  /// In en, this message translates to:
+  /// **'Current medicine'**
+  String get healthCurrentMedicine;
+
+  /// No description provided for @healthRecentIllness.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent illness'**
+  String get healthRecentIllness;
+
+  /// No description provided for @healthVaccination.
+  ///
+  /// In en, this message translates to:
+  /// **'Vaccination'**
+  String get healthVaccination;
+
+  /// No description provided for @healthLastDoctorVisit.
+  ///
+  /// In en, this message translates to:
+  /// **'Last doctor visit'**
+  String get healthLastDoctorVisit;
+
+  /// No description provided for @healthUpcoming.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming'**
+  String get healthUpcoming;
+
+  /// No description provided for @healthGridVaccinations.
+  ///
+  /// In en, this message translates to:
+  /// **'Vaccinations'**
+  String get healthGridVaccinations;
+
+  /// No description provided for @healthGridIllness.
+  ///
+  /// In en, this message translates to:
+  /// **'Illness history'**
+  String get healthGridIllness;
+
+  /// No description provided for @healthGridMedicines.
+  ///
+  /// In en, this message translates to:
+  /// **'Medicines'**
+  String get healthGridMedicines;
+
+  /// No description provided for @healthGridDoctorVisits.
+  ///
+  /// In en, this message translates to:
+  /// **'Doctor visits'**
+  String get healthGridDoctorVisits;
+
+  /// No description provided for @healthGridDocuments.
+  ///
+  /// In en, this message translates to:
+  /// **'Documents'**
+  String get healthGridDocuments;
+
+  /// No description provided for @healthEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No health records yet. Add the first one.'**
+  String get healthEmpty;
+
+  /// No description provided for @healthAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get healthAdd;
+
+  /// No description provided for @commonNone.
+  ///
+  /// In en, this message translates to:
+  /// **'None'**
+  String get commonNone;
+
+  /// No description provided for @commonNotes.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get commonNotes;
+
+  /// No description provided for @vaccinationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Vaccinations'**
+  String get vaccinationTitle;
+
+  /// No description provided for @vaccinationsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No vaccinations yet.'**
+  String get vaccinationsEmpty;
+
+  /// No description provided for @addVaccination.
+  ///
+  /// In en, this message translates to:
+  /// **'Add vaccination'**
+  String get addVaccination;
+
+  /// No description provided for @editVaccination.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit vaccination'**
+  String get editVaccination;
+
+  /// No description provided for @vaccineName.
+  ///
+  /// In en, this message translates to:
+  /// **'Vaccine name'**
+  String get vaccineName;
+
+  /// No description provided for @vaccineNameRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Vaccine name is required.'**
+  String get vaccineNameRequired;
+
+  /// No description provided for @vaccineDose.
+  ///
+  /// In en, this message translates to:
+  /// **'Dose'**
+  String get vaccineDose;
+
+  /// No description provided for @vaccineScheduledDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Scheduled date'**
+  String get vaccineScheduledDate;
+
+  /// No description provided for @vaccineGivenDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Given date'**
+  String get vaccineGivenDate;
+
+  /// No description provided for @vaccineProvider.
+  ///
+  /// In en, this message translates to:
+  /// **'Provider'**
+  String get vaccineProvider;
+
+  /// No description provided for @vaccineClinic.
+  ///
+  /// In en, this message translates to:
+  /// **'Clinic'**
+  String get vaccineClinic;
+
+  /// No description provided for @vaccineBatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Batch number'**
+  String get vaccineBatch;
+
+  /// No description provided for @vaccineStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get vaccineStatus;
+
+  /// No description provided for @vaccineStatusUpcoming.
+  ///
+  /// In en, this message translates to:
+  /// **'Upcoming'**
+  String get vaccineStatusUpcoming;
+
+  /// No description provided for @vaccineStatusCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed'**
+  String get vaccineStatusCompleted;
+
+  /// No description provided for @vaccineStatusDelayed.
+  ///
+  /// In en, this message translates to:
+  /// **'Delayed'**
+  String get vaccineStatusDelayed;
+
+  /// No description provided for @vaccineStatusSkipped.
+  ///
+  /// In en, this message translates to:
+  /// **'Skipped'**
+  String get vaccineStatusSkipped;
+
+  /// No description provided for @vaccineStatusUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown'**
+  String get vaccineStatusUnknown;
+
+  /// No description provided for @saveVaccination.
+  ///
+  /// In en, this message translates to:
+  /// **'Save vaccination'**
+  String get saveVaccination;
+
+  /// No description provided for @deleteVaccinationTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this vaccination?'**
+  String get deleteVaccinationTitle;
+
+  /// No description provided for @deleteVaccinationMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This vaccination record will be removed from this device.'**
+  String get deleteVaccinationMessage;
+
+  /// No description provided for @vaccineAttachmentsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Attach a vaccination card photo or PDF.'**
+  String get vaccineAttachmentsHint;
+
+  /// No description provided for @illnessTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Illness history'**
+  String get illnessTitle;
+
+  /// No description provided for @illnessesEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No illness episodes yet.'**
+  String get illnessesEmpty;
+
+  /// No description provided for @addIllness.
+  ///
+  /// In en, this message translates to:
+  /// **'Add illness'**
+  String get addIllness;
+
+  /// No description provided for @editIllness.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit illness'**
+  String get editIllness;
+
+  /// No description provided for @illnessTitleField.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get illnessTitleField;
+
+  /// No description provided for @illnessTitleRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Illness title is required.'**
+  String get illnessTitleRequired;
+
+  /// No description provided for @illnessStartDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Start date'**
+  String get illnessStartDate;
+
+  /// No description provided for @illnessEndDate.
+  ///
+  /// In en, this message translates to:
+  /// **'End date'**
+  String get illnessEndDate;
+
+  /// No description provided for @illnessOngoing.
+  ///
+  /// In en, this message translates to:
+  /// **'Still recovering (no end date)'**
+  String get illnessOngoing;
+
+  /// No description provided for @illnessClearEndDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear end date'**
+  String get illnessClearEndDate;
+
+  /// No description provided for @illnessSymptoms.
+  ///
+  /// In en, this message translates to:
+  /// **'Symptoms'**
+  String get illnessSymptoms;
+
+  /// No description provided for @illnessTemperature.
+  ///
+  /// In en, this message translates to:
+  /// **'Max temperature (°C)'**
+  String get illnessTemperature;
+
+  /// No description provided for @illnessDiagnosis.
+  ///
+  /// In en, this message translates to:
+  /// **'Diagnosis'**
+  String get illnessDiagnosis;
+
+  /// No description provided for @illnessRecoveryNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Recovery note'**
+  String get illnessRecoveryNote;
+
+  /// No description provided for @illnessLinkedVisit.
+  ///
+  /// In en, this message translates to:
+  /// **'Linked doctor visit'**
+  String get illnessLinkedVisit;
+
+  /// No description provided for @illnessNoLinkedVisit.
+  ///
+  /// In en, this message translates to:
+  /// **'None'**
+  String get illnessNoLinkedVisit;
+
+  /// No description provided for @saveIllness.
+  ///
+  /// In en, this message translates to:
+  /// **'Save illness'**
+  String get saveIllness;
+
+  /// No description provided for @deleteIllnessTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this illness?'**
+  String get deleteIllnessTitle;
+
+  /// No description provided for @deleteIllnessMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This illness record will be removed from this device.'**
+  String get deleteIllnessMessage;
+
+  /// No description provided for @illnessAttachmentsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Attach photos or documents from this illness.'**
+  String get illnessAttachmentsHint;
+
+  /// No description provided for @symptomFever.
+  ///
+  /// In en, this message translates to:
+  /// **'Fever'**
+  String get symptomFever;
+
+  /// No description provided for @symptomCough.
+  ///
+  /// In en, this message translates to:
+  /// **'Cough'**
+  String get symptomCough;
+
+  /// No description provided for @symptomCold.
+  ///
+  /// In en, this message translates to:
+  /// **'Cold'**
+  String get symptomCold;
+
+  /// No description provided for @symptomVomiting.
+  ///
+  /// In en, this message translates to:
+  /// **'Vomiting'**
+  String get symptomVomiting;
+
+  /// No description provided for @symptomDiarrhea.
+  ///
+  /// In en, this message translates to:
+  /// **'Diarrhea'**
+  String get symptomDiarrhea;
+
+  /// No description provided for @symptomRash.
+  ///
+  /// In en, this message translates to:
+  /// **'Rash'**
+  String get symptomRash;
+
+  /// No description provided for @symptomHeadache.
+  ///
+  /// In en, this message translates to:
+  /// **'Headache'**
+  String get symptomHeadache;
+
+  /// No description provided for @symptomStomachPain.
+  ///
+  /// In en, this message translates to:
+  /// **'Stomach pain'**
+  String get symptomStomachPain;
+
+  /// No description provided for @symptomBreathing.
+  ///
+  /// In en, this message translates to:
+  /// **'Breathing difficulty'**
+  String get symptomBreathing;
+
+  /// No description provided for @symptomAllergy.
+  ///
+  /// In en, this message translates to:
+  /// **'Allergy'**
+  String get symptomAllergy;
+
+  /// No description provided for @symptomInjury.
+  ///
+  /// In en, this message translates to:
+  /// **'Injury'**
+  String get symptomInjury;
+
+  /// No description provided for @symptomOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get symptomOther;
+
+  /// No description provided for @medicineTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Medicines'**
+  String get medicineTitle;
+
+  /// No description provided for @medicinesEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No medicines yet.'**
+  String get medicinesEmpty;
+
+  /// No description provided for @addMedicine.
+  ///
+  /// In en, this message translates to:
+  /// **'Add medicine'**
+  String get addMedicine;
+
+  /// No description provided for @editMedicine.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit medicine'**
+  String get editMedicine;
+
+  /// No description provided for @medicineName.
+  ///
+  /// In en, this message translates to:
+  /// **'Medicine name'**
+  String get medicineName;
+
+  /// No description provided for @medicineNameRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Medicine name is required.'**
+  String get medicineNameRequired;
+
+  /// No description provided for @medicineStrength.
+  ///
+  /// In en, this message translates to:
+  /// **'Strength'**
+  String get medicineStrength;
+
+  /// No description provided for @medicineDose.
+  ///
+  /// In en, this message translates to:
+  /// **'Dose'**
+  String get medicineDose;
+
+  /// No description provided for @medicineFrequency.
+  ///
+  /// In en, this message translates to:
+  /// **'Frequency'**
+  String get medicineFrequency;
+
+  /// No description provided for @medicineStartDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Start date'**
+  String get medicineStartDate;
+
+  /// No description provided for @medicineEndDate.
+  ///
+  /// In en, this message translates to:
+  /// **'End date'**
+  String get medicineEndDate;
+
+  /// No description provided for @medicineReason.
+  ///
+  /// In en, this message translates to:
+  /// **'Reason'**
+  String get medicineReason;
+
+  /// No description provided for @medicinePrescriber.
+  ///
+  /// In en, this message translates to:
+  /// **'Prescriber'**
+  String get medicinePrescriber;
+
+  /// No description provided for @medicineStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get medicineStatus;
+
+  /// No description provided for @medicineStatusActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Active'**
+  String get medicineStatusActive;
+
+  /// No description provided for @medicineStatusCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed'**
+  String get medicineStatusCompleted;
+
+  /// No description provided for @medicineStatusStopped.
+  ///
+  /// In en, this message translates to:
+  /// **'Stopped'**
+  String get medicineStatusStopped;
+
+  /// No description provided for @medicineStatusAsNeeded.
+  ///
+  /// In en, this message translates to:
+  /// **'As needed'**
+  String get medicineStatusAsNeeded;
+
+  /// No description provided for @medicineSchedule.
+  ///
+  /// In en, this message translates to:
+  /// **'Schedule'**
+  String get medicineSchedule;
+
+  /// No description provided for @medicineAddScheduleTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Add time'**
+  String get medicineAddScheduleTime;
+
+  /// No description provided for @saveMedicine.
+  ///
+  /// In en, this message translates to:
+  /// **'Save medicine'**
+  String get saveMedicine;
+
+  /// No description provided for @deleteMedicineTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this medicine?'**
+  String get deleteMedicineTitle;
+
+  /// No description provided for @deleteMedicineMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This medicine record will be removed from this device.'**
+  String get deleteMedicineMessage;
+
+  /// No description provided for @doctorVisitTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Doctor visits'**
+  String get doctorVisitTitle;
+
+  /// No description provided for @doctorVisitsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No doctor visits yet.'**
+  String get doctorVisitsEmpty;
+
+  /// No description provided for @addDoctorVisit.
+  ///
+  /// In en, this message translates to:
+  /// **'Add doctor visit'**
+  String get addDoctorVisit;
+
+  /// No description provided for @editDoctorVisit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit doctor visit'**
+  String get editDoctorVisit;
+
+  /// No description provided for @doctorName.
+  ///
+  /// In en, this message translates to:
+  /// **'Doctor'**
+  String get doctorName;
+
+  /// No description provided for @doctorNameRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Doctor name is required.'**
+  String get doctorNameRequired;
+
+  /// No description provided for @doctorSpecialty.
+  ///
+  /// In en, this message translates to:
+  /// **'Specialty'**
+  String get doctorSpecialty;
+
+  /// No description provided for @doctorHospital.
+  ///
+  /// In en, this message translates to:
+  /// **'Chamber / hospital'**
+  String get doctorHospital;
+
+  /// No description provided for @doctorReason.
+  ///
+  /// In en, this message translates to:
+  /// **'Reason'**
+  String get doctorReason;
+
+  /// No description provided for @doctorSymptoms.
+  ///
+  /// In en, this message translates to:
+  /// **'Symptoms'**
+  String get doctorSymptoms;
+
+  /// No description provided for @doctorDiagnosis.
+  ///
+  /// In en, this message translates to:
+  /// **'Diagnosis'**
+  String get doctorDiagnosis;
+
+  /// No description provided for @doctorTests.
+  ///
+  /// In en, this message translates to:
+  /// **'Tests advised'**
+  String get doctorTests;
+
+  /// No description provided for @doctorFollowUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Follow-up date'**
+  String get doctorFollowUp;
+
+  /// No description provided for @saveDoctorVisit.
+  ///
+  /// In en, this message translates to:
+  /// **'Save visit'**
+  String get saveDoctorVisit;
+
+  /// No description provided for @deleteDoctorVisitTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this visit?'**
+  String get deleteDoctorVisitTitle;
+
+  /// No description provided for @deleteDoctorVisitMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This doctor visit will be removed from this device.'**
+  String get deleteDoctorVisitMessage;
+
+  /// No description provided for @doctorAttachmentsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Attach a prescription photo or PDF.'**
+  String get doctorAttachmentsHint;
+
+  /// No description provided for @medicalDocsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Medical documents'**
+  String get medicalDocsTitle;
+
+  /// No description provided for @medicalDocsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No medical documents yet.'**
+  String get medicalDocsEmpty;
+
+  /// No description provided for @addMedicalDocument.
+  ///
+  /// In en, this message translates to:
+  /// **'Add document'**
+  String get addMedicalDocument;
+
+  /// No description provided for @editMedicalDocument.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit document'**
+  String get editMedicalDocument;
+
+  /// No description provided for @medicalDocType.
+  ///
+  /// In en, this message translates to:
+  /// **'Document type'**
+  String get medicalDocType;
+
+  /// No description provided for @medicalDocTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get medicalDocTitle;
+
+  /// No description provided for @medicalDocTitleRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Document title is required.'**
+  String get medicalDocTitleRequired;
+
+  /// No description provided for @medicalDocDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Document date'**
+  String get medicalDocDate;
+
+  /// No description provided for @medicalDocNotes.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get medicalDocNotes;
+
+  /// No description provided for @medicalDocFileRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'A file is required.'**
+  String get medicalDocFileRequired;
+
+  /// No description provided for @medicalDocPickFile.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose file'**
+  String get medicalDocPickFile;
+
+  /// No description provided for @saveMedicalDocument.
+  ///
+  /// In en, this message translates to:
+  /// **'Save document'**
+  String get saveMedicalDocument;
+
+  /// No description provided for @deleteMedicalDocumentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this document?'**
+  String get deleteMedicalDocumentTitle;
+
+  /// No description provided for @deleteMedicalDocumentMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This medical document will be removed from this device.'**
+  String get deleteMedicalDocumentMessage;
+
+  /// No description provided for @docTypePrescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Prescription'**
+  String get docTypePrescription;
+
+  /// No description provided for @docTypeDiagnostic.
+  ///
+  /// In en, this message translates to:
+  /// **'Diagnostic report'**
+  String get docTypeDiagnostic;
+
+  /// No description provided for @docTypeVaccinationCard.
+  ///
+  /// In en, this message translates to:
+  /// **'Vaccination card'**
+  String get docTypeVaccinationCard;
+
+  /// No description provided for @docTypeDischarge.
+  ///
+  /// In en, this message translates to:
+  /// **'Discharge summary'**
+  String get docTypeDischarge;
+
+  /// No description provided for @docTypeCertificate.
+  ///
+  /// In en, this message translates to:
+  /// **'Medical certificate'**
+  String get docTypeCertificate;
+
+  /// No description provided for @docTypeOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get docTypeOther;
 }
 
 class _AppLocalizationsDelegate

@@ -24,6 +24,22 @@ import 'package:shishur_dinlipi/features/development/milestone_editor_screen.dar
 import 'package:shishur_dinlipi/features/development/milestone_list_screen.dart';
 import 'package:shishur_dinlipi/features/development/milestone_templates.dart';
 import 'package:shishur_dinlipi/features/development/milestones_overview_screen.dart';
+import 'package:shishur_dinlipi/features/health/doctor_visit_detail_screen.dart';
+import 'package:shishur_dinlipi/features/health/doctor_visit_editor_screen.dart';
+import 'package:shishur_dinlipi/features/health/doctor_visit_list_screen.dart';
+import 'package:shishur_dinlipi/features/health/health_overview_screen.dart';
+import 'package:shishur_dinlipi/features/health/illness_detail_screen.dart';
+import 'package:shishur_dinlipi/features/health/illness_editor_screen.dart';
+import 'package:shishur_dinlipi/features/health/illness_list_screen.dart';
+import 'package:shishur_dinlipi/features/health/medical_document_detail_screen.dart';
+import 'package:shishur_dinlipi/features/health/medical_document_editor_screen.dart';
+import 'package:shishur_dinlipi/features/health/medical_document_list_screen.dart';
+import 'package:shishur_dinlipi/features/health/medicine_detail_screen.dart';
+import 'package:shishur_dinlipi/features/health/medicine_editor_screen.dart';
+import 'package:shishur_dinlipi/features/health/medicine_list_screen.dart';
+import 'package:shishur_dinlipi/features/health/vaccination_detail_screen.dart';
+import 'package:shishur_dinlipi/features/health/vaccination_editor_screen.dart';
+import 'package:shishur_dinlipi/features/health/vaccination_list_screen.dart';
 import 'package:shishur_dinlipi/features/school/school_event_detail_screen.dart';
 import 'package:shishur_dinlipi/features/school/school_event_editor_screen.dart';
 import 'package:shishur_dinlipi/features/school/school_overview_screen.dart';
@@ -362,6 +378,141 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             parentNavigatorKey: _rootNavigatorKey,
             builder: (context, state) => SchoolEventEditorScreen(
               eventId: state.pathParameters['id'],
+            ),
+          ),
+        ],
+      ),
+      GoRoute(
+        path: AppRoutes.health,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const HealthOverviewScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.vaccinations,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const VaccinationListScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.vaccinationCreate,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const VaccinationEditorScreen(),
+      ),
+      GoRoute(
+        path: '/health/vaccinations/:id',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => VaccinationDetailScreen(
+          vaccinationId: state.pathParameters['id']!,
+        ),
+        routes: [
+          GoRoute(
+            path: 'edit',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (context, state) => VaccinationEditorScreen(
+              vaccinationId: state.pathParameters['id'],
+            ),
+          ),
+        ],
+      ),
+      GoRoute(
+        path: AppRoutes.illnesses,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const IllnessListScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.illnessCreate,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const IllnessEditorScreen(),
+      ),
+      GoRoute(
+        path: '/health/illnesses/:id',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => IllnessDetailScreen(
+          illnessId: state.pathParameters['id']!,
+        ),
+        routes: [
+          GoRoute(
+            path: 'edit',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (context, state) => IllnessEditorScreen(
+              illnessId: state.pathParameters['id'],
+            ),
+          ),
+        ],
+      ),
+      GoRoute(
+        path: AppRoutes.medicines,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const MedicineListScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.medicineCreate,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const MedicineEditorScreen(),
+      ),
+      GoRoute(
+        path: '/health/medicines/:id',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => MedicineDetailScreen(
+          medicineId: state.pathParameters['id']!,
+        ),
+        routes: [
+          GoRoute(
+            path: 'edit',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (context, state) => MedicineEditorScreen(
+              medicineId: state.pathParameters['id'],
+            ),
+          ),
+        ],
+      ),
+      GoRoute(
+        path: AppRoutes.doctorVisits,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const DoctorVisitListScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.doctorVisitCreate,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const DoctorVisitEditorScreen(),
+      ),
+      GoRoute(
+        path: '/health/doctor-visits/:id',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => DoctorVisitDetailScreen(
+          visitId: state.pathParameters['id']!,
+        ),
+        routes: [
+          GoRoute(
+            path: 'edit',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (context, state) => DoctorVisitEditorScreen(
+              visitId: state.pathParameters['id'],
+            ),
+          ),
+        ],
+      ),
+      GoRoute(
+        path: AppRoutes.medicalDocuments,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const MedicalDocumentListScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.medicalDocumentCreate,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const MedicalDocumentEditorScreen(),
+      ),
+      GoRoute(
+        path: '/health/documents/:id',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => MedicalDocumentDetailScreen(
+          documentId: state.pathParameters['id']!,
+        ),
+        routes: [
+          GoRoute(
+            path: 'edit',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (context, state) => MedicalDocumentEditorScreen(
+              documentId: state.pathParameters['id'],
             ),
           ),
         ],
