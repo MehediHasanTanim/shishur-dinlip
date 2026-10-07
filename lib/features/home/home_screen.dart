@@ -8,8 +8,10 @@ import 'package:shishur_dinlipi/features/children/child_controller.dart';
 import 'package:shishur_dinlipi/features/children/widgets/child_switcher_sheet.dart';
 import 'package:shishur_dinlipi/core/domain/unit_conversion.dart';
 import 'package:shishur_dinlipi/core/settings/app_settings.dart';
+import 'package:shishur_dinlipi/core/di/core_providers.dart';
 import 'package:shishur_dinlipi/features/development/growth_providers.dart';
 import 'package:shishur_dinlipi/features/memories/recent_memories_provider.dart';
+import 'package:shishur_dinlipi/features/school/school_providers.dart';
 import 'package:shishur_dinlipi/l10n/app_localizations.dart';
 import 'package:shishur_dinlipi/shared/widgets/child_avatar.dart';
 
@@ -156,14 +158,18 @@ class HomeScreen extends ConsumerWidget {
                     const _RecentMemoriesSection(),
                     const SizedBox(height: 24),
                     Text(
+                      l10n.schoolDashboard,
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
+                    const SizedBox(height: 8),
+                    const _SchoolDashboardSection(),
+                    const SizedBox(height: 24),
+                    Text(
                       l10n.upcoming,
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     const SizedBox(height: 8),
-                    _PlaceholderCard(
-                      icon: Icons.notifications_none,
-                      message: l10n.upcomingEmpty,
-                    ),
+                    const _UpcomingSection(),
                   ],
                 ),
               ),
@@ -433,6 +439,132 @@ class _Thumb extends StatelessWidget {
               )
             : Image.file(file, fit: BoxFit.cover),
       ),
+    );
+  }
+}
+
+class _SchoolDashboardSection extends ConsumerWidget {
+  const _SchoolDashboardSection();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final recentSchool = ref.watch(recentSchoolEventProvider);
+    final child = ref.watch(selectedChildProvider).valueOrNull;
+
+    return Column(
+      children: [
+        recentSchool.when(
+          loading: () => const LinearProgressIndicator(),
+          error: (_, _) => Text(l10n.errorGeneric),
+          data: (event) {
+            if (event == null) {
+              return Card(
+                child: ListTile(
+                  leading: const Icon(Icons.school_outlined),
+                  title: Text(l10n.schoolEventsEmpty),
+                  trailing: const Icon(Icons.chevron_right),
+                  onTap: () => context.push(AppRoutes.school),
+                ),
+              );
+            }
+            return Card(
+              child: ListTile(
+                leading: Icon(
+                  Icons.school,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+                title: Text(event.title),
+                subtitle: Text(
+                  MaterialLocalizations.of(
+                    context,
+                  ).formatMediumDate(event.eventDate),
+                ),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: () =>
+                    context.push(AppRoutes.schoolEventDetailPath(event.id)),
+              ),
+            );
+          },
+        ),
+        if (child != null)
+          FutureBuilder(
+            future: ref
+                .read(achievementsRepositoryProvider)
+                .forChild(child.id, limit: 1),
+            builder: (context, snapshot) {
+              final list = snapshot.data;
+              if (list == null || list.isEmpty) {
+                return const SizedBox.shrink();
+              }
+              final achievement = list.first;
+              return Padding(
+                padding: const EdgeInsets.only(top: 8),
+                child: Card(
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.emoji_events_outlined,
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+                    title: Text(achievement.title),
+                    subtitle: Text(l10n.kindAchievement),
+                    onTap: () => context.push(
+                      AppRoutes.achievementDetailPath(achievement.id),
+                    ),
+                  ),
+                ),
+              );
+            },
+          ),
+      ],
+    );
+  }
+}
+
+class _UpcomingSection extends ConsumerWidget {
+  const _UpcomingSection();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final upcomingAsync = ref.watch(upcomingSchoolEventsProvider);
+
+    return upcomingAsync.when(
+      loading: () => const LinearProgressIndicator(),
+      error: (_, _) => _PlaceholderCard(
+        icon: Icons.notifications_none,
+        message: l10n.errorGeneric,
+      ),
+      data: (events) {
+        if (events.isEmpty) {
+          return _PlaceholderCard(
+            icon: Icons.notifications_none,
+            message: l10n.upcomingEmpty,
+          );
+        }
+        return Column(
+          children: [
+            for (final event in events)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: Card(
+                  child: ListTile(
+                    leading: const Icon(Icons.event_available_outlined),
+                    title: Text(event.title),
+                    subtitle: Text(
+                      MaterialLocalizations.of(
+                        context,
+                      ).formatMediumDate(event.eventDate),
+                    ),
+                    onTap: () => context.push(
+                      AppRoutes.schoolEventDetailPath(event.id),
+                    ),
+                  ),
+                ),
+              ),
+          ],
+        );
+      },
     );
   }
 }

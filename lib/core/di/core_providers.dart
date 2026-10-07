@@ -13,6 +13,8 @@ import 'package:shishur_dinlipi/core/repository/funny_moments_repository.dart';
 import 'package:shishur_dinlipi/core/repository/growth_repository.dart';
 import 'package:shishur_dinlipi/core/repository/journal_repository.dart';
 import 'package:shishur_dinlipi/core/repository/milestones_repository.dart';
+import 'package:shishur_dinlipi/core/repository/school_events_repository.dart';
+import 'package:shishur_dinlipi/core/repository/school_profiles_repository.dart';
 import 'package:shishur_dinlipi/core/repository/tags_repository.dart';
 import 'package:shishur_dinlipi/core/settings/settings_repository.dart';
 import 'package:shishur_dinlipi/features/children/profile_photo_service.dart';
@@ -112,4 +114,17 @@ final milestonesRepositoryProvider = Provider<MilestonesRepository>((ref) {
 
 final firstWordsRepositoryProvider = Provider<FirstWordsRepository>((ref) {
   return DriftFirstWordsRepository(ref.watch(appDatabaseProvider));
+});
+
+final schoolProfilesRepositoryProvider = Provider<SchoolProfilesRepository>((
+  ref,
+) {
+  return DriftSchoolProfilesRepository(ref.watch(appDatabaseProvider));
+});
+
+final schoolEventsRepositoryProvider = Provider<SchoolEventsRepository>((ref) {
+  return DriftSchoolEventsRepository(
+    ref.watch(appDatabaseProvider),
+    attachments: ref.watch(attachmentRepositoryProvider),
+  );
 });

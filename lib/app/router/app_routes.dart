@@ -30,6 +30,11 @@ abstract final class AppRoutes {
   static const firstWords = '/first-words';
   static const firstWordCreate = '/first-words/create';
 
+  static const school = '/school';
+  static const schoolTimeline = '/school/timeline';
+  static const schoolProfileCreate = '/school/profiles/create';
+  static const schoolEventCreate = '/school/events/create';
+
   static String childDetailPath(String id) => '/children/$id';
   static String childEditPath(String id) => '/children/$id/edit';
 
@@ -67,4 +72,24 @@ abstract final class AppRoutes {
 
   static String firstWordDetailPath(String id) => '/first-words/$id';
   static String firstWordEditPath(String id) => '/first-words/$id/edit';
+
+  static String schoolProfileDetailPath(String id) => '/school/profiles/$id';
+  static String schoolProfileEditPath(String id) => '/school/profiles/$id/edit';
+  static String schoolEventDetailPath(String id) => '/school/events/$id';
+  static String schoolEventEditPath(String id) => '/school/events/$id/edit';
+
+  static String schoolEventCreatePath({
+    String? schoolProfileId,
+    String? eventType,
+  }) {
+    final params = <String, String>{};
+    if (schoolProfileId != null && schoolProfileId.isNotEmpty) {
+      params['schoolProfileId'] = schoolProfileId;
+    }
+    if (eventType != null && eventType.isNotEmpty) {
+      params['eventType'] = eventType;
+    }
+    if (params.isEmpty) return schoolEventCreate;
+    return Uri(path: schoolEventCreate, queryParameters: params).toString();
+  }
 }

@@ -54,6 +54,7 @@ dependencies:
   image: ^4.10.1
   permission_handler: ^13.0.2
   flutter_timezone: ^5.1.1
+  file_picker: ^11.0.3
 
 dev_dependencies:
   flutter_test:

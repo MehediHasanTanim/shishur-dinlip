@@ -6,6 +6,8 @@ abstract final class EntityTypes {
   static const milestone = 'milestone';
   static const firstWord = 'first_word';
   static const growthRecord = 'growth_record';
+  static const schoolProfile = 'school_profile';
+  static const schoolEvent = 'school_event';
 }
 
 abstract final class JournalEntryTypes {

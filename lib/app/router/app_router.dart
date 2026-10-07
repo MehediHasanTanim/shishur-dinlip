@@ -24,6 +24,12 @@ import 'package:shishur_dinlipi/features/development/milestone_editor_screen.dar
 import 'package:shishur_dinlipi/features/development/milestone_list_screen.dart';
 import 'package:shishur_dinlipi/features/development/milestone_templates.dart';
 import 'package:shishur_dinlipi/features/development/milestones_overview_screen.dart';
+import 'package:shishur_dinlipi/features/school/school_event_detail_screen.dart';
+import 'package:shishur_dinlipi/features/school/school_event_editor_screen.dart';
+import 'package:shishur_dinlipi/features/school/school_overview_screen.dart';
+import 'package:shishur_dinlipi/features/school/school_profile_detail_screen.dart';
+import 'package:shishur_dinlipi/features/school/school_profile_editor_screen.dart';
+import 'package:shishur_dinlipi/features/school/school_timeline_screen.dart';
 import 'package:shishur_dinlipi/features/memories/achievement_detail_screen.dart';
 import 'package:shishur_dinlipi/features/memories/achievement_editor_screen.dart';
 import 'package:shishur_dinlipi/features/memories/funny_moment_detail_screen.dart';
@@ -300,6 +306,62 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             parentNavigatorKey: _rootNavigatorKey,
             builder: (context, state) => FirstWordEditorScreen(
               wordId: state.pathParameters['id'],
+            ),
+          ),
+        ],
+      ),
+      GoRoute(
+        path: AppRoutes.school,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const SchoolOverviewScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.schoolTimeline,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const SchoolTimelineScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.schoolProfileCreate,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const SchoolProfileEditorScreen(),
+      ),
+      GoRoute(
+        path: '/school/profiles/:id',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => SchoolProfileDetailScreen(
+          profileId: state.pathParameters['id']!,
+        ),
+        routes: [
+          GoRoute(
+            path: 'edit',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (context, state) => SchoolProfileEditorScreen(
+              profileId: state.pathParameters['id'],
+            ),
+          ),
+        ],
+      ),
+      GoRoute(
+        path: AppRoutes.schoolEventCreate,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => SchoolEventEditorScreen(
+          initialSchoolProfileId:
+              state.uri.queryParameters['schoolProfileId'],
+          initialEventType: state.uri.queryParameters['eventType'],
+        ),
+      ),
+      GoRoute(
+        path: '/school/events/:id',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => SchoolEventDetailScreen(
+          eventId: state.pathParameters['id']!,
+        ),
+        routes: [
+          GoRoute(
+            path: 'edit',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (context, state) => SchoolEventEditorScreen(
+              eventId: state.pathParameters['id'],
             ),
           ),
         ],

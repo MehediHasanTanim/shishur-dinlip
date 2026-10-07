@@ -79,11 +79,21 @@ class DriftAttachmentRepository extends RepositoryBase
         String mediaId = draft.mediaAssetId ?? '';
 
         if (draft.pendingPath != null) {
-          final imported = await mediaService.importImage(
-            sourceFile: File(draft.pendingPath!),
-            childId: childId,
-          );
-          mediaId = imported.id;
+          if (draft.isDocument) {
+            final imported = await mediaService.importDocument(
+              sourceFile: File(draft.pendingPath!),
+              childId: childId,
+              originalFilename: draft.displayName,
+            );
+            mediaId = imported.id;
+          } else {
+            final imported = await mediaService.importImage(
+              sourceFile: File(draft.pendingPath!),
+              childId: childId,
+              originalFilename: draft.displayName,
+            );
+            mediaId = imported.id;
+          }
         }
 
         if (mediaId.isEmpty) continue;

@@ -87,6 +87,34 @@ class AddScreen extends ConsumerWidget {
             ),
             const SizedBox(height: 24),
             Text(
+              l10n.addGroupSchool,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            const SizedBox(height: 12),
+            _AddTile(
+              icon: Icons.school_outlined,
+              title: l10n.addSchoolProfile,
+              subtitle: l10n.addSchoolProfileSubtitle,
+              onTap: () => context.push(AppRoutes.schoolProfileCreate),
+            ),
+            _AddTile(
+              icon: Icons.event_outlined,
+              title: l10n.addSchoolEvent,
+              subtitle: l10n.addSchoolEventSubtitle,
+              onTap: () => context.push(AppRoutes.schoolEventCreate),
+            ),
+            _AddTile(
+              icon: Icons.description_outlined,
+              title: l10n.schoolEventReportCard,
+              subtitle: l10n.addReportCardSubtitle,
+              onTap: () => context.push(
+                AppRoutes.schoolEventCreatePath(
+                  eventType: 'report_card',
+                ),
+              ),
+            ),
+            const SizedBox(height: 24),
+            Text(
               l10n.quickTemplates,
               style: Theme.of(context).textTheme.titleLarge,
             ),
@@ -132,7 +160,7 @@ class AddScreen extends ConsumerWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              l10n.addComingSoonMessage,
+              l10n.addComingSoonHealthOnly,
               style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                 color: Theme.of(context).colorScheme.onSurfaceVariant,
               ),

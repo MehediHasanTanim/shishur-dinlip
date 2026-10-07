@@ -113,6 +113,59 @@ class MediaService extends RepositoryBase {
     }, operation: 'media.importImage');
   }
 
+  /// Imports a PDF/document into app-private document storage.
+  Future<MediaAsset> importDocument({
+    required File sourceFile,
+    String? childId,
+    String? originalFilename,
+  }) {
+    return guard(() async {
+      if (!await sourceFile.exists()) {
+        throw const FileFailure(message: 'Source document was not found.');
+      }
+      await storage.ensureBootstrapped();
+      final bytes = await sourceFile.readAsBytes();
+      if (bytes.isEmpty) {
+        throw const FileFailure(message: 'Source document is empty.');
+      }
+
+      final checksum = sha256.convert(bytes).toString();
+      final name = originalFilename ?? p.basename(sourceFile.path);
+      final fileName = storage.buildFileName(originalName: name);
+      final docsDir = await storage.documentsDir();
+      final saved = await storage.writeBytesAtomic(
+        directory: docsDir,
+        fileName: fileName,
+        bytes: bytes,
+      );
+
+      final ext = p.extension(name).toLowerCase();
+      final isPdf = ext == '.pdf';
+      final nowUtc = now();
+      final asset = MediaAsset(
+        id: ids.next(),
+        childId: childId,
+        assetType: isPdf ? MediaAssetType.pdf : MediaAssetType.document,
+        localPath: storage.toRelativePath(saved.path),
+        mimeType: isPdf ? 'application/pdf' : 'application/octet-stream',
+        originalFilename: name,
+        fileSizeBytes: bytes.length,
+        importedAt: nowUtc,
+        checksum: checksum,
+        createdAt: nowUtc,
+        updatedAt: nowUtc,
+      );
+
+      await db.mediaAssetsDao.upsert(MediaAssetMapper.toCompanion(asset));
+      logger.info('Document imported', {
+        'mediaId': asset.id,
+        'bytes': asset.fileSizeBytes,
+        'type': asset.assetType.name,
+      });
+      return asset;
+    }, operation: 'media.importDocument');
+  }
+
   /// Soft-deletes media and removes files only when no attachments remain.
   Future<void> deleteUnusedMediaSafely(String mediaAssetId) {
     return guard(() async {

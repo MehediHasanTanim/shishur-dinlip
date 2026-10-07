@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:shishur_dinlipi/features/children/widgets/photo_source_sheet.dart';
 import 'package:shishur_dinlipi/features/memories/attachment_drafts.dart';
 import 'package:shishur_dinlipi/l10n/app_localizations.dart';
@@ -11,10 +12,12 @@ class AttachmentStrip extends StatelessWidget {
     super.key,
     required this.controller,
     this.enabled = true,
+    this.allowDocuments = false,
   });
 
   final AttachmentDraftsController controller;
   final bool enabled;
+  final bool allowDocuments;
 
   @override
   Widget build(BuildContext context) {
@@ -30,16 +33,25 @@ class AttachmentStrip extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  l10n.attachmentsTitle,
+                  allowDocuments
+                      ? l10n.attachmentsAndDocsTitle
+                      : l10n.attachmentsTitle,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
                 const Spacer(),
-                if (enabled)
+                if (enabled) ...[
                   TextButton.icon(
-                    onPressed: () => _pick(context),
+                    onPressed: () => _pickPhoto(context),
                     icon: const Icon(Icons.add_photo_alternate_outlined),
                     label: Text(l10n.addPhotos),
                   ),
+                  if (allowDocuments)
+                    TextButton.icon(
+                      onPressed: () => _pickDoc(context),
+                      icon: const Icon(Icons.attach_file),
+                      label: Text(l10n.addDocument),
+                    ),
+                ],
               ],
             ),
             const SizedBox(height: 8),
@@ -64,17 +76,22 @@ class AttachmentStrip extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final draft = drafts[index];
                     final file = controller.previewFiles[draft.localKey];
+                    final isDoc = controller.isDocument(draft.localKey);
                     return Padding(
                       key: ValueKey(draft.localKey),
                       padding: const EdgeInsets.only(right: 8),
                       child: _Thumb(
                         file: file,
+                        isDocument: isDoc,
+                        label: draft.displayName,
                         enabled: enabled,
                         index: index,
                         onRemove: () => controller.removeAt(index),
                         onPreview: file == null
                             ? null
-                            : () => _preview(context, file),
+                            : () => isDoc
+                                  ? _shareDoc(context, file, draft.displayName)
+                                  : _preview(context, file),
                       ),
                     );
                   },
@@ -86,7 +103,7 @@ class AttachmentStrip extends StatelessWidget {
     );
   }
 
-  Future<void> _pick(BuildContext context) async {
+  Future<void> _pickPhoto(BuildContext context) async {
     final action = await showPhotoSourceSheet(context);
     if (action == null || !context.mounted) return;
     final source = action == PhotoSheetAction.camera
@@ -94,6 +111,17 @@ class AttachmentStrip extends StatelessWidget {
         : ImageSource.gallery;
     try {
       await controller.addFromSource(source);
+    } catch (error) {
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('$error')));
+    }
+  }
+
+  Future<void> _pickDoc(BuildContext context) async {
+    try {
+      await controller.addDocument();
     } catch (error) {
       if (!context.mounted) return;
       ScaffoldMessenger.of(
@@ -113,6 +141,10 @@ class AttachmentStrip extends StatelessWidget {
       ),
     );
   }
+
+  Future<void> _shareDoc(BuildContext context, File file, String? name) async {
+    await Share.shareXFiles([XFile(file.path, name: name)], subject: name);
+  }
 }
 
 class _Thumb extends StatelessWidget {
@@ -121,6 +153,8 @@ class _Thumb extends StatelessWidget {
     required this.enabled,
     required this.index,
     required this.onRemove,
+    required this.isDocument,
+    this.label,
     this.onPreview,
   });
 
@@ -128,6 +162,8 @@ class _Thumb extends StatelessWidget {
   final bool enabled;
   final int index;
   final VoidCallback onRemove;
+  final bool isDocument;
+  final String? label;
   final VoidCallback? onPreview;
 
   @override
@@ -144,7 +180,28 @@ class _Thumb extends StatelessWidget {
               clipBehavior: Clip.antiAlias,
               child: InkWell(
                 onTap: onPreview,
-                child: file == null
+                child: isDocument
+                    ? Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.picture_as_pdf_outlined,
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
+                          const SizedBox(height: 4),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 6),
+                            child: Text(
+                              label ?? 'PDF',
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.center,
+                              style: Theme.of(context).textTheme.labelSmall,
+                            ),
+                          ),
+                        ],
+                      )
+                    : file == null
                     ? const Icon(Icons.broken_image_outlined)
                     : Image.file(file!, fit: BoxFit.cover),
               ),

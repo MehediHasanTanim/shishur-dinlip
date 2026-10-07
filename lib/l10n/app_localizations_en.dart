@@ -441,7 +441,168 @@ class AppLocalizationsEn extends AppLocalizations {
       'School and health records arrive in later sprints.';
 
   @override
+  String get addComingSoonHealthOnly =>
+      'Health records arrive in later sprints.';
+
+  @override
+  String get addGroupSchool => 'School';
+
+  @override
+  String get addSchoolProfile => 'Add school';
+
+  @override
+  String get editSchoolProfile => 'Edit school';
+
+  @override
+  String get addSchoolProfileSubtitle => 'School name, class, and teacher.';
+
+  @override
+  String get addSchoolEvent => 'Add school event';
+
+  @override
+  String get editSchoolEvent => 'Edit school event';
+
+  @override
+  String get addSchoolEventSubtitle =>
+      'First day, exams, certificates, and more.';
+
+  @override
+  String get addReportCardSubtitle => 'Attach a report card photo or PDF.';
+
+  @override
   String get addGroupDevelopment => 'Development';
+
+  @override
+  String get schoolTitle => 'School';
+
+  @override
+  String get schoolCurrent => 'Current school';
+
+  @override
+  String get schoolCurrentBadge => 'Current';
+
+  @override
+  String get schoolEmpty => 'No school profile yet. Add the first one.';
+
+  @override
+  String get schoolHistory => 'School history';
+
+  @override
+  String get schoolEvents => 'School events';
+
+  @override
+  String get schoolEventsEmpty => 'No school events yet.';
+
+  @override
+  String get schoolRecentEvent => 'Recent school event';
+
+  @override
+  String get schoolTimeline => 'School timeline';
+
+  @override
+  String get schoolAdd => 'Add';
+
+  @override
+  String get schoolName => 'School name';
+
+  @override
+  String get schoolNameRequired => 'School name is required.';
+
+  @override
+  String get schoolClass => 'Class';
+
+  @override
+  String get schoolTeacher => 'Teacher';
+
+  @override
+  String get schoolStartDate => 'Start date';
+
+  @override
+  String get schoolEndDate => 'End date';
+
+  @override
+  String get schoolEndDateOptional => 'Still attending (no end date)';
+
+  @override
+  String get schoolClearEndDate => 'Clear end date';
+
+  @override
+  String get saveSchoolProfile => 'Save school';
+
+  @override
+  String get deleteSchoolTitle => 'Delete this school?';
+
+  @override
+  String get deleteSchoolMessage =>
+      'This school profile will be removed from this device.';
+
+  @override
+  String get schoolEventType => 'Event type';
+
+  @override
+  String get schoolEventFirstDay => 'First day';
+
+  @override
+  String get schoolEventExam => 'Exam';
+
+  @override
+  String get schoolEventPerformance => 'School performance';
+
+  @override
+  String get schoolEventSports => 'Sports event';
+
+  @override
+  String get schoolEventCertificate => 'Certificate';
+
+  @override
+  String get schoolEventPromotion => 'Class promotion';
+
+  @override
+  String get schoolEventProject => 'Project';
+
+  @override
+  String get schoolEventReportCard => 'Report card';
+
+  @override
+  String get schoolEventCustom => 'Custom';
+
+  @override
+  String get schoolEventTitleRequired => 'Event title is required.';
+
+  @override
+  String get schoolLinkedProfile => 'Linked school';
+
+  @override
+  String get schoolNoLinkedProfile => 'None';
+
+  @override
+  String get schoolAttachmentsHint =>
+      'Attach photos, certificates, or PDF report cards.';
+
+  @override
+  String get saveSchoolEvent => 'Save school event';
+
+  @override
+  String get deleteSchoolEventTitle => 'Delete this school event?';
+
+  @override
+  String get deleteSchoolEventMessage =>
+      'This school event will be removed from this device.';
+
+  @override
+  String get attachmentsAndDocsTitle => 'Photos & documents';
+
+  @override
+  String get addDocument => 'Add file';
+
+  @override
+  String get schoolDashboard => 'School & achievements';
+
+  @override
+  String get commonSeeAll => 'See all';
+
+  @override
+  String get commonAll => 'All';
 
   @override
   String get addGrowth => 'Add growth';

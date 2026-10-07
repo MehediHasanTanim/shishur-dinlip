@@ -64,6 +64,8 @@ class AttachmentDraft {
     this.mediaAssetId,
     this.pendingPath,
     this.caption,
+    this.displayName,
+    this.isDocument = false,
   });
 
   final String localKey;
@@ -71,6 +73,8 @@ class AttachmentDraft {
   final String? mediaAssetId;
   final String? pendingPath;
   final String? caption;
+  final String? displayName;
+  final bool isDocument;
 
   bool get isPersisted => mediaAssetId != null;
 }

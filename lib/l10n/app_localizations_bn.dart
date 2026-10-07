@@ -438,7 +438,165 @@ class AppLocalizationsBn extends AppLocalizations {
       'স্কুল ও স্বাস্থ্য রেকর্ড পরের স্প্রিন্টে আসবে।';
 
   @override
+  String get addComingSoonHealthOnly =>
+      'স্বাস্থ্য রেকর্ড পরের স্প্রিন্টে আসবে।';
+
+  @override
+  String get addGroupSchool => 'স্কুল';
+
+  @override
+  String get addSchoolProfile => 'স্কুল যোগ করুন';
+
+  @override
+  String get editSchoolProfile => 'স্কুল সম্পাদনা';
+
+  @override
+  String get addSchoolProfileSubtitle => 'স্কুলের নাম, ক্লাস ও শিক্ষক।';
+
+  @override
+  String get addSchoolEvent => 'স্কুল ইভেন্ট যোগ করুন';
+
+  @override
+  String get editSchoolEvent => 'স্কুল ইভেন্ট সম্পাদনা';
+
+  @override
+  String get addSchoolEventSubtitle => 'প্রথম দিন, পরীক্ষা, সনদপত্র ও আরও।';
+
+  @override
+  String get addReportCardSubtitle => 'রিপোর্ট কার্ডের ছবি বা PDF যোগ করুন।';
+
+  @override
   String get addGroupDevelopment => 'বিকাশ';
+
+  @override
+  String get schoolTitle => 'স্কুল';
+
+  @override
+  String get schoolCurrent => 'বর্তমান স্কুল';
+
+  @override
+  String get schoolCurrentBadge => 'বর্তমান';
+
+  @override
+  String get schoolEmpty => 'এখনো কোনো স্কুল প্রোফাইল নেই। প্রথমটি যোগ করুন।';
+
+  @override
+  String get schoolHistory => 'স্কুলের ইতিহাস';
+
+  @override
+  String get schoolEvents => 'স্কুল ইভেন্ট';
+
+  @override
+  String get schoolEventsEmpty => 'এখনো কোনো স্কুল ইভেন্ট নেই।';
+
+  @override
+  String get schoolRecentEvent => 'সাম্প্রতিক স্কুল ইভেন্ট';
+
+  @override
+  String get schoolTimeline => 'স্কুলের সময়রেখা';
+
+  @override
+  String get schoolAdd => 'যোগ করুন';
+
+  @override
+  String get schoolName => 'স্কুলের নাম';
+
+  @override
+  String get schoolNameRequired => 'স্কুলের নাম আবশ্যক।';
+
+  @override
+  String get schoolClass => 'ক্লাস';
+
+  @override
+  String get schoolTeacher => 'শিক্ষক';
+
+  @override
+  String get schoolStartDate => 'শুরুর তারিখ';
+
+  @override
+  String get schoolEndDate => 'শেষ তারিখ';
+
+  @override
+  String get schoolEndDateOptional => 'এখনো পড়ছে (শেষ তারিখ নেই)';
+
+  @override
+  String get schoolClearEndDate => 'শেষ তারিখ সরান';
+
+  @override
+  String get saveSchoolProfile => 'স্কুল সংরক্ষণ';
+
+  @override
+  String get deleteSchoolTitle => 'এই স্কুল মুছবেন?';
+
+  @override
+  String get deleteSchoolMessage => 'এই স্কুল প্রোফাইল এই ডিভাইস থেকে সরবে।';
+
+  @override
+  String get schoolEventType => 'ইভেন্টের ধরন';
+
+  @override
+  String get schoolEventFirstDay => 'প্রথম দিন';
+
+  @override
+  String get schoolEventExam => 'পরীক্ষা';
+
+  @override
+  String get schoolEventPerformance => 'স্কুল অনুষ্ঠান';
+
+  @override
+  String get schoolEventSports => 'খেলার ইভেন্ট';
+
+  @override
+  String get schoolEventCertificate => 'সনদপত্র';
+
+  @override
+  String get schoolEventPromotion => 'ক্লাস প্রমোশন';
+
+  @override
+  String get schoolEventProject => 'প্রজেক্ট';
+
+  @override
+  String get schoolEventReportCard => 'রিপোর্ট কার্ড';
+
+  @override
+  String get schoolEventCustom => 'কাস্টম';
+
+  @override
+  String get schoolEventTitleRequired => 'ইভেন্টের শিরোনাম আবশ্যক।';
+
+  @override
+  String get schoolLinkedProfile => 'সংযুক্ত স্কুল';
+
+  @override
+  String get schoolNoLinkedProfile => 'কোনোটি নয়';
+
+  @override
+  String get schoolAttachmentsHint =>
+      'ছবি, সনদপত্র বা PDF রিপোর্ট কার্ড যোগ করুন।';
+
+  @override
+  String get saveSchoolEvent => 'স্কুল ইভেন্ট সংরক্ষণ';
+
+  @override
+  String get deleteSchoolEventTitle => 'এই স্কুল ইভেন্ট মুছবেন?';
+
+  @override
+  String get deleteSchoolEventMessage => 'এই স্কুল ইভেন্ট এই ডিভাইস থেকে সরবে।';
+
+  @override
+  String get attachmentsAndDocsTitle => 'ছবি ও নথি';
+
+  @override
+  String get addDocument => 'ফাইল যোগ';
+
+  @override
+  String get schoolDashboard => 'স্কুল ও অর্জন';
+
+  @override
+  String get commonSeeAll => 'সব দেখুন';
+
+  @override
+  String get commonAll => 'সব';
 
   @override
   String get addGrowth => 'বৃদ্ধি যোগ করুন';

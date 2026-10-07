@@ -1,9 +1,12 @@
 import 'dart:io';
 
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:path/path.dart' as p;
 import 'package:shishur_dinlipi/core/domain/id_generator.dart';
 import 'package:shishur_dinlipi/core/domain/models/attachment.dart';
+import 'package:shishur_dinlipi/core/domain/models/media_asset.dart';
 import 'package:shishur_dinlipi/core/errors/failures.dart';
 import 'package:shishur_dinlipi/core/files/file_storage_service.dart';
 import 'package:shishur_dinlipi/core/permissions/permission_service.dart';
@@ -25,9 +28,25 @@ class AttachmentDraftsController extends ChangeNotifier {
 
   List<AttachmentDraft> _drafts = const [];
   final Map<String, File> _previewFiles = {};
+  final Map<String, MediaAssetType> _types = {};
 
   List<AttachmentDraft> get drafts => _drafts;
   Map<String, File> get previewFiles => Map.unmodifiable(_previewFiles);
+
+  bool isDocument(String localKey) {
+    for (final draft in _drafts) {
+      if (draft.localKey == localKey && draft.isDocument) return true;
+    }
+    final type = _types[localKey];
+    return type == MediaAssetType.pdf || type == MediaAssetType.document;
+  }
+
+  String? displayName(String localKey) {
+    for (final draft in _drafts) {
+      if (draft.localKey == localKey) return draft.displayName;
+    }
+    return null;
+  }
 
   Future<void> loadExisting({
     required String entityType,
@@ -39,19 +58,26 @@ class AttachmentDraftsController extends ChangeNotifier {
     );
     final drafts = <AttachmentDraft>[];
     _previewFiles.clear();
+    _types.clear();
 
     for (final item in items) {
       final key = item.id;
+      final media = item.media;
+      final isDoc =
+          media?.assetType == MediaAssetType.pdf ||
+          media?.assetType == MediaAssetType.document;
       drafts.add(
         AttachmentDraft(
           localKey: key,
           attachmentId: item.id,
           mediaAssetId: item.mediaAssetId,
           caption: item.caption,
+          displayName: media?.originalFilename,
+          isDocument: isDoc,
         ),
       );
-      final media = item.media;
       if (media != null) {
+        _types[key] = media.assetType;
         final path = media.thumbnailPath ?? media.localPath;
         final file = await storage.absoluteFile(path);
         if (await file.exists()) {
@@ -82,7 +108,7 @@ class AttachmentDraftsController extends ChangeNotifier {
         imageQuality: 88,
       );
       for (final file in files) {
-        _appendPending(file.path);
+        _appendPending(file.path, displayName: file.name);
       }
       return;
     }
@@ -93,13 +119,50 @@ class AttachmentDraftsController extends ChangeNotifier {
       maxHeight: 1600,
       imageQuality: 88,
     );
-    if (file != null) _appendPending(file.path);
+    if (file != null) {
+      _appendPending(file.path, displayName: file.name);
+    }
   }
 
-  void _appendPending(String path) {
+  Future<void> addDocument() async {
+    final result = await FilePicker.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: const ['pdf', 'png', 'jpg', 'jpeg', 'webp'],
+      allowMultiple: true,
+      withData: false,
+    );
+    if (result == null) return;
+
+    for (final file in result.files) {
+      final path = file.path;
+      if (path == null) continue;
+      final ext = p.extension(path).toLowerCase();
+      final isDoc = ext == '.pdf';
+      _appendPending(
+        path,
+        displayName: file.name,
+        isDocument: isDoc,
+      );
+    }
+  }
+
+  void _appendPending(
+    String path, {
+    String? displayName,
+    bool isDocument = false,
+  }) {
     final key = idGenerator.next();
-    _drafts = [..._drafts, AttachmentDraft(localKey: key, pendingPath: path)];
+    _drafts = [
+      ..._drafts,
+      AttachmentDraft(
+        localKey: key,
+        pendingPath: path,
+        displayName: displayName ?? p.basename(path),
+        isDocument: isDocument,
+      ),
+    ];
     _previewFiles[key] = File(path);
+    _types[key] = isDocument ? MediaAssetType.pdf : MediaAssetType.image;
     notifyListeners();
   }
 
@@ -108,6 +171,7 @@ class AttachmentDraftsController extends ChangeNotifier {
     final key = _drafts[index].localKey;
     _drafts = [..._drafts]..removeAt(index);
     _previewFiles.remove(key);
+    _types.remove(key);
     notifyListeners();
   }
 

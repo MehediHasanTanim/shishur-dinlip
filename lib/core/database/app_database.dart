@@ -11,6 +11,8 @@ import 'package:shishur_dinlipi/core/database/daos/journal_entries_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/media_assets_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/milestones_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/reminders_dao.dart';
+import 'package:shishur_dinlipi/core/database/daos/school_events_dao.dart';
+import 'package:shishur_dinlipi/core/database/daos/school_profiles_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/settings_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/tags_dao.dart';
 import 'package:shishur_dinlipi/core/database/tables/achievements_table.dart';
@@ -24,6 +26,8 @@ import 'package:shishur_dinlipi/core/database/tables/journal_entries_table.dart'
 import 'package:shishur_dinlipi/core/database/tables/media_assets_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/milestones_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/reminders_table.dart';
+import 'package:shishur_dinlipi/core/database/tables/school_events_table.dart';
+import 'package:shishur_dinlipi/core/database/tables/school_profiles_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/settings_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/tag_links_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/tags_table.dart';
@@ -47,6 +51,8 @@ part 'app_database.g.dart';
     GrowthRecords,
     Milestones,
     FirstWords,
+    SchoolProfiles,
+    SchoolEvents,
   ],
   daos: [
     ChildrenDao,
@@ -62,6 +68,8 @@ part 'app_database.g.dart';
     GrowthRecordsDao,
     MilestonesDao,
     FirstWordsDao,
+    SchoolProfilesDao,
+    SchoolEventsDao,
   ],
 )
 class AppDatabase extends _$AppDatabase {
@@ -72,7 +80,7 @@ class AppDatabase extends _$AppDatabase {
   factory AppDatabase.memory() => AppDatabase(openMemoryConnection());
 
   /// Bump when schema changes; add steps in [migration].
-  static const int currentSchemaVersion = 3;
+  static const int currentSchemaVersion = 4;
 
   @override
   int get schemaVersion => currentSchemaVersion;
@@ -96,6 +104,10 @@ class AppDatabase extends _$AppDatabase {
         await m.createTable(growthRecords);
         await m.createTable(milestones);
         await m.createTable(firstWords);
+      }
+      if (from < 4) {
+        await m.createTable(schoolProfiles);
+        await m.createTable(schoolEvents);
       }
     },
     beforeOpen: (details) async {

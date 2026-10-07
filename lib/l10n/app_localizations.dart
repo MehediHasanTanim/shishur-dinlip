@@ -920,11 +920,323 @@ abstract class AppLocalizations {
   /// **'School and health records arrive in later sprints.'**
   String get addComingSoonMessage;
 
+  /// No description provided for @addComingSoonHealthOnly.
+  ///
+  /// In en, this message translates to:
+  /// **'Health records arrive in later sprints.'**
+  String get addComingSoonHealthOnly;
+
+  /// No description provided for @addGroupSchool.
+  ///
+  /// In en, this message translates to:
+  /// **'School'**
+  String get addGroupSchool;
+
+  /// No description provided for @addSchoolProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Add school'**
+  String get addSchoolProfile;
+
+  /// No description provided for @editSchoolProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit school'**
+  String get editSchoolProfile;
+
+  /// No description provided for @addSchoolProfileSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'School name, class, and teacher.'**
+  String get addSchoolProfileSubtitle;
+
+  /// No description provided for @addSchoolEvent.
+  ///
+  /// In en, this message translates to:
+  /// **'Add school event'**
+  String get addSchoolEvent;
+
+  /// No description provided for @editSchoolEvent.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit school event'**
+  String get editSchoolEvent;
+
+  /// No description provided for @addSchoolEventSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'First day, exams, certificates, and more.'**
+  String get addSchoolEventSubtitle;
+
+  /// No description provided for @addReportCardSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Attach a report card photo or PDF.'**
+  String get addReportCardSubtitle;
+
   /// No description provided for @addGroupDevelopment.
   ///
   /// In en, this message translates to:
   /// **'Development'**
   String get addGroupDevelopment;
+
+  /// No description provided for @schoolTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'School'**
+  String get schoolTitle;
+
+  /// No description provided for @schoolCurrent.
+  ///
+  /// In en, this message translates to:
+  /// **'Current school'**
+  String get schoolCurrent;
+
+  /// No description provided for @schoolCurrentBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'Current'**
+  String get schoolCurrentBadge;
+
+  /// No description provided for @schoolEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No school profile yet. Add the first one.'**
+  String get schoolEmpty;
+
+  /// No description provided for @schoolHistory.
+  ///
+  /// In en, this message translates to:
+  /// **'School history'**
+  String get schoolHistory;
+
+  /// No description provided for @schoolEvents.
+  ///
+  /// In en, this message translates to:
+  /// **'School events'**
+  String get schoolEvents;
+
+  /// No description provided for @schoolEventsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No school events yet.'**
+  String get schoolEventsEmpty;
+
+  /// No description provided for @schoolRecentEvent.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent school event'**
+  String get schoolRecentEvent;
+
+  /// No description provided for @schoolTimeline.
+  ///
+  /// In en, this message translates to:
+  /// **'School timeline'**
+  String get schoolTimeline;
+
+  /// No description provided for @schoolAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get schoolAdd;
+
+  /// No description provided for @schoolName.
+  ///
+  /// In en, this message translates to:
+  /// **'School name'**
+  String get schoolName;
+
+  /// No description provided for @schoolNameRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'School name is required.'**
+  String get schoolNameRequired;
+
+  /// No description provided for @schoolClass.
+  ///
+  /// In en, this message translates to:
+  /// **'Class'**
+  String get schoolClass;
+
+  /// No description provided for @schoolTeacher.
+  ///
+  /// In en, this message translates to:
+  /// **'Teacher'**
+  String get schoolTeacher;
+
+  /// No description provided for @schoolStartDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Start date'**
+  String get schoolStartDate;
+
+  /// No description provided for @schoolEndDate.
+  ///
+  /// In en, this message translates to:
+  /// **'End date'**
+  String get schoolEndDate;
+
+  /// No description provided for @schoolEndDateOptional.
+  ///
+  /// In en, this message translates to:
+  /// **'Still attending (no end date)'**
+  String get schoolEndDateOptional;
+
+  /// No description provided for @schoolClearEndDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear end date'**
+  String get schoolClearEndDate;
+
+  /// No description provided for @saveSchoolProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Save school'**
+  String get saveSchoolProfile;
+
+  /// No description provided for @deleteSchoolTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this school?'**
+  String get deleteSchoolTitle;
+
+  /// No description provided for @deleteSchoolMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This school profile will be removed from this device.'**
+  String get deleteSchoolMessage;
+
+  /// No description provided for @schoolEventType.
+  ///
+  /// In en, this message translates to:
+  /// **'Event type'**
+  String get schoolEventType;
+
+  /// No description provided for @schoolEventFirstDay.
+  ///
+  /// In en, this message translates to:
+  /// **'First day'**
+  String get schoolEventFirstDay;
+
+  /// No description provided for @schoolEventExam.
+  ///
+  /// In en, this message translates to:
+  /// **'Exam'**
+  String get schoolEventExam;
+
+  /// No description provided for @schoolEventPerformance.
+  ///
+  /// In en, this message translates to:
+  /// **'School performance'**
+  String get schoolEventPerformance;
+
+  /// No description provided for @schoolEventSports.
+  ///
+  /// In en, this message translates to:
+  /// **'Sports event'**
+  String get schoolEventSports;
+
+  /// No description provided for @schoolEventCertificate.
+  ///
+  /// In en, this message translates to:
+  /// **'Certificate'**
+  String get schoolEventCertificate;
+
+  /// No description provided for @schoolEventPromotion.
+  ///
+  /// In en, this message translates to:
+  /// **'Class promotion'**
+  String get schoolEventPromotion;
+
+  /// No description provided for @schoolEventProject.
+  ///
+  /// In en, this message translates to:
+  /// **'Project'**
+  String get schoolEventProject;
+
+  /// No description provided for @schoolEventReportCard.
+  ///
+  /// In en, this message translates to:
+  /// **'Report card'**
+  String get schoolEventReportCard;
+
+  /// No description provided for @schoolEventCustom.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom'**
+  String get schoolEventCustom;
+
+  /// No description provided for @schoolEventTitleRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Event title is required.'**
+  String get schoolEventTitleRequired;
+
+  /// No description provided for @schoolLinkedProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Linked school'**
+  String get schoolLinkedProfile;
+
+  /// No description provided for @schoolNoLinkedProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'None'**
+  String get schoolNoLinkedProfile;
+
+  /// No description provided for @schoolAttachmentsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Attach photos, certificates, or PDF report cards.'**
+  String get schoolAttachmentsHint;
+
+  /// No description provided for @saveSchoolEvent.
+  ///
+  /// In en, this message translates to:
+  /// **'Save school event'**
+  String get saveSchoolEvent;
+
+  /// No description provided for @deleteSchoolEventTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this school event?'**
+  String get deleteSchoolEventTitle;
+
+  /// No description provided for @deleteSchoolEventMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This school event will be removed from this device.'**
+  String get deleteSchoolEventMessage;
+
+  /// No description provided for @attachmentsAndDocsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Photos & documents'**
+  String get attachmentsAndDocsTitle;
+
+  /// No description provided for @addDocument.
+  ///
+  /// In en, this message translates to:
+  /// **'Add file'**
+  String get addDocument;
+
+  /// No description provided for @schoolDashboard.
+  ///
+  /// In en, this message translates to:
+  /// **'School & achievements'**
+  String get schoolDashboard;
+
+  /// No description provided for @commonSeeAll.
+  ///
+  /// In en, this message translates to:
+  /// **'See all'**
+  String get commonSeeAll;
+
+  /// No description provided for @commonAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get commonAll;
 
   /// No description provided for @addGrowth.
   ///
