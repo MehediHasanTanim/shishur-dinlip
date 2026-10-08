@@ -1972,6 +1972,35 @@ class AppLocalizationsEn extends AppLocalizations {
   String get yearReviewSaved => 'Preferences saved.';
 
   @override
+  String get yearReviewSmartTitle => 'Smart suggestions';
+
+  @override
+  String get yearReviewSmartSubtitle =>
+      'Local ranking from favorites, captions, and variety — no cloud AI.';
+
+  @override
+  String get yearReviewSuggestedTitle => 'Suggested title';
+
+  @override
+  String get yearReviewUseSuggestedTitle => 'Use suggested title';
+
+  @override
+  String yearReviewCollageHint(int count) {
+    return 'Photo collage of $count highlights will appear in the PDF.';
+  }
+
+  @override
+  String get yearReviewUseCollageCover => 'Use top collage photo as cover';
+
+  @override
+  String get yearReviewSectionRecs => 'Sections to emphasize';
+
+  @override
+  String yearReviewDuplicatesRemoved(int count) {
+    return 'Removed $count duplicate photos.';
+  }
+
+  @override
   String get yearReviewGeneratingTitle => 'Creating your album';
 
   @override

@@ -22,14 +22,15 @@ abstract final class YearReviewHighlightSelector {
   static const maxHealthDefault = 8;
 
   /// Merges candidates with optional saved include/caption/order state,
-  /// then applies default inclusion caps by section priority.
+  /// then applies default inclusion caps by section + score.
   static List<YearReviewItem> apply({
     required List<YearReviewItem> candidates,
     List<YearReviewItem> savedSelection = const [],
   }) {
+    final deduped = removeDuplicatePhotos(candidates);
     final savedById = {for (final s in savedSelection) s.id: s};
 
-    final merged = candidates.map((c) {
+    final merged = deduped.map((c) {
       final saved = savedById[c.id];
       if (saved == null) return c;
       return c.copyWith(
@@ -38,6 +39,7 @@ abstract final class YearReviewHighlightSelector {
         sortOrder: saved.sortOrder,
         title: saved.title.isNotEmpty ? saved.title : c.title,
         subtitle: saved.subtitle ?? c.subtitle,
+        score: c.score > 0 ? c.score : saved.score,
       );
     }).toList();
 
@@ -55,6 +57,36 @@ abstract final class YearReviewHighlightSelector {
     return _assignSortOrders(_applyDefaults(merged));
   }
 
+  /// Keeps the highest-scoring photo per checksum (favorites win ties).
+  static List<YearReviewItem> removeDuplicatePhotos(List<YearReviewItem> items) {
+    final bestByChecksum = <String, YearReviewItem>{};
+    final withoutDupes = <YearReviewItem>[];
+
+    for (final item in items) {
+      if (item.section != YearReviewSection.photos) {
+        withoutDupes.add(item);
+        continue;
+      }
+      final key = item.checksum?.trim();
+      if (key == null || key.isEmpty) {
+        withoutDupes.add(item);
+        continue;
+      }
+      final existing = bestByChecksum[key];
+      if (existing == null || _isBetterPhoto(item, existing)) {
+        bestByChecksum[key] = item;
+      }
+    }
+    withoutDupes.addAll(bestByChecksum.values);
+    return withoutDupes;
+  }
+
+  static bool _isBetterPhoto(YearReviewItem a, YearReviewItem b) {
+    if (a.score != b.score) return a.score > b.score;
+    if (a.priority != b.priority) return a.priority < b.priority;
+    return a.eventDate.isAfter(b.eventDate);
+  }
+
   static List<YearReviewItem> _applyDefaults(List<YearReviewItem> items) {
     final bySection = <YearReviewSection, List<YearReviewItem>>{};
     for (final item in items) {
@@ -65,12 +97,7 @@ abstract final class YearReviewHighlightSelector {
     for (final section in YearReviewSection.values) {
       final list = bySection[section] ?? const [];
       if (list.isEmpty) continue;
-      final sorted = [...list]
-        ..sort((a, b) {
-          final byPriority = a.priority.compareTo(b.priority);
-          if (byPriority != 0) return byPriority;
-          return b.eventDate.compareTo(a.eventDate);
-        });
+      final sorted = [...list]..sort(_compareByScoreThenPriority);
 
       switch (section) {
         case YearReviewSection.growth:
@@ -90,20 +117,19 @@ abstract final class YearReviewHighlightSelector {
           result.addAll(_capInclude(sorted, maxJournalsDefault));
         case YearReviewSection.health:
           result.addAll(
-            sorted
-                .take(maxHealthDefault)
-                .map((i) => i.copyWith(included: false)),
+            sorted.map((i) => i.copyWith(included: false)),
           );
-          if (sorted.length > maxHealthDefault) {
-            result.addAll(
-              sorted
-                  .skip(maxHealthDefault)
-                  .map((i) => i.copyWith(included: false)),
-            );
-          }
       }
     }
     return result;
+  }
+
+  static int _compareByScoreThenPriority(YearReviewItem a, YearReviewItem b) {
+    final byScore = b.score.compareTo(a.score);
+    if (byScore != 0) return byScore;
+    final byPriority = a.priority.compareTo(b.priority);
+    if (byPriority != 0) return byPriority;
+    return b.eventDate.compareTo(a.eventDate);
   }
 
   static List<YearReviewItem> _capInclude(
@@ -113,7 +139,8 @@ abstract final class YearReviewHighlightSelector {
     final out = <YearReviewItem>[];
     var includedCount = 0;
     for (final item in sorted) {
-      final forceFavorite = item.priority <= YearReviewPriorities.favorites;
+      final forceFavorite = item.priority <= YearReviewPriorities.favorites ||
+          item.score >= 140;
       final include = forceFavorite || includedCount < maxIncluded;
       if (include) includedCount++;
       out.add(item.copyWith(included: include));
@@ -135,9 +162,7 @@ abstract final class YearReviewHighlightSelector {
         if (byOrder != 0 && (a.sortOrder != 0 || b.sortOrder != 0)) {
           return byOrder;
         }
-        final byPriority = a.priority.compareTo(b.priority);
-        if (byPriority != 0) return byPriority;
-        return b.eventDate.compareTo(a.eventDate);
+        return _compareByScoreThenPriority(a, b);
       });
       for (var i = 0; i < list.length; i++) {
         out.add(list[i].copyWith(sortOrder: i));

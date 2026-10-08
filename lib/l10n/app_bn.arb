@@ -638,6 +638,24 @@
   "yearReviewEditCaption": "ক্যাপশন সম্পাদনা",
   "yearReviewGenerate": "পিডিএফ তৈরি করুন",
   "yearReviewSaved": "পছন্দসমূহ সংরক্ষিত।",
+  "yearReviewSmartTitle": "স্মার্ট প্রস্তাব",
+  "yearReviewSmartSubtitle": "পছন্দ, ক্যাপশন ও বৈচিত্র্য থেকে স্থানীয় র‌্যাঙ্কিং — কোনো ক্লাউড AI নয়।",
+  "yearReviewSuggestedTitle": "প্রস্তাবিত শিরোনাম",
+  "yearReviewUseSuggestedTitle": "প্রস্তাবিত শিরোনাম ব্যবহার করুন",
+  "yearReviewCollageHint": "PDF-এ {count}টি হাইলাইট ছবির কোলাজ থাকবে।",
+  "@yearReviewCollageHint": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "yearReviewUseCollageCover": "কোলাজের শীর্ষ ছবি কভার হিসেবে নিন",
+  "yearReviewSectionRecs": "জোর দেওয়ার মতো অংশ",
+  "yearReviewDuplicatesRemoved": "{count}টি ডুপ্লিকেট ছবি সরানো হয়েছে।",
+  "@yearReviewDuplicatesRemoved": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "yearReviewGeneratingTitle": "আপনার অ্যালবাম তৈরি হচ্ছে",
   "yearReviewStagePreparing": "স্মৃতি প্রস্তুত করা হচ্ছে…",
   "yearReviewStagePhotos": "ছবি প্রক্রিয়াকরণ…",

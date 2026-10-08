@@ -3884,6 +3884,54 @@ abstract class AppLocalizations {
   /// **'Preferences saved.'**
   String get yearReviewSaved;
 
+  /// No description provided for @yearReviewSmartTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Smart suggestions'**
+  String get yearReviewSmartTitle;
+
+  /// No description provided for @yearReviewSmartSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Local ranking from favorites, captions, and variety — no cloud AI.'**
+  String get yearReviewSmartSubtitle;
+
+  /// No description provided for @yearReviewSuggestedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Suggested title'**
+  String get yearReviewSuggestedTitle;
+
+  /// No description provided for @yearReviewUseSuggestedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Use suggested title'**
+  String get yearReviewUseSuggestedTitle;
+
+  /// No description provided for @yearReviewCollageHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo collage of {count} highlights will appear in the PDF.'**
+  String yearReviewCollageHint(int count);
+
+  /// No description provided for @yearReviewUseCollageCover.
+  ///
+  /// In en, this message translates to:
+  /// **'Use top collage photo as cover'**
+  String get yearReviewUseCollageCover;
+
+  /// No description provided for @yearReviewSectionRecs.
+  ///
+  /// In en, this message translates to:
+  /// **'Sections to emphasize'**
+  String get yearReviewSectionRecs;
+
+  /// No description provided for @yearReviewDuplicatesRemoved.
+  ///
+  /// In en, this message translates to:
+  /// **'Removed {count} duplicate photos.'**
+  String yearReviewDuplicatesRemoved(int count);
+
   /// No description provided for @yearReviewGeneratingTitle.
   ///
   /// In en, this message translates to:

@@ -665,6 +665,24 @@
   "yearReviewEditCaption": "Edit caption",
   "yearReviewGenerate": "Generate PDF",
   "yearReviewSaved": "Preferences saved.",
+  "yearReviewSmartTitle": "Smart suggestions",
+  "yearReviewSmartSubtitle": "Local ranking from favorites, captions, and variety — no cloud AI.",
+  "yearReviewSuggestedTitle": "Suggested title",
+  "yearReviewUseSuggestedTitle": "Use suggested title",
+  "yearReviewCollageHint": "Photo collage of {count} highlights will appear in the PDF.",
+  "@yearReviewCollageHint": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "yearReviewUseCollageCover": "Use top collage photo as cover",
+  "yearReviewSectionRecs": "Sections to emphasize",
+  "yearReviewDuplicatesRemoved": "Removed {count} duplicate photos.",
+  "@yearReviewDuplicatesRemoved": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
   "yearReviewGeneratingTitle": "Creating your album",
   "yearReviewStagePreparing": "Preparing memories…",
   "yearReviewStagePhotos": "Processing photos…",

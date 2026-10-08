@@ -90,6 +90,11 @@ class YearReviewPdfGenerator extends RepositoryBase {
           final cover = await _optimizeImage(draft.coverAssetId!);
           if (cover != null) imageBytes[draft.coverAssetId!] = cover;
         }
+        for (final collageId in draft.collageMediaAssetIds) {
+          if (imageBytes.containsKey(collageId)) continue;
+          final bytes = await _optimizeImage(collageId);
+          if (bytes != null) imageBytes[collageId] = bytes;
+        }
 
         report(PdfGenerationStage.buildingPages, 0.55);
         cancel.throwIfCancelled();
@@ -117,6 +122,27 @@ class YearReviewPdfGenerator extends RepositoryBase {
             ),
           ),
         );
+
+        final collageBytes = [
+          for (final id in draft.collageMediaAssetIds)
+            if (imageBytes[id] != null) imageBytes[id]!,
+        ];
+        if (collageBytes.length >= 4) {
+          doc.addPage(
+            pw.Page(
+              pageFormat: PdfPageFormat.a4,
+              margin: const pw.EdgeInsets.fromLTRB(28, 36, 28, 36),
+              build: (context) => _buildCollagePage(
+                draft: draft,
+                theme: theme,
+                textStyle: textStyle,
+                images: collageBytes.take(6).toList(),
+                isBn: isBn,
+              ),
+            ),
+          );
+          pageEstimate += 1;
+        }
 
         final sections = _sectionOrder(draft);
         for (final section in sections) {
@@ -312,6 +338,60 @@ class YearReviewPdfGenerator extends RepositoryBase {
       if (draft.includeHealth) YearReviewSection.health,
       YearReviewSection.parentLetter,
     ];
+  }
+
+  pw.Widget _buildCollagePage({
+    required YearReviewDraft draft,
+    required PdfThemeStyle theme,
+    required pw.TextStyle textStyle,
+    required List<Uint8List> images,
+    required bool isBn,
+  }) {
+    final heading = isBn ? 'ছবির কোলাজ' : 'Photo collage';
+    final tiles = images.take(6).toList();
+    return pw.Column(
+      crossAxisAlignment: pw.CrossAxisAlignment.stretch,
+      children: [
+        pw.Text(
+          heading,
+          style: textStyle.copyWith(
+            fontSize: 22,
+            fontWeight: pw.FontWeight.bold,
+            color: theme.colors.accent,
+          ),
+        ),
+        pw.SizedBox(height: 6),
+        pw.Text(
+          isBn
+              ? 'পছন্দের ও উজ্জ্বল মুহূর্তগুলো থেকে বাছাই'
+              : 'Picked from favorite and high-scoring moments',
+          style: textStyle.copyWith(
+            fontSize: 11,
+            color: theme.colors.muted,
+          ),
+        ),
+        pw.SizedBox(height: 18),
+        pw.Expanded(
+          child: pw.GridView(
+            crossAxisCount: tiles.length <= 4 ? 2 : 3,
+            childAspectRatio: 1,
+            crossAxisSpacing: 8,
+            mainAxisSpacing: 8,
+            children: [
+              for (final bytes in tiles)
+                pw.ClipRRect(
+                  horizontalRadius: 8,
+                  verticalRadius: 8,
+                  child: pw.Image(
+                    pw.MemoryImage(bytes),
+                    fit: pw.BoxFit.cover,
+                  ),
+                ),
+            ],
+          ),
+        ),
+      ],
+    );
   }
 
   pw.Widget _buildCover({

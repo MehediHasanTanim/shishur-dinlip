@@ -1947,6 +1947,35 @@ class AppLocalizationsBn extends AppLocalizations {
   String get yearReviewSaved => 'পছন্দসমূহ সংরক্ষিত।';
 
   @override
+  String get yearReviewSmartTitle => 'স্মার্ট প্রস্তাব';
+
+  @override
+  String get yearReviewSmartSubtitle =>
+      'পছন্দ, ক্যাপশন ও বৈচিত্র্য থেকে স্থানীয় র‌্যাঙ্কিং — কোনো ক্লাউড AI নয়।';
+
+  @override
+  String get yearReviewSuggestedTitle => 'প্রস্তাবিত শিরোনাম';
+
+  @override
+  String get yearReviewUseSuggestedTitle => 'প্রস্তাবিত শিরোনাম ব্যবহার করুন';
+
+  @override
+  String yearReviewCollageHint(int count) {
+    return 'PDF-এ $countটি হাইলাইট ছবির কোলাজ থাকবে।';
+  }
+
+  @override
+  String get yearReviewUseCollageCover => 'কোলাজের শীর্ষ ছবি কভার হিসেবে নিন';
+
+  @override
+  String get yearReviewSectionRecs => 'জোর দেওয়ার মতো অংশ';
+
+  @override
+  String yearReviewDuplicatesRemoved(int count) {
+    return '$countটি ডুপ্লিকেট ছবি সরানো হয়েছে।';
+  }
+
+  @override
   String get yearReviewGeneratingTitle => 'আপনার অ্যালবাম তৈরি হচ্ছে';
 
   @override

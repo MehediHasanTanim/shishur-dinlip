@@ -135,6 +135,28 @@ class _YearReviewEditorScreenState
                   '${draft.year}',
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
+                const SizedBox(height: 16),
+                _SmartSuggestionsCard(
+                  draft: draft,
+                  onUseSuggestedTitle: () {
+                    final title = draft.languageCode == 'bn'
+                        ? draft.suggestedTitleBn
+                        : draft.suggestedTitleEn;
+                    if (title == null || title.trim().isEmpty) return;
+                    setState(
+                      () => _draft = draft.copyWith(titleOverride: title),
+                    );
+                  },
+                  onUseSuggestedCover: () {
+                    final id = draft.collageMediaAssetIds.isEmpty
+                        ? null
+                        : draft.collageMediaAssetIds.first;
+                    if (id == null) return;
+                    setState(
+                      () => _draft = draft.copyWith(coverAssetId: id),
+                    );
+                  },
+                ),
                 const SizedBox(height: 20),
                 Text(
                   l10n.yearReviewTheme,
@@ -419,5 +441,122 @@ class _CoverPicker extends StatelessWidget {
         },
       ),
     );
+  }
+}
+
+class _SmartSuggestionsCard extends StatelessWidget {
+  const _SmartSuggestionsCard({
+    required this.draft,
+    required this.onUseSuggestedTitle,
+    required this.onUseSuggestedCover,
+  });
+
+  final YearReviewDraft draft;
+  final VoidCallback onUseSuggestedTitle;
+  final VoidCallback onUseSuggestedCover;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final suggested = draft.languageCode == 'bn'
+        ? draft.suggestedTitleBn
+        : draft.suggestedTitleEn;
+    final emphasized = draft.sectionRecommendations
+        .where((r) => r.recommendEmphasize)
+        .toList();
+
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              l10n.yearReviewSmartTitle,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            const SizedBox(height: 4),
+            Text(
+              l10n.yearReviewSmartSubtitle,
+              style: Theme.of(context).textTheme.bodySmall,
+            ),
+            if (draft.duplicatesRemoved > 0) ...[
+              const SizedBox(height: 8),
+              Text(
+                l10n.yearReviewDuplicatesRemoved(draft.duplicatesRemoved),
+                style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                      color: Theme.of(context).colorScheme.primary,
+                    ),
+              ),
+            ],
+            if (suggested != null && suggested.trim().isNotEmpty) ...[
+              const SizedBox(height: 12),
+              Text(
+                l10n.yearReviewSuggestedTitle,
+                style: Theme.of(context).textTheme.labelLarge,
+              ),
+              const SizedBox(height: 4),
+              Text(suggested),
+              const SizedBox(height: 8),
+              OutlinedButton.icon(
+                onPressed: onUseSuggestedTitle,
+                icon: const Icon(Icons.title),
+                label: Text(l10n.yearReviewUseSuggestedTitle),
+              ),
+            ],
+            if (draft.collageMediaAssetIds.length >= 4) ...[
+              const SizedBox(height: 12),
+              Text(
+                l10n.yearReviewCollageHint(
+                  draft.collageMediaAssetIds.length,
+                ),
+              ),
+              const SizedBox(height: 8),
+              OutlinedButton.icon(
+                onPressed: onUseSuggestedCover,
+                icon: const Icon(Icons.photo_library_outlined),
+                label: Text(l10n.yearReviewUseCollageCover),
+              ),
+            ],
+            if (emphasized.isNotEmpty) ...[
+              const SizedBox(height: 12),
+              Text(
+                l10n.yearReviewSectionRecs,
+                style: Theme.of(context).textTheme.labelLarge,
+              ),
+              const SizedBox(height: 8),
+              Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: [
+                  for (final rec in emphasized.take(4))
+                    Chip(
+                      avatar: const Icon(Icons.auto_awesome, size: 16),
+                      label: Text(
+                        '${_sectionLabel(l10n, rec.section)} · ${rec.itemCount}',
+                      ),
+                    ),
+                ],
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+
+  String _sectionLabel(AppLocalizations l10n, YearReviewSection section) {
+    return switch (section) {
+      YearReviewSection.growth => l10n.yearReviewSectionGrowth,
+      YearReviewSection.milestones => l10n.yearReviewSectionMilestones,
+      YearReviewSection.school => l10n.yearReviewSectionSchool,
+      YearReviewSection.achievements => l10n.yearReviewSectionAchievements,
+      YearReviewSection.funnyMoments => l10n.yearReviewSectionFunny,
+      YearReviewSection.photos => l10n.yearReviewSectionPhotos,
+      YearReviewSection.birthday => l10n.yearReviewSectionBirthday,
+      YearReviewSection.journals => l10n.yearReviewSectionJournals,
+      YearReviewSection.health => l10n.yearReviewSectionHealth,
+      YearReviewSection.parentLetter => l10n.yearReviewParentLetter,
+    };
   }
 }

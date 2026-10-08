@@ -31,6 +31,8 @@ class YearReviewItem {
     this.included = true,
     this.sortOrder = 0,
     this.priority = 50,
+    this.score = 0,
+    this.checksum,
   });
 
   final String id;
@@ -46,12 +48,20 @@ class YearReviewItem {
   final int sortOrder;
   final int priority;
 
+  /// Smart highlight score (higher = stronger candidate).
+  final double score;
+
+  /// Optional media checksum used for duplicate photo removal.
+  final String? checksum;
+
   YearReviewItem copyWith({
     String? caption,
     bool? included,
     int? sortOrder,
     String? title,
     String? subtitle,
+    double? score,
+    String? checksum,
   }) {
     return YearReviewItem(
       id: id,
@@ -66,6 +76,8 @@ class YearReviewItem {
       included: included ?? this.included,
       sortOrder: sortOrder ?? this.sortOrder,
       priority: priority,
+      score: score ?? this.score,
+      checksum: checksum ?? this.checksum,
     );
   }
 
@@ -82,6 +94,8 @@ class YearReviewItem {
     'included': included,
     'sortOrder': sortOrder,
     'priority': priority,
+    'score': score,
+    'checksum': checksum,
   };
 
   static YearReviewItem fromJson(Map<String, dynamic> json) {
@@ -102,8 +116,27 @@ class YearReviewItem {
       included: json['included'] as bool? ?? true,
       sortOrder: json['sortOrder'] as int? ?? 0,
       priority: json['priority'] as int? ?? 50,
+      score: (json['score'] as num?)?.toDouble() ?? 0,
+      checksum: json['checksum'] as String?,
     );
   }
+}
+
+@immutable
+class YearReviewSectionRecommendation {
+  const YearReviewSectionRecommendation({
+    required this.section,
+    required this.itemCount,
+    required this.averageScore,
+    required this.recommendEmphasize,
+    required this.reasonKey,
+  });
+
+  final YearReviewSection section;
+  final int itemCount;
+  final double averageScore;
+  final bool recommendEmphasize;
+  final String reasonKey;
 }
 
 @immutable
@@ -144,6 +177,11 @@ class YearReviewDraft {
     this.languageCode = 'en',
     this.titleOverride,
     this.preferenceId,
+    this.suggestedTitleEn,
+    this.suggestedTitleBn,
+    this.sectionRecommendations = const [],
+    this.collageMediaAssetIds = const [],
+    this.duplicatesRemoved = 0,
   });
 
   final String childId;
@@ -163,14 +201,24 @@ class YearReviewDraft {
   final String? titleOverride;
   final String? preferenceId;
 
+  /// Smart suggested titles (applied only when parent accepts).
+  final String? suggestedTitleEn;
+  final String? suggestedTitleBn;
+  final List<YearReviewSectionRecommendation> sectionRecommendations;
+  final List<String> collageMediaAssetIds;
+  final int duplicatesRemoved;
+
   String get displayTitle {
     final override = titleOverride?.trim();
     if (override != null && override.isNotEmpty) return override;
     return '$childName — Age $ageAtEnd: Year in Review';
   }
 
-  String get displayTitleBn =>
-      '$childName — $ageAtEnd বছর: বছরের স্মৃতিচারণ';
+  String get displayTitleBn {
+    final override = titleOverride?.trim();
+    if (override != null && override.isNotEmpty) return override;
+    return '$childName — $ageAtEnd বছর: বছরের স্মৃতিচারণ';
+  }
 
   List<YearReviewItem> includedItems([YearReviewSection? section]) {
     final list = items.where((i) {
@@ -202,6 +250,11 @@ class YearReviewDraft {
     bool clearTitleOverride = false,
     String? preferenceId,
     GrowthSummary? growth,
+    String? suggestedTitleEn,
+    String? suggestedTitleBn,
+    List<YearReviewSectionRecommendation>? sectionRecommendations,
+    List<String>? collageMediaAssetIds,
+    int? duplicatesRemoved,
   }) {
     return YearReviewDraft(
       childId: childId,
@@ -226,6 +279,12 @@ class YearReviewDraft {
           ? null
           : (titleOverride ?? this.titleOverride),
       preferenceId: preferenceId ?? this.preferenceId,
+      suggestedTitleEn: suggestedTitleEn ?? this.suggestedTitleEn,
+      suggestedTitleBn: suggestedTitleBn ?? this.suggestedTitleBn,
+      sectionRecommendations:
+          sectionRecommendations ?? this.sectionRecommendations,
+      collageMediaAssetIds: collageMediaAssetIds ?? this.collageMediaAssetIds,
+      duplicatesRemoved: duplicatesRemoved ?? this.duplicatesRemoved,
     );
   }
 

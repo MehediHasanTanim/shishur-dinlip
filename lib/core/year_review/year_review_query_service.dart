@@ -9,6 +9,8 @@ import 'package:shishur_dinlipi/core/mappers/media_asset_mapper.dart';
 import 'package:shishur_dinlipi/core/mappers/year_review_preference_mapper.dart';
 import 'package:shishur_dinlipi/core/repository/repository_base.dart';
 import 'package:shishur_dinlipi/core/year_review/year_review_highlight_selector.dart';
+import 'package:shishur_dinlipi/core/year_review/year_review_scorer.dart';
+import 'package:shishur_dinlipi/core/year_review/year_review_smart_suggestions.dart';
 
 /// Builds a [YearReviewDraft] for a child + calendar year.
 class YearReviewQueryService extends RepositoryBase {
@@ -65,14 +67,31 @@ class YearReviewQueryService extends RepositoryBase {
         );
       }
 
+      final scored = candidates
+          .map(
+            (c) => c.copyWith(
+              score: c.score > 0
+                  ? c.score
+                  : YearReviewScorer.scoreItem(c),
+            ),
+          )
+          .toList();
+
+      final beforeDedup = scored
+          .where((i) => i.section == YearReviewSection.photos)
+          .length;
       final selected = YearReviewHighlightSelector.apply(
-        candidates: candidates,
+        candidates: scored,
         savedSelection: YearReviewDraft.decodeSelection(
           preference?.selectionJson,
         ),
       );
+      final afterDedup = selected
+          .where((i) => i.section == YearReviewSection.photos)
+          .length;
+      final duplicatesRemoved = (beforeDedup - afterDedup).clamp(0, beforeDedup);
 
-      return YearReviewDraft(
+      var draft = YearReviewDraft(
         childId: childId,
         childName: childRow.name,
         dateOfBirth: dob,
@@ -89,7 +108,19 @@ class YearReviewQueryService extends RepositoryBase {
         languageCode: languageCode ?? preference?.languageCode ?? 'en',
         titleOverride: preference?.titleOverride,
         preferenceId: preference?.id,
+        duplicatesRemoved: duplicatesRemoved,
       );
+
+      final smart = YearReviewSmartSuggestionEngine.build(draft: draft);
+      draft = draft.copyWith(
+        suggestedTitleEn: smart.suggestedTitleEn,
+        suggestedTitleBn: smart.suggestedTitleBn,
+        sectionRecommendations: smart.sectionRecommendations,
+        collageMediaAssetIds: smart.collageMediaAssetIds,
+        coverAssetId: preference?.coverAssetId ?? smart.suggestedCoverAssetId,
+        clearCoverAssetId: false,
+      );
+      return draft;
     }, operation: 'yearReview.buildDraft');
   }
 
@@ -183,8 +214,8 @@ class YearReviewQueryService extends RepositoryBase {
         .where(
           (r) => !r.eventDate.isBefore(start) && !r.eventDate.isAfter(end),
         )
-        .map(
-          (r) => YearReviewItem(
+        .map((r) {
+          final item = YearReviewItem(
             id: 'achievement-${r.id}',
             section: YearReviewSection.achievements,
             title: r.title,
@@ -196,8 +227,9 @@ class YearReviewQueryService extends RepositoryBase {
             priority: r.isFavorite
                 ? YearReviewPriorities.favorites
                 : YearReviewPriorities.achievements,
-          ),
-        )
+          );
+          return item.copyWith(score: YearReviewScorer.scoreItem(item));
+        })
         .toList();
   }
 
@@ -218,7 +250,7 @@ class YearReviewQueryService extends RepositoryBase {
               : (quote != null && quote.isNotEmpty
                     ? quote
                     : (r.story?.trim() ?? 'Funny moment'));
-          return YearReviewItem(
+          final item = YearReviewItem(
             id: 'funny-${r.id}',
             section: YearReviewSection.funnyMoments,
             title: title,
@@ -231,6 +263,7 @@ class YearReviewQueryService extends RepositoryBase {
                 ? YearReviewPriorities.favorites
                 : YearReviewPriorities.funnyQuotes,
           );
+          return item.copyWith(score: YearReviewScorer.scoreItem(item));
         })
         .toList();
   }
@@ -306,18 +339,27 @@ class YearReviewQueryService extends RepositoryBase {
       if (media.assetType != MediaAssetType.image) continue;
       final date = media.capturedAt ?? media.importedAt;
       if (date.isBefore(start) || date.isAfter(end)) continue;
+      final item = YearReviewItem(
+        id: 'photo-${media.id}',
+        section: YearReviewSection.photos,
+        title: media.originalFilename ?? 'Photo',
+        eventDate: date,
+        mediaAssetId: media.id,
+        entityType: EntityTypes.mediaAsset,
+        entityId: media.id,
+        priority: media.isFavorite
+            ? YearReviewPriorities.favorites
+            : YearReviewPriorities.photos,
+        checksum: media.checksum,
+      );
       items.add(
-        YearReviewItem(
-          id: 'photo-${media.id}',
-          section: YearReviewSection.photos,
-          title: media.originalFilename ?? 'Photo',
-          eventDate: date,
-          mediaAssetId: media.id,
-          entityType: EntityTypes.mediaAsset,
-          entityId: media.id,
-          priority: media.isFavorite
-              ? YearReviewPriorities.favorites
-              : YearReviewPriorities.photos,
+        item.copyWith(
+          score: YearReviewScorer.scorePhoto(
+            item: item,
+            isFavorite: media.isFavorite,
+            width: media.width,
+            height: media.height,
+          ),
         ),
       );
     }
