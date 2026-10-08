@@ -2030,6 +2030,68 @@ class AppLocalizationsEn extends AppLocalizations {
   String get backupStageFailed => 'Backup failed';
 
   @override
+  String get cloudBackupTitle => 'Cloud backups';
+
+  @override
+  String get cloudBackupSubtitle =>
+      'Optional. Upload already-encrypted backups to your own cloud account. The app never requires cloud.';
+
+  @override
+  String get cloudBackupConnect => 'Connect';
+
+  @override
+  String get cloudBackupDisconnect => 'Disconnect';
+
+  @override
+  String get cloudBackupConnected => 'Connected';
+
+  @override
+  String get cloudBackupNotConfigured => 'Not configured in this build';
+
+  @override
+  String get cloudBackupUnsupported => 'Not available yet';
+
+  @override
+  String get cloudBackupUploadLatest => 'Upload latest local backup';
+
+  @override
+  String get cloudBackupUploaded => 'Uploaded to cloud.';
+
+  @override
+  String get cloudBackupRemoteEmpty => 'No remote backups yet.';
+
+  @override
+  String get cloudBackupRefresh => 'Refresh';
+
+  @override
+  String get cloudBackupDownload => 'Download';
+
+  @override
+  String get cloudBackupDelete => 'Delete';
+
+  @override
+  String get cloudBackupDeleted => 'Remote backup deleted.';
+
+  @override
+  String get cloudBackupDownloaded =>
+      'Downloaded. You can restore it from the Restore screen.';
+
+  @override
+  String get cloudProviderGoogleDrive => 'Google Drive';
+
+  @override
+  String get cloudProviderOneDrive => 'OneDrive';
+
+  @override
+  String get cloudProviderDropbox => 'Dropbox';
+
+  @override
+  String get cloudProviderICloud => 'iCloud';
+
+  @override
+  String get cloudProviderLocal => 'This device';
+
+  @override
   String get restoreTitle => 'Restore backup';
 
   @override

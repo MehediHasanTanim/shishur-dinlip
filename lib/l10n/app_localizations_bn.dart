@@ -2007,6 +2007,68 @@ class AppLocalizationsBn extends AppLocalizations {
   String get backupStageFailed => 'ব্যাকআপ ব্যর্থ';
 
   @override
+  String get cloudBackupTitle => 'ক্লাউড ব্যাকআপ';
+
+  @override
+  String get cloudBackupSubtitle =>
+      'ঐচ্ছিক। ইতিমধ্যে এনক্রিপ্ট করা ব্যাকআপ আপনার নিজের ক্লাউড অ্যাকাউন্টে তুলুন। অ্যাপের জন্য ক্লাউড বাধ্যতামূলক নয়।';
+
+  @override
+  String get cloudBackupConnect => 'সংযুক্ত করুন';
+
+  @override
+  String get cloudBackupDisconnect => 'সংযোগ ছাড়ুন';
+
+  @override
+  String get cloudBackupConnected => 'সংযুক্ত';
+
+  @override
+  String get cloudBackupNotConfigured => 'এই বিল্ডে কনফিগার করা নেই';
+
+  @override
+  String get cloudBackupUnsupported => 'এখনো উপলব্ধ নয়';
+
+  @override
+  String get cloudBackupUploadLatest => 'সর্বশেষ স্থানীয় ব্যাকআপ আপলোড';
+
+  @override
+  String get cloudBackupUploaded => 'ক্লাউডে আপলোড হয়েছে।';
+
+  @override
+  String get cloudBackupRemoteEmpty => 'এখনো কোনো রিমোট ব্যাকআপ নেই।';
+
+  @override
+  String get cloudBackupRefresh => 'রিফ্রেশ';
+
+  @override
+  String get cloudBackupDownload => 'ডাউনলোড';
+
+  @override
+  String get cloudBackupDelete => 'মুছুন';
+
+  @override
+  String get cloudBackupDeleted => 'রিমোট ব্যাকআপ মুছে ফেলা হয়েছে।';
+
+  @override
+  String get cloudBackupDownloaded =>
+      'ডাউনলোড হয়েছে। রিস্টোর স্ক্রিন থেকে পুনরুদ্ধার করতে পারবেন।';
+
+  @override
+  String get cloudProviderGoogleDrive => 'গুগল ড্রাইভ';
+
+  @override
+  String get cloudProviderOneDrive => 'ওয়ানড্রাইভ';
+
+  @override
+  String get cloudProviderDropbox => 'ড্রপবক্স';
+
+  @override
+  String get cloudProviderICloud => 'আইক্লাউড';
+
+  @override
+  String get cloudProviderLocal => 'এই ডিভাইস';
+
+  @override
   String get restoreTitle => 'ব্যাকআপ রিস্টোর';
 
   @override

@@ -39,6 +39,8 @@ import 'package:shishur_dinlipi/core/year_review/year_review_query_service.dart'
 import 'package:shishur_dinlipi/core/pdf/birthday_pdf_generator.dart';
 import 'package:shishur_dinlipi/core/pdf/year_review_pdf_generator.dart';
 import 'package:shishur_dinlipi/core/backup/backup_service.dart';
+import 'package:shishur_dinlipi/core/backup/cloud/cloud_backup_registry.dart';
+import 'package:shishur_dinlipi/core/backup/cloud/cloud_backup_service.dart';
 import 'package:shishur_dinlipi/core/backup/restore_service.dart';
 import 'package:shishur_dinlipi/core/security/biometric_service.dart';
 import 'package:shishur_dinlipi/core/security/db_encryption_key_store.dart';
@@ -301,6 +303,22 @@ final securitySettingsStoreProvider = Provider<SecuritySettingsStore>((ref) {
 final backupServiceProvider = Provider<BackupService>((ref) {
   return BackupService(
     db: ref.watch(appDatabaseProvider),
+    storage: ref.watch(fileStorageServiceProvider),
+  );
+});
+
+final cloudBackupRegistryProvider = Provider<CloudBackupRegistry>((ref) {
+  return CloudBackupRegistry.production(
+    backupService: ref.watch(backupServiceProvider),
+    storage: ref.watch(fileStorageServiceProvider),
+    secureStorage: ref.watch(secureStorageServiceProvider),
+  );
+});
+
+final cloudBackupServiceProvider = Provider<CloudBackupService>((ref) {
+  return CloudBackupService(
+    registry: ref.watch(cloudBackupRegistryProvider),
+    backupService: ref.watch(backupServiceProvider),
     storage: ref.watch(fileStorageServiceProvider),
   );
 });

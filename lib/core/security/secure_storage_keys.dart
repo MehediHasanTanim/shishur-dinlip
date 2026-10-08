@@ -10,4 +10,7 @@ abstract final class SecureStorageKeys {
   static const failedPinAttempts = 'failed_pin_attempts_v1';
   static const pinLockUntil = 'pin_lock_until_v1';
   static const biometricIntegrity = 'biometric_integrity_v1';
+  static const oauthGoogleDrive = 'oauth_google_drive_v1';
+  static const oauthOneDrive = 'oauth_onedrive_v1';
+  static const oauthDropbox = 'oauth_dropbox_v1';
 }

@@ -4016,6 +4016,126 @@ abstract class AppLocalizations {
   /// **'Backup failed'**
   String get backupStageFailed;
 
+  /// No description provided for @cloudBackupTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Cloud backups'**
+  String get cloudBackupTitle;
+
+  /// No description provided for @cloudBackupSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional. Upload already-encrypted backups to your own cloud account. The app never requires cloud.'**
+  String get cloudBackupSubtitle;
+
+  /// No description provided for @cloudBackupConnect.
+  ///
+  /// In en, this message translates to:
+  /// **'Connect'**
+  String get cloudBackupConnect;
+
+  /// No description provided for @cloudBackupDisconnect.
+  ///
+  /// In en, this message translates to:
+  /// **'Disconnect'**
+  String get cloudBackupDisconnect;
+
+  /// No description provided for @cloudBackupConnected.
+  ///
+  /// In en, this message translates to:
+  /// **'Connected'**
+  String get cloudBackupConnected;
+
+  /// No description provided for @cloudBackupNotConfigured.
+  ///
+  /// In en, this message translates to:
+  /// **'Not configured in this build'**
+  String get cloudBackupNotConfigured;
+
+  /// No description provided for @cloudBackupUnsupported.
+  ///
+  /// In en, this message translates to:
+  /// **'Not available yet'**
+  String get cloudBackupUnsupported;
+
+  /// No description provided for @cloudBackupUploadLatest.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload latest local backup'**
+  String get cloudBackupUploadLatest;
+
+  /// No description provided for @cloudBackupUploaded.
+  ///
+  /// In en, this message translates to:
+  /// **'Uploaded to cloud.'**
+  String get cloudBackupUploaded;
+
+  /// No description provided for @cloudBackupRemoteEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No remote backups yet.'**
+  String get cloudBackupRemoteEmpty;
+
+  /// No description provided for @cloudBackupRefresh.
+  ///
+  /// In en, this message translates to:
+  /// **'Refresh'**
+  String get cloudBackupRefresh;
+
+  /// No description provided for @cloudBackupDownload.
+  ///
+  /// In en, this message translates to:
+  /// **'Download'**
+  String get cloudBackupDownload;
+
+  /// No description provided for @cloudBackupDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get cloudBackupDelete;
+
+  /// No description provided for @cloudBackupDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Remote backup deleted.'**
+  String get cloudBackupDeleted;
+
+  /// No description provided for @cloudBackupDownloaded.
+  ///
+  /// In en, this message translates to:
+  /// **'Downloaded. You can restore it from the Restore screen.'**
+  String get cloudBackupDownloaded;
+
+  /// No description provided for @cloudProviderGoogleDrive.
+  ///
+  /// In en, this message translates to:
+  /// **'Google Drive'**
+  String get cloudProviderGoogleDrive;
+
+  /// No description provided for @cloudProviderOneDrive.
+  ///
+  /// In en, this message translates to:
+  /// **'OneDrive'**
+  String get cloudProviderOneDrive;
+
+  /// No description provided for @cloudProviderDropbox.
+  ///
+  /// In en, this message translates to:
+  /// **'Dropbox'**
+  String get cloudProviderDropbox;
+
+  /// No description provided for @cloudProviderICloud.
+  ///
+  /// In en, this message translates to:
+  /// **'iCloud'**
+  String get cloudProviderICloud;
+
+  /// No description provided for @cloudProviderLocal.
+  ///
+  /// In en, this message translates to:
+  /// **'This device'**
+  String get cloudProviderLocal;
+
   /// No description provided for @restoreTitle.
   ///
   /// In en, this message translates to:

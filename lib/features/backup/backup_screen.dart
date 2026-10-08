@@ -7,6 +7,7 @@ import 'package:shishur_dinlipi/core/backup/backup_manifest.dart';
 import 'package:shishur_dinlipi/core/backup/backup_service.dart';
 import 'package:shishur_dinlipi/core/di/core_providers.dart';
 import 'package:shishur_dinlipi/core/errors/failures.dart';
+import 'package:shishur_dinlipi/features/backup/cloud_backup_section.dart';
 import 'package:shishur_dinlipi/l10n/app_localizations.dart';
 
 final backupHistoryProvider = FutureProvider.autoDispose<List<BackupHistoryEntry>>(
@@ -118,6 +119,8 @@ class _BackupScreenState extends ConsumerState<BackupScreen> {
             icon: const Icon(Icons.backup_outlined),
             label: Text(l10n.backupCreate),
           ),
+          const SizedBox(height: 24),
+          const CloudBackupSection(),
           const SizedBox(height: 24),
           Text(
             l10n.backupHistory,

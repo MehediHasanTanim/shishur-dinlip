@@ -74,5 +74,18 @@
 	<string>Photo library access is used to add memories and documents to your child's journal.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Microphone access is used only when you choose to record a first word or memory.</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>shishur.dinlipi.oauth</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>shishurdinlipi</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>
