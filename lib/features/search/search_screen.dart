@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shishur_dinlipi/core/di/core_providers.dart';
 import 'package:shishur_dinlipi/core/domain/models/search_result.dart';
+import 'package:shishur_dinlipi/core/search/search_highlight.dart';
 import 'package:shishur_dinlipi/features/children/child_controller.dart';
 import 'package:shishur_dinlipi/features/search/search_labels.dart';
 import 'package:shishur_dinlipi/l10n/app_localizations.dart';
+import 'package:shishur_dinlipi/app/theme/app_colors.dart';
 import 'package:shishur_dinlipi/shared/widgets/app_state_views.dart';
 
 class SearchScreen extends ConsumerStatefulWidget {
@@ -19,15 +21,20 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
   SearchResultType? _typeFilter;
   DateTime? _fromDate;
   DateTime? _toDate;
+  String? _tagFilter;
   List<SearchResult> _results = const [];
   List<String> _recent = const [];
+  List<String> _tagOptions = const [];
   bool _searched = false;
   bool _loading = false;
 
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) => _loadRecent());
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _loadRecent();
+      _loadTags();
+    });
   }
 
   @override
@@ -41,12 +48,17 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
     if (mounted) setState(() => _recent = recent);
   }
 
+  Future<void> _loadTags() async {
+    final tags = await ref.read(tagsRepositoryProvider).recentNames(limit: 24);
+    if (mounted) setState(() => _tagOptions = tags);
+  }
+
   Future<void> _runSearch([String? overrideQuery]) async {
     final text = (overrideQuery ?? _queryController.text).trim();
     if (overrideQuery != null) {
       _queryController.text = text;
     }
-    if (text.isEmpty) return;
+    if (text.isEmpty && (_tagFilter == null || _tagFilter!.isEmpty)) return;
 
     final child = ref.read(selectedChildProvider).valueOrNull;
     if (child == null) return;
@@ -57,7 +69,9 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
     });
 
     try {
-      await ref.read(recentSearchesStoreProvider).add(text);
+      if (text.isNotEmpty) {
+        await ref.read(recentSearchesStoreProvider).add(text);
+      }
       final results = await ref.read(searchServiceProvider).search(
             SearchQuery(
               text: text,
@@ -65,6 +79,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
               type: _typeFilter,
               fromDate: _fromDate,
               toDate: _toDate,
+              tag: _tagFilter,
             ),
           );
       final recent = await ref.read(recentSearchesStoreProvider).list();
@@ -150,6 +165,52 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
               ],
             ),
           ),
+          if (_tagOptions.isNotEmpty) ...[
+            const SizedBox(height: 4),
+            SizedBox(
+              height: 44,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8),
+                    child: FilterChip(
+                      label: Text(l10n.searchFilterAllTags),
+                      selected: _tagFilter == null,
+                      onSelected: (_) {
+                        setState(() => _tagFilter = null);
+                        if (_searched) _runSearch();
+                      },
+                    ),
+                  ),
+                  for (final tag in _tagOptions)
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8),
+                      child: FilterChip(
+                        avatar: const Icon(Icons.sell_outlined, size: 16),
+                        label: Text(tag),
+                        selected: _tagFilter?.toLowerCase() == tag.toLowerCase(),
+                        onSelected: (_) {
+                          setState(() {
+                            _tagFilter =
+                                _tagFilter?.toLowerCase() == tag.toLowerCase()
+                                    ? null
+                                    : tag;
+                          });
+                          if (_searched ||
+                              _queryController.text.trim().isNotEmpty) {
+                            _runSearch();
+                          } else if (_tagFilter != null) {
+                            _runSearch();
+                          }
+                        },
+                      ),
+                    ),
+                ],
+              ),
+            ),
+          ],
           Padding(
             padding: const EdgeInsets.fromLTRB(8, 4, 8, 0),
             child: Row(
@@ -268,28 +329,63 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
       );
     }
 
+    final theme = Theme.of(context);
+    final highlightStyle = theme.textTheme.bodyMedium?.copyWith(
+      fontWeight: FontWeight.w700,
+      backgroundColor: AppColors.primary.withValues(alpha: 0.18),
+      color: AppColors.primary,
+    );
+
     return ListView.separated(
       padding: const EdgeInsets.fromLTRB(16, 0, 16, 24),
       itemCount: _results.length,
       separatorBuilder: (_, _) => const SizedBox(height: 8),
       itemBuilder: (context, index) {
         final item = _results[index];
+        final titleSpans = searchHighlightSpans(
+          item.highlightedTitle ?? item.title,
+          base: theme.textTheme.titleMedium ?? const TextStyle(),
+          highlight: highlightStyle,
+        );
+        final snippetSource =
+            item.highlightedSnippet ?? item.snippet ?? '';
+        final meta = [
+          searchTypeLabel(l10n, item.type),
+          if (item.subtitle != null && item.subtitle!.isNotEmpty)
+            item.subtitle!,
+          locale.formatMediumDate(item.eventDate),
+        ].join(' · ');
+
         return Card(
           child: ListTile(
             leading: Icon(searchTypeIcon(item.type)),
-            title: Text(item.title),
-            subtitle: Text(
-              [
-                searchTypeLabel(l10n, item.type),
-                if (item.subtitle != null && item.subtitle!.isNotEmpty)
-                  item.subtitle!,
-                locale.formatMediumDate(item.eventDate),
-                if (item.snippet != null && item.snippet!.trim().isNotEmpty)
-                  item.snippet!,
-              ].join(' · '),
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
+            title: titleSpans.isEmpty
+                ? Text(item.title)
+                : Text.rich(TextSpan(children: titleSpans)),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  meta,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: theme.textTheme.bodySmall,
+                ),
+                if (snippetSource.trim().isNotEmpty)
+                  Text.rich(
+                    TextSpan(
+                      children: searchHighlightSpans(
+                        snippetSource,
+                        base: theme.textTheme.bodyMedium ?? const TextStyle(),
+                        highlight: highlightStyle,
+                      ),
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+              ],
             ),
+            isThreeLine: snippetSource.trim().isNotEmpty,
             trailing: const Icon(Icons.chevron_right),
             onTap: () => openSearchResult(context, item),
           ),

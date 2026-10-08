@@ -1661,6 +1661,9 @@ class AppLocalizationsBn extends AppLocalizations {
   String get searchClearDates => 'তারিখ সরান';
 
   @override
+  String get searchFilterAllTags => 'সব ট্যাগ';
+
+  @override
   String get photosTitle => 'ছবি';
 
   @override

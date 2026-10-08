@@ -31,6 +31,7 @@ import 'package:shishur_dinlipi/core/repository/tags_repository.dart';
 import 'package:shishur_dinlipi/core/repository/vaccinations_repository.dart';
 import 'package:shishur_dinlipi/core/repository/year_review_preferences_repository.dart';
 import 'package:shishur_dinlipi/core/search/recent_searches_store.dart';
+import 'package:shishur_dinlipi/core/search/search_index_rebuild_service.dart';
 import 'package:shishur_dinlipi/core/search/search_service.dart';
 import 'package:shishur_dinlipi/core/settings/settings_repository.dart';
 import 'package:shishur_dinlipi/core/timeline/timeline_service.dart';
@@ -205,8 +206,16 @@ final remindersRepositoryProvider = Provider<RemindersRepository>((ref) {
   );
 });
 
+final searchIndexRebuildServiceProvider =
+    Provider<SearchIndexRebuildService>((ref) {
+  return SearchIndexRebuildService(ref.watch(appDatabaseProvider));
+});
+
 final searchServiceProvider = Provider<SearchService>((ref) {
-  return SearchService(ref.watch(appDatabaseProvider));
+  return SearchService(
+    ref.watch(appDatabaseProvider),
+    index: ref.watch(searchIndexRebuildServiceProvider),
+  );
 });
 
 final recentSearchesStoreProvider = Provider<RecentSearchesStore>((ref) {

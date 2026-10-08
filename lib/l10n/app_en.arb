@@ -569,6 +569,7 @@
   "searchFromDate": "From",
   "searchToDate": "To",
   "searchClearDates": "Clear dates",
+  "searchFilterAllTags": "All tags",
   "photosTitle": "Photos",
   "photosEmpty": "No photos yet.",
   "photosFavorites": "Favorites",

@@ -25,6 +25,9 @@ class SearchResult {
     required this.eventDate,
     this.subtitle,
     this.snippet,
+    this.highlightedTitle,
+    this.highlightedSnippet,
+    this.tags = const [],
   });
 
   final String id;
@@ -33,6 +36,11 @@ class SearchResult {
   final String title;
   final String? subtitle;
   final String? snippet;
+  /// Title with FTS highlight markers ([SearchHighlightMarkers]).
+  final String? highlightedTitle;
+  /// Snippet with FTS highlight markers.
+  final String? highlightedSnippet;
+  final List<String> tags;
   final DateTime eventDate;
 }
 
@@ -44,6 +52,7 @@ class SearchQuery {
     this.type,
     this.fromDate,
     this.toDate,
+    this.tag,
     this.limit = 100,
   });
 
@@ -52,5 +61,7 @@ class SearchQuery {
   final SearchResultType? type;
   final DateTime? fromDate;
   final DateTime? toDate;
+  /// Case-insensitive exact tag name filter.
+  final String? tag;
   final int limit;
 }

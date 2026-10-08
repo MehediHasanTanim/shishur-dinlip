@@ -3344,6 +3344,12 @@ abstract class AppLocalizations {
   /// **'Clear dates'**
   String get searchClearDates;
 
+  /// No description provided for @searchFilterAllTags.
+  ///
+  /// In en, this message translates to:
+  /// **'All tags'**
+  String get searchFilterAllTags;
+
   /// No description provided for @photosTitle.
   ///
   /// In en, this message translates to:

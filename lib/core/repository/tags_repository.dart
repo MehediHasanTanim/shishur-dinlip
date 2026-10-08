@@ -2,6 +2,7 @@ import 'package:drift/drift.dart';
 import 'package:shishur_dinlipi/core/database/app_database.dart';
 import 'package:shishur_dinlipi/core/errors/failures.dart';
 import 'package:shishur_dinlipi/core/repository/repository_base.dart';
+import 'package:shishur_dinlipi/core/search/search_index_rebuild_service.dart';
 
 abstract interface class TagsRepository implements Repository {
   Future<List<String>> namesForEntity({
@@ -86,6 +87,7 @@ class DriftTagsRepository extends RepositoryBase implements TagsRepository {
           nowUtc: nowUtc,
         );
       }
+      await SearchIndexRebuildService(db).markDirty();
     }, operation: 'tags.replaceForEntity');
   }
 
@@ -131,6 +133,7 @@ class DriftTagsRepository extends RepositoryBase implements TagsRepository {
         name: cleaned,
         nowUtc: now(),
       );
+      await SearchIndexRebuildService(db).markDirty();
       return linked;
     }, operation: 'tags.add');
   }
@@ -150,6 +153,7 @@ class DriftTagsRepository extends RepositoryBase implements TagsRepository {
         entityId: entityId,
         deletedAt: now(),
       );
+      await SearchIndexRebuildService(db).markDirty();
     }, operation: 'tags.remove');
   }
 

@@ -1683,6 +1683,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get searchClearDates => 'Clear dates';
 
   @override
+  String get searchFilterAllTags => 'All tags';
+
+  @override
   String get photosTitle => 'Photos';
 
   @override

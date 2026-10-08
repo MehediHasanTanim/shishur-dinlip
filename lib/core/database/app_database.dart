@@ -62,6 +62,7 @@ import 'package:shishur_dinlipi/core/database/tables/tags_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/vaccinations_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/year_review_preferences_table.dart';
 import 'package:shishur_dinlipi/core/logging/app_logger.dart';
+import 'package:shishur_dinlipi/core/search/search_index_schema.dart';
 
 part 'app_database.g.dart';
 
@@ -140,7 +141,7 @@ class AppDatabase extends _$AppDatabase {
   factory AppDatabase.memory() => AppDatabase(openMemoryConnection());
 
   /// Bump when schema changes; add steps in [migration].
-  static const int currentSchemaVersion = 11;
+  static const int currentSchemaVersion = 12;
 
   @override
   int get schemaVersion => currentSchemaVersion;
@@ -150,6 +151,7 @@ class AppDatabase extends _$AppDatabase {
     onCreate: (Migrator m) async {
       await m.createAll();
       await _ensurePerformanceIndexes(m);
+      await _ensureSearchIndex();
       AppLogger.instance.info('Database created', {
         'schemaVersion': schemaVersion,
       });
@@ -206,15 +208,32 @@ class AppDatabase extends _$AppDatabase {
         await m.createTable(trips);
         await _ensurePerformanceIndexes(m);
       }
+      if (from < 12) {
+        await _ensureSearchIndex();
+        // Content is rebuilt lazily on first search.
+        await customStatement(
+          '''
+          INSERT INTO search_index_meta(key, value) VALUES (?, ?)
+          ON CONFLICT(key) DO UPDATE SET value = excluded.value
+          ''',
+          [SearchIndexSchema.metaNeedsRebuild, '1'],
+        );
+      }
     },
     beforeOpen: (details) async {
       await customStatement('PRAGMA foreign_keys = ON');
+      await _ensureSearchIndex();
       AppLogger.instance.debug('Database opened', {
         'version': details.versionNow,
         'wasCreated': details.wasCreated,
       });
     },
   );
+
+  Future<void> _ensureSearchIndex() async {
+    await customStatement(SearchIndexSchema.createMeta);
+    await customStatement(SearchIndexSchema.createFts);
+  }
 
   Future<void> _ensurePerformanceIndexes(Migrator m) async {
     // Prefer generated index creators when available after codegen.
