@@ -2,13 +2,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shishur_dinlipi/core/database/app_database.dart';
 
 void main() {
-  test('fresh database opens at schema version 12', () async {
+  test('fresh database opens at schema version 13', () async {
     final db = AppDatabase.memory();
     addTearDown(db.close);
 
     final row = await db.customSelect('PRAGMA user_version').getSingle();
-    expect(row.data['user_version'], 12);
-    expect(AppDatabase.currentSchemaVersion, 12);
+    expect(row.data['user_version'], 13);
+    expect(AppDatabase.currentSchemaVersion, 13);
 
     for (final table in [
       'children',
@@ -32,6 +32,7 @@ void main() {
       'medicine_schedules',
       'doctor_visits',
       'medical_documents',
+      'allergies',
       'albums',
       'album_items',
       'generated_exports',

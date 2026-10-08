@@ -61,6 +61,8 @@ class AppSettings {
     this.weightUnit = WeightUnit.kg,
     this.temperatureUnit = TemperatureUnit.celsius,
     this.useBengaliDigits = false,
+    this.notificationPrivacyMode = true,
+    this.flagSecure = false,
   });
 
   final AppLanguage language;
@@ -72,6 +74,12 @@ class AppSettings {
   final TemperatureUnit temperatureUnit;
   final bool useBengaliDigits;
 
+  /// When true, lock-screen notifications omit child/medical detail.
+  final bool notificationPrivacyMode;
+
+  /// When true, Android blocks screenshots / recent-app previews (FLAG_SECURE).
+  final bool flagSecure;
+
   AppSettings copyWith({
     AppLanguage? language,
     ThemeMode? themeMode,
@@ -82,6 +90,8 @@ class AppSettings {
     WeightUnit? weightUnit,
     TemperatureUnit? temperatureUnit,
     bool? useBengaliDigits,
+    bool? notificationPrivacyMode,
+    bool? flagSecure,
   }) {
     return AppSettings(
       language: language ?? this.language,
@@ -94,6 +104,9 @@ class AppSettings {
       weightUnit: weightUnit ?? this.weightUnit,
       temperatureUnit: temperatureUnit ?? this.temperatureUnit,
       useBengaliDigits: useBengaliDigits ?? this.useBengaliDigits,
+      notificationPrivacyMode:
+          notificationPrivacyMode ?? this.notificationPrivacyMode,
+      flagSecure: flagSecure ?? this.flagSecure,
     );
   }
 }

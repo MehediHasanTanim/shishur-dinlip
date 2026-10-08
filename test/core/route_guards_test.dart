@@ -50,6 +50,25 @@ void main() {
     expect(result, isNull);
   });
 
+  test('allows forgot-pin and restore while locked', () {
+    expect(
+      resolveAppRedirect(
+        settings: const AppSettings(onboardingComplete: true),
+        unlocked: false,
+        state: _FakeGoRouterState(AppRoutes.unlockForgotPin),
+      ),
+      isNull,
+    );
+    expect(
+      resolveAppRedirect(
+        settings: const AppSettings(onboardingComplete: true),
+        unlocked: false,
+        state: _FakeGoRouterState(AppRoutes.restore),
+      ),
+      isNull,
+    );
+  });
+
   test('moves completed users off splash to home', () {
     final result = resolveAppRedirect(
       settings: const AppSettings(onboardingComplete: true),

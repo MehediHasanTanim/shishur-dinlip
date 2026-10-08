@@ -1,9 +1,13 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:shishur_dinlipi/app/router/app_routes.dart';
 import 'package:shishur_dinlipi/core/di/core_providers.dart';
 import 'package:shishur_dinlipi/core/domain/entity_types.dart';
+import 'package:shishur_dinlipi/core/domain/models/attachment.dart';
 import 'package:shishur_dinlipi/core/domain/models/school_event.dart';
 import 'package:shishur_dinlipi/core/errors/error_mapper.dart';
 import 'package:shishur_dinlipi/features/memories/attachment_drafts.dart';
@@ -76,9 +80,11 @@ class _SchoolEventDetailScreenState
       );
     }
 
+    final isReportCard = event.eventType == SchoolEventTypes.reportCard;
+
     return Scaffold(
       appBar: AppBar(
-        title: Text(event.title),
+        title: Text(isReportCard ? l10n.reportCardViewerTitle : event.title),
         actions: [
           IconButton(
             onPressed: () async {
@@ -107,14 +113,119 @@ class _SchoolEventDetailScreenState
             Text(event.description!),
           ],
           const SizedBox(height: 16),
-          AttachmentStrip(
-            controller: _attachments,
-            enabled: false,
-            allowDocuments: true,
+          if (isReportCard)
+            _ReportCardActions(
+              controller: _attachments,
+              onOpen: _openExternally,
+              onShare: _shareAttachment,
+              onReplace: () => _replaceAttachment(event),
+              onDelete: () => _deleteAttachment(event),
+            )
+          else
+            AttachmentStrip(
+              controller: _attachments,
+              enabled: false,
+              allowDocuments: true,
+            ),
+        ],
+      ),
+    );
+  }
+
+  AttachmentDraft? get _firstDraft =>
+      _attachments.drafts.isEmpty ? null : _attachments.drafts.first;
+
+  Future<File?> _fileForDraft(AttachmentDraft draft) async {
+    final preview = _attachments.previewFiles[draft.localKey];
+    if (preview != null && await preview.exists()) return preview;
+    if (draft.mediaAssetId == null) return null;
+    final media =
+        await ref.read(mediaServiceProvider).getById(draft.mediaAssetId!);
+    if (media == null) return null;
+    final storage = ref.read(fileStorageServiceProvider);
+    final file = await storage.absoluteFile(media.localPath);
+    return await file.exists() ? file : null;
+  }
+
+  Future<void> _openExternally() async {
+    final draft = _firstDraft;
+    if (draft == null) return;
+    final file = await _fileForDraft(draft);
+    if (file == null || !mounted) return;
+    await Share.shareXFiles(
+      [XFile(file.path, name: draft.displayName)],
+      subject: draft.displayName,
+    );
+  }
+
+  Future<void> _shareAttachment() async {
+    final draft = _firstDraft;
+    if (draft == null) return;
+    final file = await _fileForDraft(draft);
+    if (file == null || !mounted) return;
+    final l10n = AppLocalizations.of(context);
+    await Share.shareXFiles(
+      [XFile(file.path, name: draft.displayName)],
+      subject: l10n.reportCardViewerTitle,
+    );
+  }
+
+  Future<void> _replaceAttachment(SchoolEvent event) async {
+    try {
+      if (_attachments.drafts.isNotEmpty) {
+        _attachments.removeAt(0);
+      }
+      await _attachments.addDocument();
+      await ref.read(attachmentRepositoryProvider).syncForEntity(
+            entityType: EntityTypes.schoolEvent,
+            entityId: event.id,
+            childId: event.childId,
+            drafts: _attachments.drafts,
+          );
+      await _load();
+    } catch (error) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(ErrorMapper.localize(context, error))),
+      );
+    }
+  }
+
+  Future<void> _deleteAttachment(SchoolEvent event) async {
+    final l10n = AppLocalizations.of(context);
+    if (_attachments.drafts.isEmpty) return;
+    final ok = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(l10n.reportCardDeleteAttachment),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: Text(l10n.commonCancel),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(context, true),
+            child: Text(l10n.commonDelete),
           ),
         ],
       ),
     );
+    if (ok != true || !mounted) return;
+    try {
+      _attachments.removeAt(0);
+      await ref.read(attachmentRepositoryProvider).syncForEntity(
+            entityType: EntityTypes.schoolEvent,
+            entityId: event.id,
+            childId: event.childId,
+            drafts: _attachments.drafts,
+          );
+      await _load();
+    } catch (error) {
+      if (!mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(ErrorMapper.localize(context, error))),
+      );
+    }
   }
 
   String _typeLabel(AppLocalizations l10n, String type) {
@@ -163,5 +274,80 @@ class _SchoolEventDetailScreenState
         SnackBar(content: Text(ErrorMapper.localize(context, error))),
       );
     }
+  }
+}
+
+class _ReportCardActions extends StatelessWidget {
+  const _ReportCardActions({
+    required this.controller,
+    required this.onOpen,
+    required this.onShare,
+    required this.onReplace,
+    required this.onDelete,
+  });
+
+  final AttachmentDraftsController controller;
+  final VoidCallback onOpen;
+  final VoidCallback onShare;
+  final VoidCallback onReplace;
+  final VoidCallback onDelete;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    return ListenableBuilder(
+      listenable: controller,
+      builder: (context, _) {
+        final drafts = controller.drafts;
+        final hasFile = drafts.isNotEmpty;
+        final name = hasFile
+            ? (drafts.first.displayName ?? l10n.reportCardViewerTitle)
+            : l10n.attachmentsEmpty;
+
+        return Card(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(l10n.reportCardViewerTitle,
+                    style: Theme.of(context).textTheme.titleMedium),
+                const SizedBox(height: 8),
+                Text(
+                  name,
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                        color: Theme.of(context).colorScheme.onSurfaceVariant,
+                      ),
+                ),
+                const SizedBox(height: 16),
+                FilledButton.icon(
+                  onPressed: hasFile ? onOpen : null,
+                  icon: const Icon(Icons.open_in_new),
+                  label: Text(l10n.reportCardOpenExternally),
+                ),
+                const SizedBox(height: 8),
+                OutlinedButton.icon(
+                  onPressed: hasFile ? onShare : null,
+                  icon: const Icon(Icons.ios_share),
+                  label: Text(l10n.quoteCardShare),
+                ),
+                const SizedBox(height: 8),
+                OutlinedButton.icon(
+                  onPressed: onReplace,
+                  icon: const Icon(Icons.swap_horiz),
+                  label: Text(l10n.reportCardReplace),
+                ),
+                const SizedBox(height: 8),
+                TextButton.icon(
+                  onPressed: hasFile ? onDelete : null,
+                  icon: const Icon(Icons.delete_outline),
+                  label: Text(l10n.reportCardDeleteAttachment),
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 }

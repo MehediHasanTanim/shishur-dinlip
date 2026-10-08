@@ -14,10 +14,17 @@ String? resolveAppRedirect({
       location.startsWith('${AppRoutes.onboarding}/');
 
   final isUnlock = location == AppRoutes.unlock;
-  if (!unlocked && !isSplash && !isUnlock && !isOnboarding) {
+  final isForgotPin = location == AppRoutes.unlockForgotPin;
+  final isRestoreWhileLocked = location == AppRoutes.restore;
+  if (!unlocked &&
+      !isSplash &&
+      !isUnlock &&
+      !isForgotPin &&
+      !isRestoreWhileLocked &&
+      !isOnboarding) {
     return AppRoutes.unlock;
   }
-  if (unlocked && isUnlock) {
+  if (unlocked && (isUnlock || isForgotPin)) {
     return AppRoutes.home;
   }
 

@@ -2,6 +2,7 @@ import 'package:drift/drift.dart';
 import 'package:shishur_dinlipi/core/database/connection/native_connection.dart';
 import 'package:shishur_dinlipi/core/database/daos/achievements_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/albums_dao.dart';
+import 'package:shishur_dinlipi/core/database/daos/allergies_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/attachments_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/audit_events_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/birthdays_dao.dart';
@@ -32,6 +33,7 @@ import 'package:shishur_dinlipi/core/database/daos/year_review_preferences_dao.d
 import 'package:shishur_dinlipi/core/database/tables/achievements_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/album_items_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/albums_table.dart';
+import 'package:shishur_dinlipi/core/database/tables/allergies_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/attachments_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/audit_events_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/birthday_answers_table.dart';
@@ -90,6 +92,7 @@ part 'app_database.g.dart';
     MedicineSchedules,
     DoctorVisits,
     MedicalDocuments,
+    Allergies,
     Albums,
     AlbumItems,
     GeneratedExports,
@@ -123,6 +126,7 @@ part 'app_database.g.dart';
     MedicineSchedulesDao,
     DoctorVisitsDao,
     MedicalDocumentsDao,
+    AllergiesDao,
     AlbumsDao,
     GeneratedExportsDao,
     YearReviewPreferencesDao,
@@ -141,7 +145,7 @@ class AppDatabase extends _$AppDatabase {
   factory AppDatabase.memory() => AppDatabase(openMemoryConnection());
 
   /// Bump when schema changes; add steps in [migration].
-  static const int currentSchemaVersion = 12;
+  static const int currentSchemaVersion = 13;
 
   @override
   int get schemaVersion => currentSchemaVersion;
@@ -211,6 +215,17 @@ class AppDatabase extends _$AppDatabase {
       if (from < 12) {
         await _ensureSearchIndex();
         // Content is rebuilt lazily on first search.
+        await customStatement(
+          '''
+          INSERT INTO search_index_meta(key, value) VALUES (?, ?)
+          ON CONFLICT(key) DO UPDATE SET value = excluded.value
+          ''',
+          [SearchIndexSchema.metaNeedsRebuild, '1'],
+        );
+      }
+      if (from < 13) {
+        await m.createTable(allergies);
+        await _ensurePerformanceIndexes(m);
         await customStatement(
           '''
           INSERT INTO search_index_meta(key, value) VALUES (?, ?)

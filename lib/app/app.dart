@@ -4,6 +4,7 @@ import 'package:shishur_dinlipi/app/router/app_router.dart';
 import 'package:shishur_dinlipi/app/theme/app_theme.dart';
 import 'package:shishur_dinlipi/core/config/app_config.dart';
 import 'package:shishur_dinlipi/core/security/app_lock_controller.dart';
+import 'package:shishur_dinlipi/core/security/flag_secure.dart';
 import 'package:shishur_dinlipi/core/settings/app_settings.dart';
 import 'package:shishur_dinlipi/core/settings/settings_controller.dart';
 import 'package:shishur_dinlipi/features/reminders/reminder_bootstrap.dart';
@@ -19,6 +20,10 @@ class ShishurDinlipiApp extends ConsumerWidget {
     final config = AppConfig.current;
 
     final settings = settingsAsync.valueOrNull ?? const AppSettings();
+    ref.listen(settingsControllerProvider, (prev, next) {
+      final enabled = next.valueOrNull?.flagSecure ?? false;
+      FlagSecure.setEnabled(enabled);
+    });
 
     return MaterialApp.router(
       title: config.appName,

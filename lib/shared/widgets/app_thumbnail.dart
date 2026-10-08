@@ -47,6 +47,14 @@ class _AppThumbnailState extends State<AppThumbnail> {
   }
 
   Future<File?> _resolve() async {
+    final isVideo = widget.asset.assetType == MediaAssetType.video;
+    // Videos: thumbnailPath only — never decode the video file as an image.
+    if (isVideo) {
+      final thumb = widget.asset.thumbnailPath;
+      if (thumb == null) return null;
+      final file = await widget.storage.absoluteFile(thumb);
+      return await file.exists() ? file : null;
+    }
     final preferred = widget.asset.thumbnailPath ?? widget.asset.localPath;
     final file = await widget.storage.absoluteFile(preferred);
     if (await file.exists()) return file;

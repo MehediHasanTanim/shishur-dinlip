@@ -56,8 +56,15 @@ abstract final class AppRoutes {
   static const doctorVisitCreate = '/health/doctor-visits/create';
   static const medicalDocuments = '/health/documents';
   static const medicalDocumentCreate = '/health/documents/create';
+  static const allergies = '/health/allergies';
+  static const allergyCreate = '/health/allergies/create';
+
+  static const journalList = '/journal';
+  static const funnyList = '/funny';
+  static const achievementsList = '/achievements';
 
   static const ocrScan = '/health/ocr';
+  static const unlockForgotPin = '/unlock/forgot-pin';
   static const ocrCapture = '/health/ocr/capture/:type';
   static const ocrReview = '/health/ocr/review';
 
@@ -153,6 +160,9 @@ abstract final class AppRoutes {
       '/health/documents/$id';
   static String medicalDocumentEditPath(String id) =>
       '/health/documents/$id/edit';
+  static String allergyDetailPath(String id) => '/health/allergies/$id';
+  static String allergyEditPath(String id) => '/health/allergies/$id/edit';
+  static String funnyQuoteCardPath(String id) => '/funny/$id/quote-card';
 
   static String ocrCapturePath(String type) => '/health/ocr/capture/$type';
 

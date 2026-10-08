@@ -66,6 +66,7 @@ class AttachmentDraft {
     this.caption,
     this.displayName,
     this.isDocument = false,
+    this.isVideo = false,
   });
 
   final String localKey;
@@ -75,6 +76,7 @@ class AttachmentDraft {
   final String? caption;
   final String? displayName;
   final bool isDocument;
+  final bool isVideo;
 
   bool get isPersisted => mediaAssetId != null;
 }

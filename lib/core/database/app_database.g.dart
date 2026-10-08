@@ -15137,6 +15137,731 @@ class MedicalDocumentsCompanion extends UpdateCompanion<MedicalDocumentRow> {
   }
 }
 
+class $AllergiesTable extends Allergies
+    with TableInfo<$AllergiesTable, AllergyRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $AllergiesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _childIdMeta = const VerificationMeta(
+    'childId',
+  );
+  @override
+  late final GeneratedColumn<String> childId = GeneratedColumn<String>(
+    'child_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _allergenMeta = const VerificationMeta(
+    'allergen',
+  );
+  @override
+  late final GeneratedColumn<String> allergen = GeneratedColumn<String>(
+    'allergen',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _allergyTypeMeta = const VerificationMeta(
+    'allergyType',
+  );
+  @override
+  late final GeneratedColumn<String> allergyType = GeneratedColumn<String>(
+    'allergy_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _reactionMeta = const VerificationMeta(
+    'reaction',
+  );
+  @override
+  late final GeneratedColumn<String> reaction = GeneratedColumn<String>(
+    'reaction',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _severityMeta = const VerificationMeta(
+    'severity',
+  );
+  @override
+  late final GeneratedColumn<String> severity = GeneratedColumn<String>(
+    'severity',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _firstObservedMeta = const VerificationMeta(
+    'firstObserved',
+  );
+  @override
+  late final GeneratedColumn<DateTime> firstObserved =
+      GeneratedColumn<DateTime>(
+        'first_observed',
+        aliasedName,
+        true,
+        type: DriftSqlType.dateTime,
+        requiredDuringInsert: false,
+      );
+  static const VerificationMeta _doctorConfirmedMeta = const VerificationMeta(
+    'doctorConfirmed',
+  );
+  @override
+  late final GeneratedColumn<bool> doctorConfirmed = GeneratedColumn<bool>(
+    'doctor_confirmed',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("doctor_confirmed" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  static const VerificationMeta _notesMeta = const VerificationMeta('notes');
+  @override
+  late final GeneratedColumn<String> notes = GeneratedColumn<String>(
+    'notes',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    childId,
+    allergen,
+    allergyType,
+    reaction,
+    severity,
+    firstObserved,
+    doctorConfirmed,
+    notes,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'allergies';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<AllergyRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('child_id')) {
+      context.handle(
+        _childIdMeta,
+        childId.isAcceptableOrUnknown(data['child_id']!, _childIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_childIdMeta);
+    }
+    if (data.containsKey('allergen')) {
+      context.handle(
+        _allergenMeta,
+        allergen.isAcceptableOrUnknown(data['allergen']!, _allergenMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_allergenMeta);
+    }
+    if (data.containsKey('allergy_type')) {
+      context.handle(
+        _allergyTypeMeta,
+        allergyType.isAcceptableOrUnknown(
+          data['allergy_type']!,
+          _allergyTypeMeta,
+        ),
+      );
+    } else if (isInserting) {
+      context.missing(_allergyTypeMeta);
+    }
+    if (data.containsKey('reaction')) {
+      context.handle(
+        _reactionMeta,
+        reaction.isAcceptableOrUnknown(data['reaction']!, _reactionMeta),
+      );
+    }
+    if (data.containsKey('severity')) {
+      context.handle(
+        _severityMeta,
+        severity.isAcceptableOrUnknown(data['severity']!, _severityMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_severityMeta);
+    }
+    if (data.containsKey('first_observed')) {
+      context.handle(
+        _firstObservedMeta,
+        firstObserved.isAcceptableOrUnknown(
+          data['first_observed']!,
+          _firstObservedMeta,
+        ),
+      );
+    }
+    if (data.containsKey('doctor_confirmed')) {
+      context.handle(
+        _doctorConfirmedMeta,
+        doctorConfirmed.isAcceptableOrUnknown(
+          data['doctor_confirmed']!,
+          _doctorConfirmedMeta,
+        ),
+      );
+    }
+    if (data.containsKey('notes')) {
+      context.handle(
+        _notesMeta,
+        notes.isAcceptableOrUnknown(data['notes']!, _notesMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  AllergyRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return AllergyRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      childId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}child_id'],
+      )!,
+      allergen: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}allergen'],
+      )!,
+      allergyType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}allergy_type'],
+      )!,
+      reaction: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}reaction'],
+      ),
+      severity: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}severity'],
+      )!,
+      firstObserved: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}first_observed'],
+      ),
+      doctorConfirmed: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}doctor_confirmed'],
+      )!,
+      notes: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}notes'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+    );
+  }
+
+  @override
+  $AllergiesTable createAlias(String alias) {
+    return $AllergiesTable(attachedDatabase, alias);
+  }
+}
+
+class AllergyRow extends DataClass implements Insertable<AllergyRow> {
+  final String id;
+  final String childId;
+  final String allergen;
+  final String allergyType;
+  final String? reaction;
+  final String severity;
+  final DateTime? firstObserved;
+  final bool doctorConfirmed;
+  final String? notes;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final DateTime? deletedAt;
+  const AllergyRow({
+    required this.id,
+    required this.childId,
+    required this.allergen,
+    required this.allergyType,
+    this.reaction,
+    required this.severity,
+    this.firstObserved,
+    required this.doctorConfirmed,
+    this.notes,
+    required this.createdAt,
+    required this.updatedAt,
+    this.deletedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['child_id'] = Variable<String>(childId);
+    map['allergen'] = Variable<String>(allergen);
+    map['allergy_type'] = Variable<String>(allergyType);
+    if (!nullToAbsent || reaction != null) {
+      map['reaction'] = Variable<String>(reaction);
+    }
+    map['severity'] = Variable<String>(severity);
+    if (!nullToAbsent || firstObserved != null) {
+      map['first_observed'] = Variable<DateTime>(firstObserved);
+    }
+    map['doctor_confirmed'] = Variable<bool>(doctorConfirmed);
+    if (!nullToAbsent || notes != null) {
+      map['notes'] = Variable<String>(notes);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    return map;
+  }
+
+  AllergiesCompanion toCompanion(bool nullToAbsent) {
+    return AllergiesCompanion(
+      id: Value(id),
+      childId: Value(childId),
+      allergen: Value(allergen),
+      allergyType: Value(allergyType),
+      reaction: reaction == null && nullToAbsent
+          ? const Value.absent()
+          : Value(reaction),
+      severity: Value(severity),
+      firstObserved: firstObserved == null && nullToAbsent
+          ? const Value.absent()
+          : Value(firstObserved),
+      doctorConfirmed: Value(doctorConfirmed),
+      notes: notes == null && nullToAbsent
+          ? const Value.absent()
+          : Value(notes),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+    );
+  }
+
+  factory AllergyRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return AllergyRow(
+      id: serializer.fromJson<String>(json['id']),
+      childId: serializer.fromJson<String>(json['childId']),
+      allergen: serializer.fromJson<String>(json['allergen']),
+      allergyType: serializer.fromJson<String>(json['allergyType']),
+      reaction: serializer.fromJson<String?>(json['reaction']),
+      severity: serializer.fromJson<String>(json['severity']),
+      firstObserved: serializer.fromJson<DateTime?>(json['firstObserved']),
+      doctorConfirmed: serializer.fromJson<bool>(json['doctorConfirmed']),
+      notes: serializer.fromJson<String?>(json['notes']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'childId': serializer.toJson<String>(childId),
+      'allergen': serializer.toJson<String>(allergen),
+      'allergyType': serializer.toJson<String>(allergyType),
+      'reaction': serializer.toJson<String?>(reaction),
+      'severity': serializer.toJson<String>(severity),
+      'firstObserved': serializer.toJson<DateTime?>(firstObserved),
+      'doctorConfirmed': serializer.toJson<bool>(doctorConfirmed),
+      'notes': serializer.toJson<String?>(notes),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+    };
+  }
+
+  AllergyRow copyWith({
+    String? id,
+    String? childId,
+    String? allergen,
+    String? allergyType,
+    Value<String?> reaction = const Value.absent(),
+    String? severity,
+    Value<DateTime?> firstObserved = const Value.absent(),
+    bool? doctorConfirmed,
+    Value<String?> notes = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> deletedAt = const Value.absent(),
+  }) => AllergyRow(
+    id: id ?? this.id,
+    childId: childId ?? this.childId,
+    allergen: allergen ?? this.allergen,
+    allergyType: allergyType ?? this.allergyType,
+    reaction: reaction.present ? reaction.value : this.reaction,
+    severity: severity ?? this.severity,
+    firstObserved: firstObserved.present
+        ? firstObserved.value
+        : this.firstObserved,
+    doctorConfirmed: doctorConfirmed ?? this.doctorConfirmed,
+    notes: notes.present ? notes.value : this.notes,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+  );
+  AllergyRow copyWithCompanion(AllergiesCompanion data) {
+    return AllergyRow(
+      id: data.id.present ? data.id.value : this.id,
+      childId: data.childId.present ? data.childId.value : this.childId,
+      allergen: data.allergen.present ? data.allergen.value : this.allergen,
+      allergyType: data.allergyType.present
+          ? data.allergyType.value
+          : this.allergyType,
+      reaction: data.reaction.present ? data.reaction.value : this.reaction,
+      severity: data.severity.present ? data.severity.value : this.severity,
+      firstObserved: data.firstObserved.present
+          ? data.firstObserved.value
+          : this.firstObserved,
+      doctorConfirmed: data.doctorConfirmed.present
+          ? data.doctorConfirmed.value
+          : this.doctorConfirmed,
+      notes: data.notes.present ? data.notes.value : this.notes,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('AllergyRow(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('allergen: $allergen, ')
+          ..write('allergyType: $allergyType, ')
+          ..write('reaction: $reaction, ')
+          ..write('severity: $severity, ')
+          ..write('firstObserved: $firstObserved, ')
+          ..write('doctorConfirmed: $doctorConfirmed, ')
+          ..write('notes: $notes, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    childId,
+    allergen,
+    allergyType,
+    reaction,
+    severity,
+    firstObserved,
+    doctorConfirmed,
+    notes,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is AllergyRow &&
+          other.id == this.id &&
+          other.childId == this.childId &&
+          other.allergen == this.allergen &&
+          other.allergyType == this.allergyType &&
+          other.reaction == this.reaction &&
+          other.severity == this.severity &&
+          other.firstObserved == this.firstObserved &&
+          other.doctorConfirmed == this.doctorConfirmed &&
+          other.notes == this.notes &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.deletedAt == this.deletedAt);
+}
+
+class AllergiesCompanion extends UpdateCompanion<AllergyRow> {
+  final Value<String> id;
+  final Value<String> childId;
+  final Value<String> allergen;
+  final Value<String> allergyType;
+  final Value<String?> reaction;
+  final Value<String> severity;
+  final Value<DateTime?> firstObserved;
+  final Value<bool> doctorConfirmed;
+  final Value<String?> notes;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> deletedAt;
+  final Value<int> rowid;
+  const AllergiesCompanion({
+    this.id = const Value.absent(),
+    this.childId = const Value.absent(),
+    this.allergen = const Value.absent(),
+    this.allergyType = const Value.absent(),
+    this.reaction = const Value.absent(),
+    this.severity = const Value.absent(),
+    this.firstObserved = const Value.absent(),
+    this.doctorConfirmed = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  AllergiesCompanion.insert({
+    required String id,
+    required String childId,
+    required String allergen,
+    required String allergyType,
+    this.reaction = const Value.absent(),
+    required String severity,
+    this.firstObserved = const Value.absent(),
+    this.doctorConfirmed = const Value.absent(),
+    this.notes = const Value.absent(),
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       childId = Value(childId),
+       allergen = Value(allergen),
+       allergyType = Value(allergyType),
+       severity = Value(severity),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt);
+  static Insertable<AllergyRow> custom({
+    Expression<String>? id,
+    Expression<String>? childId,
+    Expression<String>? allergen,
+    Expression<String>? allergyType,
+    Expression<String>? reaction,
+    Expression<String>? severity,
+    Expression<DateTime>? firstObserved,
+    Expression<bool>? doctorConfirmed,
+    Expression<String>? notes,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? deletedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (childId != null) 'child_id': childId,
+      if (allergen != null) 'allergen': allergen,
+      if (allergyType != null) 'allergy_type': allergyType,
+      if (reaction != null) 'reaction': reaction,
+      if (severity != null) 'severity': severity,
+      if (firstObserved != null) 'first_observed': firstObserved,
+      if (doctorConfirmed != null) 'doctor_confirmed': doctorConfirmed,
+      if (notes != null) 'notes': notes,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  AllergiesCompanion copyWith({
+    Value<String>? id,
+    Value<String>? childId,
+    Value<String>? allergen,
+    Value<String>? allergyType,
+    Value<String?>? reaction,
+    Value<String>? severity,
+    Value<DateTime?>? firstObserved,
+    Value<bool>? doctorConfirmed,
+    Value<String?>? notes,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? deletedAt,
+    Value<int>? rowid,
+  }) {
+    return AllergiesCompanion(
+      id: id ?? this.id,
+      childId: childId ?? this.childId,
+      allergen: allergen ?? this.allergen,
+      allergyType: allergyType ?? this.allergyType,
+      reaction: reaction ?? this.reaction,
+      severity: severity ?? this.severity,
+      firstObserved: firstObserved ?? this.firstObserved,
+      doctorConfirmed: doctorConfirmed ?? this.doctorConfirmed,
+      notes: notes ?? this.notes,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (childId.present) {
+      map['child_id'] = Variable<String>(childId.value);
+    }
+    if (allergen.present) {
+      map['allergen'] = Variable<String>(allergen.value);
+    }
+    if (allergyType.present) {
+      map['allergy_type'] = Variable<String>(allergyType.value);
+    }
+    if (reaction.present) {
+      map['reaction'] = Variable<String>(reaction.value);
+    }
+    if (severity.present) {
+      map['severity'] = Variable<String>(severity.value);
+    }
+    if (firstObserved.present) {
+      map['first_observed'] = Variable<DateTime>(firstObserved.value);
+    }
+    if (doctorConfirmed.present) {
+      map['doctor_confirmed'] = Variable<bool>(doctorConfirmed.value);
+    }
+    if (notes.present) {
+      map['notes'] = Variable<String>(notes.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('AllergiesCompanion(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('allergen: $allergen, ')
+          ..write('allergyType: $allergyType, ')
+          ..write('reaction: $reaction, ')
+          ..write('severity: $severity, ')
+          ..write('firstObserved: $firstObserved, ')
+          ..write('doctorConfirmed: $doctorConfirmed, ')
+          ..write('notes: $notes, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 class $AlbumsTable extends Albums with TableInfo<$AlbumsTable, AlbumRow> {
   @override
   final GeneratedDatabase attachedDatabase;
@@ -22403,6 +23128,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $MedicalDocumentsTable medicalDocuments = $MedicalDocumentsTable(
     this,
   );
+  late final $AllergiesTable allergies = $AllergiesTable(this);
   late final $AlbumsTable albums = $AlbumsTable(this);
   late final $AlbumItemsTable albumItems = $AlbumItemsTable(this);
   late final $GeneratedExportsTable generatedExports = $GeneratedExportsTable(
@@ -22514,6 +23240,10 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     'doctor_visits_child_visit',
     'CREATE INDEX doctor_visits_child_visit ON doctor_visits (child_id, visit_date)',
   );
+  late final Index allergiesChildUpdated = Index(
+    'allergies_child_updated',
+    'CREATE INDEX allergies_child_updated ON allergies (child_id, updated_at)',
+  );
   late final Index birthdaysChildAge = Index(
     'birthdays_child_age',
     'CREATE INDEX birthdays_child_age ON birthdays (child_id, age)',
@@ -22599,6 +23329,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final MedicalDocumentsDao medicalDocumentsDao = MedicalDocumentsDao(
     this as AppDatabase,
   );
+  late final AllergiesDao allergiesDao = AllergiesDao(this as AppDatabase);
   late final AlbumsDao albumsDao = AlbumsDao(this as AppDatabase);
   late final GeneratedExportsDao generatedExportsDao = GeneratedExportsDao(
     this as AppDatabase,
@@ -22639,6 +23370,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     medicineSchedules,
     doctorVisits,
     medicalDocuments,
+    allergies,
     albums,
     albumItems,
     generatedExports,
@@ -22673,6 +23405,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     vaccinationsName,
     illnessEpisodesChildStart,
     doctorVisitsChildVisit,
+    allergiesChildUpdated,
     birthdaysChildAge,
     birthdaysChildDate,
     birthdayAnswersBirthday,
@@ -30074,6 +30807,349 @@ typedef $$MedicalDocumentsTableProcessedTableManager =
       MedicalDocumentRow,
       PrefetchHooks Function()
     >;
+typedef $$AllergiesTableCreateCompanionBuilder = AllergiesCompanion Function({
+  required String id,
+  required String childId,
+  required String allergen,
+  required String allergyType,
+  Value<String?> reaction,
+  required String severity,
+  Value<DateTime?> firstObserved,
+  Value<bool> doctorConfirmed,
+  Value<String?> notes,
+  required DateTime createdAt,
+  required DateTime updatedAt,
+  Value<DateTime?> deletedAt,
+  Value<int> rowid,
+});
+typedef $$AllergiesTableUpdateCompanionBuilder = AllergiesCompanion Function({
+  Value<String> id,
+  Value<String> childId,
+  Value<String> allergen,
+  Value<String> allergyType,
+  Value<String?> reaction,
+  Value<String> severity,
+  Value<DateTime?> firstObserved,
+  Value<bool> doctorConfirmed,
+  Value<String?> notes,
+  Value<DateTime> createdAt,
+  Value<DateTime> updatedAt,
+  Value<DateTime?> deletedAt,
+  Value<int> rowid,
+});
+
+class $$AllergiesTableFilterComposer
+    extends Composer<_$AppDatabase, $AllergiesTable> {
+  $$AllergiesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get allergen => $composableBuilder(
+    column: $table.allergen,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get allergyType => $composableBuilder(
+    column: $table.allergyType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get reaction => $composableBuilder(
+    column: $table.reaction,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get severity => $composableBuilder(
+    column: $table.severity,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get firstObserved => $composableBuilder(
+    column: $table.firstObserved,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get doctorConfirmed => $composableBuilder(
+    column: $table.doctorConfirmed,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$AllergiesTableOrderingComposer
+    extends Composer<_$AppDatabase, $AllergiesTable> {
+  $$AllergiesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get allergen => $composableBuilder(
+    column: $table.allergen,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get allergyType => $composableBuilder(
+    column: $table.allergyType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get reaction => $composableBuilder(
+    column: $table.reaction,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get severity => $composableBuilder(
+    column: $table.severity,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get firstObserved => $composableBuilder(
+    column: $table.firstObserved,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get doctorConfirmed => $composableBuilder(
+    column: $table.doctorConfirmed,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$AllergiesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $AllergiesTable> {
+  $$AllergiesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get childId =>
+      $composableBuilder(column: $table.childId, builder: (column) => column);
+
+  GeneratedColumn<String> get allergen =>
+      $composableBuilder(column: $table.allergen, builder: (column) => column);
+
+  GeneratedColumn<String> get allergyType => $composableBuilder(
+    column: $table.allergyType,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get reaction =>
+      $composableBuilder(column: $table.reaction, builder: (column) => column);
+
+  GeneratedColumn<String> get severity =>
+      $composableBuilder(column: $table.severity, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get firstObserved => $composableBuilder(
+    column: $table.firstObserved,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<bool> get doctorConfirmed => $composableBuilder(
+    column: $table.doctorConfirmed,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get notes =>
+      $composableBuilder(column: $table.notes, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+}
+
+class $$AllergiesTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $AllergiesTable,
+          AllergyRow,
+          $$AllergiesTableFilterComposer,
+          $$AllergiesTableOrderingComposer,
+          $$AllergiesTableAnnotationComposer,
+          $$AllergiesTableCreateCompanionBuilder,
+          $$AllergiesTableUpdateCompanionBuilder,
+          (
+            AllergyRow,
+            BaseReferences<_$AppDatabase, $AllergiesTable, AllergyRow>,
+          ),
+          AllergyRow,
+          PrefetchHooks Function()
+        > {
+  $$AllergiesTableTableManager(_$AppDatabase db, $AllergiesTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$AllergiesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$AllergiesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$AllergiesTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> childId = const Value.absent(),
+                Value<String> allergen = const Value.absent(),
+                Value<String> allergyType = const Value.absent(),
+                Value<String?> reaction = const Value.absent(),
+                Value<String> severity = const Value.absent(),
+                Value<DateTime?> firstObserved = const Value.absent(),
+                Value<bool> doctorConfirmed = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => AllergiesCompanion(
+                id: id,
+                childId: childId,
+                allergen: allergen,
+                allergyType: allergyType,
+                reaction: reaction,
+                severity: severity,
+                firstObserved: firstObserved,
+                doctorConfirmed: doctorConfirmed,
+                notes: notes,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String childId,
+                required String allergen,
+                required String allergyType,
+                Value<String?> reaction = const Value.absent(),
+                required String severity,
+                Value<DateTime?> firstObserved = const Value.absent(),
+                Value<bool> doctorConfirmed = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => AllergiesCompanion.insert(
+                id: id,
+                childId: childId,
+                allergen: allergen,
+                allergyType: allergyType,
+                reaction: reaction,
+                severity: severity,
+                firstObserved: firstObserved,
+                doctorConfirmed: doctorConfirmed,
+                notes: notes,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$AllergiesTable, AllergyRow>(table),
+                  BaseReferences<_$AppDatabase, $AllergiesTable, AllergyRow>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$AllergiesTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $AllergiesTable,
+      AllergyRow,
+      $$AllergiesTableFilterComposer,
+      $$AllergiesTableOrderingComposer,
+      $$AllergiesTableAnnotationComposer,
+      $$AllergiesTableCreateCompanionBuilder,
+      $$AllergiesTableUpdateCompanionBuilder,
+      (AllergyRow, BaseReferences<_$AppDatabase, $AllergiesTable, AllergyRow>),
+      AllergyRow,
+      PrefetchHooks Function()
+    >;
 typedef $$AlbumsTableCreateCompanionBuilder = AlbumsCompanion Function({
   required String id,
   required String childId,
@@ -33624,6 +34700,8 @@ class $AppDatabaseManager {
       $$DoctorVisitsTableTableManager(_db, _db.doctorVisits);
   $$MedicalDocumentsTableTableManager get medicalDocuments =>
       $$MedicalDocumentsTableTableManager(_db, _db.medicalDocuments);
+  $$AllergiesTableTableManager get allergies =>
+      $$AllergiesTableTableManager(_db, _db.allergies);
   $$AlbumsTableTableManager get albums =>
       $$AlbumsTableTableManager(_db, _db.albums);
   $$AlbumItemsTableTableManager get albumItems =>

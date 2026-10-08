@@ -40,11 +40,17 @@ class DriftFirstWordsRepository extends RepositoryBase
       final id = word.id.isEmpty ? ids.next() : word.id;
       final existing = await db.firstWordsDao.getById(id);
       final normalizedDate = word.datePrecision.normalize(word.eventDate);
+      final hasAudio =
+          word.audioAssetId != null && word.audioAssetId!.isNotEmpty;
       final toSave = word.copyWith(
         id: id,
         word: word.word.trim(),
         eventDate: normalizedDate,
         clearEventDate: normalizedDate == null,
+        audioAssetId: word.audioAssetId,
+        clearAudioAssetId: !hasAudio,
+        // Real clip ⇒ true; otherwise keep caller's flag (legacy placeholder).
+        audioPlaceholder: hasAudio ? true : word.audioPlaceholder,
         createdAt: existing?.createdAt ?? nowUtc,
         updatedAt: nowUtc,
       );

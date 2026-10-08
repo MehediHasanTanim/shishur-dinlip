@@ -160,7 +160,7 @@ void main() {
   });
 
   test('schema version is 11', () {
-    expect(AppDatabase.currentSchemaVersion, 12);
+    expect(AppDatabase.currentSchemaVersion, 13);
   });
 
   test('query engine builds draft with signature title and sections', () async {

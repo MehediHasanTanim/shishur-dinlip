@@ -94,6 +94,12 @@ class _FunnyMomentDetailScreenState
             ),
           ),
           IconButton(
+            tooltip: l10n.quoteCardTitle,
+            onPressed: () =>
+                context.push(AppRoutes.funnyQuoteCardPath(moment.id)),
+            icon: const Icon(Icons.format_quote_outlined),
+          ),
+          IconButton(
             onPressed: () async {
               await context.push(AppRoutes.funnyEditPath(moment.id));
               await _load();
@@ -119,6 +125,13 @@ class _FunnyMomentDetailScreenState
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 fontStyle: FontStyle.italic,
               ),
+            ),
+            const SizedBox(height: 8),
+            OutlinedButton.icon(
+              onPressed: () =>
+                  context.push(AppRoutes.funnyQuoteCardPath(moment.id)),
+              icon: const Icon(Icons.style_outlined),
+              label: Text(l10n.quoteCardTitle),
             ),
           ],
           if (moment.story != null) ...[

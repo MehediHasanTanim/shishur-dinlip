@@ -4,7 +4,7 @@ import 'package:local_auth/local_auth.dart';
 import 'package:permission_handler/permission_handler.dart' as ph;
 import 'package:shishur_dinlipi/core/logging/app_logger.dart';
 
-enum AppPermission { camera, photos, notifications, biometrics }
+enum AppPermission { camera, photos, notifications, biometrics, microphone }
 
 enum AppPermissionStatus {
   granted,
@@ -62,6 +62,7 @@ class PermissionService {
       AppPermission.photos =>
         Platform.isIOS ? ph.Permission.photos : ph.Permission.photos,
       AppPermission.notifications => ph.Permission.notification,
+      AppPermission.microphone => ph.Permission.microphone,
       AppPermission.biometrics => ph.Permission.notification, // unused
     };
   }

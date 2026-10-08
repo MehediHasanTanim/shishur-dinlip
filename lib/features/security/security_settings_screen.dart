@@ -5,6 +5,8 @@ import 'package:shishur_dinlipi/core/di/core_providers.dart';
 import 'package:shishur_dinlipi/core/errors/failures.dart';
 import 'package:shishur_dinlipi/core/security/app_lock_controller.dart';
 import 'package:shishur_dinlipi/core/security/auto_lock_mode.dart';
+import 'package:shishur_dinlipi/core/security/flag_secure.dart';
+import 'package:shishur_dinlipi/core/settings/settings_controller.dart';
 import 'package:shishur_dinlipi/l10n/app_localizations.dart';
 
 class SecuritySettingsScreen extends ConsumerStatefulWidget {
@@ -232,6 +234,51 @@ class _SecuritySettingsScreenState
                   label: Text(l10n.securityLockNow),
                 ),
               ],
+              const SizedBox(height: 24),
+              Text(
+                l10n.securityPrivacySection,
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+              const SizedBox(height: 8),
+              Consumer(
+                builder: (context, ref, _) {
+                  final appSettings =
+                      ref.watch(settingsControllerProvider).valueOrNull;
+                  final privacyOn =
+                      appSettings?.notificationPrivacyMode ?? true;
+                  final secureOn = appSettings?.flagSecure ?? false;
+                  return Column(
+                    children: [
+                      SwitchListTile(
+                        contentPadding: EdgeInsets.zero,
+                        title: Text(l10n.securityNotificationPrivacy),
+                        subtitle: Text(l10n.securityNotificationPrivacyHint),
+                        value: privacyOn,
+                        onChanged: (value) async {
+                          await ref
+                              .read(settingsControllerProvider.notifier)
+                              .setNotificationPrivacyMode(value);
+                          await ref
+                              .read(remindersRepositoryProvider)
+                              .rescheduleAll();
+                        },
+                      ),
+                      SwitchListTile(
+                        contentPadding: EdgeInsets.zero,
+                        title: Text(l10n.securityFlagSecure),
+                        subtitle: Text(l10n.securityFlagSecureHint),
+                        value: secureOn,
+                        onChanged: (value) async {
+                          await ref
+                              .read(settingsControllerProvider.notifier)
+                              .setFlagSecure(value);
+                          await FlagSecure.setEnabled(value);
+                        },
+                      ),
+                    ],
+                  );
+                },
+              ),
               const SizedBox(height: 24),
               Text(
                 l10n.securityEncryptionTitle,

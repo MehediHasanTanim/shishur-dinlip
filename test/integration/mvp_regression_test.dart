@@ -234,6 +234,6 @@ void main() {
     expect(clear.length, greaterThan(100));
 
     // Schema indexes present on fresh DB.
-    expect(AppDatabase.currentSchemaVersion, 12);
+    expect(AppDatabase.currentSchemaVersion, 13);
   });
 }

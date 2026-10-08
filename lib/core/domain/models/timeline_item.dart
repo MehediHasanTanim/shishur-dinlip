@@ -10,6 +10,7 @@ enum TimelineItemType {
   vaccination,
   illness,
   doctorVisit,
+  allergy,
   birthday,
   familyEvent,
   trip,
@@ -65,6 +66,7 @@ class TimelineItem {
     TimelineItemType.vaccination => 'vaccination',
     TimelineItemType.illness => 'illness_episode',
     TimelineItemType.doctorVisit => 'doctor_visit',
+    TimelineItemType.allergy => 'allergy',
     TimelineItemType.birthday => 'birthday',
     TimelineItemType.familyEvent => 'family_event',
     TimelineItemType.trip => 'trip',
@@ -84,7 +86,8 @@ class TimelineItem {
       TimelineFilter.health =>
         type == TimelineItemType.vaccination ||
         type == TimelineItemType.illness ||
-        type == TimelineItemType.doctorVisit,
+        type == TimelineItemType.doctorVisit ||
+        type == TimelineItemType.allergy,
       TimelineFilter.school => type == TimelineItemType.schoolEvent,
       TimelineFilter.achievements => type == TimelineItemType.achievement,
       TimelineFilter.photos => hasPhoto,
@@ -105,6 +108,7 @@ class TimelineItem {
     TimelineItemType.vaccination => 9,
     TimelineItemType.illness => 10,
     TimelineItemType.doctorVisit => 11,
+    TimelineItemType.allergy => 12,
   };
 }
 

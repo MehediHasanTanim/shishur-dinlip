@@ -829,10 +829,47 @@ class AppLocalizationsBn extends AppLocalizations {
   String get firstWordContext => 'গল্প / প্রসঙ্গ';
 
   @override
-  String get firstWordAudioPlaceholder => 'অডিও পরে আসবে';
+  String get firstWordAudioPlaceholder => 'অডিও রেকর্ডিং';
 
   @override
-  String get firstWordAudioHint => 'ভবিষ্যতে অডিও রেকর্ডের জন্য চিহ্নিত করুন।';
+  String get firstWordAudioHint =>
+      'শিশু এই শব্দটি বলার অডিও রেকর্ড করুন (ঐচ্ছিক)।';
+
+  @override
+  String get firstWordAudioTitle => 'কণ্ঠ রেকর্ডিং';
+
+  @override
+  String get firstWordAudioEmpty =>
+      'এখনো কোনো রেকর্ডিং নেই। প্রস্তুত হলে রেকর্ড চাপুন।';
+
+  @override
+  String get firstWordAudioReady =>
+      'রেকর্ডিং সংরক্ষিত। চালাতে বা বদলাতে পারেন।';
+
+  @override
+  String get firstWordRecording => 'রেকর্ড হচ্ছে… শেষ হলে স্টপ চাপুন।';
+
+  @override
+  String get firstWordRecord => 'রেকর্ড';
+
+  @override
+  String get firstWordReRecord => 'আবার রেকর্ড';
+
+  @override
+  String get firstWordStopRecording => 'থামান';
+
+  @override
+  String get firstWordPlay => 'চালান';
+
+  @override
+  String get firstWordStopPlayback => 'থামান';
+
+  @override
+  String get firstWordDeleteAudio => 'অডিও মুছুন';
+
+  @override
+  String get firstWordMicDenied =>
+      'প্রথম শব্দ রেকর্ড করতে মাইক্রোফোন অনুমতি প্রয়োজন।';
 
   @override
   String get saveFirstWord => 'প্রথম কথা সংরক্ষণ';
@@ -2784,4 +2821,246 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get addTripSubtitle => 'ভ্রমণ, স্থান, সৈকত, ফ্লাইট';
+
+  @override
+  String get settingsUnits => 'একক';
+
+  @override
+  String get settingsHeight => 'উচ্চতা';
+
+  @override
+  String get settingsWeight => 'ওজন';
+
+  @override
+  String get settingsTemperature => 'তাপমাত্রা';
+
+  @override
+  String get settingsUnitCm => 'সেমি';
+
+  @override
+  String get settingsUnitFtIn => 'ফুট/ইঞ্চি';
+
+  @override
+  String get settingsUnitKg => 'কেজি';
+
+  @override
+  String get settingsUnitLb => 'পাউন্ড';
+
+  @override
+  String get settingsUnitCelsius => '°সে';
+
+  @override
+  String get settingsUnitFahrenheit => '°ফা';
+
+  @override
+  String get settingsBengaliDigits => 'বাংলা সংখ্যা';
+
+  @override
+  String get settingsBengaliDigitsHint => 'প্রয়োজনে সংখ্যা বাংলা অঙ্কে দেখান';
+
+  @override
+  String get securityPrivacySection => 'নোটিফিকেশন ও স্ক্রিনশট';
+
+  @override
+  String get securityNotificationPrivacy => 'লক স্ক্রিনে ব্যক্তিগত নোটিফিকেশন';
+
+  @override
+  String get securityNotificationPrivacyHint =>
+      'লক স্ক্রিনে শিশুর নাম ও চিকিৎসা বিবরণ লুকান। অনুস্মারক সাধারণ শিরোনামেই আসবে।';
+
+  @override
+  String get securityFlagSecure => 'স্ক্রিনশট ব্লক করুন';
+
+  @override
+  String get securityFlagSecureHint =>
+      'স্ক্রিনশট আটকান এবং সাম্প্রতিক অ্যাপে অ্যাপ লুকান (অ্যান্ড্রয়েড)।';
+
+  @override
+  String get forgotPinTitle => 'পিন ভুলে গেছেন?';
+
+  @override
+  String get forgotPinBody =>
+      'শিশুর দিনলিপি পিন শুধু এই ডিভাইসে রাখে। অনলাইন পুনরুদ্ধার নেই। বায়োমেট্রিক চালু থাকলে দিয়ে আনলক করতে পারেন, অথবা এনক্রিপ্টেড ব্যাকআপ থেকে রিস্টোর করুন।';
+
+  @override
+  String get forgotPinBiometric => 'বায়োমেট্রিক চেষ্টা করুন';
+
+  @override
+  String get forgotPinRestore => 'ব্যাকআপ থেকে রিস্টোর';
+
+  @override
+  String get forgotPinReturn => 'আনলকে ফিরে যান';
+
+  @override
+  String get unlockForgotPin => 'পিন ভুলে গেছেন?';
+
+  @override
+  String get allergiesTitle => 'অ্যালার্জি';
+
+  @override
+  String get allergiesEmpty => 'এখনো কোনো অ্যালার্জি নেই।';
+
+  @override
+  String get allergiesEmptyHint =>
+      'খাবার, ওষুধ ও পরিবেশগত অ্যালার্জি লিখে রাখুন।';
+
+  @override
+  String get allergyAdd => 'অ্যালার্জি যোগ';
+
+  @override
+  String get allergyEdit => 'অ্যালার্জি সম্পাদনা';
+
+  @override
+  String get allergyAllergen => 'অ্যালার্জেন';
+
+  @override
+  String get allergyType => 'ধরন';
+
+  @override
+  String get allergyReaction => 'প্রতিক্রিয়া';
+
+  @override
+  String get allergySeverity => 'তীব্রতা';
+
+  @override
+  String get allergyFirstObserved => 'প্রথম দেখা';
+
+  @override
+  String get allergyDoctorConfirmed => 'ডাক্তার নিশ্চিত';
+
+  @override
+  String get allergyNotes => 'নোট';
+
+  @override
+  String get allergyTypeFood => 'খাবার';
+
+  @override
+  String get allergyTypeMedicine => 'ওষুধ';
+
+  @override
+  String get allergyTypeEnvironmental => 'পরিবেশগত';
+
+  @override
+  String get allergyTypeUnknown => 'অজানা';
+
+  @override
+  String get allergySeverityMild => 'মৃদু';
+
+  @override
+  String get allergySeverityModerate => 'মাঝারি';
+
+  @override
+  String get allergySeveritySevere => 'তীব্র';
+
+  @override
+  String get allergySeverityUnknown => 'অজানা';
+
+  @override
+  String get allergyDeleteConfirm => 'এই অ্যালার্জি মুছবেন?';
+
+  @override
+  String get healthAllergies => 'অ্যালার্জি';
+
+  @override
+  String get journalListTitle => 'জার্নাল';
+
+  @override
+  String get journalListEmpty => 'এখনো কোনো জার্নাল নেই।';
+
+  @override
+  String get funnyListTitle => 'মজার মুহূর্ত';
+
+  @override
+  String get funnyListEmpty => 'এখনো কোনো মজার মুহূর্ত নেই।';
+
+  @override
+  String get achievementsListTitle => 'অর্জন';
+
+  @override
+  String get achievementsListEmpty => 'এখনো কোনো অর্জন নেই।';
+
+  @override
+  String get achievementsFilterAll => 'সব';
+
+  @override
+  String get quoteCardTitle => 'উক্তি কার্ড';
+
+  @override
+  String get quoteCardTheme => 'থিম';
+
+  @override
+  String get quoteCardIncludePhoto => 'শিশুর ছবি রাখুন';
+
+  @override
+  String get quoteCardIncludeAge => 'বয়স রাখুন';
+
+  @override
+  String get quoteCardIncludeDate => 'তারিখ রাখুন';
+
+  @override
+  String get quoteCardSave => 'ছবি সংরক্ষণ';
+
+  @override
+  String get quoteCardShare => 'শেয়ার';
+
+  @override
+  String get quoteCardThemeWarm => 'উষ্ণ';
+
+  @override
+  String get quoteCardThemeTeal => 'টিল';
+
+  @override
+  String get quoteCardThemeCream => 'ক্রিম';
+
+  @override
+  String get reportCardViewerTitle => 'রিপোর্ট কার্ড';
+
+  @override
+  String get reportCardOpenExternally => 'বাইরে খুলুন';
+
+  @override
+  String get reportCardReplace => 'বদলান';
+
+  @override
+  String get reportCardDeleteAttachment => 'সংযুক্তি মুছুন';
+
+  @override
+  String get ocrScriptLabel => 'ওসিআর স্ক্রিপ্ট';
+
+  @override
+  String get ocrScriptLatin => 'ল্যাটিন';
+
+  @override
+  String get ocrScriptChinese => 'চীনা';
+
+  @override
+  String get ocrScriptDevanagari => 'দেবনাগরী';
+
+  @override
+  String get ocrScriptJapanese => 'জাপানি';
+
+  @override
+  String get ocrScriptKorean => 'কোরিয়ান';
+
+  @override
+  String get ocrBanglaLimitation =>
+      'অন-ডিভাইস ওসিআর বাংলা স্ক্রিপ্ট পুরোপুরি সাপোর্ট করে না। এক্সট্র্যাক্ট করা লেখা ভালো করে যাচাই ও সংশোধন করুন।';
+
+  @override
+  String get attachVideo => 'ভিডিও যোগ';
+
+  @override
+  String get videoUnsupportedPreview => 'ভিডিও';
+
+  @override
+  String get timelineTypeAllergy => 'অ্যালার্জি';
+
+  @override
+  String get searchTypeAllergy => 'অ্যালার্জি';
+
+  @override
+  String get commonYes => 'হ্যাঁ';
+
+  @override
+  String get commonNo => 'না';
 }

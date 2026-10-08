@@ -45,6 +45,11 @@ class AttachmentStrip extends StatelessWidget {
                     icon: const Icon(Icons.add_photo_alternate_outlined),
                     label: Text(l10n.addPhotos),
                   ),
+                  TextButton.icon(
+                    onPressed: () => _pickVideo(context),
+                    icon: const Icon(Icons.videocam_outlined),
+                    label: Text(l10n.attachVideo),
+                  ),
                   if (allowDocuments)
                     TextButton.icon(
                       onPressed: () => _pickDoc(context),
@@ -77,12 +82,14 @@ class AttachmentStrip extends StatelessWidget {
                     final draft = drafts[index];
                     final file = controller.previewFiles[draft.localKey];
                     final isDoc = controller.isDocument(draft.localKey);
+                    final isVid = controller.isVideo(draft.localKey);
                     return Padding(
                       key: ValueKey(draft.localKey),
                       padding: const EdgeInsets.only(right: 8),
                       child: _Thumb(
                         file: file,
                         isDocument: isDoc,
+                        isVideo: isVid,
                         label: draft.displayName,
                         enabled: enabled,
                         index: index,
@@ -130,6 +137,17 @@ class AttachmentStrip extends StatelessWidget {
     }
   }
 
+  Future<void> _pickVideo(BuildContext context) async {
+    try {
+      await controller.addVideo();
+    } catch (error) {
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('$error')));
+    }
+  }
+
   void _preview(BuildContext context, File file) {
     showDialog<void>(
       context: context,
@@ -154,6 +172,7 @@ class _Thumb extends StatelessWidget {
     required this.index,
     required this.onRemove,
     required this.isDocument,
+    required this.isVideo,
     this.label,
     this.onPreview,
   });
@@ -163,11 +182,13 @@ class _Thumb extends StatelessWidget {
   final int index;
   final VoidCallback onRemove;
   final bool isDocument;
+  final bool isVideo;
   final String? label;
   final VoidCallback? onPreview;
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
     return SizedBox(
       width: 96,
       height: 96,
@@ -202,11 +223,34 @@ class _Thumb extends StatelessWidget {
                         ],
                       )
                     : file == null
-                    ? const Icon(Icons.broken_image_outlined)
+                    ? Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            isVideo
+                                ? Icons.videocam_outlined
+                                : Icons.broken_image_outlined,
+                            color: Theme.of(context).colorScheme.primary,
+                          ),
+                          if (isVideo) ...[
+                            const SizedBox(height: 4),
+                            Text(
+                              l10n.videoUnsupportedPreview,
+                              style: Theme.of(context).textTheme.labelSmall,
+                            ),
+                          ],
+                        ],
+                      )
                     : Image.file(file!, fit: BoxFit.cover),
               ),
             ),
           ),
+          if (isVideo && file != null)
+            const Positioned(
+              bottom: 6,
+              right: 6,
+              child: Icon(Icons.play_circle_fill, color: Colors.white70, size: 22),
+            ),
           if (enabled)
             Positioned(
               top: 4,

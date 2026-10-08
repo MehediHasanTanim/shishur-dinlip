@@ -7,4 +7,6 @@ abstract final class SettingsKeys {
   static const weightUnit = 'weightUnit';
   static const temperatureUnit = 'temperatureUnit';
   static const useBengaliDigits = 'useBengaliDigits';
+  static const notificationPrivacyMode = 'notificationPrivacyMode';
+  static const flagSecure = 'flagSecure';
 }

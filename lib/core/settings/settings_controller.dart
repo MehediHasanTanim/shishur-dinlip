@@ -66,4 +66,14 @@ class SettingsController extends AsyncNotifier<AppSettings> {
     final current = state.valueOrNull ?? await _repository.load();
     await _persist(current.copyWith(useBengaliDigits: enabled));
   }
+
+  Future<void> setNotificationPrivacyMode(bool enabled) async {
+    final current = state.valueOrNull ?? await _repository.load();
+    await _persist(current.copyWith(notificationPrivacyMode: enabled));
+  }
+
+  Future<void> setFlagSecure(bool enabled) async {
+    final current = state.valueOrNull ?? await _repository.load();
+    await _persist(current.copyWith(flagSecure: enabled));
+  }
 }

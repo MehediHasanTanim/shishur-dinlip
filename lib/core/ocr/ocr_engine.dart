@@ -16,14 +16,16 @@ abstract class OcrEngine {
 
 /// Google ML Kit text recognition (on-device; no network).
 class MlKitOcrEngine extends OcrEngine {
-  MlKitOcrEngine({TextRecognizer? recognizer})
-      : _recognizer = recognizer ??
-            TextRecognizer(script: TextRecognitionScript.latin);
+  MlKitOcrEngine({
+    this.script = TextRecognitionScript.latin,
+    TextRecognizer? recognizer,
+  }) : _recognizer = recognizer ?? TextRecognizer(script: script);
 
+  final TextRecognitionScript script;
   final TextRecognizer _recognizer;
 
   @override
-  String get name => 'mlkit';
+  String get name => 'mlkit_${script.name}';
 
   @override
   Future<OcrRawResult> recognize(File imageFile) async {

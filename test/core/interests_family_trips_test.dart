@@ -47,7 +47,7 @@ void main() {
   });
 
   test('schema version is 11 with life tables', () async {
-    expect(AppDatabase.currentSchemaVersion, 12);
+    expect(AppDatabase.currentSchemaVersion, 13);
     await db.customSelect('SELECT COUNT(*) AS c FROM interests').getSingle();
     await db.customSelect('SELECT COUNT(*) AS c FROM family_events').getSingle();
     await db.customSelect('SELECT COUNT(*) AS c FROM trips').getSingle();

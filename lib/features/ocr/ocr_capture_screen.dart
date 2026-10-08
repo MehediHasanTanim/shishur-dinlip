@@ -10,6 +10,7 @@ import 'package:shishur_dinlipi/core/errors/failures.dart';
 import 'package:shishur_dinlipi/core/ocr/ocr_models.dart';
 import 'package:shishur_dinlipi/core/permissions/permission_service.dart';
 import 'package:shishur_dinlipi/features/ocr/ocr_labels.dart';
+import 'package:shishur_dinlipi/features/ocr/ocr_script_picker.dart';
 import 'package:shishur_dinlipi/l10n/app_localizations.dart';
 
 class OcrCaptureScreen extends ConsumerStatefulWidget {
@@ -94,6 +95,8 @@ class _OcrCaptureScreenState extends ConsumerState<OcrCaptureScreen> {
             l10n.ocrCaptureHint,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
+          const SizedBox(height: 16),
+          const OcrScriptPicker(),
           const SizedBox(height: 16),
           if (_imagePath != null) ...[
             ClipRRect(

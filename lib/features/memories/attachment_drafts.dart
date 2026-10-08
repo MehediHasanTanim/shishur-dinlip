@@ -41,6 +41,13 @@ class AttachmentDraftsController extends ChangeNotifier {
     return type == MediaAssetType.pdf || type == MediaAssetType.document;
   }
 
+  bool isVideo(String localKey) {
+    for (final draft in _drafts) {
+      if (draft.localKey == localKey && draft.isVideo) return true;
+    }
+    return _types[localKey] == MediaAssetType.video;
+  }
+
   String? displayName(String localKey) {
     for (final draft in _drafts) {
       if (draft.localKey == localKey) return draft.displayName;
@@ -66,6 +73,7 @@ class AttachmentDraftsController extends ChangeNotifier {
       final isDoc =
           media?.assetType == MediaAssetType.pdf ||
           media?.assetType == MediaAssetType.document;
+      final isVid = media?.assetType == MediaAssetType.video;
       drafts.add(
         AttachmentDraft(
           localKey: key,
@@ -74,14 +82,20 @@ class AttachmentDraftsController extends ChangeNotifier {
           caption: item.caption,
           displayName: media?.originalFilename,
           isDocument: isDoc,
+          isVideo: isVid,
         ),
       );
       if (media != null) {
         _types[key] = media.assetType;
-        final path = media.thumbnailPath ?? media.localPath;
-        final file = await storage.absoluteFile(path);
-        if (await file.exists()) {
-          _previewFiles[key] = file;
+        // Videos must use thumbnail only — never the video file path.
+        final path = isVid
+            ? media.thumbnailPath
+            : (media.thumbnailPath ?? media.localPath);
+        if (path != null) {
+          final file = await storage.absoluteFile(path);
+          if (await file.exists()) {
+            _previewFiles[key] = file;
+          }
         }
       }
     }
@@ -146,10 +160,27 @@ class AttachmentDraftsController extends ChangeNotifier {
     }
   }
 
+  Future<void> addVideo() async {
+    final allowed = await permissions.ensure(AppPermission.photos);
+    if (!allowed) {
+      throw const PermissionFailure(
+        message: 'Permission is required to add a video.',
+      );
+    }
+    final file = await _picker.pickVideo(source: ImageSource.gallery);
+    if (file == null) return;
+    _appendPending(
+      file.path,
+      displayName: file.name,
+      isVideo: true,
+    );
+  }
+
   void _appendPending(
     String path, {
     String? displayName,
     bool isDocument = false,
+    bool isVideo = false,
   }) {
     final key = idGenerator.next();
     _drafts = [
@@ -159,10 +190,15 @@ class AttachmentDraftsController extends ChangeNotifier {
         pendingPath: path,
         displayName: displayName ?? p.basename(path),
         isDocument: isDocument,
+        isVideo: isVideo,
       ),
     ];
-    _previewFiles[key] = File(path);
-    _types[key] = isDocument ? MediaAssetType.pdf : MediaAssetType.image;
+    if (!isVideo) {
+      _previewFiles[key] = File(path);
+    }
+    _types[key] = isVideo
+        ? MediaAssetType.video
+        : (isDocument ? MediaAssetType.pdf : MediaAssetType.image);
     notifyListeners();
   }
 

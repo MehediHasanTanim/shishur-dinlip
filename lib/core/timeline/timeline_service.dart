@@ -1,4 +1,5 @@
 import 'package:shishur_dinlipi/core/domain/entity_types.dart';
+import 'package:shishur_dinlipi/core/domain/models/media_asset.dart';
 import 'package:shishur_dinlipi/core/domain/models/timeline_item.dart';
 import 'package:shishur_dinlipi/core/mappers/media_asset_mapper.dart';
 import 'package:shishur_dinlipi/core/repository/repository_base.dart';
@@ -253,6 +254,21 @@ class TimelineService extends RepositoryBase {
       );
     }
 
+    final allergyRows = await db.allergiesDao.forChild(childId);
+    for (final row in allergyRows) {
+      items.add(
+        TimelineItem(
+          id: row.id,
+          childId: childId,
+          type: TimelineItemType.allergy,
+          eventDate: row.firstObserved ?? row.createdAt,
+          title: row.allergen,
+          subtitle: row.reaction ?? row.severity,
+          sortKey: TimelineItem.typeSortKey(TimelineItemType.allergy),
+        ),
+      );
+    }
+
     final birthdays = await db.birthdaysDao.forChild(childId);
     final birthdayCoverIds = <String, String>{};
     for (final row in birthdays) {
@@ -350,8 +366,13 @@ class TimelineService extends RepositoryBase {
         final media = await db.mediaAssetsDao.getById(att.mediaAssetId);
         if (media == null) continue;
         final asset = MediaAssetMapper.toDomain(media);
-        thumbByEntity[att.entityId] =
-            asset.thumbnailPath ?? asset.localPath;
+        // Videos must never fall back to the video file path as a thumbnail.
+        final thumb = asset.assetType == MediaAssetType.video
+            ? asset.thumbnailPath
+            : (asset.thumbnailPath ?? asset.localPath);
+        if (thumb != null) {
+          thumbByEntity[att.entityId] = thumb;
+        }
       }
       for (var i = 0; i < items.length; i++) {
         final item = items[i];

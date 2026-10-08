@@ -23,6 +23,8 @@ void main() {
 
   test('bootstraps required directories', () async {
     final images = await storage.imagesDir();
+    final videos = await storage.videosDir();
+    final audio = await storage.audioDir();
     final thumbs = await storage.thumbnailsDir();
     final docs = await storage.documentsDir();
     final pdf = await storage.pdfExportsDir();
@@ -30,7 +32,17 @@ void main() {
     final backups = await storage.backupsDir();
     final temp = await storage.tempDir();
 
-    for (final dir in [images, thumbs, docs, pdf, albums, backups, temp]) {
+    for (final dir in [
+      images,
+      videos,
+      audio,
+      thumbs,
+      docs,
+      pdf,
+      albums,
+      backups,
+      temp,
+    ]) {
       expect(await dir.exists(), isTrue);
     }
   });

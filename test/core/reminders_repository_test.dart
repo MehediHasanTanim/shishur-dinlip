@@ -9,6 +9,7 @@ import 'package:shishur_dinlipi/core/notifications/notification_service.dart';
 import 'package:shishur_dinlipi/core/permissions/permission_service.dart';
 import 'package:shishur_dinlipi/core/repository/children_repository.dart';
 import 'package:shishur_dinlipi/core/repository/reminders_repository.dart';
+import 'package:shishur_dinlipi/core/settings/settings_repository.dart';
 
 class _DeniedPermissions extends PermissionService {
   @override
@@ -46,6 +47,7 @@ class _FakeNotifications extends NotificationService {
     required DateTime whenLocal,
     required AndroidNotificationChannel channel,
     bool repeatsDaily = false,
+    bool privacyMode = true,
   }) async {
     scheduled.add(id);
   }
@@ -65,6 +67,7 @@ void main() {
       notifications: notifications,
       idsStore: NotificationIdStore(db),
       permissions: _DeniedPermissions(),
+      settings: SettingsRepository(db),
     );
 
     final now = DateTime.now().toUtc();
@@ -108,6 +111,7 @@ void main() {
       notifications: notifications,
       idsStore: NotificationIdStore(db),
       permissions: _AllowedPermissions(),
+      settings: SettingsRepository(db),
     );
     final saved = await allowed.save(
       Reminder(

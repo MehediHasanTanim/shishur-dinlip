@@ -62,6 +62,9 @@ class FirstWordsListScreen extends ConsumerWidget {
                             ),
                           ].join(' · '),
                         ),
+                        trailing: word.audioAssetId != null
+                            ? const Icon(Icons.graphic_eq)
+                            : null,
                         onTap: () => context.push(
                           AppRoutes.firstWordDetailPath(word.id),
                         ),

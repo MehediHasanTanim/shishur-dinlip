@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shishur_dinlipi/core/audio/first_word_audio_controller.dart';
 import 'package:shishur_dinlipi/core/di/core_providers.dart';
 import 'package:shishur_dinlipi/core/domain/date_precision.dart';
 import 'package:shishur_dinlipi/core/domain/models/first_word.dart';
@@ -8,6 +9,7 @@ import 'package:shishur_dinlipi/core/errors/error_mapper.dart';
 import 'package:shishur_dinlipi/features/children/child_controller.dart';
 import 'package:shishur_dinlipi/features/development/milestones_overview_screen.dart';
 import 'package:shishur_dinlipi/features/development/widgets/date_precision_selector.dart';
+import 'package:shishur_dinlipi/features/development/widgets/first_word_audio_panel.dart';
 import 'package:shishur_dinlipi/features/memories/widgets/discard_guard.dart';
 import 'package:shishur_dinlipi/l10n/app_localizations.dart';
 
@@ -26,10 +28,10 @@ class _FirstWordEditorScreenState extends ConsumerState<FirstWordEditorScreen> {
   late final TextEditingController _word;
   late final TextEditingController _language;
   late final TextEditingController _context;
+  late final FirstWordAudioController _audio;
 
   DatePrecision _precision = DatePrecision.exact;
   DateTime? _eventDate = DateTime.now();
-  bool _audioPlaceholder = false;
   bool _dirty = false;
   bool _saving = false;
   bool _loading = true;
@@ -42,6 +44,11 @@ class _FirstWordEditorScreenState extends ConsumerState<FirstWordEditorScreen> {
     _word = TextEditingController()..addListener(_markDirty);
     _language = TextEditingController()..addListener(_markDirty);
     _context = TextEditingController()..addListener(_markDirty);
+    _audio = FirstWordAudioController(
+      permissions: ref.read(permissionServiceProvider),
+      storage: ref.read(fileStorageServiceProvider),
+      media: ref.read(mediaServiceProvider),
+    );
     WidgetsBinding.instance.addPostFrameCallback((_) => _bootstrap());
   }
 
@@ -62,7 +69,7 @@ class _FirstWordEditorScreenState extends ConsumerState<FirstWordEditorScreen> {
         _context.text = item.contextNote ?? '';
         _precision = item.datePrecision;
         _eventDate = item.eventDate;
-        _audioPlaceholder = item.audioPlaceholder;
+        await _audio.loadSavedAsset(item.audioAssetId);
       }
     }
     if (mounted) {
@@ -78,6 +85,7 @@ class _FirstWordEditorScreenState extends ConsumerState<FirstWordEditorScreen> {
     _word.dispose();
     _language.dispose();
     _context.dispose();
+    _audio.dispose();
     super.dispose();
   }
 
@@ -142,16 +150,10 @@ class _FirstWordEditorScreenState extends ConsumerState<FirstWordEditorScreen> {
                       minLines: 3,
                       maxLines: 8,
                     ),
-                    const SizedBox(height: 8),
-                    SwitchListTile(
-                      contentPadding: EdgeInsets.zero,
-                      title: Text(l10n.firstWordAudioPlaceholder),
-                      subtitle: Text(l10n.firstWordAudioHint),
-                      value: _audioPlaceholder,
-                      onChanged: (value) => setState(() {
-                        _audioPlaceholder = value;
-                        _dirty = true;
-                      }),
+                    const SizedBox(height: 16),
+                    FirstWordAudioPanel(
+                      controller: _audio,
+                      onChanged: _markDirty,
                     ),
                   ],
                 ),
@@ -174,8 +176,13 @@ class _FirstWordEditorScreenState extends ConsumerState<FirstWordEditorScreen> {
     final child = ref.read(selectedChildProvider).valueOrNull;
     if (child == null) return;
 
+    if (_audio.isRecording) {
+      await _audio.stopRecording();
+    }
+
     setState(() => _saving = true);
     try {
+      final audioId = await _audio.persistPending(childId: child.id);
       final now = DateTime.now().toUtc();
       await ref.read(firstWordsRepositoryProvider).save(
             FirstWord(
@@ -190,7 +197,9 @@ class _FirstWordEditorScreenState extends ConsumerState<FirstWordEditorScreen> {
               contextNote: _context.text.trim().isEmpty
                   ? null
                   : _context.text.trim(),
-              audioPlaceholder: _audioPlaceholder,
+              audioAssetId: audioId,
+              // Legacy flag: true only when a real clip is attached.
+              audioPlaceholder: audioId != null && audioId.isNotEmpty,
               createdAt: _createdAt ?? now,
               updatedAt: now,
             ),

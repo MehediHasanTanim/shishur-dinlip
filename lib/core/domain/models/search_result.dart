@@ -6,6 +6,7 @@ enum SearchResultType {
   medicine,
   doctorVisit,
   illness,
+  allergy,
   schoolEvent,
   achievement,
   birthday,

@@ -9,6 +9,7 @@ import 'package:shishur_dinlipi/core/errors/failures.dart';
 import 'package:shishur_dinlipi/core/files/file_storage_service.dart';
 import 'package:shishur_dinlipi/core/mappers/media_asset_mapper.dart';
 import 'package:shishur_dinlipi/core/repository/repository_base.dart';
+import 'package:video_thumbnail/video_thumbnail.dart';
 
 class MediaService extends RepositoryBase {
   MediaService(
@@ -111,6 +112,161 @@ class MediaService extends RepositoryBase {
       });
       return asset;
     }, operation: 'media.importImage');
+  }
+
+  /// Imports a video into app-private storage with an optional still thumbnail.
+  Future<MediaAsset> importVideo({
+    required File sourceFile,
+    String? childId,
+    String? originalFilename,
+    DateTime? capturedAt,
+  }) {
+    return guard(() async {
+      if (!await sourceFile.exists()) {
+        throw const FileFailure(message: 'Source video file was not found.');
+      }
+
+      await storage.ensureBootstrapped();
+      final bytes = await sourceFile.readAsBytes();
+      if (bytes.isEmpty) {
+        throw const FileFailure(message: 'Source video file is empty.');
+      }
+
+      final checksum = sha256.convert(bytes).toString();
+      final name = originalFilename ?? p.basename(sourceFile.path);
+      final fileName = storage.buildFileName(originalName: name);
+      final videosDir = await storage.videosDir();
+      final saved = await storage.writeBytesAtomic(
+        directory: videosDir,
+        fileName: fileName,
+        bytes: bytes,
+      );
+
+      String? thumbnailRelative;
+      try {
+        final thumbBytes = await VideoThumbnail.thumbnailData(
+          video: sourceFile.path,
+          imageFormat: ImageFormat.JPEG,
+          maxWidth: _thumbnailMaxEdge,
+          quality: 75,
+        );
+        if (thumbBytes != null && thumbBytes.isNotEmpty) {
+          final thumbName = storage.buildFileName(preferredExtension: '.jpg');
+          final thumbsDir = await storage.thumbnailsDir();
+          final thumbFile = await storage.writeBytesAtomic(
+            directory: thumbsDir,
+            fileName: thumbName,
+            bytes: thumbBytes,
+          );
+          thumbnailRelative = storage.toRelativePath(thumbFile.path);
+        }
+      } catch (error, stackTrace) {
+        logger.warn('Video thumbnail generation failed', {
+          'errorType': error.runtimeType.toString(),
+        });
+        logger.error(
+          'Video thumbnail error detail',
+          error: error,
+          stackTrace: stackTrace,
+        );
+      }
+
+      final nowUtc = now();
+      final asset = MediaAsset(
+        id: ids.next(),
+        childId: childId,
+        assetType: MediaAssetType.video,
+        localPath: storage.toRelativePath(saved.path),
+        thumbnailPath: thumbnailRelative,
+        mimeType: _videoMimeForExtension(p.extension(fileName)),
+        originalFilename: name,
+        fileSizeBytes: bytes.length,
+        capturedAt: capturedAt,
+        importedAt: nowUtc,
+        checksum: checksum,
+        createdAt: nowUtc,
+        updatedAt: nowUtc,
+      );
+
+      await db.mediaAssetsDao.upsert(MediaAssetMapper.toCompanion(asset));
+      logger.info('Video imported', {
+        'mediaId': asset.id,
+        'bytes': asset.fileSizeBytes,
+        'hasThumb': thumbnailRelative != null,
+      });
+      return asset;
+    }, operation: 'media.importVideo');
+  }
+
+  /// Imports an audio clip (e.g. first-word recording) into app-private storage.
+  Future<MediaAsset> importAudio({
+    required File sourceFile,
+    String? childId,
+    String? originalFilename,
+    int? durationMs,
+    DateTime? capturedAt,
+  }) {
+    return guard(() async {
+      if (!await sourceFile.exists()) {
+        throw const FileFailure(message: 'Source audio file was not found.');
+      }
+      await storage.ensureBootstrapped();
+      final bytes = await sourceFile.readAsBytes();
+      if (bytes.isEmpty) {
+        throw const FileFailure(message: 'Source audio file is empty.');
+      }
+
+      final checksum = sha256.convert(bytes).toString();
+      final name = originalFilename ?? p.basename(sourceFile.path);
+      final fileName = storage.buildFileName(
+        originalName: name,
+        preferredExtension: p.extension(name).isEmpty ? '.m4a' : null,
+      );
+      final audioDir = await storage.audioDir();
+      final saved = await storage.writeBytesAtomic(
+        directory: audioDir,
+        fileName: fileName,
+        bytes: bytes,
+      );
+
+      final nowUtc = now();
+      final asset = MediaAsset(
+        id: ids.next(),
+        childId: childId,
+        assetType: MediaAssetType.audio,
+        localPath: storage.toRelativePath(saved.path),
+        mimeType: _audioMimeForExtension(p.extension(fileName)),
+        originalFilename: name,
+        fileSizeBytes: bytes.length,
+        durationMs: durationMs,
+        capturedAt: capturedAt,
+        importedAt: nowUtc,
+        checksum: checksum,
+        createdAt: nowUtc,
+        updatedAt: nowUtc,
+      );
+
+      await db.mediaAssetsDao.upsert(MediaAssetMapper.toCompanion(asset));
+      logger.info('Audio imported', {
+        'mediaId': asset.id,
+        'bytes': asset.fileSizeBytes,
+        'durationMs': durationMs,
+      });
+      return asset;
+    }, operation: 'media.importAudio');
+  }
+
+  /// Soft-deletes a media row and removes its files (for direct links like
+  /// first-word audio that are not tracked via attachments).
+  Future<void> deleteMediaAsset(String mediaAssetId) {
+    return guard(() async {
+      final row = await db.mediaAssetsDao.getById(mediaAssetId);
+      if (row == null) return;
+      await db.mediaAssetsDao.softDelete(mediaAssetId, now());
+      await storage.deleteIfExists(row.localPath);
+      await storage.deleteIfExists(row.thumbnailPath);
+      logger.info('Media asset deleted', {'mediaId': mediaAssetId});
+    }, operation: 'media.deleteAsset');
   }
 
   /// Imports a PDF/document into app-private document storage.
@@ -225,6 +381,36 @@ class MediaService extends RepositoryBase {
       case '.jpeg':
       default:
         return 'image/jpeg';
+    }
+  }
+
+  String _videoMimeForExtension(String extension) {
+    switch (extension.toLowerCase()) {
+      case '.mov':
+        return 'video/quicktime';
+      case '.webm':
+        return 'video/webm';
+      case '.mkv':
+        return 'video/x-matroska';
+      case '.mp4':
+      default:
+        return 'video/mp4';
+    }
+  }
+
+  String _audioMimeForExtension(String extension) {
+    switch (extension.toLowerCase()) {
+      case '.mp3':
+        return 'audio/mpeg';
+      case '.wav':
+        return 'audio/wav';
+      case '.aac':
+        return 'audio/aac';
+      case '.ogg':
+        return 'audio/ogg';
+      case '.m4a':
+      default:
+        return 'audio/mp4';
     }
   }
 }

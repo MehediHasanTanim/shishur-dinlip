@@ -138,6 +138,13 @@ class _UnlockScreenState extends ConsumerState<UnlockScreen> {
                   label: Text(l10n.unlockBiometric),
                 ),
               ],
+              const SizedBox(height: 8),
+              TextButton(
+                onPressed: _busy
+                    ? null
+                    : () => context.push(AppRoutes.unlockForgotPin),
+                child: Text(l10n.unlockForgotPin),
+              ),
               const Spacer(),
             ],
           ),

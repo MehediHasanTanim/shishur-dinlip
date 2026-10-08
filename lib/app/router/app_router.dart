@@ -25,6 +25,7 @@ import 'package:shishur_dinlipi/features/life/interests_list_screen.dart';
 import 'package:shishur_dinlipi/features/life/trip_detail_screen.dart';
 import 'package:shishur_dinlipi/features/life/trip_editor_screen.dart';
 import 'package:shishur_dinlipi/features/life/trips_list_screen.dart';
+import 'package:shishur_dinlipi/features/security/forgot_pin_guidance_screen.dart';
 import 'package:shishur_dinlipi/features/security/security_settings_screen.dart';
 import 'package:shishur_dinlipi/features/security/unlock_screen.dart';
 import 'package:shishur_dinlipi/features/storage/storage_screen.dart';
@@ -54,6 +55,9 @@ import 'package:shishur_dinlipi/features/development/milestone_editor_screen.dar
 import 'package:shishur_dinlipi/features/development/milestone_list_screen.dart';
 import 'package:shishur_dinlipi/features/development/milestone_templates.dart';
 import 'package:shishur_dinlipi/features/development/milestones_overview_screen.dart';
+import 'package:shishur_dinlipi/features/health/allergy_detail_screen.dart';
+import 'package:shishur_dinlipi/features/health/allergy_editor_screen.dart';
+import 'package:shishur_dinlipi/features/health/allergy_list_screen.dart';
 import 'package:shishur_dinlipi/features/health/doctor_visit_detail_screen.dart';
 import 'package:shishur_dinlipi/features/health/doctor_visit_editor_screen.dart';
 import 'package:shishur_dinlipi/features/health/doctor_visit_list_screen.dart';
@@ -82,11 +86,15 @@ import 'package:shishur_dinlipi/features/school/school_profile_editor_screen.dar
 import 'package:shishur_dinlipi/features/school/school_timeline_screen.dart';
 import 'package:shishur_dinlipi/features/memories/achievement_detail_screen.dart';
 import 'package:shishur_dinlipi/features/memories/achievement_editor_screen.dart';
+import 'package:shishur_dinlipi/features/memories/achievement_list_screen.dart';
 import 'package:shishur_dinlipi/features/memories/funny_moment_detail_screen.dart';
 import 'package:shishur_dinlipi/features/memories/funny_moment_editor_screen.dart';
+import 'package:shishur_dinlipi/features/memories/funny_moment_list_screen.dart';
 import 'package:shishur_dinlipi/features/memories/journal_detail_screen.dart';
 import 'package:shishur_dinlipi/features/memories/journal_editor_screen.dart';
+import 'package:shishur_dinlipi/features/memories/journal_list_screen.dart';
 import 'package:shishur_dinlipi/features/memories/journal_templates.dart';
+import 'package:shishur_dinlipi/features/memories/quote_card_screen.dart';
 import 'package:shishur_dinlipi/features/calendar/calendar_screen.dart';
 import 'package:shishur_dinlipi/features/more/more_screen.dart';
 import 'package:shishur_dinlipi/features/onboarding/onboarding_complete_screen.dart';
@@ -132,6 +140,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: AppRoutes.unlock,
         builder: (context, state) => const UnlockScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.unlockForgotPin,
+        builder: (context, state) => const ForgotPinGuidanceScreen(),
       ),
       GoRoute(
         path: AppRoutes.security,
@@ -209,6 +221,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         ],
       ),
       GoRoute(
+        path: AppRoutes.journalList,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const JournalListScreen(),
+      ),
+      GoRoute(
         path: AppRoutes.journalCreate,
         parentNavigatorKey: _rootNavigatorKey,
         builder: (context, state) {
@@ -242,6 +259,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         ],
       ),
       GoRoute(
+        path: AppRoutes.funnyList,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const FunnyMomentListScreen(),
+      ),
+      GoRoute(
         path: AppRoutes.funnyCreate,
         parentNavigatorKey: _rootNavigatorKey,
         builder: (context, state) => const FunnyMomentEditorScreen(),
@@ -260,7 +282,19 @@ final appRouterProvider = Provider<GoRouter>((ref) {
               momentId: state.pathParameters['id'],
             ),
           ),
+          GoRoute(
+            path: 'quote-card',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (context, state) => QuoteCardScreen(
+              momentId: state.pathParameters['id']!,
+            ),
+          ),
         ],
+      ),
+      GoRoute(
+        path: AppRoutes.achievementsList,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const AchievementListScreen(),
       ),
       GoRoute(
         path: AppRoutes.achievementCreate,
@@ -603,6 +637,32 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             parentNavigatorKey: _rootNavigatorKey,
             builder: (context, state) => MedicalDocumentEditorScreen(
               documentId: state.pathParameters['id'],
+            ),
+          ),
+        ],
+      ),
+      GoRoute(
+        path: AppRoutes.allergies,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const AllergyListScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.allergyCreate,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const AllergyEditorScreen(),
+      ),
+      GoRoute(
+        path: '/health/allergies/:id',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => AllergyDetailScreen(
+          allergyId: state.pathParameters['id']!,
+        ),
+        routes: [
+          GoRoute(
+            path: 'edit',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (context, state) => AllergyEditorScreen(
+              allergyId: state.pathParameters['id'],
             ),
           ),
         ],

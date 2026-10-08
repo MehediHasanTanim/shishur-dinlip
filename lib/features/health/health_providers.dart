@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shishur_dinlipi/core/di/core_providers.dart';
+import 'package:shishur_dinlipi/core/domain/models/allergy.dart';
 import 'package:shishur_dinlipi/core/domain/models/doctor_visit.dart';
 import 'package:shishur_dinlipi/core/domain/models/growth_record.dart';
 import 'package:shishur_dinlipi/core/domain/models/illness_episode.dart';
@@ -88,6 +89,14 @@ final medicalDocumentsProvider =
       return ref.watch(medicalDocumentsRepositoryProvider).forChild(child.id);
     });
 
+final allergiesProvider = FutureProvider.autoDispose<List<Allergy>>((
+  ref,
+) async {
+  final child = ref.watch(selectedChildProvider).valueOrNull;
+  if (child == null) return const [];
+  return ref.watch(allergiesRepositoryProvider).forChild(child.id);
+});
+
 final latestGrowthForHealthProvider =
     FutureProvider.autoDispose<GrowthRecord?>((ref) async {
       final child = ref.watch(selectedChildProvider).valueOrNull;
@@ -103,6 +112,7 @@ class HealthSummary {
     this.bloodGroup,
     this.latestGrowth,
     this.activeMedicines = const [],
+    this.allergies = const [],
     this.recentIllness,
     this.recentVaccination,
     this.latestDoctorVisit,
@@ -113,6 +123,7 @@ class HealthSummary {
   final String? bloodGroup;
   final GrowthRecord? latestGrowth;
   final List<Medicine> activeMedicines;
+  final List<Allergy> allergies;
   final IllnessEpisode? recentIllness;
   final Vaccination? recentVaccination;
   final DoctorVisit? latestDoctorVisit;
@@ -131,6 +142,7 @@ final healthSummaryProvider = FutureProvider.autoDispose<HealthSummary>((
       .forChild(child.id, limit: 1);
   final growth = await ref.watch(latestGrowthForHealthProvider.future);
   final activeMeds = await ref.watch(activeMedicinesProvider.future);
+  final allergies = await ref.watch(allergiesProvider.future);
   final illness = await ref.watch(recentIllnessProvider.future);
   final visit = await ref.watch(latestDoctorVisitProvider.future);
   final upcomingVax = await ref.watch(upcomingVaccinationsProvider.future);
@@ -140,6 +152,7 @@ final healthSummaryProvider = FutureProvider.autoDispose<HealthSummary>((
     bloodGroup: child.bloodGroup,
     latestGrowth: growth,
     activeMedicines: activeMeds,
+    allergies: allergies,
     recentIllness: illness,
     recentVaccination: vaccines.isEmpty ? null : vaccines.first,
     latestDoctorVisit: visit,

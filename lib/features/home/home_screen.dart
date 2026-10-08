@@ -185,9 +185,20 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     const SizedBox(height: 8),
                     const _OnThisDaySection(),
                     const SizedBox(height: 24),
-                    Text(
-                      l10n.recentMemories,
-                      style: Theme.of(context).textTheme.titleLarge,
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            l10n.recentMemories,
+                            style: Theme.of(context).textTheme.titleLarge,
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () =>
+                              context.push(AppRoutes.journalList),
+                          child: Text(l10n.commonSeeAll),
+                        ),
+                      ],
                     ),
                     const SizedBox(height: 8),
                     const _RecentMemoriesSection(),

@@ -38,6 +38,8 @@ class FileStorageService {
 
   static const _relativeDirs = [
     'media/images',
+    'media/videos',
+    'media/audio',
     'media/thumbnails',
     'media/documents',
     'exports/pdf',
@@ -47,6 +49,8 @@ class FileStorageService {
   ];
 
   Future<Directory> imagesDir() => _subdir('media/images');
+  Future<Directory> videosDir() => _subdir('media/videos');
+  Future<Directory> audioDir() => _subdir('media/audio');
   Future<Directory> thumbnailsDir() => _subdir('media/thumbnails');
   Future<Directory> documentsDir() => _subdir('media/documents');
   Future<Directory> pdfExportsDir() => _subdir('exports/pdf');

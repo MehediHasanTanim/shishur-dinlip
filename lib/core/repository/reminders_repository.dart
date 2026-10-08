@@ -4,9 +4,12 @@ import 'package:shishur_dinlipi/core/errors/failures.dart';
 import 'package:shishur_dinlipi/core/mappers/reminder_mapper.dart';
 import 'package:shishur_dinlipi/core/notifications/notification_channels.dart';
 import 'package:shishur_dinlipi/core/notifications/notification_id_store.dart';
+import 'package:shishur_dinlipi/core/notifications/notification_privacy_copy.dart';
 import 'package:shishur_dinlipi/core/notifications/notification_service.dart';
 import 'package:shishur_dinlipi/core/permissions/permission_service.dart';
 import 'package:shishur_dinlipi/core/repository/repository_base.dart';
+import 'package:shishur_dinlipi/core/settings/app_settings.dart';
+import 'package:shishur_dinlipi/core/settings/settings_repository.dart';
 
 abstract interface class RemindersRepository implements Repository {
   Future<List<Reminder>> list({String? childId, int? limit});
@@ -43,11 +46,13 @@ class DriftRemindersRepository extends RepositoryBase
     required this.notifications,
     required this.idsStore,
     required this.permissions,
+    required this.settings,
   });
 
   final NotificationService notifications;
   final NotificationIdStore idsStore;
   final PermissionService permissions;
+  final SettingsRepository settings;
 
   @override
   Future<List<Reminder>> list({String? childId, int? limit}) {
@@ -162,11 +167,13 @@ class DriftRemindersRepository extends RepositoryBase
         childId: childId,
       );
       final next = _nextYearlyOccurrence(dateOfBirth);
+      // Avoid persisting child names (privacy); schedule copy is type-based.
+      final _ = childName;
       final reminder = Reminder(
         id: existing?.id ?? '',
         childId: childId,
         reminderType: ReminderTypes.birthday,
-        title: '$childName birthday',
+        title: NotificationPrivacyCopy.systemBirthdayTitle(bn: false),
         scheduledAt: next,
         repeatRule: ReminderRepeatRules.yearly,
         notificationId: existing?.notificationId,
@@ -188,8 +195,8 @@ class DriftRemindersRepository extends RepositoryBase
       final reminder = Reminder(
         id: existing?.id ?? '',
         reminderType: ReminderTypes.weeklyMemory,
-        title: 'Weekly memory prompt',
-        notes: 'Capture a memory this week.',
+        title: NotificationPrivacyCopy.systemWeeklyTitle(bn: false),
+        notes: NotificationPrivacyCopy.systemWeeklyNotes(bn: false),
         scheduledAt: when,
         repeatRule: ReminderRepeatRules.weekly,
         notificationId: existing?.notificationId,
@@ -212,8 +219,8 @@ class DriftRemindersRepository extends RepositoryBase
       final reminder = Reminder(
         id: existing?.id ?? '',
         reminderType: ReminderTypes.backup,
-        title: 'Backup reminder',
-        notes: 'Create a local backup of Shishur Dinlipi.',
+        title: NotificationPrivacyCopy.systemBackupTitle(bn: false),
+        notes: NotificationPrivacyCopy.systemBackupNotes(bn: false),
         scheduledAt: DateTime(when.year, when.month, when.day, 19),
         repeatRule: ReminderRepeatRules.monthly,
         notificationId: existing?.notificationId,
@@ -281,15 +288,22 @@ class DriftRemindersRepository extends RepositoryBase
       return;
     }
 
+    final appSettings = await settings.load();
+    final copy = NotificationPrivacyCopy.resolve(
+      reminder: reminder,
+      privacyMode: appSettings.notificationPrivacyMode,
+      language: appSettings.language == AppLanguage.system
+          ? AppLanguage.english
+          : appSettings.language,
+    );
     await notifications.schedule(
       id: reminder.notificationId!,
-      title: reminder.displayTitle,
-      body: reminder.notes?.trim().isNotEmpty == true
-          ? reminder.notes!.trim()
-          : reminder.displayTitle,
+      title: copy.title,
+      body: copy.body,
       whenLocal: reminder.scheduledAt.toLocal(),
       channel: _channelFor(reminder.reminderType),
       repeatsDaily: reminder.repeatRule == ReminderRepeatRules.daily,
+      privacyMode: appSettings.notificationPrivacyMode,
     );
   }
 

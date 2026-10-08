@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shishur_dinlipi/core/di/core_providers.dart';
 import 'package:shishur_dinlipi/core/domain/entity_types.dart';
 import 'package:shishur_dinlipi/core/domain/models/attachment.dart';
+import 'package:shishur_dinlipi/core/domain/models/media_asset.dart';
 import 'package:shishur_dinlipi/core/files/file_storage_service.dart';
 import 'package:shishur_dinlipi/features/children/child_controller.dart';
 
@@ -105,7 +106,10 @@ Future<File?> firstAttachmentThumb(
   if (list.isEmpty) return null;
   final media = list.first.media;
   if (media == null) return null;
-  final path = media.thumbnailPath ?? media.localPath;
+  final path = media.assetType == MediaAssetType.video
+      ? media.thumbnailPath
+      : (media.thumbnailPath ?? media.localPath);
+  if (path == null) return null;
   final file = await storage.absoluteFile(path);
   if (!await file.exists()) return null;
   return file;

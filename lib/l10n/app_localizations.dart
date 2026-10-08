@@ -1697,14 +1697,80 @@ abstract class AppLocalizations {
   /// No description provided for @firstWordAudioPlaceholder.
   ///
   /// In en, this message translates to:
-  /// **'Audio coming later'**
+  /// **'Audio recording'**
   String get firstWordAudioPlaceholder;
 
   /// No description provided for @firstWordAudioHint.
   ///
   /// In en, this message translates to:
-  /// **'Mark this for future audio recording support.'**
+  /// **'Record the child saying this word (optional).'**
   String get firstWordAudioHint;
+
+  /// No description provided for @firstWordAudioTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice recording'**
+  String get firstWordAudioTitle;
+
+  /// No description provided for @firstWordAudioEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No recording yet. Tap record when ready.'**
+  String get firstWordAudioEmpty;
+
+  /// No description provided for @firstWordAudioReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Recording saved. You can play or replace it.'**
+  String get firstWordAudioReady;
+
+  /// No description provided for @firstWordRecording.
+  ///
+  /// In en, this message translates to:
+  /// **'Recording… tap stop when finished.'**
+  String get firstWordRecording;
+
+  /// No description provided for @firstWordRecord.
+  ///
+  /// In en, this message translates to:
+  /// **'Record'**
+  String get firstWordRecord;
+
+  /// No description provided for @firstWordReRecord.
+  ///
+  /// In en, this message translates to:
+  /// **'Re-record'**
+  String get firstWordReRecord;
+
+  /// No description provided for @firstWordStopRecording.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop'**
+  String get firstWordStopRecording;
+
+  /// No description provided for @firstWordPlay.
+  ///
+  /// In en, this message translates to:
+  /// **'Play'**
+  String get firstWordPlay;
+
+  /// No description provided for @firstWordStopPlayback.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop'**
+  String get firstWordStopPlayback;
+
+  /// No description provided for @firstWordDeleteAudio.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove audio'**
+  String get firstWordDeleteAudio;
+
+  /// No description provided for @firstWordMicDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Microphone permission is needed to record a first word.'**
+  String get firstWordMicDenied;
 
   /// No description provided for @saveFirstWord.
   ///
@@ -5473,6 +5539,480 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Travel, places, beach, flights'**
   String get addTripSubtitle;
+
+  /// No description provided for @settingsUnits.
+  ///
+  /// In en, this message translates to:
+  /// **'Units'**
+  String get settingsUnits;
+
+  /// No description provided for @settingsHeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Height'**
+  String get settingsHeight;
+
+  /// No description provided for @settingsWeight.
+  ///
+  /// In en, this message translates to:
+  /// **'Weight'**
+  String get settingsWeight;
+
+  /// No description provided for @settingsTemperature.
+  ///
+  /// In en, this message translates to:
+  /// **'Temperature'**
+  String get settingsTemperature;
+
+  /// No description provided for @settingsUnitCm.
+  ///
+  /// In en, this message translates to:
+  /// **'cm'**
+  String get settingsUnitCm;
+
+  /// No description provided for @settingsUnitFtIn.
+  ///
+  /// In en, this message translates to:
+  /// **'ft/in'**
+  String get settingsUnitFtIn;
+
+  /// No description provided for @settingsUnitKg.
+  ///
+  /// In en, this message translates to:
+  /// **'kg'**
+  String get settingsUnitKg;
+
+  /// No description provided for @settingsUnitLb.
+  ///
+  /// In en, this message translates to:
+  /// **'lb'**
+  String get settingsUnitLb;
+
+  /// No description provided for @settingsUnitCelsius.
+  ///
+  /// In en, this message translates to:
+  /// **'°C'**
+  String get settingsUnitCelsius;
+
+  /// No description provided for @settingsUnitFahrenheit.
+  ///
+  /// In en, this message translates to:
+  /// **'°F'**
+  String get settingsUnitFahrenheit;
+
+  /// No description provided for @settingsBengaliDigits.
+  ///
+  /// In en, this message translates to:
+  /// **'Bengali digits'**
+  String get settingsBengaliDigits;
+
+  /// No description provided for @settingsBengaliDigitsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Show numbers using বাংলা digits when useful'**
+  String get settingsBengaliDigitsHint;
+
+  /// No description provided for @securityPrivacySection.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications & screenshots'**
+  String get securityPrivacySection;
+
+  /// No description provided for @securityNotificationPrivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Private lock-screen notifications'**
+  String get securityNotificationPrivacy;
+
+  /// No description provided for @securityNotificationPrivacyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide child names and medical details on the lock screen. Reminders still fire with a generic title.'**
+  String get securityNotificationPrivacyHint;
+
+  /// No description provided for @securityFlagSecure.
+  ///
+  /// In en, this message translates to:
+  /// **'Block screenshots'**
+  String get securityFlagSecure;
+
+  /// No description provided for @securityFlagSecureHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Prevent screenshots and hide the app in Recent Apps (Android).'**
+  String get securityFlagSecureHint;
+
+  /// No description provided for @forgotPinTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot PIN?'**
+  String get forgotPinTitle;
+
+  /// No description provided for @forgotPinBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Shishur Dinlipi stores your PIN only on this device. There is no online recovery. You can unlock with biometrics if enabled, or restore an encrypted backup that includes your journal.'**
+  String get forgotPinBody;
+
+  /// No description provided for @forgotPinBiometric.
+  ///
+  /// In en, this message translates to:
+  /// **'Try biometrics'**
+  String get forgotPinBiometric;
+
+  /// No description provided for @forgotPinRestore.
+  ///
+  /// In en, this message translates to:
+  /// **'Restore from backup'**
+  String get forgotPinRestore;
+
+  /// No description provided for @forgotPinReturn.
+  ///
+  /// In en, this message translates to:
+  /// **'Return to unlock'**
+  String get forgotPinReturn;
+
+  /// No description provided for @unlockForgotPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot PIN?'**
+  String get unlockForgotPin;
+
+  /// No description provided for @allergiesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Allergies'**
+  String get allergiesTitle;
+
+  /// No description provided for @allergiesEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No allergies recorded yet.'**
+  String get allergiesEmpty;
+
+  /// No description provided for @allergiesEmptyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Track food, medicine, and environmental allergies.'**
+  String get allergiesEmptyHint;
+
+  /// No description provided for @allergyAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add allergy'**
+  String get allergyAdd;
+
+  /// No description provided for @allergyEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit allergy'**
+  String get allergyEdit;
+
+  /// No description provided for @allergyAllergen.
+  ///
+  /// In en, this message translates to:
+  /// **'Allergen'**
+  String get allergyAllergen;
+
+  /// No description provided for @allergyType.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get allergyType;
+
+  /// No description provided for @allergyReaction.
+  ///
+  /// In en, this message translates to:
+  /// **'Reaction'**
+  String get allergyReaction;
+
+  /// No description provided for @allergySeverity.
+  ///
+  /// In en, this message translates to:
+  /// **'Severity'**
+  String get allergySeverity;
+
+  /// No description provided for @allergyFirstObserved.
+  ///
+  /// In en, this message translates to:
+  /// **'First observed'**
+  String get allergyFirstObserved;
+
+  /// No description provided for @allergyDoctorConfirmed.
+  ///
+  /// In en, this message translates to:
+  /// **'Doctor confirmed'**
+  String get allergyDoctorConfirmed;
+
+  /// No description provided for @allergyNotes.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get allergyNotes;
+
+  /// No description provided for @allergyTypeFood.
+  ///
+  /// In en, this message translates to:
+  /// **'Food'**
+  String get allergyTypeFood;
+
+  /// No description provided for @allergyTypeMedicine.
+  ///
+  /// In en, this message translates to:
+  /// **'Medicine'**
+  String get allergyTypeMedicine;
+
+  /// No description provided for @allergyTypeEnvironmental.
+  ///
+  /// In en, this message translates to:
+  /// **'Environmental'**
+  String get allergyTypeEnvironmental;
+
+  /// No description provided for @allergyTypeUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown'**
+  String get allergyTypeUnknown;
+
+  /// No description provided for @allergySeverityMild.
+  ///
+  /// In en, this message translates to:
+  /// **'Mild'**
+  String get allergySeverityMild;
+
+  /// No description provided for @allergySeverityModerate.
+  ///
+  /// In en, this message translates to:
+  /// **'Moderate'**
+  String get allergySeverityModerate;
+
+  /// No description provided for @allergySeveritySevere.
+  ///
+  /// In en, this message translates to:
+  /// **'Severe'**
+  String get allergySeveritySevere;
+
+  /// No description provided for @allergySeverityUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown'**
+  String get allergySeverityUnknown;
+
+  /// No description provided for @allergyDeleteConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this allergy?'**
+  String get allergyDeleteConfirm;
+
+  /// No description provided for @healthAllergies.
+  ///
+  /// In en, this message translates to:
+  /// **'Allergies'**
+  String get healthAllergies;
+
+  /// No description provided for @journalListTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Journal'**
+  String get journalListTitle;
+
+  /// No description provided for @journalListEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No journal entries yet.'**
+  String get journalListEmpty;
+
+  /// No description provided for @funnyListTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Funny moments'**
+  String get funnyListTitle;
+
+  /// No description provided for @funnyListEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No funny moments yet.'**
+  String get funnyListEmpty;
+
+  /// No description provided for @achievementsListTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievements'**
+  String get achievementsListTitle;
+
+  /// No description provided for @achievementsListEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No achievements yet.'**
+  String get achievementsListEmpty;
+
+  /// No description provided for @achievementsFilterAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get achievementsFilterAll;
+
+  /// No description provided for @quoteCardTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Quote card'**
+  String get quoteCardTitle;
+
+  /// No description provided for @quoteCardTheme.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get quoteCardTheme;
+
+  /// No description provided for @quoteCardIncludePhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Include child photo'**
+  String get quoteCardIncludePhoto;
+
+  /// No description provided for @quoteCardIncludeAge.
+  ///
+  /// In en, this message translates to:
+  /// **'Include age'**
+  String get quoteCardIncludeAge;
+
+  /// No description provided for @quoteCardIncludeDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Include date'**
+  String get quoteCardIncludeDate;
+
+  /// No description provided for @quoteCardSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save image'**
+  String get quoteCardSave;
+
+  /// No description provided for @quoteCardShare.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get quoteCardShare;
+
+  /// No description provided for @quoteCardThemeWarm.
+  ///
+  /// In en, this message translates to:
+  /// **'Warm'**
+  String get quoteCardThemeWarm;
+
+  /// No description provided for @quoteCardThemeTeal.
+  ///
+  /// In en, this message translates to:
+  /// **'Teal'**
+  String get quoteCardThemeTeal;
+
+  /// No description provided for @quoteCardThemeCream.
+  ///
+  /// In en, this message translates to:
+  /// **'Cream'**
+  String get quoteCardThemeCream;
+
+  /// No description provided for @reportCardViewerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Report card'**
+  String get reportCardViewerTitle;
+
+  /// No description provided for @reportCardOpenExternally.
+  ///
+  /// In en, this message translates to:
+  /// **'Open externally'**
+  String get reportCardOpenExternally;
+
+  /// No description provided for @reportCardReplace.
+  ///
+  /// In en, this message translates to:
+  /// **'Replace'**
+  String get reportCardReplace;
+
+  /// No description provided for @reportCardDeleteAttachment.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete attachment'**
+  String get reportCardDeleteAttachment;
+
+  /// No description provided for @ocrScriptLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'OCR script'**
+  String get ocrScriptLabel;
+
+  /// No description provided for @ocrScriptLatin.
+  ///
+  /// In en, this message translates to:
+  /// **'Latin'**
+  String get ocrScriptLatin;
+
+  /// No description provided for @ocrScriptChinese.
+  ///
+  /// In en, this message translates to:
+  /// **'Chinese'**
+  String get ocrScriptChinese;
+
+  /// No description provided for @ocrScriptDevanagari.
+  ///
+  /// In en, this message translates to:
+  /// **'Devanagari'**
+  String get ocrScriptDevanagari;
+
+  /// No description provided for @ocrScriptJapanese.
+  ///
+  /// In en, this message translates to:
+  /// **'Japanese'**
+  String get ocrScriptJapanese;
+
+  /// No description provided for @ocrScriptKorean.
+  ///
+  /// In en, this message translates to:
+  /// **'Korean'**
+  String get ocrScriptKorean;
+
+  /// No description provided for @ocrBanglaLimitation.
+  ///
+  /// In en, this message translates to:
+  /// **'On-device OCR does not fully support বাংলা script. Please review and correct extracted text carefully.'**
+  String get ocrBanglaLimitation;
+
+  /// No description provided for @attachVideo.
+  ///
+  /// In en, this message translates to:
+  /// **'Add video'**
+  String get attachVideo;
+
+  /// No description provided for @videoUnsupportedPreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Video'**
+  String get videoUnsupportedPreview;
+
+  /// No description provided for @timelineTypeAllergy.
+  ///
+  /// In en, this message translates to:
+  /// **'Allergy'**
+  String get timelineTypeAllergy;
+
+  /// No description provided for @searchTypeAllergy.
+  ///
+  /// In en, this message translates to:
+  /// **'Allergy'**
+  String get searchTypeAllergy;
+
+  /// No description provided for @commonYes.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes'**
+  String get commonYes;
+
+  /// No description provided for @commonNo.
+  ///
+  /// In en, this message translates to:
+  /// **'No'**
+  String get commonNo;
 }
 
 class _AppLocalizationsDelegate

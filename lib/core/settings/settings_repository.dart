@@ -21,6 +21,10 @@ class SettingsRepository {
         values[SettingsKeys.temperatureUnit],
       ),
       useBengaliDigits: values[SettingsKeys.useBengaliDigits] == 'true',
+      // Default ON when unset (UX §31).
+      notificationPrivacyMode:
+          values[SettingsKeys.notificationPrivacyMode] != 'false',
+      flagSecure: values[SettingsKeys.flagSecure] == 'true',
     );
   }
 
@@ -34,6 +38,9 @@ class SettingsRepository {
       SettingsKeys.weightUnit: settings.weightUnit.name,
       SettingsKeys.temperatureUnit: settings.temperatureUnit.name,
       SettingsKeys.useBengaliDigits: '${settings.useBengaliDigits}',
+      SettingsKeys.notificationPrivacyMode:
+          '${settings.notificationPrivacyMode}',
+      SettingsKeys.flagSecure: '${settings.flagSecure}',
     }, DateTime.now().toUtc());
   }
 

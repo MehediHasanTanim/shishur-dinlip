@@ -73,6 +73,16 @@ class HealthOverviewScreen extends ConsumerWidget {
                         : l10n.commonNone,
                   ),
                   _SummaryTile(
+                    label: l10n.healthAllergies,
+                    value: summary.allergies.isEmpty
+                        ? l10n.commonNone
+                        : summary.allergies
+                              .map((a) => a.allergen)
+                              .take(3)
+                              .join(', '),
+                    onTap: () => context.push(AppRoutes.allergies),
+                  ),
+                  _SummaryTile(
                     label: l10n.healthLatestGrowth,
                     value: growthParts.isEmpty
                         ? l10n.commonNone
@@ -214,6 +224,11 @@ class HealthOverviewScreen extends ConsumerWidget {
                 onTap: () => context.push(AppRoutes.medicalDocuments),
               ),
               _GridCard(
+                icon: Icons.coronavirus_outlined,
+                label: l10n.healthAllergies,
+                onTap: () => context.push(AppRoutes.allergies),
+              ),
+              _GridCard(
                 icon: Icons.document_scanner_outlined,
                 label: l10n.ocrTitle,
                 onTap: () => context.push(AppRoutes.ocrScan),
@@ -271,6 +286,14 @@ class HealthOverviewScreen extends ConsumerWidget {
               onTap: () {
                 Navigator.pop(context);
                 context.push(AppRoutes.medicalDocumentCreate);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.coronavirus_outlined),
+              title: Text(l10n.allergyAdd),
+              onTap: () {
+                Navigator.pop(context);
+                context.push(AppRoutes.allergyCreate);
               },
             ),
             ListTile(

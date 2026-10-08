@@ -21,6 +21,22 @@ Status: **complete for MVP RC** (local review). Re-check before each store submi
 - [x] Plain → encrypted migration path via `PRAGMA rekey`
 - [ ] Device QA: verify `PRAGMA cipher_version` / encrypted file unreadable without key
 
+### Device QA how-to — `cipher_version`
+
+On a physical device or emulator with a production/staging build that uses sqlite3mc:
+
+1. Locate the app DB under application support (Android: app data; iOS: Application Support). Path is typically under `…/shishur_files` adjacent to the Drift DB file created by the app.
+2. With a SQLCipher-compatible CLI (`sqlcipher` or `sqlite3` linked to sqlite3mc), open the DB **without** a key and confirm the file is unreadable (garbled / “file is not a database”).
+3. Open with the device key from secure storage (dev builds may log presence of encryption, never the key itself) and run:
+
+   ```sql
+   PRAGMA cipher_version;
+   ```
+
+   Expect a non-empty version string (e.g. SQLCipher / sqlite3mc build id).
+4. Confirm `SELECT count(*) FROM sqlite_master;` succeeds only with the correct key.
+5. Leave this checkbox unchecked until the above is signed off on a real device build.
+
 ## Backup encryption
 
 - [x] `.sdjbackup` = ZIP + AES-256-GCM, password via PBKDF2
@@ -43,7 +59,7 @@ Status: **complete for MVP RC** (local review). Re-check before each store submi
 
 - [x] Blur overlay while app is inactive/paused (`AppPrivacyLifecycle`)
 - [x] Auto-lock after configured timeout on resume
-- [ ] Optional: Android `FLAG_SECURE` for stricter screenshot blocking (product decision)
+- [x] Optional Android `FLAG_SECURE` via Settings → Security (`FlagSecure` / `com.shishurdinlipi.app/flag_secure`); off by default, user-toggleable
 
 ## Privacy declarations
 

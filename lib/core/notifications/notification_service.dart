@@ -96,6 +96,7 @@ class NotificationService {
     required DateTime whenLocal,
     required AndroidNotificationChannel channel,
     bool repeatsDaily = false,
+    bool privacyMode = true,
   }) async {
     if (!_initialized) await initialize();
 
@@ -119,8 +120,19 @@ class NotificationService {
         channelDescription: channel.description,
         importance: channel.importance,
         priority: Priority.high,
+        visibility: privacyMode
+            ? NotificationVisibility.private
+            : NotificationVisibility.public,
       ),
-      iOS: const DarwinNotificationDetails(),
+      iOS: DarwinNotificationDetails(
+        presentAlert: true,
+        presentBadge: true,
+        presentSound: true,
+        // Avoid leaking detail into Notification Center summaries when private.
+        interruptionLevel: privacyMode
+            ? InterruptionLevel.passive
+            : InterruptionLevel.active,
+      ),
     );
 
     await _plugin.zonedSchedule(

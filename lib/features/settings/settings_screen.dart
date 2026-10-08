@@ -77,16 +77,22 @@ class SettingsScreen extends ConsumerWidget {
             },
           ),
           const SizedBox(height: 24),
-          Text('Units', style: Theme.of(context).textTheme.titleLarge),
+          Text(l10n.settingsUnits, style: Theme.of(context).textTheme.titleLarge),
           const SizedBox(height: 8),
           ListTile(
             contentPadding: EdgeInsets.zero,
-            title: const Text('Height'),
+            title: Text(l10n.settingsHeight),
             trailing: DropdownButton<HeightUnit>(
               value: settings.heightUnit,
-              items: const [
-                DropdownMenuItem(value: HeightUnit.cm, child: Text('cm')),
-                DropdownMenuItem(value: HeightUnit.ftIn, child: Text('ft/in')),
+              items: [
+                DropdownMenuItem(
+                  value: HeightUnit.cm,
+                  child: Text(l10n.settingsUnitCm),
+                ),
+                DropdownMenuItem(
+                  value: HeightUnit.ftIn,
+                  child: Text(l10n.settingsUnitFtIn),
+                ),
               ],
               onChanged: (value) {
                 if (value != null) controller.setHeightUnit(value);
@@ -95,12 +101,18 @@ class SettingsScreen extends ConsumerWidget {
           ),
           ListTile(
             contentPadding: EdgeInsets.zero,
-            title: const Text('Weight'),
+            title: Text(l10n.settingsWeight),
             trailing: DropdownButton<WeightUnit>(
               value: settings.weightUnit,
-              items: const [
-                DropdownMenuItem(value: WeightUnit.kg, child: Text('kg')),
-                DropdownMenuItem(value: WeightUnit.lb, child: Text('lb')),
+              items: [
+                DropdownMenuItem(
+                  value: WeightUnit.kg,
+                  child: Text(l10n.settingsUnitKg),
+                ),
+                DropdownMenuItem(
+                  value: WeightUnit.lb,
+                  child: Text(l10n.settingsUnitLb),
+                ),
               ],
               onChanged: (value) {
                 if (value != null) controller.setWeightUnit(value);
@@ -109,17 +121,17 @@ class SettingsScreen extends ConsumerWidget {
           ),
           ListTile(
             contentPadding: EdgeInsets.zero,
-            title: const Text('Temperature'),
+            title: Text(l10n.settingsTemperature),
             trailing: DropdownButton<TemperatureUnit>(
               value: settings.temperatureUnit,
-              items: const [
+              items: [
                 DropdownMenuItem(
                   value: TemperatureUnit.celsius,
-                  child: Text('°C'),
+                  child: Text(l10n.settingsUnitCelsius),
                 ),
                 DropdownMenuItem(
                   value: TemperatureUnit.fahrenheit,
-                  child: Text('°F'),
+                  child: Text(l10n.settingsUnitFahrenheit),
                 ),
               ],
               onChanged: (value) {
@@ -129,8 +141,8 @@ class SettingsScreen extends ConsumerWidget {
           ),
           SwitchListTile(
             contentPadding: EdgeInsets.zero,
-            title: const Text('Bengali digits'),
-            subtitle: const Text('Show numbers using বাংলা digits when useful'),
+            title: Text(l10n.settingsBengaliDigits),
+            subtitle: Text(l10n.settingsBengaliDigitsHint),
             value: settings.useBengaliDigits,
             onChanged: controller.setUseBengaliDigits,
           ),

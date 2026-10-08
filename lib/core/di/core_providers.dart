@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:shishur_dinlipi/core/database/app_database.dart';
 import 'package:shishur_dinlipi/core/files/file_storage_service.dart';
 import 'package:shishur_dinlipi/core/media/media_service.dart';
@@ -8,6 +9,7 @@ import 'package:shishur_dinlipi/core/permissions/permission_service.dart';
 import 'package:shishur_dinlipi/core/photos/photo_library_service.dart';
 import 'package:shishur_dinlipi/core/repository/achievements_repository.dart';
 import 'package:shishur_dinlipi/core/repository/albums_repository.dart';
+import 'package:shishur_dinlipi/core/repository/allergies_repository.dart';
 import 'package:shishur_dinlipi/core/repository/attachment_repository.dart';
 import 'package:shishur_dinlipi/core/repository/birthdays_repository.dart';
 import 'package:shishur_dinlipi/core/repository/children_repository.dart';
@@ -198,6 +200,10 @@ final medicalDocumentsRepositoryProvider =
       );
     });
 
+final allergiesRepositoryProvider = Provider<AllergiesRepository>((ref) {
+  return DriftAllergiesRepository(ref.watch(appDatabaseProvider));
+});
+
 final timelineServiceProvider = Provider<TimelineService>((ref) {
   return TimelineService(ref.watch(appDatabaseProvider));
 });
@@ -208,6 +214,7 @@ final remindersRepositoryProvider = Provider<RemindersRepository>((ref) {
     notifications: ref.watch(notificationServiceProvider),
     idsStore: ref.watch(notificationIdStoreProvider),
     permissions: ref.watch(permissionServiceProvider),
+    settings: ref.watch(settingsRepositoryProvider),
   );
 });
 
@@ -326,8 +333,12 @@ final cloudBackupServiceProvider = Provider<CloudBackupService>((ref) {
   );
 });
 
+final ocrScriptProvider =
+    StateProvider<TextRecognitionScript>((ref) => TextRecognitionScript.latin);
+
 final ocrEngineProvider = Provider<OcrEngine>((ref) {
-  final engine = MlKitOcrEngine();
+  final script = ref.watch(ocrScriptProvider);
+  final engine = MlKitOcrEngine(script: script);
   ref.onDispose(engine.dispose);
   return engine;
 });

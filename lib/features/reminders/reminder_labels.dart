@@ -1,8 +1,6 @@
 import 'package:shishur_dinlipi/core/domain/models/reminder.dart';
 import 'package:shishur_dinlipi/l10n/app_localizations.dart';
 
-// TODO: Parent must add reminder* ARB keys then run flutter gen-l10n.
-
 String reminderTypeLabel(AppLocalizations l10n, String type) {
   return switch (type) {
     ReminderTypes.vaccination => l10n.reminderTypeVaccination,

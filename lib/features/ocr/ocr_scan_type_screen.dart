@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:shishur_dinlipi/app/router/app_routes.dart';
 import 'package:shishur_dinlipi/core/ocr/ocr_models.dart';
 import 'package:shishur_dinlipi/features/ocr/ocr_labels.dart';
+import 'package:shishur_dinlipi/features/ocr/ocr_script_picker.dart';
 import 'package:shishur_dinlipi/l10n/app_localizations.dart';
 
 class OcrScanTypeScreen extends StatelessWidget {
@@ -27,6 +28,8 @@ class OcrScanTypeScreen extends StatelessWidget {
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),
           ),
+          const SizedBox(height: 16),
+          const OcrScriptPicker(),
           const SizedBox(height: 16),
           for (final type in OcrScanType.values) ...[
             Card(

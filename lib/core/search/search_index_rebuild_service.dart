@@ -73,6 +73,7 @@ class SearchIndexRebuildService extends RepositoryBase {
       docs.addAll(await _fromMedicines());
       docs.addAll(await _fromDoctorVisits());
       docs.addAll(await _fromIllnesses());
+      docs.addAll(await _fromAllergies());
       docs.addAll(await _fromSchoolEvents());
       docs.addAll(await _fromAchievements());
       docs.addAll(await _fromBirthdays());
@@ -214,6 +215,7 @@ class SearchIndexRebuildService extends RepositoryBase {
       SearchResultType.medicine => EntityTypes.medicine,
       SearchResultType.doctorVisit => EntityTypes.doctorVisit,
       SearchResultType.illness => EntityTypes.illnessEpisode,
+      SearchResultType.allergy => EntityTypes.allergy,
       SearchResultType.schoolEvent => EntityTypes.schoolEvent,
       SearchResultType.achievement => EntityTypes.achievement,
       SearchResultType.birthday => EntityTypes.birthday,
@@ -348,6 +350,37 @@ class SearchIndexRebuildService extends RepositoryBase {
         body: (row.data['notes'] as String?) ?? '',
         keywords: keywords,
         eventDate: _readDate(row.data['start_date']),
+      );
+    }).toList();
+  }
+
+  Future<List<SearchIndexDocument>> _fromAllergies() async {
+    final rows = await db.customSelect(
+      '''
+      SELECT id, child_id, allergen, allergy_type, reaction, severity, notes,
+             first_observed, created_at
+      FROM allergies WHERE deleted_at IS NULL
+      ''',
+      readsFrom: {db.allergies},
+    ).get();
+    return rows.map((row) {
+      final keywords = [
+        row.data['allergy_type'],
+        row.data['severity'],
+        row.data['reaction'],
+      ].whereType<String>().where((s) => s.isNotEmpty).join(' ');
+      return SearchIndexDocument(
+        entityId: row.data['id'] as String,
+        entityType: SearchResultType.allergy,
+        childId: row.data['child_id'] as String,
+        title: row.data['allergen'] as String,
+        body: (row.data['notes'] as String?) ??
+            (row.data['reaction'] as String?) ??
+            '',
+        keywords: keywords,
+        eventDate: row.data['first_observed'] != null
+            ? _readDate(row.data['first_observed'])
+            : _readDate(row.data['created_at']),
       );
     }).toList();
   }

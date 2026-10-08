@@ -838,11 +838,46 @@ class AppLocalizationsEn extends AppLocalizations {
   String get firstWordContext => 'Story / context';
 
   @override
-  String get firstWordAudioPlaceholder => 'Audio coming later';
+  String get firstWordAudioPlaceholder => 'Audio recording';
 
   @override
   String get firstWordAudioHint =>
-      'Mark this for future audio recording support.';
+      'Record the child saying this word (optional).';
+
+  @override
+  String get firstWordAudioTitle => 'Voice recording';
+
+  @override
+  String get firstWordAudioEmpty => 'No recording yet. Tap record when ready.';
+
+  @override
+  String get firstWordAudioReady =>
+      'Recording saved. You can play or replace it.';
+
+  @override
+  String get firstWordRecording => 'Recording… tap stop when finished.';
+
+  @override
+  String get firstWordRecord => 'Record';
+
+  @override
+  String get firstWordReRecord => 'Re-record';
+
+  @override
+  String get firstWordStopRecording => 'Stop';
+
+  @override
+  String get firstWordPlay => 'Play';
+
+  @override
+  String get firstWordStopPlayback => 'Stop';
+
+  @override
+  String get firstWordDeleteAudio => 'Remove audio';
+
+  @override
+  String get firstWordMicDenied =>
+      'Microphone permission is needed to record a first word.';
 
   @override
   String get saveFirstWord => 'Save first word';
@@ -2809,4 +2844,247 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get addTripSubtitle => 'Travel, places, beach, flights';
+
+  @override
+  String get settingsUnits => 'Units';
+
+  @override
+  String get settingsHeight => 'Height';
+
+  @override
+  String get settingsWeight => 'Weight';
+
+  @override
+  String get settingsTemperature => 'Temperature';
+
+  @override
+  String get settingsUnitCm => 'cm';
+
+  @override
+  String get settingsUnitFtIn => 'ft/in';
+
+  @override
+  String get settingsUnitKg => 'kg';
+
+  @override
+  String get settingsUnitLb => 'lb';
+
+  @override
+  String get settingsUnitCelsius => '°C';
+
+  @override
+  String get settingsUnitFahrenheit => '°F';
+
+  @override
+  String get settingsBengaliDigits => 'Bengali digits';
+
+  @override
+  String get settingsBengaliDigitsHint =>
+      'Show numbers using বাংলা digits when useful';
+
+  @override
+  String get securityPrivacySection => 'Notifications & screenshots';
+
+  @override
+  String get securityNotificationPrivacy => 'Private lock-screen notifications';
+
+  @override
+  String get securityNotificationPrivacyHint =>
+      'Hide child names and medical details on the lock screen. Reminders still fire with a generic title.';
+
+  @override
+  String get securityFlagSecure => 'Block screenshots';
+
+  @override
+  String get securityFlagSecureHint =>
+      'Prevent screenshots and hide the app in Recent Apps (Android).';
+
+  @override
+  String get forgotPinTitle => 'Forgot PIN?';
+
+  @override
+  String get forgotPinBody =>
+      'Shishur Dinlipi stores your PIN only on this device. There is no online recovery. You can unlock with biometrics if enabled, or restore an encrypted backup that includes your journal.';
+
+  @override
+  String get forgotPinBiometric => 'Try biometrics';
+
+  @override
+  String get forgotPinRestore => 'Restore from backup';
+
+  @override
+  String get forgotPinReturn => 'Return to unlock';
+
+  @override
+  String get unlockForgotPin => 'Forgot PIN?';
+
+  @override
+  String get allergiesTitle => 'Allergies';
+
+  @override
+  String get allergiesEmpty => 'No allergies recorded yet.';
+
+  @override
+  String get allergiesEmptyHint =>
+      'Track food, medicine, and environmental allergies.';
+
+  @override
+  String get allergyAdd => 'Add allergy';
+
+  @override
+  String get allergyEdit => 'Edit allergy';
+
+  @override
+  String get allergyAllergen => 'Allergen';
+
+  @override
+  String get allergyType => 'Type';
+
+  @override
+  String get allergyReaction => 'Reaction';
+
+  @override
+  String get allergySeverity => 'Severity';
+
+  @override
+  String get allergyFirstObserved => 'First observed';
+
+  @override
+  String get allergyDoctorConfirmed => 'Doctor confirmed';
+
+  @override
+  String get allergyNotes => 'Notes';
+
+  @override
+  String get allergyTypeFood => 'Food';
+
+  @override
+  String get allergyTypeMedicine => 'Medicine';
+
+  @override
+  String get allergyTypeEnvironmental => 'Environmental';
+
+  @override
+  String get allergyTypeUnknown => 'Unknown';
+
+  @override
+  String get allergySeverityMild => 'Mild';
+
+  @override
+  String get allergySeverityModerate => 'Moderate';
+
+  @override
+  String get allergySeveritySevere => 'Severe';
+
+  @override
+  String get allergySeverityUnknown => 'Unknown';
+
+  @override
+  String get allergyDeleteConfirm => 'Delete this allergy?';
+
+  @override
+  String get healthAllergies => 'Allergies';
+
+  @override
+  String get journalListTitle => 'Journal';
+
+  @override
+  String get journalListEmpty => 'No journal entries yet.';
+
+  @override
+  String get funnyListTitle => 'Funny moments';
+
+  @override
+  String get funnyListEmpty => 'No funny moments yet.';
+
+  @override
+  String get achievementsListTitle => 'Achievements';
+
+  @override
+  String get achievementsListEmpty => 'No achievements yet.';
+
+  @override
+  String get achievementsFilterAll => 'All';
+
+  @override
+  String get quoteCardTitle => 'Quote card';
+
+  @override
+  String get quoteCardTheme => 'Theme';
+
+  @override
+  String get quoteCardIncludePhoto => 'Include child photo';
+
+  @override
+  String get quoteCardIncludeAge => 'Include age';
+
+  @override
+  String get quoteCardIncludeDate => 'Include date';
+
+  @override
+  String get quoteCardSave => 'Save image';
+
+  @override
+  String get quoteCardShare => 'Share';
+
+  @override
+  String get quoteCardThemeWarm => 'Warm';
+
+  @override
+  String get quoteCardThemeTeal => 'Teal';
+
+  @override
+  String get quoteCardThemeCream => 'Cream';
+
+  @override
+  String get reportCardViewerTitle => 'Report card';
+
+  @override
+  String get reportCardOpenExternally => 'Open externally';
+
+  @override
+  String get reportCardReplace => 'Replace';
+
+  @override
+  String get reportCardDeleteAttachment => 'Delete attachment';
+
+  @override
+  String get ocrScriptLabel => 'OCR script';
+
+  @override
+  String get ocrScriptLatin => 'Latin';
+
+  @override
+  String get ocrScriptChinese => 'Chinese';
+
+  @override
+  String get ocrScriptDevanagari => 'Devanagari';
+
+  @override
+  String get ocrScriptJapanese => 'Japanese';
+
+  @override
+  String get ocrScriptKorean => 'Korean';
+
+  @override
+  String get ocrBanglaLimitation =>
+      'On-device OCR does not fully support বাংলা script. Please review and correct extracted text carefully.';
+
+  @override
+  String get attachVideo => 'Add video';
+
+  @override
+  String get videoUnsupportedPreview => 'Video';
+
+  @override
+  String get timelineTypeAllergy => 'Allergy';
+
+  @override
+  String get searchTypeAllergy => 'Allergy';
+
+  @override
+  String get commonYes => 'Yes';
+
+  @override
+  String get commonNo => 'No';
 }

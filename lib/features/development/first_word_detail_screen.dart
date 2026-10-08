@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shishur_dinlipi/app/router/app_routes.dart';
+import 'package:shishur_dinlipi/core/audio/first_word_audio_controller.dart';
 import 'package:shishur_dinlipi/core/di/core_providers.dart';
 import 'package:shishur_dinlipi/core/domain/age.dart';
 import 'package:shishur_dinlipi/core/domain/approximate_date.dart';
@@ -10,6 +11,7 @@ import 'package:shishur_dinlipi/core/errors/error_mapper.dart';
 import 'package:shishur_dinlipi/core/settings/settings_controller.dart';
 import 'package:shishur_dinlipi/features/children/child_controller.dart';
 import 'package:shishur_dinlipi/features/development/milestones_overview_screen.dart';
+import 'package:shishur_dinlipi/features/development/widgets/first_word_audio_panel.dart';
 import 'package:shishur_dinlipi/l10n/app_localizations.dart';
 
 class FirstWordDetailScreen extends ConsumerStatefulWidget {
@@ -25,6 +27,7 @@ class FirstWordDetailScreen extends ConsumerStatefulWidget {
 class _FirstWordDetailScreenState extends ConsumerState<FirstWordDetailScreen> {
   FirstWord? _item;
   bool _loading = true;
+  FirstWordAudioController? _audio;
 
   @override
   void initState() {
@@ -32,13 +35,30 @@ class _FirstWordDetailScreenState extends ConsumerState<FirstWordDetailScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) => _load());
   }
 
+  @override
+  void dispose() {
+    _audio?.dispose();
+    super.dispose();
+  }
+
   Future<void> _load() async {
     final item = await ref
         .read(firstWordsRepositoryProvider)
         .getById(widget.wordId);
+    await _audio?.dispose();
+    FirstWordAudioController? audio;
+    if (item?.audioAssetId != null && item!.audioAssetId!.isNotEmpty) {
+      audio = FirstWordAudioController(
+        permissions: ref.read(permissionServiceProvider),
+        storage: ref.read(fileStorageServiceProvider),
+        media: ref.read(mediaServiceProvider),
+      );
+      await audio.loadSavedAsset(item.audioAssetId);
+    }
     if (mounted) {
       setState(() {
         _item = item;
+        _audio = audio;
         _loading = false;
       });
     }
@@ -122,15 +142,9 @@ class _FirstWordDetailScreenState extends ConsumerState<FirstWordDetailScreen> {
             const SizedBox(height: 16),
             Text(item.contextNote!),
           ],
-          if (item.audioPlaceholder) ...[
+          if (_audio != null && _audio!.hasAudio) ...[
             const SizedBox(height: 16),
-            Card(
-              child: ListTile(
-                leading: const Icon(Icons.mic_none),
-                title: Text(l10n.firstWordAudioPlaceholder),
-                subtitle: Text(l10n.firstWordAudioHint),
-              ),
-            ),
+            FirstWordAudioPanel(controller: _audio!, readOnly: true),
           ],
         ],
       ),
@@ -158,6 +172,9 @@ class _FirstWordDetailScreenState extends ConsumerState<FirstWordDetailScreen> {
     );
     if (ok != true || !mounted) return;
     try {
+      if (item.audioAssetId != null && item.audioAssetId!.isNotEmpty) {
+        await ref.read(mediaServiceProvider).deleteMediaAsset(item.audioAssetId!);
+      }
       await ref.read(firstWordsRepositoryProvider).softDelete(item.id);
       ref.invalidate(firstWordsListProvider);
       if (mounted) context.pop();

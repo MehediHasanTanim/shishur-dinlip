@@ -88,7 +88,7 @@ void main() {
   });
 
   test('schema v12 creates FTS search_index', () async {
-    expect(AppDatabase.currentSchemaVersion, 12);
+    expect(AppDatabase.currentSchemaVersion, 13);
     await index.ensureSchema();
     final tables = await db.customSelect(
       "SELECT name FROM sqlite_master WHERE name IN ('search_index', 'search_index_meta')",
