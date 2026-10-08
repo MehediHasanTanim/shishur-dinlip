@@ -57,6 +57,10 @@ abstract final class AppRoutes {
   static const medicalDocuments = '/health/documents';
   static const medicalDocumentCreate = '/health/documents/create';
 
+  static const ocrScan = '/health/ocr';
+  static const ocrCapture = '/health/ocr/capture/:type';
+  static const ocrReview = '/health/ocr/review';
+
   static const calendar = '/calendar';
   static const reminders = '/reminders';
   static const reminderCreate = '/reminders/create';
@@ -149,6 +153,8 @@ abstract final class AppRoutes {
       '/health/documents/$id';
   static String medicalDocumentEditPath(String id) =>
       '/health/documents/$id/edit';
+
+  static String ocrCapturePath(String type) => '/health/ocr/capture/$type';
 
   static String reminderDetailPath(String id) => '/reminders/$id';
   static String reminderEditPath(String id) => '/reminders/$id/edit';

@@ -70,6 +70,10 @@ import 'package:shishur_dinlipi/features/health/medicine_list_screen.dart';
 import 'package:shishur_dinlipi/features/health/vaccination_detail_screen.dart';
 import 'package:shishur_dinlipi/features/health/vaccination_editor_screen.dart';
 import 'package:shishur_dinlipi/features/health/vaccination_list_screen.dart';
+import 'package:shishur_dinlipi/core/ocr/ocr_models.dart';
+import 'package:shishur_dinlipi/features/ocr/ocr_capture_screen.dart';
+import 'package:shishur_dinlipi/features/ocr/ocr_review_screen.dart';
+import 'package:shishur_dinlipi/features/ocr/ocr_scan_type_screen.dart';
 import 'package:shishur_dinlipi/features/school/school_event_detail_screen.dart';
 import 'package:shishur_dinlipi/features/school/school_event_editor_screen.dart';
 import 'package:shishur_dinlipi/features/school/school_overview_screen.dart';
@@ -548,6 +552,34 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             ),
           ),
         ],
+      ),
+      GoRoute(
+        path: AppRoutes.ocrScan,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const OcrScanTypeScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.ocrCapture,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) {
+          final raw = state.pathParameters['type'] ?? '';
+          final type = OcrScanType.values.firstWhere(
+            (t) => t.name == raw,
+            orElse: () => OcrScanType.vaccinationCard,
+          );
+          return OcrCaptureScreen(scanType: type);
+        },
+      ),
+      GoRoute(
+        path: AppRoutes.ocrReview,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) {
+          final draft = state.extra;
+          if (draft is! OcrReviewDraft) {
+            return const OcrScanTypeScreen();
+          }
+          return OcrReviewScreen(draft: draft);
+        },
       ),
       GoRoute(
         path: AppRoutes.medicalDocuments,

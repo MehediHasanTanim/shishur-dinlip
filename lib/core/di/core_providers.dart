@@ -42,6 +42,9 @@ import 'package:shishur_dinlipi/core/backup/backup_service.dart';
 import 'package:shishur_dinlipi/core/backup/cloud/cloud_backup_registry.dart';
 import 'package:shishur_dinlipi/core/backup/cloud/cloud_backup_service.dart';
 import 'package:shishur_dinlipi/core/backup/restore_service.dart';
+import 'package:shishur_dinlipi/core/ocr/ocr_confirm_service.dart';
+import 'package:shishur_dinlipi/core/ocr/ocr_engine.dart';
+import 'package:shishur_dinlipi/core/ocr/ocr_scan_service.dart';
 import 'package:shishur_dinlipi/core/security/biometric_service.dart';
 import 'package:shishur_dinlipi/core/security/db_encryption_key_store.dart';
 import 'package:shishur_dinlipi/core/security/pin_service.dart';
@@ -320,6 +323,24 @@ final cloudBackupServiceProvider = Provider<CloudBackupService>((ref) {
     registry: ref.watch(cloudBackupRegistryProvider),
     backupService: ref.watch(backupServiceProvider),
     storage: ref.watch(fileStorageServiceProvider),
+  );
+});
+
+final ocrEngineProvider = Provider<OcrEngine>((ref) {
+  final engine = MlKitOcrEngine();
+  ref.onDispose(engine.dispose);
+  return engine;
+});
+
+final ocrScanServiceProvider = Provider<OcrScanService>((ref) {
+  return OcrScanService(engine: ref.watch(ocrEngineProvider));
+});
+
+final ocrConfirmServiceProvider = Provider<OcrConfirmService>((ref) {
+  return OcrConfirmService(
+    vaccinations: ref.watch(vaccinationsRepositoryProvider),
+    medicines: ref.watch(medicinesRepositoryProvider),
+    documents: ref.watch(medicalDocumentsRepositoryProvider),
   );
 });
 

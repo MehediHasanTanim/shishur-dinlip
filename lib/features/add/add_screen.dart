@@ -210,6 +210,12 @@ class AddScreen extends ConsumerWidget {
               subtitle: l10n.medicalDocPickFile,
               onTap: () => context.push(AppRoutes.medicalDocumentCreate),
             ),
+            _AddTile(
+              icon: Icons.document_scanner_outlined,
+              title: l10n.ocrTitle,
+              subtitle: l10n.ocrAddSubtitle,
+              onTap: () => context.push(AppRoutes.ocrScan),
+            ),
             const SizedBox(height: 24),
             Text(
               l10n.quickTemplates,

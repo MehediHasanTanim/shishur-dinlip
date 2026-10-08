@@ -1417,6 +1417,145 @@ class AppLocalizationsBn extends AppLocalizations {
   String get medicalDocPickFile => 'ফাইল বেছে নিন';
 
   @override
+  String get ocrTitle => 'মেডিকেল কার্ড স্ক্যান';
+
+  @override
+  String get ocrAddSubtitle =>
+      'টিকা কার্ড, প্রেসক্রিপশন বা রিপোর্টের ছবি তুলুন — সংরক্ষণের আগে যাচাই করুন।';
+
+  @override
+  String get ocrSubtitle =>
+      'এই ডিভাইসেই ছবি স্ক্যান করুন। বের করা মান শুধু প্রস্তাব।';
+
+  @override
+  String get ocrPrivacyNote =>
+      'সম্ভব হলে OCR স্থানীয়ভাবে চলে। স্ক্যানের জন্য কিছু আপলোড হয় না।';
+
+  @override
+  String get ocrTypeVaccinationCard => 'টিকা কার্ড';
+
+  @override
+  String get ocrTypeVaccinationCardSubtitle =>
+      'টিকার নাম, ডোজ, তারিখ, ব্যাচ, ক্লিনিক';
+
+  @override
+  String get ocrTypePrescription => 'প্রেসক্রিপশন';
+
+  @override
+  String get ocrTypePrescriptionSubtitle => 'ওষুধ, ডোজ, ডাক্তার, শুরুর তারিখ';
+
+  @override
+  String get ocrTypeDiagnosticReport => 'ডায়াগনস্টিক রিপোর্ট';
+
+  @override
+  String get ocrTypeDiagnosticReportSubtitle =>
+      'রিপোর্টের শিরোনাম, তারিখ, ল্যাব, ফলাফল';
+
+  @override
+  String get ocrCaptureHint => 'কার্ড বা প্রিন্টআউটের পরিষ্কার ছবি তুলুন।';
+
+  @override
+  String get ocrNoImageYet => 'এখনো কোনো ছবি বেছে নেওয়া হয়নি।';
+
+  @override
+  String get ocrTakePhoto => 'ক্যামেরা';
+
+  @override
+  String get ocrChoosePhoto => 'গ্যালারি';
+
+  @override
+  String get ocrScanNow => 'লেখা স্ক্যান';
+
+  @override
+  String get ocrFailed => 'এই ছবি থেকে লেখা পড়া যায়নি।';
+
+  @override
+  String get ocrReviewTitle => 'স্ক্যান যাচাই';
+
+  @override
+  String get ocrReviewSubtitle =>
+      'হাইলাইট করা মানগুলো দেখুন এবং ভুল থাকলে সম্পাদনা করুন।';
+
+  @override
+  String get ocrNeverAutoSave =>
+      'আপনি নিশ্চিত না করা পর্যন্ত মেডিকেল তথ্য সংরক্ষণ হয় না।';
+
+  @override
+  String get ocrExtractedText => 'চেনা লেখা';
+
+  @override
+  String get ocrExtractedFields => 'প্রস্তাবিত ঘর';
+
+  @override
+  String get ocrNoTextFound =>
+      'কোনো লেখা পাওয়া যায়নি। নিচে ঘরগুলো লিখতে পারেন।';
+
+  @override
+  String get ocrNoFieldsHint =>
+      'কোনো ঘর শনাক্ত হয়নি। সংরক্ষণের আগে নিজে পূরণ করুন।';
+
+  @override
+  String get ocrConfirmCheckbox =>
+      'আমি এসব বিবরণ যাচাই করেছি এবং সংরক্ষণ করতে চাই।';
+
+  @override
+  String get ocrConfirmRequired => 'সংরক্ষণের আগে যাচাই নিশ্চিত করুন।';
+
+  @override
+  String get ocrConfirmSave => 'নিশ্চিত করে সংরক্ষণ';
+
+  @override
+  String get ocrSaved => 'আপনার নিশ্চিতকরণের পর সংরক্ষিত হয়েছে।';
+
+  @override
+  String get ocrFieldVaccineName => 'টিকার নাম';
+
+  @override
+  String get ocrFieldDose => 'ডোজ';
+
+  @override
+  String get ocrFieldGivenDate => 'দেওয়ার তারিখ';
+
+  @override
+  String get ocrFieldBatch => 'ব্যাচ / লট';
+
+  @override
+  String get ocrFieldClinic => 'ক্লিনিক';
+
+  @override
+  String get ocrFieldMedicineName => 'ওষুধের নাম';
+
+  @override
+  String get ocrFieldStrength => 'শক্তি';
+
+  @override
+  String get ocrFieldDosage => 'মাত্রা';
+
+  @override
+  String get ocrFieldFrequency => 'সময়সূচি';
+
+  @override
+  String get ocrFieldPrescribedBy => 'প্রেসক্রাইব করেছেন';
+
+  @override
+  String get ocrFieldStartDate => 'শুরুর তারিখ';
+
+  @override
+  String get ocrFieldDocumentTitle => 'রিপোর্টের শিরোনাম';
+
+  @override
+  String get ocrFieldDocumentDate => 'রিপোর্টের তারিখ';
+
+  @override
+  String get ocrFieldFacility => 'ল্যাব / প্রতিষ্ঠান';
+
+  @override
+  String get ocrFieldFindings => 'ফলাফল';
+
+  @override
+  String get ocrFieldNotes => 'নোট';
+
+  @override
   String get saveMedicalDocument => 'নথি সংরক্ষণ';
 
   @override

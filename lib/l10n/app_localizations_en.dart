@@ -1438,6 +1438,147 @@ class AppLocalizationsEn extends AppLocalizations {
   String get medicalDocPickFile => 'Choose file';
 
   @override
+  String get ocrTitle => 'Scan medical card';
+
+  @override
+  String get ocrAddSubtitle =>
+      'Photograph a vaccination card, prescription, or report — review before saving.';
+
+  @override
+  String get ocrSubtitle =>
+      'Scan a photo on this device. Extracted values are suggestions only.';
+
+  @override
+  String get ocrPrivacyNote =>
+      'OCR runs locally when possible. Nothing is uploaded for scanning.';
+
+  @override
+  String get ocrTypeVaccinationCard => 'Vaccination card';
+
+  @override
+  String get ocrTypeVaccinationCardSubtitle =>
+      'Vaccine name, dose, date, batch, clinic';
+
+  @override
+  String get ocrTypePrescription => 'Prescription';
+
+  @override
+  String get ocrTypePrescriptionSubtitle =>
+      'Medicine, dosage, doctor, start date';
+
+  @override
+  String get ocrTypeDiagnosticReport => 'Diagnostic report';
+
+  @override
+  String get ocrTypeDiagnosticReportSubtitle =>
+      'Report title, date, facility, findings';
+
+  @override
+  String get ocrCaptureHint => 'Take a clear photo of the card or printout.';
+
+  @override
+  String get ocrNoImageYet => 'No photo selected yet.';
+
+  @override
+  String get ocrTakePhoto => 'Camera';
+
+  @override
+  String get ocrChoosePhoto => 'Gallery';
+
+  @override
+  String get ocrScanNow => 'Scan text';
+
+  @override
+  String get ocrFailed => 'Could not read text from this image.';
+
+  @override
+  String get ocrReviewTitle => 'Review scan';
+
+  @override
+  String get ocrReviewSubtitle =>
+      'Check highlighted values and edit anything that looks wrong.';
+
+  @override
+  String get ocrNeverAutoSave =>
+      'Medical facts are never saved until you confirm.';
+
+  @override
+  String get ocrExtractedText => 'Recognized text';
+
+  @override
+  String get ocrExtractedFields => 'Suggested fields';
+
+  @override
+  String get ocrNoTextFound =>
+      'No text was found. You can still type the fields below.';
+
+  @override
+  String get ocrNoFieldsHint =>
+      'No fields were detected. Fill them in manually before saving.';
+
+  @override
+  String get ocrConfirmCheckbox =>
+      'I have reviewed these details and want to save them.';
+
+  @override
+  String get ocrConfirmRequired =>
+      'Please confirm you have reviewed the details.';
+
+  @override
+  String get ocrConfirmSave => 'Confirm & save';
+
+  @override
+  String get ocrSaved => 'Saved after your confirmation.';
+
+  @override
+  String get ocrFieldVaccineName => 'Vaccine name';
+
+  @override
+  String get ocrFieldDose => 'Dose';
+
+  @override
+  String get ocrFieldGivenDate => 'Date given';
+
+  @override
+  String get ocrFieldBatch => 'Batch / lot';
+
+  @override
+  String get ocrFieldClinic => 'Clinic';
+
+  @override
+  String get ocrFieldMedicineName => 'Medicine name';
+
+  @override
+  String get ocrFieldStrength => 'Strength';
+
+  @override
+  String get ocrFieldDosage => 'Dosage';
+
+  @override
+  String get ocrFieldFrequency => 'Frequency';
+
+  @override
+  String get ocrFieldPrescribedBy => 'Prescribed by';
+
+  @override
+  String get ocrFieldStartDate => 'Start date';
+
+  @override
+  String get ocrFieldDocumentTitle => 'Report title';
+
+  @override
+  String get ocrFieldDocumentDate => 'Report date';
+
+  @override
+  String get ocrFieldFacility => 'Lab / facility';
+
+  @override
+  String get ocrFieldFindings => 'Findings';
+
+  @override
+  String get ocrFieldNotes => 'Notes';
+
+  @override
   String get saveMedicalDocument => 'Save document';
 
   @override

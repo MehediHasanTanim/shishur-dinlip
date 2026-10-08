@@ -2864,6 +2864,264 @@ abstract class AppLocalizations {
   /// **'Choose file'**
   String get medicalDocPickFile;
 
+  /// No description provided for @ocrTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan medical card'**
+  String get ocrTitle;
+
+  /// No description provided for @ocrAddSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Photograph a vaccination card, prescription, or report — review before saving.'**
+  String get ocrAddSubtitle;
+
+  /// No description provided for @ocrSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan a photo on this device. Extracted values are suggestions only.'**
+  String get ocrSubtitle;
+
+  /// No description provided for @ocrPrivacyNote.
+  ///
+  /// In en, this message translates to:
+  /// **'OCR runs locally when possible. Nothing is uploaded for scanning.'**
+  String get ocrPrivacyNote;
+
+  /// No description provided for @ocrTypeVaccinationCard.
+  ///
+  /// In en, this message translates to:
+  /// **'Vaccination card'**
+  String get ocrTypeVaccinationCard;
+
+  /// No description provided for @ocrTypeVaccinationCardSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Vaccine name, dose, date, batch, clinic'**
+  String get ocrTypeVaccinationCardSubtitle;
+
+  /// No description provided for @ocrTypePrescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Prescription'**
+  String get ocrTypePrescription;
+
+  /// No description provided for @ocrTypePrescriptionSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Medicine, dosage, doctor, start date'**
+  String get ocrTypePrescriptionSubtitle;
+
+  /// No description provided for @ocrTypeDiagnosticReport.
+  ///
+  /// In en, this message translates to:
+  /// **'Diagnostic report'**
+  String get ocrTypeDiagnosticReport;
+
+  /// No description provided for @ocrTypeDiagnosticReportSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Report title, date, facility, findings'**
+  String get ocrTypeDiagnosticReportSubtitle;
+
+  /// No description provided for @ocrCaptureHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Take a clear photo of the card or printout.'**
+  String get ocrCaptureHint;
+
+  /// No description provided for @ocrNoImageYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No photo selected yet.'**
+  String get ocrNoImageYet;
+
+  /// No description provided for @ocrTakePhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera'**
+  String get ocrTakePhoto;
+
+  /// No description provided for @ocrChoosePhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Gallery'**
+  String get ocrChoosePhoto;
+
+  /// No description provided for @ocrScanNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan text'**
+  String get ocrScanNow;
+
+  /// No description provided for @ocrFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not read text from this image.'**
+  String get ocrFailed;
+
+  /// No description provided for @ocrReviewTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Review scan'**
+  String get ocrReviewTitle;
+
+  /// No description provided for @ocrReviewSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Check highlighted values and edit anything that looks wrong.'**
+  String get ocrReviewSubtitle;
+
+  /// No description provided for @ocrNeverAutoSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Medical facts are never saved until you confirm.'**
+  String get ocrNeverAutoSave;
+
+  /// No description provided for @ocrExtractedText.
+  ///
+  /// In en, this message translates to:
+  /// **'Recognized text'**
+  String get ocrExtractedText;
+
+  /// No description provided for @ocrExtractedFields.
+  ///
+  /// In en, this message translates to:
+  /// **'Suggested fields'**
+  String get ocrExtractedFields;
+
+  /// No description provided for @ocrNoTextFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No text was found. You can still type the fields below.'**
+  String get ocrNoTextFound;
+
+  /// No description provided for @ocrNoFieldsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'No fields were detected. Fill them in manually before saving.'**
+  String get ocrNoFieldsHint;
+
+  /// No description provided for @ocrConfirmCheckbox.
+  ///
+  /// In en, this message translates to:
+  /// **'I have reviewed these details and want to save them.'**
+  String get ocrConfirmCheckbox;
+
+  /// No description provided for @ocrConfirmRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Please confirm you have reviewed the details.'**
+  String get ocrConfirmRequired;
+
+  /// No description provided for @ocrConfirmSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm & save'**
+  String get ocrConfirmSave;
+
+  /// No description provided for @ocrSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved after your confirmation.'**
+  String get ocrSaved;
+
+  /// No description provided for @ocrFieldVaccineName.
+  ///
+  /// In en, this message translates to:
+  /// **'Vaccine name'**
+  String get ocrFieldVaccineName;
+
+  /// No description provided for @ocrFieldDose.
+  ///
+  /// In en, this message translates to:
+  /// **'Dose'**
+  String get ocrFieldDose;
+
+  /// No description provided for @ocrFieldGivenDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Date given'**
+  String get ocrFieldGivenDate;
+
+  /// No description provided for @ocrFieldBatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Batch / lot'**
+  String get ocrFieldBatch;
+
+  /// No description provided for @ocrFieldClinic.
+  ///
+  /// In en, this message translates to:
+  /// **'Clinic'**
+  String get ocrFieldClinic;
+
+  /// No description provided for @ocrFieldMedicineName.
+  ///
+  /// In en, this message translates to:
+  /// **'Medicine name'**
+  String get ocrFieldMedicineName;
+
+  /// No description provided for @ocrFieldStrength.
+  ///
+  /// In en, this message translates to:
+  /// **'Strength'**
+  String get ocrFieldStrength;
+
+  /// No description provided for @ocrFieldDosage.
+  ///
+  /// In en, this message translates to:
+  /// **'Dosage'**
+  String get ocrFieldDosage;
+
+  /// No description provided for @ocrFieldFrequency.
+  ///
+  /// In en, this message translates to:
+  /// **'Frequency'**
+  String get ocrFieldFrequency;
+
+  /// No description provided for @ocrFieldPrescribedBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Prescribed by'**
+  String get ocrFieldPrescribedBy;
+
+  /// No description provided for @ocrFieldStartDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Start date'**
+  String get ocrFieldStartDate;
+
+  /// No description provided for @ocrFieldDocumentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Report title'**
+  String get ocrFieldDocumentTitle;
+
+  /// No description provided for @ocrFieldDocumentDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Report date'**
+  String get ocrFieldDocumentDate;
+
+  /// No description provided for @ocrFieldFacility.
+  ///
+  /// In en, this message translates to:
+  /// **'Lab / facility'**
+  String get ocrFieldFacility;
+
+  /// No description provided for @ocrFieldFindings.
+  ///
+  /// In en, this message translates to:
+  /// **'Findings'**
+  String get ocrFieldFindings;
+
+  /// No description provided for @ocrFieldNotes.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get ocrFieldNotes;
+
   /// No description provided for @saveMedicalDocument.
   ///
   /// In en, this message translates to:

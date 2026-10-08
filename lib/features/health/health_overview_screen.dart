@@ -213,6 +213,11 @@ class HealthOverviewScreen extends ConsumerWidget {
                 label: l10n.healthGridDocuments,
                 onTap: () => context.push(AppRoutes.medicalDocuments),
               ),
+              _GridCard(
+                icon: Icons.document_scanner_outlined,
+                label: l10n.ocrTitle,
+                onTap: () => context.push(AppRoutes.ocrScan),
+              ),
             ],
           ),
         ],
@@ -266,6 +271,15 @@ class HealthOverviewScreen extends ConsumerWidget {
               onTap: () {
                 Navigator.pop(context);
                 context.push(AppRoutes.medicalDocumentCreate);
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.document_scanner_outlined),
+              title: Text(l10n.ocrTitle),
+              subtitle: Text(l10n.ocrAddSubtitle),
+              onTap: () {
+                Navigator.pop(context);
+                context.push(AppRoutes.ocrScan);
               },
             ),
           ],
