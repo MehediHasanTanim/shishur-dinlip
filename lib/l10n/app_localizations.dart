@@ -4663,6 +4663,384 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Food, color, cartoon, book, game, friend'**
   String get addFavoriteSubtitle;
+
+  /// No description provided for @interestsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Interests'**
+  String get interestsTitle;
+
+  /// No description provided for @addInterest.
+  ///
+  /// In en, this message translates to:
+  /// **'Add interest'**
+  String get addInterest;
+
+  /// No description provided for @editInterest.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit interest'**
+  String get editInterest;
+
+  /// No description provided for @interestName.
+  ///
+  /// In en, this message translates to:
+  /// **'Interest'**
+  String get interestName;
+
+  /// No description provided for @interestFirstNoticed.
+  ///
+  /// In en, this message translates to:
+  /// **'First noticed'**
+  String get interestFirstNoticed;
+
+  /// No description provided for @interestLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Interest level'**
+  String get interestLevel;
+
+  /// No description provided for @interestNotes.
+  ///
+  /// In en, this message translates to:
+  /// **'Notes'**
+  String get interestNotes;
+
+  /// No description provided for @interestEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No interests yet.'**
+  String get interestEmpty;
+
+  /// No description provided for @interestEmptyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Track drawing, sports, music, and more as they grow.'**
+  String get interestEmptyHint;
+
+  /// No description provided for @interestLevelLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Level {level}'**
+  String interestLevelLabel(int level);
+
+  /// No description provided for @familyEventsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Family events'**
+  String get familyEventsTitle;
+
+  /// No description provided for @addFamilyEvent.
+  ///
+  /// In en, this message translates to:
+  /// **'Add family event'**
+  String get addFamilyEvent;
+
+  /// No description provided for @editFamilyEvent.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit family event'**
+  String get editFamilyEvent;
+
+  /// No description provided for @familyEventType.
+  ///
+  /// In en, this message translates to:
+  /// **'Event type'**
+  String get familyEventType;
+
+  /// No description provided for @familyEventTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get familyEventTitle;
+
+  /// No description provided for @familyEventDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Date'**
+  String get familyEventDate;
+
+  /// No description provided for @familyEventLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Place'**
+  String get familyEventLocation;
+
+  /// No description provided for @familyEventStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Story'**
+  String get familyEventStory;
+
+  /// No description provided for @familyEventReaction.
+  ///
+  /// In en, this message translates to:
+  /// **'Child’s reaction'**
+  String get familyEventReaction;
+
+  /// No description provided for @familyEventEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No family events yet.'**
+  String get familyEventEmpty;
+
+  /// No description provided for @familyEventEmptyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Capture Eid, weddings, visits, and special moments.'**
+  String get familyEventEmptyHint;
+
+  /// No description provided for @familyEventAlbumCreate.
+  ///
+  /// In en, this message translates to:
+  /// **'Create event album'**
+  String get familyEventAlbumCreate;
+
+  /// No description provided for @familyEventAlbumReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Family event album ready.'**
+  String get familyEventAlbumReady;
+
+  /// No description provided for @familyEventTypeEid.
+  ///
+  /// In en, this message translates to:
+  /// **'Eid'**
+  String get familyEventTypeEid;
+
+  /// No description provided for @familyEventTypeWedding.
+  ///
+  /// In en, this message translates to:
+  /// **'Wedding'**
+  String get familyEventTypeWedding;
+
+  /// No description provided for @familyEventTypeVacation.
+  ///
+  /// In en, this message translates to:
+  /// **'Family vacation'**
+  String get familyEventTypeVacation;
+
+  /// No description provided for @familyEventTypeGrandparent.
+  ///
+  /// In en, this message translates to:
+  /// **'Grandparent visit'**
+  String get familyEventTypeGrandparent;
+
+  /// No description provided for @familyEventTypeSibling.
+  ///
+  /// In en, this message translates to:
+  /// **'New sibling'**
+  String get familyEventTypeSibling;
+
+  /// No description provided for @familyEventTypeMoving.
+  ///
+  /// In en, this message translates to:
+  /// **'Moving home'**
+  String get familyEventTypeMoving;
+
+  /// No description provided for @familyEventTypeFirstFlight.
+  ///
+  /// In en, this message translates to:
+  /// **'First flight'**
+  String get familyEventTypeFirstFlight;
+
+  /// No description provided for @familyEventTypeFirstBeach.
+  ///
+  /// In en, this message translates to:
+  /// **'First beach'**
+  String get familyEventTypeFirstBeach;
+
+  /// No description provided for @familyEventTypeGathering.
+  ///
+  /// In en, this message translates to:
+  /// **'Gathering'**
+  String get familyEventTypeGathering;
+
+  /// No description provided for @familyEventTypeOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get familyEventTypeOther;
+
+  /// No description provided for @tripsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Trips & places'**
+  String get tripsTitle;
+
+  /// No description provided for @addTrip.
+  ///
+  /// In en, this message translates to:
+  /// **'Add trip'**
+  String get addTrip;
+
+  /// No description provided for @editTrip.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit trip'**
+  String get editTrip;
+
+  /// No description provided for @tripType.
+  ///
+  /// In en, this message translates to:
+  /// **'Trip type'**
+  String get tripType;
+
+  /// No description provided for @tripTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get tripTitle;
+
+  /// No description provided for @tripPlace.
+  ///
+  /// In en, this message translates to:
+  /// **'Place'**
+  String get tripPlace;
+
+  /// No description provided for @tripStartDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Start date'**
+  String get tripStartDate;
+
+  /// No description provided for @tripEndDate.
+  ///
+  /// In en, this message translates to:
+  /// **'End date (optional)'**
+  String get tripEndDate;
+
+  /// No description provided for @tripStory.
+  ///
+  /// In en, this message translates to:
+  /// **'Story'**
+  String get tripStory;
+
+  /// No description provided for @tripReaction.
+  ///
+  /// In en, this message translates to:
+  /// **'Child’s reaction'**
+  String get tripReaction;
+
+  /// No description provided for @tripEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No trips yet.'**
+  String get tripEmpty;
+
+  /// No description provided for @tripEmptyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Save vacations, first flights, beaches, and places visited.'**
+  String get tripEmptyHint;
+
+  /// No description provided for @tripAlbumCreate.
+  ///
+  /// In en, this message translates to:
+  /// **'Create trip album'**
+  String get tripAlbumCreate;
+
+  /// No description provided for @tripAlbumReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Trip album ready.'**
+  String get tripAlbumReady;
+
+  /// No description provided for @tripTypeVacation.
+  ///
+  /// In en, this message translates to:
+  /// **'Vacation'**
+  String get tripTypeVacation;
+
+  /// No description provided for @tripTypeFirstFlight.
+  ///
+  /// In en, this message translates to:
+  /// **'First flight'**
+  String get tripTypeFirstFlight;
+
+  /// No description provided for @tripTypeFirstBeach.
+  ///
+  /// In en, this message translates to:
+  /// **'First beach'**
+  String get tripTypeFirstBeach;
+
+  /// No description provided for @tripTypePlaceVisit.
+  ///
+  /// In en, this message translates to:
+  /// **'Place visit'**
+  String get tripTypePlaceVisit;
+
+  /// No description provided for @tripTypeOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get tripTypeOther;
+
+  /// No description provided for @timelineTypeFamilyEvent.
+  ///
+  /// In en, this message translates to:
+  /// **'Family event'**
+  String get timelineTypeFamilyEvent;
+
+  /// No description provided for @timelineTypeTrip.
+  ///
+  /// In en, this message translates to:
+  /// **'Trip'**
+  String get timelineTypeTrip;
+
+  /// No description provided for @searchTypeInterest.
+  ///
+  /// In en, this message translates to:
+  /// **'Interest'**
+  String get searchTypeInterest;
+
+  /// No description provided for @searchTypeFamilyEvent.
+  ///
+  /// In en, this message translates to:
+  /// **'Family event'**
+  String get searchTypeFamilyEvent;
+
+  /// No description provided for @searchTypeTrip.
+  ///
+  /// In en, this message translates to:
+  /// **'Trip'**
+  String get searchTypeTrip;
+
+  /// No description provided for @homeInterests.
+  ///
+  /// In en, this message translates to:
+  /// **'Growing interests'**
+  String get homeInterests;
+
+  /// No description provided for @homeFamilyEvents.
+  ///
+  /// In en, this message translates to:
+  /// **'Family moments'**
+  String get homeFamilyEvents;
+
+  /// No description provided for @homeTrips.
+  ///
+  /// In en, this message translates to:
+  /// **'Trips & places'**
+  String get homeTrips;
+
+  /// No description provided for @addInterestSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Hobbies and passions'**
+  String get addInterestSubtitle;
+
+  /// No description provided for @addFamilyEventSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Eid, wedding, visits, firsts'**
+  String get addFamilyEventSubtitle;
+
+  /// No description provided for @addTripSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Travel, places, beach, flights'**
+  String get addTripSubtitle;
 }
 
 class _AppLocalizationsDelegate

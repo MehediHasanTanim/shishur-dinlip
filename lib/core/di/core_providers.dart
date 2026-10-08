@@ -11,7 +11,10 @@ import 'package:shishur_dinlipi/core/repository/albums_repository.dart';
 import 'package:shishur_dinlipi/core/repository/attachment_repository.dart';
 import 'package:shishur_dinlipi/core/repository/birthdays_repository.dart';
 import 'package:shishur_dinlipi/core/repository/children_repository.dart';
+import 'package:shishur_dinlipi/core/repository/family_events_repository.dart';
 import 'package:shishur_dinlipi/core/repository/favorites_repository.dart';
+import 'package:shishur_dinlipi/core/repository/interests_repository.dart';
+import 'package:shishur_dinlipi/core/repository/trips_repository.dart';
 import 'package:shishur_dinlipi/core/repository/doctor_visits_repository.dart';
 import 'package:shishur_dinlipi/core/repository/first_words_repository.dart';
 import 'package:shishur_dinlipi/core/repository/funny_moments_repository.dart';
@@ -234,6 +237,18 @@ final birthdayPdfGeneratorProvider = Provider<BirthdayPdfGenerator>((ref) {
     ref.watch(appDatabaseProvider),
     storage: ref.watch(fileStorageServiceProvider),
   );
+});
+
+final interestsRepositoryProvider = Provider<InterestsRepository>((ref) {
+  return DriftInterestsRepository(ref.watch(appDatabaseProvider));
+});
+
+final familyEventsRepositoryProvider = Provider<FamilyEventsRepository>((ref) {
+  return DriftFamilyEventsRepository(ref.watch(appDatabaseProvider));
+});
+
+final tripsRepositoryProvider = Provider<TripsRepository>((ref) {
+  return DriftTripsRepository(ref.watch(appDatabaseProvider));
 });
 
 final yearReviewPreferencesRepositoryProvider =

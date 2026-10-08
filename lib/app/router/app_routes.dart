@@ -69,6 +69,13 @@ abstract final class AppRoutes {
   static const favorites = '/favorites';
   static const favoriteCreate = '/favorites/create';
 
+  static const interests = '/interests';
+  static const interestCreate = '/interests/create';
+  static const familyEvents = '/family-events';
+  static const familyEventCreate = '/family-events/create';
+  static const trips = '/trips';
+  static const tripCreate = '/trips/create';
+
   static String childDetailPath(String id) => '/children/$id';
   static String childEditPath(String id) => '/children/$id/edit';
 
@@ -158,4 +165,21 @@ abstract final class AppRoutes {
   static String birthdayEditPath(String id) => '/birthdays/$id/edit';
   static String birthdayInterviewPath(String id) => '/birthdays/$id/interview';
   static String favoriteEditPath(String id) => '/favorites/$id/edit';
+
+  static String interestDetailPath(String id) => '/interests/$id';
+  static String interestEditPath(String id) => '/interests/$id/edit';
+  static String familyEventDetailPath(String id) => '/family-events/$id';
+  static String familyEventEditPath(String id) => '/family-events/$id/edit';
+  static String familyEventCreatePath({String? type}) {
+    if (type == null || type.isEmpty) return familyEventCreate;
+    return Uri(path: familyEventCreate, queryParameters: {'type': type})
+        .toString();
+  }
+
+  static String tripDetailPath(String id) => '/trips/$id';
+  static String tripEditPath(String id) => '/trips/$id/edit';
+  static String tripCreatePath({String? type}) {
+    if (type == null || type.isEmpty) return tripCreate;
+    return Uri(path: tripCreate, queryParameters: {'type': type}).toString();
+  }
 }

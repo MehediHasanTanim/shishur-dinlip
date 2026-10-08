@@ -108,6 +108,33 @@ class MoreScreen extends StatelessWidget {
           const SizedBox(height: 8),
           Card(
             child: ListTile(
+              leading: const Icon(Icons.interests_outlined),
+              title: Text(l10n.interestsTitle),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => context.push(AppRoutes.interests),
+            ),
+          ),
+          const SizedBox(height: 8),
+          Card(
+            child: ListTile(
+              leading: const Icon(Icons.family_restroom_outlined),
+              title: Text(l10n.familyEventsTitle),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => context.push(AppRoutes.familyEvents),
+            ),
+          ),
+          const SizedBox(height: 8),
+          Card(
+            child: ListTile(
+              leading: const Icon(Icons.flight_takeoff_outlined),
+              title: Text(l10n.tripsTitle),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => context.push(AppRoutes.trips),
+            ),
+          ),
+          const SizedBox(height: 8),
+          Card(
+            child: ListTile(
               leading: const Icon(Icons.auto_stories_outlined),
               title: Text(l10n.yearReviewTitle),
               trailing: const Icon(Icons.chevron_right),

@@ -6,7 +6,10 @@ import 'package:shishur_dinlipi/core/database/daos/attachments_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/audit_events_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/birthdays_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/children_dao.dart';
+import 'package:shishur_dinlipi/core/database/daos/family_events_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/favorites_dao.dart';
+import 'package:shishur_dinlipi/core/database/daos/interests_dao.dart';
+import 'package:shishur_dinlipi/core/database/daos/trips_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/doctor_visits_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/first_words_dao.dart';
 import 'package:shishur_dinlipi/core/database/daos/funny_moments_dao.dart';
@@ -34,14 +37,17 @@ import 'package:shishur_dinlipi/core/database/tables/audit_events_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/birthday_answers_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/birthdays_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/children_table.dart';
-import 'package:shishur_dinlipi/core/database/tables/favorites_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/doctor_visits_table.dart';
+import 'package:shishur_dinlipi/core/database/tables/family_events_table.dart';
+import 'package:shishur_dinlipi/core/database/tables/favorites_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/first_words_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/funny_moments_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/generated_exports_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/growth_records_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/illness_episodes_table.dart';
+import 'package:shishur_dinlipi/core/database/tables/interests_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/journal_entries_table.dart';
+import 'package:shishur_dinlipi/core/database/tables/trips_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/media_assets_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/medical_documents_table.dart';
 import 'package:shishur_dinlipi/core/database/tables/medicine_schedules_table.dart';
@@ -90,6 +96,9 @@ part 'app_database.g.dart';
     Birthdays,
     BirthdayAnswers,
     Favorites,
+    Interests,
+    FamilyEvents,
+    Trips,
   ],
   daos: [
     ChildrenDao,
@@ -118,6 +127,9 @@ part 'app_database.g.dart';
     YearReviewPreferencesDao,
     BirthdaysDao,
     FavoritesDao,
+    InterestsDao,
+    FamilyEventsDao,
+    TripsDao,
   ],
 )
 class AppDatabase extends _$AppDatabase {
@@ -128,7 +140,7 @@ class AppDatabase extends _$AppDatabase {
   factory AppDatabase.memory() => AppDatabase(openMemoryConnection());
 
   /// Bump when schema changes; add steps in [migration].
-  static const int currentSchemaVersion = 10;
+  static const int currentSchemaVersion = 11;
 
   @override
   int get schemaVersion => currentSchemaVersion;
@@ -188,6 +200,12 @@ class AppDatabase extends _$AppDatabase {
         await m.createTable(favorites);
         await _ensurePerformanceIndexes(m);
       }
+      if (from < 11) {
+        await m.createTable(interests);
+        await m.createTable(familyEvents);
+        await m.createTable(trips);
+        await _ensurePerformanceIndexes(m);
+      }
     },
     beforeOpen: (details) async {
       await customStatement('PRAGMA foreign_keys = ON');
@@ -234,6 +252,11 @@ class AppDatabase extends _$AppDatabase {
       'CREATE INDEX IF NOT EXISTS birthdays_child_date ON birthdays (child_id, birthday_date)',
       'CREATE INDEX IF NOT EXISTS birthday_answers_birthday ON birthday_answers (birthday_id, sort_order)',
       'CREATE INDEX IF NOT EXISTS favorites_child_category ON favorites (child_id, category)',
+      'CREATE INDEX IF NOT EXISTS interests_child_name ON interests (child_id, name)',
+      'CREATE INDEX IF NOT EXISTS family_events_child_date ON family_events (child_id, event_date)',
+      'CREATE INDEX IF NOT EXISTS family_events_type ON family_events (event_type)',
+      'CREATE INDEX IF NOT EXISTS trips_child_date ON trips (child_id, start_date)',
+      'CREATE INDEX IF NOT EXISTS trips_type ON trips (trip_type)',
     ];
     for (final sql in statements) {
       await customStatement(sql);

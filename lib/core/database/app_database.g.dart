@@ -20057,6 +20057,2322 @@ class FavoritesCompanion extends UpdateCompanion<FavoriteRow> {
   }
 }
 
+class $InterestsTable extends Interests
+    with TableInfo<$InterestsTable, InterestRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $InterestsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _childIdMeta = const VerificationMeta(
+    'childId',
+  );
+  @override
+  late final GeneratedColumn<String> childId = GeneratedColumn<String>(
+    'child_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _nameMeta = const VerificationMeta('name');
+  @override
+  late final GeneratedColumn<String> name = GeneratedColumn<String>(
+    'name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _firstNoticedMeta = const VerificationMeta(
+    'firstNoticed',
+  );
+  @override
+  late final GeneratedColumn<DateTime> firstNoticed = GeneratedColumn<DateTime>(
+    'first_noticed',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _interestLevelMeta = const VerificationMeta(
+    'interestLevel',
+  );
+  @override
+  late final GeneratedColumn<int> interestLevel = GeneratedColumn<int>(
+    'interest_level',
+    aliasedName,
+    true,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _notesMeta = const VerificationMeta('notes');
+  @override
+  late final GeneratedColumn<String> notes = GeneratedColumn<String>(
+    'notes',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _coverAssetIdMeta = const VerificationMeta(
+    'coverAssetId',
+  );
+  @override
+  late final GeneratedColumn<String> coverAssetId = GeneratedColumn<String>(
+    'cover_asset_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    childId,
+    name,
+    firstNoticed,
+    interestLevel,
+    notes,
+    coverAssetId,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'interests';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<InterestRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('child_id')) {
+      context.handle(
+        _childIdMeta,
+        childId.isAcceptableOrUnknown(data['child_id']!, _childIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_childIdMeta);
+    }
+    if (data.containsKey('name')) {
+      context.handle(
+        _nameMeta,
+        name.isAcceptableOrUnknown(data['name']!, _nameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_nameMeta);
+    }
+    if (data.containsKey('first_noticed')) {
+      context.handle(
+        _firstNoticedMeta,
+        firstNoticed.isAcceptableOrUnknown(
+          data['first_noticed']!,
+          _firstNoticedMeta,
+        ),
+      );
+    }
+    if (data.containsKey('interest_level')) {
+      context.handle(
+        _interestLevelMeta,
+        interestLevel.isAcceptableOrUnknown(
+          data['interest_level']!,
+          _interestLevelMeta,
+        ),
+      );
+    }
+    if (data.containsKey('notes')) {
+      context.handle(
+        _notesMeta,
+        notes.isAcceptableOrUnknown(data['notes']!, _notesMeta),
+      );
+    }
+    if (data.containsKey('cover_asset_id')) {
+      context.handle(
+        _coverAssetIdMeta,
+        coverAssetId.isAcceptableOrUnknown(
+          data['cover_asset_id']!,
+          _coverAssetIdMeta,
+        ),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  InterestRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return InterestRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      childId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}child_id'],
+      )!,
+      name: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}name'],
+      )!,
+      firstNoticed: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}first_noticed'],
+      ),
+      interestLevel: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}interest_level'],
+      ),
+      notes: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}notes'],
+      ),
+      coverAssetId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}cover_asset_id'],
+      ),
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+    );
+  }
+
+  @override
+  $InterestsTable createAlias(String alias) {
+    return $InterestsTable(attachedDatabase, alias);
+  }
+}
+
+class InterestRow extends DataClass implements Insertable<InterestRow> {
+  final String id;
+  final String childId;
+  final String name;
+  final DateTime? firstNoticed;
+
+  /// 1..5 interest strength; null if unset.
+  final int? interestLevel;
+  final String? notes;
+  final String? coverAssetId;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final DateTime? deletedAt;
+  const InterestRow({
+    required this.id,
+    required this.childId,
+    required this.name,
+    this.firstNoticed,
+    this.interestLevel,
+    this.notes,
+    this.coverAssetId,
+    required this.createdAt,
+    required this.updatedAt,
+    this.deletedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['child_id'] = Variable<String>(childId);
+    map['name'] = Variable<String>(name);
+    if (!nullToAbsent || firstNoticed != null) {
+      map['first_noticed'] = Variable<DateTime>(firstNoticed);
+    }
+    if (!nullToAbsent || interestLevel != null) {
+      map['interest_level'] = Variable<int>(interestLevel);
+    }
+    if (!nullToAbsent || notes != null) {
+      map['notes'] = Variable<String>(notes);
+    }
+    if (!nullToAbsent || coverAssetId != null) {
+      map['cover_asset_id'] = Variable<String>(coverAssetId);
+    }
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    return map;
+  }
+
+  InterestsCompanion toCompanion(bool nullToAbsent) {
+    return InterestsCompanion(
+      id: Value(id),
+      childId: Value(childId),
+      name: Value(name),
+      firstNoticed: firstNoticed == null && nullToAbsent
+          ? const Value.absent()
+          : Value(firstNoticed),
+      interestLevel: interestLevel == null && nullToAbsent
+          ? const Value.absent()
+          : Value(interestLevel),
+      notes: notes == null && nullToAbsent
+          ? const Value.absent()
+          : Value(notes),
+      coverAssetId: coverAssetId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(coverAssetId),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+    );
+  }
+
+  factory InterestRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return InterestRow(
+      id: serializer.fromJson<String>(json['id']),
+      childId: serializer.fromJson<String>(json['childId']),
+      name: serializer.fromJson<String>(json['name']),
+      firstNoticed: serializer.fromJson<DateTime?>(json['firstNoticed']),
+      interestLevel: serializer.fromJson<int?>(json['interestLevel']),
+      notes: serializer.fromJson<String?>(json['notes']),
+      coverAssetId: serializer.fromJson<String?>(json['coverAssetId']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'childId': serializer.toJson<String>(childId),
+      'name': serializer.toJson<String>(name),
+      'firstNoticed': serializer.toJson<DateTime?>(firstNoticed),
+      'interestLevel': serializer.toJson<int?>(interestLevel),
+      'notes': serializer.toJson<String?>(notes),
+      'coverAssetId': serializer.toJson<String?>(coverAssetId),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+    };
+  }
+
+  InterestRow copyWith({
+    String? id,
+    String? childId,
+    String? name,
+    Value<DateTime?> firstNoticed = const Value.absent(),
+    Value<int?> interestLevel = const Value.absent(),
+    Value<String?> notes = const Value.absent(),
+    Value<String?> coverAssetId = const Value.absent(),
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> deletedAt = const Value.absent(),
+  }) => InterestRow(
+    id: id ?? this.id,
+    childId: childId ?? this.childId,
+    name: name ?? this.name,
+    firstNoticed: firstNoticed.present ? firstNoticed.value : this.firstNoticed,
+    interestLevel: interestLevel.present
+        ? interestLevel.value
+        : this.interestLevel,
+    notes: notes.present ? notes.value : this.notes,
+    coverAssetId: coverAssetId.present ? coverAssetId.value : this.coverAssetId,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+  );
+  InterestRow copyWithCompanion(InterestsCompanion data) {
+    return InterestRow(
+      id: data.id.present ? data.id.value : this.id,
+      childId: data.childId.present ? data.childId.value : this.childId,
+      name: data.name.present ? data.name.value : this.name,
+      firstNoticed: data.firstNoticed.present
+          ? data.firstNoticed.value
+          : this.firstNoticed,
+      interestLevel: data.interestLevel.present
+          ? data.interestLevel.value
+          : this.interestLevel,
+      notes: data.notes.present ? data.notes.value : this.notes,
+      coverAssetId: data.coverAssetId.present
+          ? data.coverAssetId.value
+          : this.coverAssetId,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('InterestRow(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('name: $name, ')
+          ..write('firstNoticed: $firstNoticed, ')
+          ..write('interestLevel: $interestLevel, ')
+          ..write('notes: $notes, ')
+          ..write('coverAssetId: $coverAssetId, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    childId,
+    name,
+    firstNoticed,
+    interestLevel,
+    notes,
+    coverAssetId,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is InterestRow &&
+          other.id == this.id &&
+          other.childId == this.childId &&
+          other.name == this.name &&
+          other.firstNoticed == this.firstNoticed &&
+          other.interestLevel == this.interestLevel &&
+          other.notes == this.notes &&
+          other.coverAssetId == this.coverAssetId &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.deletedAt == this.deletedAt);
+}
+
+class InterestsCompanion extends UpdateCompanion<InterestRow> {
+  final Value<String> id;
+  final Value<String> childId;
+  final Value<String> name;
+  final Value<DateTime?> firstNoticed;
+  final Value<int?> interestLevel;
+  final Value<String?> notes;
+  final Value<String?> coverAssetId;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> deletedAt;
+  final Value<int> rowid;
+  const InterestsCompanion({
+    this.id = const Value.absent(),
+    this.childId = const Value.absent(),
+    this.name = const Value.absent(),
+    this.firstNoticed = const Value.absent(),
+    this.interestLevel = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.coverAssetId = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  InterestsCompanion.insert({
+    required String id,
+    required String childId,
+    required String name,
+    this.firstNoticed = const Value.absent(),
+    this.interestLevel = const Value.absent(),
+    this.notes = const Value.absent(),
+    this.coverAssetId = const Value.absent(),
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       childId = Value(childId),
+       name = Value(name),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt);
+  static Insertable<InterestRow> custom({
+    Expression<String>? id,
+    Expression<String>? childId,
+    Expression<String>? name,
+    Expression<DateTime>? firstNoticed,
+    Expression<int>? interestLevel,
+    Expression<String>? notes,
+    Expression<String>? coverAssetId,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? deletedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (childId != null) 'child_id': childId,
+      if (name != null) 'name': name,
+      if (firstNoticed != null) 'first_noticed': firstNoticed,
+      if (interestLevel != null) 'interest_level': interestLevel,
+      if (notes != null) 'notes': notes,
+      if (coverAssetId != null) 'cover_asset_id': coverAssetId,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  InterestsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? childId,
+    Value<String>? name,
+    Value<DateTime?>? firstNoticed,
+    Value<int?>? interestLevel,
+    Value<String?>? notes,
+    Value<String?>? coverAssetId,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? deletedAt,
+    Value<int>? rowid,
+  }) {
+    return InterestsCompanion(
+      id: id ?? this.id,
+      childId: childId ?? this.childId,
+      name: name ?? this.name,
+      firstNoticed: firstNoticed ?? this.firstNoticed,
+      interestLevel: interestLevel ?? this.interestLevel,
+      notes: notes ?? this.notes,
+      coverAssetId: coverAssetId ?? this.coverAssetId,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (childId.present) {
+      map['child_id'] = Variable<String>(childId.value);
+    }
+    if (name.present) {
+      map['name'] = Variable<String>(name.value);
+    }
+    if (firstNoticed.present) {
+      map['first_noticed'] = Variable<DateTime>(firstNoticed.value);
+    }
+    if (interestLevel.present) {
+      map['interest_level'] = Variable<int>(interestLevel.value);
+    }
+    if (notes.present) {
+      map['notes'] = Variable<String>(notes.value);
+    }
+    if (coverAssetId.present) {
+      map['cover_asset_id'] = Variable<String>(coverAssetId.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('InterestsCompanion(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('name: $name, ')
+          ..write('firstNoticed: $firstNoticed, ')
+          ..write('interestLevel: $interestLevel, ')
+          ..write('notes: $notes, ')
+          ..write('coverAssetId: $coverAssetId, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $FamilyEventsTable extends FamilyEvents
+    with TableInfo<$FamilyEventsTable, FamilyEventRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $FamilyEventsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _childIdMeta = const VerificationMeta(
+    'childId',
+  );
+  @override
+  late final GeneratedColumn<String> childId = GeneratedColumn<String>(
+    'child_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _eventTypeMeta = const VerificationMeta(
+    'eventType',
+  );
+  @override
+  late final GeneratedColumn<String> eventType = GeneratedColumn<String>(
+    'event_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _titleMeta = const VerificationMeta('title');
+  @override
+  late final GeneratedColumn<String> title = GeneratedColumn<String>(
+    'title',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _eventDateMeta = const VerificationMeta(
+    'eventDate',
+  );
+  @override
+  late final GeneratedColumn<DateTime> eventDate = GeneratedColumn<DateTime>(
+    'event_date',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _locationTextMeta = const VerificationMeta(
+    'locationText',
+  );
+  @override
+  late final GeneratedColumn<String> locationText = GeneratedColumn<String>(
+    'location_text',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _storyMeta = const VerificationMeta('story');
+  @override
+  late final GeneratedColumn<String> story = GeneratedColumn<String>(
+    'story',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _childReactionMeta = const VerificationMeta(
+    'childReaction',
+  );
+  @override
+  late final GeneratedColumn<String> childReaction = GeneratedColumn<String>(
+    'child_reaction',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _coverAssetIdMeta = const VerificationMeta(
+    'coverAssetId',
+  );
+  @override
+  late final GeneratedColumn<String> coverAssetId = GeneratedColumn<String>(
+    'cover_asset_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _albumIdMeta = const VerificationMeta(
+    'albumId',
+  );
+  @override
+  late final GeneratedColumn<String> albumId = GeneratedColumn<String>(
+    'album_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _isFavoriteMeta = const VerificationMeta(
+    'isFavorite',
+  );
+  @override
+  late final GeneratedColumn<bool> isFavorite = GeneratedColumn<bool>(
+    'is_favorite',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_favorite" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    childId,
+    eventType,
+    title,
+    eventDate,
+    locationText,
+    story,
+    childReaction,
+    coverAssetId,
+    albumId,
+    isFavorite,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'family_events';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<FamilyEventRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('child_id')) {
+      context.handle(
+        _childIdMeta,
+        childId.isAcceptableOrUnknown(data['child_id']!, _childIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_childIdMeta);
+    }
+    if (data.containsKey('event_type')) {
+      context.handle(
+        _eventTypeMeta,
+        eventType.isAcceptableOrUnknown(data['event_type']!, _eventTypeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_eventTypeMeta);
+    }
+    if (data.containsKey('title')) {
+      context.handle(
+        _titleMeta,
+        title.isAcceptableOrUnknown(data['title']!, _titleMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_titleMeta);
+    }
+    if (data.containsKey('event_date')) {
+      context.handle(
+        _eventDateMeta,
+        eventDate.isAcceptableOrUnknown(data['event_date']!, _eventDateMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_eventDateMeta);
+    }
+    if (data.containsKey('location_text')) {
+      context.handle(
+        _locationTextMeta,
+        locationText.isAcceptableOrUnknown(
+          data['location_text']!,
+          _locationTextMeta,
+        ),
+      );
+    }
+    if (data.containsKey('story')) {
+      context.handle(
+        _storyMeta,
+        story.isAcceptableOrUnknown(data['story']!, _storyMeta),
+      );
+    }
+    if (data.containsKey('child_reaction')) {
+      context.handle(
+        _childReactionMeta,
+        childReaction.isAcceptableOrUnknown(
+          data['child_reaction']!,
+          _childReactionMeta,
+        ),
+      );
+    }
+    if (data.containsKey('cover_asset_id')) {
+      context.handle(
+        _coverAssetIdMeta,
+        coverAssetId.isAcceptableOrUnknown(
+          data['cover_asset_id']!,
+          _coverAssetIdMeta,
+        ),
+      );
+    }
+    if (data.containsKey('album_id')) {
+      context.handle(
+        _albumIdMeta,
+        albumId.isAcceptableOrUnknown(data['album_id']!, _albumIdMeta),
+      );
+    }
+    if (data.containsKey('is_favorite')) {
+      context.handle(
+        _isFavoriteMeta,
+        isFavorite.isAcceptableOrUnknown(data['is_favorite']!, _isFavoriteMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  FamilyEventRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return FamilyEventRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      childId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}child_id'],
+      )!,
+      eventType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}event_type'],
+      )!,
+      title: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}title'],
+      )!,
+      eventDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}event_date'],
+      )!,
+      locationText: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}location_text'],
+      ),
+      story: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}story'],
+      ),
+      childReaction: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}child_reaction'],
+      ),
+      coverAssetId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}cover_asset_id'],
+      ),
+      albumId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}album_id'],
+      ),
+      isFavorite: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_favorite'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+    );
+  }
+
+  @override
+  $FamilyEventsTable createAlias(String alias) {
+    return $FamilyEventsTable(attachedDatabase, alias);
+  }
+}
+
+class FamilyEventRow extends DataClass implements Insertable<FamilyEventRow> {
+  final String id;
+  final String childId;
+  final String eventType;
+  final String title;
+  final DateTime eventDate;
+  final String? locationText;
+  final String? story;
+  final String? childReaction;
+  final String? coverAssetId;
+  final String? albumId;
+  final bool isFavorite;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final DateTime? deletedAt;
+  const FamilyEventRow({
+    required this.id,
+    required this.childId,
+    required this.eventType,
+    required this.title,
+    required this.eventDate,
+    this.locationText,
+    this.story,
+    this.childReaction,
+    this.coverAssetId,
+    this.albumId,
+    required this.isFavorite,
+    required this.createdAt,
+    required this.updatedAt,
+    this.deletedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['child_id'] = Variable<String>(childId);
+    map['event_type'] = Variable<String>(eventType);
+    map['title'] = Variable<String>(title);
+    map['event_date'] = Variable<DateTime>(eventDate);
+    if (!nullToAbsent || locationText != null) {
+      map['location_text'] = Variable<String>(locationText);
+    }
+    if (!nullToAbsent || story != null) {
+      map['story'] = Variable<String>(story);
+    }
+    if (!nullToAbsent || childReaction != null) {
+      map['child_reaction'] = Variable<String>(childReaction);
+    }
+    if (!nullToAbsent || coverAssetId != null) {
+      map['cover_asset_id'] = Variable<String>(coverAssetId);
+    }
+    if (!nullToAbsent || albumId != null) {
+      map['album_id'] = Variable<String>(albumId);
+    }
+    map['is_favorite'] = Variable<bool>(isFavorite);
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    return map;
+  }
+
+  FamilyEventsCompanion toCompanion(bool nullToAbsent) {
+    return FamilyEventsCompanion(
+      id: Value(id),
+      childId: Value(childId),
+      eventType: Value(eventType),
+      title: Value(title),
+      eventDate: Value(eventDate),
+      locationText: locationText == null && nullToAbsent
+          ? const Value.absent()
+          : Value(locationText),
+      story: story == null && nullToAbsent
+          ? const Value.absent()
+          : Value(story),
+      childReaction: childReaction == null && nullToAbsent
+          ? const Value.absent()
+          : Value(childReaction),
+      coverAssetId: coverAssetId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(coverAssetId),
+      albumId: albumId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(albumId),
+      isFavorite: Value(isFavorite),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+    );
+  }
+
+  factory FamilyEventRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return FamilyEventRow(
+      id: serializer.fromJson<String>(json['id']),
+      childId: serializer.fromJson<String>(json['childId']),
+      eventType: serializer.fromJson<String>(json['eventType']),
+      title: serializer.fromJson<String>(json['title']),
+      eventDate: serializer.fromJson<DateTime>(json['eventDate']),
+      locationText: serializer.fromJson<String?>(json['locationText']),
+      story: serializer.fromJson<String?>(json['story']),
+      childReaction: serializer.fromJson<String?>(json['childReaction']),
+      coverAssetId: serializer.fromJson<String?>(json['coverAssetId']),
+      albumId: serializer.fromJson<String?>(json['albumId']),
+      isFavorite: serializer.fromJson<bool>(json['isFavorite']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'childId': serializer.toJson<String>(childId),
+      'eventType': serializer.toJson<String>(eventType),
+      'title': serializer.toJson<String>(title),
+      'eventDate': serializer.toJson<DateTime>(eventDate),
+      'locationText': serializer.toJson<String?>(locationText),
+      'story': serializer.toJson<String?>(story),
+      'childReaction': serializer.toJson<String?>(childReaction),
+      'coverAssetId': serializer.toJson<String?>(coverAssetId),
+      'albumId': serializer.toJson<String?>(albumId),
+      'isFavorite': serializer.toJson<bool>(isFavorite),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+    };
+  }
+
+  FamilyEventRow copyWith({
+    String? id,
+    String? childId,
+    String? eventType,
+    String? title,
+    DateTime? eventDate,
+    Value<String?> locationText = const Value.absent(),
+    Value<String?> story = const Value.absent(),
+    Value<String?> childReaction = const Value.absent(),
+    Value<String?> coverAssetId = const Value.absent(),
+    Value<String?> albumId = const Value.absent(),
+    bool? isFavorite,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> deletedAt = const Value.absent(),
+  }) => FamilyEventRow(
+    id: id ?? this.id,
+    childId: childId ?? this.childId,
+    eventType: eventType ?? this.eventType,
+    title: title ?? this.title,
+    eventDate: eventDate ?? this.eventDate,
+    locationText: locationText.present ? locationText.value : this.locationText,
+    story: story.present ? story.value : this.story,
+    childReaction: childReaction.present
+        ? childReaction.value
+        : this.childReaction,
+    coverAssetId: coverAssetId.present ? coverAssetId.value : this.coverAssetId,
+    albumId: albumId.present ? albumId.value : this.albumId,
+    isFavorite: isFavorite ?? this.isFavorite,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+  );
+  FamilyEventRow copyWithCompanion(FamilyEventsCompanion data) {
+    return FamilyEventRow(
+      id: data.id.present ? data.id.value : this.id,
+      childId: data.childId.present ? data.childId.value : this.childId,
+      eventType: data.eventType.present ? data.eventType.value : this.eventType,
+      title: data.title.present ? data.title.value : this.title,
+      eventDate: data.eventDate.present ? data.eventDate.value : this.eventDate,
+      locationText: data.locationText.present
+          ? data.locationText.value
+          : this.locationText,
+      story: data.story.present ? data.story.value : this.story,
+      childReaction: data.childReaction.present
+          ? data.childReaction.value
+          : this.childReaction,
+      coverAssetId: data.coverAssetId.present
+          ? data.coverAssetId.value
+          : this.coverAssetId,
+      albumId: data.albumId.present ? data.albumId.value : this.albumId,
+      isFavorite: data.isFavorite.present
+          ? data.isFavorite.value
+          : this.isFavorite,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('FamilyEventRow(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('eventType: $eventType, ')
+          ..write('title: $title, ')
+          ..write('eventDate: $eventDate, ')
+          ..write('locationText: $locationText, ')
+          ..write('story: $story, ')
+          ..write('childReaction: $childReaction, ')
+          ..write('coverAssetId: $coverAssetId, ')
+          ..write('albumId: $albumId, ')
+          ..write('isFavorite: $isFavorite, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    childId,
+    eventType,
+    title,
+    eventDate,
+    locationText,
+    story,
+    childReaction,
+    coverAssetId,
+    albumId,
+    isFavorite,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is FamilyEventRow &&
+          other.id == this.id &&
+          other.childId == this.childId &&
+          other.eventType == this.eventType &&
+          other.title == this.title &&
+          other.eventDate == this.eventDate &&
+          other.locationText == this.locationText &&
+          other.story == this.story &&
+          other.childReaction == this.childReaction &&
+          other.coverAssetId == this.coverAssetId &&
+          other.albumId == this.albumId &&
+          other.isFavorite == this.isFavorite &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.deletedAt == this.deletedAt);
+}
+
+class FamilyEventsCompanion extends UpdateCompanion<FamilyEventRow> {
+  final Value<String> id;
+  final Value<String> childId;
+  final Value<String> eventType;
+  final Value<String> title;
+  final Value<DateTime> eventDate;
+  final Value<String?> locationText;
+  final Value<String?> story;
+  final Value<String?> childReaction;
+  final Value<String?> coverAssetId;
+  final Value<String?> albumId;
+  final Value<bool> isFavorite;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> deletedAt;
+  final Value<int> rowid;
+  const FamilyEventsCompanion({
+    this.id = const Value.absent(),
+    this.childId = const Value.absent(),
+    this.eventType = const Value.absent(),
+    this.title = const Value.absent(),
+    this.eventDate = const Value.absent(),
+    this.locationText = const Value.absent(),
+    this.story = const Value.absent(),
+    this.childReaction = const Value.absent(),
+    this.coverAssetId = const Value.absent(),
+    this.albumId = const Value.absent(),
+    this.isFavorite = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  FamilyEventsCompanion.insert({
+    required String id,
+    required String childId,
+    required String eventType,
+    required String title,
+    required DateTime eventDate,
+    this.locationText = const Value.absent(),
+    this.story = const Value.absent(),
+    this.childReaction = const Value.absent(),
+    this.coverAssetId = const Value.absent(),
+    this.albumId = const Value.absent(),
+    this.isFavorite = const Value.absent(),
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       childId = Value(childId),
+       eventType = Value(eventType),
+       title = Value(title),
+       eventDate = Value(eventDate),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt);
+  static Insertable<FamilyEventRow> custom({
+    Expression<String>? id,
+    Expression<String>? childId,
+    Expression<String>? eventType,
+    Expression<String>? title,
+    Expression<DateTime>? eventDate,
+    Expression<String>? locationText,
+    Expression<String>? story,
+    Expression<String>? childReaction,
+    Expression<String>? coverAssetId,
+    Expression<String>? albumId,
+    Expression<bool>? isFavorite,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? deletedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (childId != null) 'child_id': childId,
+      if (eventType != null) 'event_type': eventType,
+      if (title != null) 'title': title,
+      if (eventDate != null) 'event_date': eventDate,
+      if (locationText != null) 'location_text': locationText,
+      if (story != null) 'story': story,
+      if (childReaction != null) 'child_reaction': childReaction,
+      if (coverAssetId != null) 'cover_asset_id': coverAssetId,
+      if (albumId != null) 'album_id': albumId,
+      if (isFavorite != null) 'is_favorite': isFavorite,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  FamilyEventsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? childId,
+    Value<String>? eventType,
+    Value<String>? title,
+    Value<DateTime>? eventDate,
+    Value<String?>? locationText,
+    Value<String?>? story,
+    Value<String?>? childReaction,
+    Value<String?>? coverAssetId,
+    Value<String?>? albumId,
+    Value<bool>? isFavorite,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? deletedAt,
+    Value<int>? rowid,
+  }) {
+    return FamilyEventsCompanion(
+      id: id ?? this.id,
+      childId: childId ?? this.childId,
+      eventType: eventType ?? this.eventType,
+      title: title ?? this.title,
+      eventDate: eventDate ?? this.eventDate,
+      locationText: locationText ?? this.locationText,
+      story: story ?? this.story,
+      childReaction: childReaction ?? this.childReaction,
+      coverAssetId: coverAssetId ?? this.coverAssetId,
+      albumId: albumId ?? this.albumId,
+      isFavorite: isFavorite ?? this.isFavorite,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (childId.present) {
+      map['child_id'] = Variable<String>(childId.value);
+    }
+    if (eventType.present) {
+      map['event_type'] = Variable<String>(eventType.value);
+    }
+    if (title.present) {
+      map['title'] = Variable<String>(title.value);
+    }
+    if (eventDate.present) {
+      map['event_date'] = Variable<DateTime>(eventDate.value);
+    }
+    if (locationText.present) {
+      map['location_text'] = Variable<String>(locationText.value);
+    }
+    if (story.present) {
+      map['story'] = Variable<String>(story.value);
+    }
+    if (childReaction.present) {
+      map['child_reaction'] = Variable<String>(childReaction.value);
+    }
+    if (coverAssetId.present) {
+      map['cover_asset_id'] = Variable<String>(coverAssetId.value);
+    }
+    if (albumId.present) {
+      map['album_id'] = Variable<String>(albumId.value);
+    }
+    if (isFavorite.present) {
+      map['is_favorite'] = Variable<bool>(isFavorite.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('FamilyEventsCompanion(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('eventType: $eventType, ')
+          ..write('title: $title, ')
+          ..write('eventDate: $eventDate, ')
+          ..write('locationText: $locationText, ')
+          ..write('story: $story, ')
+          ..write('childReaction: $childReaction, ')
+          ..write('coverAssetId: $coverAssetId, ')
+          ..write('albumId: $albumId, ')
+          ..write('isFavorite: $isFavorite, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $TripsTable extends Trips with TableInfo<$TripsTable, TripRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $TripsTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _childIdMeta = const VerificationMeta(
+    'childId',
+  );
+  @override
+  late final GeneratedColumn<String> childId = GeneratedColumn<String>(
+    'child_id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _tripTypeMeta = const VerificationMeta(
+    'tripType',
+  );
+  @override
+  late final GeneratedColumn<String> tripType = GeneratedColumn<String>(
+    'trip_type',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _titleMeta = const VerificationMeta('title');
+  @override
+  late final GeneratedColumn<String> title = GeneratedColumn<String>(
+    'title',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _placeNameMeta = const VerificationMeta(
+    'placeName',
+  );
+  @override
+  late final GeneratedColumn<String> placeName = GeneratedColumn<String>(
+    'place_name',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _startDateMeta = const VerificationMeta(
+    'startDate',
+  );
+  @override
+  late final GeneratedColumn<DateTime> startDate = GeneratedColumn<DateTime>(
+    'start_date',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _endDateMeta = const VerificationMeta(
+    'endDate',
+  );
+  @override
+  late final GeneratedColumn<DateTime> endDate = GeneratedColumn<DateTime>(
+    'end_date',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _storyMeta = const VerificationMeta('story');
+  @override
+  late final GeneratedColumn<String> story = GeneratedColumn<String>(
+    'story',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _childReactionMeta = const VerificationMeta(
+    'childReaction',
+  );
+  @override
+  late final GeneratedColumn<String> childReaction = GeneratedColumn<String>(
+    'child_reaction',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _coverAssetIdMeta = const VerificationMeta(
+    'coverAssetId',
+  );
+  @override
+  late final GeneratedColumn<String> coverAssetId = GeneratedColumn<String>(
+    'cover_asset_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _albumIdMeta = const VerificationMeta(
+    'albumId',
+  );
+  @override
+  late final GeneratedColumn<String> albumId = GeneratedColumn<String>(
+    'album_id',
+    aliasedName,
+    true,
+    type: DriftSqlType.string,
+    requiredDuringInsert: false,
+  );
+  static const VerificationMeta _isFavoriteMeta = const VerificationMeta(
+    'isFavorite',
+  );
+  @override
+  late final GeneratedColumn<bool> isFavorite = GeneratedColumn<bool>(
+    'is_favorite',
+    aliasedName,
+    false,
+    type: DriftSqlType.bool,
+    requiredDuringInsert: false,
+    defaultConstraints: GeneratedColumn.constraintIsAlways(
+      'CHECK ("is_favorite" IN (0, 1))',
+    ),
+    defaultValue: const Constant(false),
+  );
+  static const VerificationMeta _createdAtMeta = const VerificationMeta(
+    'createdAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> createdAt = GeneratedColumn<DateTime>(
+    'created_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _updatedAtMeta = const VerificationMeta(
+    'updatedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> updatedAt = GeneratedColumn<DateTime>(
+    'updated_at',
+    aliasedName,
+    false,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _deletedAtMeta = const VerificationMeta(
+    'deletedAt',
+  );
+  @override
+  late final GeneratedColumn<DateTime> deletedAt = GeneratedColumn<DateTime>(
+    'deleted_at',
+    aliasedName,
+    true,
+    type: DriftSqlType.dateTime,
+    requiredDuringInsert: false,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    childId,
+    tripType,
+    title,
+    placeName,
+    startDate,
+    endDate,
+    story,
+    childReaction,
+    coverAssetId,
+    albumId,
+    isFavorite,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'trips';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<TripRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('child_id')) {
+      context.handle(
+        _childIdMeta,
+        childId.isAcceptableOrUnknown(data['child_id']!, _childIdMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_childIdMeta);
+    }
+    if (data.containsKey('trip_type')) {
+      context.handle(
+        _tripTypeMeta,
+        tripType.isAcceptableOrUnknown(data['trip_type']!, _tripTypeMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_tripTypeMeta);
+    }
+    if (data.containsKey('title')) {
+      context.handle(
+        _titleMeta,
+        title.isAcceptableOrUnknown(data['title']!, _titleMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_titleMeta);
+    }
+    if (data.containsKey('place_name')) {
+      context.handle(
+        _placeNameMeta,
+        placeName.isAcceptableOrUnknown(data['place_name']!, _placeNameMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_placeNameMeta);
+    }
+    if (data.containsKey('start_date')) {
+      context.handle(
+        _startDateMeta,
+        startDate.isAcceptableOrUnknown(data['start_date']!, _startDateMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_startDateMeta);
+    }
+    if (data.containsKey('end_date')) {
+      context.handle(
+        _endDateMeta,
+        endDate.isAcceptableOrUnknown(data['end_date']!, _endDateMeta),
+      );
+    }
+    if (data.containsKey('story')) {
+      context.handle(
+        _storyMeta,
+        story.isAcceptableOrUnknown(data['story']!, _storyMeta),
+      );
+    }
+    if (data.containsKey('child_reaction')) {
+      context.handle(
+        _childReactionMeta,
+        childReaction.isAcceptableOrUnknown(
+          data['child_reaction']!,
+          _childReactionMeta,
+        ),
+      );
+    }
+    if (data.containsKey('cover_asset_id')) {
+      context.handle(
+        _coverAssetIdMeta,
+        coverAssetId.isAcceptableOrUnknown(
+          data['cover_asset_id']!,
+          _coverAssetIdMeta,
+        ),
+      );
+    }
+    if (data.containsKey('album_id')) {
+      context.handle(
+        _albumIdMeta,
+        albumId.isAcceptableOrUnknown(data['album_id']!, _albumIdMeta),
+      );
+    }
+    if (data.containsKey('is_favorite')) {
+      context.handle(
+        _isFavoriteMeta,
+        isFavorite.isAcceptableOrUnknown(data['is_favorite']!, _isFavoriteMeta),
+      );
+    }
+    if (data.containsKey('created_at')) {
+      context.handle(
+        _createdAtMeta,
+        createdAt.isAcceptableOrUnknown(data['created_at']!, _createdAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_createdAtMeta);
+    }
+    if (data.containsKey('updated_at')) {
+      context.handle(
+        _updatedAtMeta,
+        updatedAt.isAcceptableOrUnknown(data['updated_at']!, _updatedAtMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_updatedAtMeta);
+    }
+    if (data.containsKey('deleted_at')) {
+      context.handle(
+        _deletedAtMeta,
+        deletedAt.isAcceptableOrUnknown(data['deleted_at']!, _deletedAtMeta),
+      );
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  TripRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return TripRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      childId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}child_id'],
+      )!,
+      tripType: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}trip_type'],
+      )!,
+      title: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}title'],
+      )!,
+      placeName: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}place_name'],
+      )!,
+      startDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}start_date'],
+      )!,
+      endDate: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}end_date'],
+      ),
+      story: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}story'],
+      ),
+      childReaction: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}child_reaction'],
+      ),
+      coverAssetId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}cover_asset_id'],
+      ),
+      albumId: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}album_id'],
+      ),
+      isFavorite: attachedDatabase.typeMapping.read(
+        DriftSqlType.bool,
+        data['${effectivePrefix}is_favorite'],
+      )!,
+      createdAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}created_at'],
+      )!,
+      updatedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}updated_at'],
+      )!,
+      deletedAt: attachedDatabase.typeMapping.read(
+        DriftSqlType.dateTime,
+        data['${effectivePrefix}deleted_at'],
+      ),
+    );
+  }
+
+  @override
+  $TripsTable createAlias(String alias) {
+    return $TripsTable(attachedDatabase, alias);
+  }
+}
+
+class TripRow extends DataClass implements Insertable<TripRow> {
+  final String id;
+  final String childId;
+
+  /// vacation | first_flight | first_beach | place_visit | other
+  final String tripType;
+  final String title;
+  final String placeName;
+  final DateTime startDate;
+  final DateTime? endDate;
+  final String? story;
+  final String? childReaction;
+  final String? coverAssetId;
+  final String? albumId;
+  final bool isFavorite;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final DateTime? deletedAt;
+  const TripRow({
+    required this.id,
+    required this.childId,
+    required this.tripType,
+    required this.title,
+    required this.placeName,
+    required this.startDate,
+    this.endDate,
+    this.story,
+    this.childReaction,
+    this.coverAssetId,
+    this.albumId,
+    required this.isFavorite,
+    required this.createdAt,
+    required this.updatedAt,
+    this.deletedAt,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    map['child_id'] = Variable<String>(childId);
+    map['trip_type'] = Variable<String>(tripType);
+    map['title'] = Variable<String>(title);
+    map['place_name'] = Variable<String>(placeName);
+    map['start_date'] = Variable<DateTime>(startDate);
+    if (!nullToAbsent || endDate != null) {
+      map['end_date'] = Variable<DateTime>(endDate);
+    }
+    if (!nullToAbsent || story != null) {
+      map['story'] = Variable<String>(story);
+    }
+    if (!nullToAbsent || childReaction != null) {
+      map['child_reaction'] = Variable<String>(childReaction);
+    }
+    if (!nullToAbsent || coverAssetId != null) {
+      map['cover_asset_id'] = Variable<String>(coverAssetId);
+    }
+    if (!nullToAbsent || albumId != null) {
+      map['album_id'] = Variable<String>(albumId);
+    }
+    map['is_favorite'] = Variable<bool>(isFavorite);
+    map['created_at'] = Variable<DateTime>(createdAt);
+    map['updated_at'] = Variable<DateTime>(updatedAt);
+    if (!nullToAbsent || deletedAt != null) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt);
+    }
+    return map;
+  }
+
+  TripsCompanion toCompanion(bool nullToAbsent) {
+    return TripsCompanion(
+      id: Value(id),
+      childId: Value(childId),
+      tripType: Value(tripType),
+      title: Value(title),
+      placeName: Value(placeName),
+      startDate: Value(startDate),
+      endDate: endDate == null && nullToAbsent
+          ? const Value.absent()
+          : Value(endDate),
+      story: story == null && nullToAbsent
+          ? const Value.absent()
+          : Value(story),
+      childReaction: childReaction == null && nullToAbsent
+          ? const Value.absent()
+          : Value(childReaction),
+      coverAssetId: coverAssetId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(coverAssetId),
+      albumId: albumId == null && nullToAbsent
+          ? const Value.absent()
+          : Value(albumId),
+      isFavorite: Value(isFavorite),
+      createdAt: Value(createdAt),
+      updatedAt: Value(updatedAt),
+      deletedAt: deletedAt == null && nullToAbsent
+          ? const Value.absent()
+          : Value(deletedAt),
+    );
+  }
+
+  factory TripRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return TripRow(
+      id: serializer.fromJson<String>(json['id']),
+      childId: serializer.fromJson<String>(json['childId']),
+      tripType: serializer.fromJson<String>(json['tripType']),
+      title: serializer.fromJson<String>(json['title']),
+      placeName: serializer.fromJson<String>(json['placeName']),
+      startDate: serializer.fromJson<DateTime>(json['startDate']),
+      endDate: serializer.fromJson<DateTime?>(json['endDate']),
+      story: serializer.fromJson<String?>(json['story']),
+      childReaction: serializer.fromJson<String?>(json['childReaction']),
+      coverAssetId: serializer.fromJson<String?>(json['coverAssetId']),
+      albumId: serializer.fromJson<String?>(json['albumId']),
+      isFavorite: serializer.fromJson<bool>(json['isFavorite']),
+      createdAt: serializer.fromJson<DateTime>(json['createdAt']),
+      updatedAt: serializer.fromJson<DateTime>(json['updatedAt']),
+      deletedAt: serializer.fromJson<DateTime?>(json['deletedAt']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'childId': serializer.toJson<String>(childId),
+      'tripType': serializer.toJson<String>(tripType),
+      'title': serializer.toJson<String>(title),
+      'placeName': serializer.toJson<String>(placeName),
+      'startDate': serializer.toJson<DateTime>(startDate),
+      'endDate': serializer.toJson<DateTime?>(endDate),
+      'story': serializer.toJson<String?>(story),
+      'childReaction': serializer.toJson<String?>(childReaction),
+      'coverAssetId': serializer.toJson<String?>(coverAssetId),
+      'albumId': serializer.toJson<String?>(albumId),
+      'isFavorite': serializer.toJson<bool>(isFavorite),
+      'createdAt': serializer.toJson<DateTime>(createdAt),
+      'updatedAt': serializer.toJson<DateTime>(updatedAt),
+      'deletedAt': serializer.toJson<DateTime?>(deletedAt),
+    };
+  }
+
+  TripRow copyWith({
+    String? id,
+    String? childId,
+    String? tripType,
+    String? title,
+    String? placeName,
+    DateTime? startDate,
+    Value<DateTime?> endDate = const Value.absent(),
+    Value<String?> story = const Value.absent(),
+    Value<String?> childReaction = const Value.absent(),
+    Value<String?> coverAssetId = const Value.absent(),
+    Value<String?> albumId = const Value.absent(),
+    bool? isFavorite,
+    DateTime? createdAt,
+    DateTime? updatedAt,
+    Value<DateTime?> deletedAt = const Value.absent(),
+  }) => TripRow(
+    id: id ?? this.id,
+    childId: childId ?? this.childId,
+    tripType: tripType ?? this.tripType,
+    title: title ?? this.title,
+    placeName: placeName ?? this.placeName,
+    startDate: startDate ?? this.startDate,
+    endDate: endDate.present ? endDate.value : this.endDate,
+    story: story.present ? story.value : this.story,
+    childReaction: childReaction.present
+        ? childReaction.value
+        : this.childReaction,
+    coverAssetId: coverAssetId.present ? coverAssetId.value : this.coverAssetId,
+    albumId: albumId.present ? albumId.value : this.albumId,
+    isFavorite: isFavorite ?? this.isFavorite,
+    createdAt: createdAt ?? this.createdAt,
+    updatedAt: updatedAt ?? this.updatedAt,
+    deletedAt: deletedAt.present ? deletedAt.value : this.deletedAt,
+  );
+  TripRow copyWithCompanion(TripsCompanion data) {
+    return TripRow(
+      id: data.id.present ? data.id.value : this.id,
+      childId: data.childId.present ? data.childId.value : this.childId,
+      tripType: data.tripType.present ? data.tripType.value : this.tripType,
+      title: data.title.present ? data.title.value : this.title,
+      placeName: data.placeName.present ? data.placeName.value : this.placeName,
+      startDate: data.startDate.present ? data.startDate.value : this.startDate,
+      endDate: data.endDate.present ? data.endDate.value : this.endDate,
+      story: data.story.present ? data.story.value : this.story,
+      childReaction: data.childReaction.present
+          ? data.childReaction.value
+          : this.childReaction,
+      coverAssetId: data.coverAssetId.present
+          ? data.coverAssetId.value
+          : this.coverAssetId,
+      albumId: data.albumId.present ? data.albumId.value : this.albumId,
+      isFavorite: data.isFavorite.present
+          ? data.isFavorite.value
+          : this.isFavorite,
+      createdAt: data.createdAt.present ? data.createdAt.value : this.createdAt,
+      updatedAt: data.updatedAt.present ? data.updatedAt.value : this.updatedAt,
+      deletedAt: data.deletedAt.present ? data.deletedAt.value : this.deletedAt,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TripRow(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('tripType: $tripType, ')
+          ..write('title: $title, ')
+          ..write('placeName: $placeName, ')
+          ..write('startDate: $startDate, ')
+          ..write('endDate: $endDate, ')
+          ..write('story: $story, ')
+          ..write('childReaction: $childReaction, ')
+          ..write('coverAssetId: $coverAssetId, ')
+          ..write('albumId: $albumId, ')
+          ..write('isFavorite: $isFavorite, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    id,
+    childId,
+    tripType,
+    title,
+    placeName,
+    startDate,
+    endDate,
+    story,
+    childReaction,
+    coverAssetId,
+    albumId,
+    isFavorite,
+    createdAt,
+    updatedAt,
+    deletedAt,
+  );
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is TripRow &&
+          other.id == this.id &&
+          other.childId == this.childId &&
+          other.tripType == this.tripType &&
+          other.title == this.title &&
+          other.placeName == this.placeName &&
+          other.startDate == this.startDate &&
+          other.endDate == this.endDate &&
+          other.story == this.story &&
+          other.childReaction == this.childReaction &&
+          other.coverAssetId == this.coverAssetId &&
+          other.albumId == this.albumId &&
+          other.isFavorite == this.isFavorite &&
+          other.createdAt == this.createdAt &&
+          other.updatedAt == this.updatedAt &&
+          other.deletedAt == this.deletedAt);
+}
+
+class TripsCompanion extends UpdateCompanion<TripRow> {
+  final Value<String> id;
+  final Value<String> childId;
+  final Value<String> tripType;
+  final Value<String> title;
+  final Value<String> placeName;
+  final Value<DateTime> startDate;
+  final Value<DateTime?> endDate;
+  final Value<String?> story;
+  final Value<String?> childReaction;
+  final Value<String?> coverAssetId;
+  final Value<String?> albumId;
+  final Value<bool> isFavorite;
+  final Value<DateTime> createdAt;
+  final Value<DateTime> updatedAt;
+  final Value<DateTime?> deletedAt;
+  final Value<int> rowid;
+  const TripsCompanion({
+    this.id = const Value.absent(),
+    this.childId = const Value.absent(),
+    this.tripType = const Value.absent(),
+    this.title = const Value.absent(),
+    this.placeName = const Value.absent(),
+    this.startDate = const Value.absent(),
+    this.endDate = const Value.absent(),
+    this.story = const Value.absent(),
+    this.childReaction = const Value.absent(),
+    this.coverAssetId = const Value.absent(),
+    this.albumId = const Value.absent(),
+    this.isFavorite = const Value.absent(),
+    this.createdAt = const Value.absent(),
+    this.updatedAt = const Value.absent(),
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  TripsCompanion.insert({
+    required String id,
+    required String childId,
+    required String tripType,
+    required String title,
+    required String placeName,
+    required DateTime startDate,
+    this.endDate = const Value.absent(),
+    this.story = const Value.absent(),
+    this.childReaction = const Value.absent(),
+    this.coverAssetId = const Value.absent(),
+    this.albumId = const Value.absent(),
+    this.isFavorite = const Value.absent(),
+    required DateTime createdAt,
+    required DateTime updatedAt,
+    this.deletedAt = const Value.absent(),
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       childId = Value(childId),
+       tripType = Value(tripType),
+       title = Value(title),
+       placeName = Value(placeName),
+       startDate = Value(startDate),
+       createdAt = Value(createdAt),
+       updatedAt = Value(updatedAt);
+  static Insertable<TripRow> custom({
+    Expression<String>? id,
+    Expression<String>? childId,
+    Expression<String>? tripType,
+    Expression<String>? title,
+    Expression<String>? placeName,
+    Expression<DateTime>? startDate,
+    Expression<DateTime>? endDate,
+    Expression<String>? story,
+    Expression<String>? childReaction,
+    Expression<String>? coverAssetId,
+    Expression<String>? albumId,
+    Expression<bool>? isFavorite,
+    Expression<DateTime>? createdAt,
+    Expression<DateTime>? updatedAt,
+    Expression<DateTime>? deletedAt,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (childId != null) 'child_id': childId,
+      if (tripType != null) 'trip_type': tripType,
+      if (title != null) 'title': title,
+      if (placeName != null) 'place_name': placeName,
+      if (startDate != null) 'start_date': startDate,
+      if (endDate != null) 'end_date': endDate,
+      if (story != null) 'story': story,
+      if (childReaction != null) 'child_reaction': childReaction,
+      if (coverAssetId != null) 'cover_asset_id': coverAssetId,
+      if (albumId != null) 'album_id': albumId,
+      if (isFavorite != null) 'is_favorite': isFavorite,
+      if (createdAt != null) 'created_at': createdAt,
+      if (updatedAt != null) 'updated_at': updatedAt,
+      if (deletedAt != null) 'deleted_at': deletedAt,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  TripsCompanion copyWith({
+    Value<String>? id,
+    Value<String>? childId,
+    Value<String>? tripType,
+    Value<String>? title,
+    Value<String>? placeName,
+    Value<DateTime>? startDate,
+    Value<DateTime?>? endDate,
+    Value<String?>? story,
+    Value<String?>? childReaction,
+    Value<String?>? coverAssetId,
+    Value<String?>? albumId,
+    Value<bool>? isFavorite,
+    Value<DateTime>? createdAt,
+    Value<DateTime>? updatedAt,
+    Value<DateTime?>? deletedAt,
+    Value<int>? rowid,
+  }) {
+    return TripsCompanion(
+      id: id ?? this.id,
+      childId: childId ?? this.childId,
+      tripType: tripType ?? this.tripType,
+      title: title ?? this.title,
+      placeName: placeName ?? this.placeName,
+      startDate: startDate ?? this.startDate,
+      endDate: endDate ?? this.endDate,
+      story: story ?? this.story,
+      childReaction: childReaction ?? this.childReaction,
+      coverAssetId: coverAssetId ?? this.coverAssetId,
+      albumId: albumId ?? this.albumId,
+      isFavorite: isFavorite ?? this.isFavorite,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      deletedAt: deletedAt ?? this.deletedAt,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (childId.present) {
+      map['child_id'] = Variable<String>(childId.value);
+    }
+    if (tripType.present) {
+      map['trip_type'] = Variable<String>(tripType.value);
+    }
+    if (title.present) {
+      map['title'] = Variable<String>(title.value);
+    }
+    if (placeName.present) {
+      map['place_name'] = Variable<String>(placeName.value);
+    }
+    if (startDate.present) {
+      map['start_date'] = Variable<DateTime>(startDate.value);
+    }
+    if (endDate.present) {
+      map['end_date'] = Variable<DateTime>(endDate.value);
+    }
+    if (story.present) {
+      map['story'] = Variable<String>(story.value);
+    }
+    if (childReaction.present) {
+      map['child_reaction'] = Variable<String>(childReaction.value);
+    }
+    if (coverAssetId.present) {
+      map['cover_asset_id'] = Variable<String>(coverAssetId.value);
+    }
+    if (albumId.present) {
+      map['album_id'] = Variable<String>(albumId.value);
+    }
+    if (isFavorite.present) {
+      map['is_favorite'] = Variable<bool>(isFavorite.value);
+    }
+    if (createdAt.present) {
+      map['created_at'] = Variable<DateTime>(createdAt.value);
+    }
+    if (updatedAt.present) {
+      map['updated_at'] = Variable<DateTime>(updatedAt.value);
+    }
+    if (deletedAt.present) {
+      map['deleted_at'] = Variable<DateTime>(deletedAt.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('TripsCompanion(')
+          ..write('id: $id, ')
+          ..write('childId: $childId, ')
+          ..write('tripType: $tripType, ')
+          ..write('title: $title, ')
+          ..write('placeName: $placeName, ')
+          ..write('startDate: $startDate, ')
+          ..write('endDate: $endDate, ')
+          ..write('story: $story, ')
+          ..write('childReaction: $childReaction, ')
+          ..write('coverAssetId: $coverAssetId, ')
+          ..write('albumId: $albumId, ')
+          ..write('isFavorite: $isFavorite, ')
+          ..write('createdAt: $createdAt, ')
+          ..write('updatedAt: $updatedAt, ')
+          ..write('deletedAt: $deletedAt, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
@@ -20099,6 +22415,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     this,
   );
   late final $FavoritesTable favorites = $FavoritesTable(this);
+  late final $InterestsTable interests = $InterestsTable(this);
+  late final $FamilyEventsTable familyEvents = $FamilyEventsTable(this);
+  late final $TripsTable trips = $TripsTable(this);
   late final Index mediaAssetsChild = Index(
     'media_assets_child',
     'CREATE INDEX media_assets_child ON media_assets (child_id)',
@@ -20211,6 +22530,26 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     'favorites_child_category',
     'CREATE INDEX favorites_child_category ON favorites (child_id, category)',
   );
+  late final Index interestsChildName = Index(
+    'interests_child_name',
+    'CREATE INDEX interests_child_name ON interests (child_id, name)',
+  );
+  late final Index familyEventsChildDate = Index(
+    'family_events_child_date',
+    'CREATE INDEX family_events_child_date ON family_events (child_id, event_date)',
+  );
+  late final Index familyEventsType = Index(
+    'family_events_type',
+    'CREATE INDEX family_events_type ON family_events (event_type)',
+  );
+  late final Index tripsChildDate = Index(
+    'trips_child_date',
+    'CREATE INDEX trips_child_date ON trips (child_id, start_date)',
+  );
+  late final Index tripsType = Index(
+    'trips_type',
+    'CREATE INDEX trips_type ON trips (trip_type)',
+  );
   late final ChildrenDao childrenDao = ChildrenDao(this as AppDatabase);
   late final SettingsDao settingsDao = SettingsDao(this as AppDatabase);
   late final MediaAssetsDao mediaAssetsDao = MediaAssetsDao(
@@ -20268,6 +22607,11 @@ abstract class _$AppDatabase extends GeneratedDatabase {
       YearReviewPreferencesDao(this as AppDatabase);
   late final BirthdaysDao birthdaysDao = BirthdaysDao(this as AppDatabase);
   late final FavoritesDao favoritesDao = FavoritesDao(this as AppDatabase);
+  late final InterestsDao interestsDao = InterestsDao(this as AppDatabase);
+  late final FamilyEventsDao familyEventsDao = FamilyEventsDao(
+    this as AppDatabase,
+  );
+  late final TripsDao tripsDao = TripsDao(this as AppDatabase);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -20302,6 +22646,9 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     birthdays,
     birthdayAnswers,
     favorites,
+    interests,
+    familyEvents,
+    trips,
     mediaAssetsChild,
     mediaAssetsChecksum,
     mediaAssetsFavorite,
@@ -20330,6 +22677,11 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     birthdaysChildDate,
     birthdayAnswersBirthday,
     favoritesChildCategory,
+    interestsChildName,
+    familyEventsChildDate,
+    familyEventsType,
+    tripsChildDate,
+    tripsType,
   ];
   @override
   DriftDatabaseOptions get options =>
@@ -30133,6 +32485,1098 @@ typedef $$FavoritesTableProcessedTableManager =
       FavoriteRow,
       PrefetchHooks Function()
     >;
+typedef $$InterestsTableCreateCompanionBuilder = InterestsCompanion Function({
+  required String id,
+  required String childId,
+  required String name,
+  Value<DateTime?> firstNoticed,
+  Value<int?> interestLevel,
+  Value<String?> notes,
+  Value<String?> coverAssetId,
+  required DateTime createdAt,
+  required DateTime updatedAt,
+  Value<DateTime?> deletedAt,
+  Value<int> rowid,
+});
+typedef $$InterestsTableUpdateCompanionBuilder = InterestsCompanion Function({
+  Value<String> id,
+  Value<String> childId,
+  Value<String> name,
+  Value<DateTime?> firstNoticed,
+  Value<int?> interestLevel,
+  Value<String?> notes,
+  Value<String?> coverAssetId,
+  Value<DateTime> createdAt,
+  Value<DateTime> updatedAt,
+  Value<DateTime?> deletedAt,
+  Value<int> rowid,
+});
+
+class $$InterestsTableFilterComposer
+    extends Composer<_$AppDatabase, $InterestsTable> {
+  $$InterestsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get firstNoticed => $composableBuilder(
+    column: $table.firstNoticed,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get interestLevel => $composableBuilder(
+    column: $table.interestLevel,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get coverAssetId => $composableBuilder(
+    column: $table.coverAssetId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$InterestsTableOrderingComposer
+    extends Composer<_$AppDatabase, $InterestsTable> {
+  $$InterestsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get name => $composableBuilder(
+    column: $table.name,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get firstNoticed => $composableBuilder(
+    column: $table.firstNoticed,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get interestLevel => $composableBuilder(
+    column: $table.interestLevel,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get notes => $composableBuilder(
+    column: $table.notes,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get coverAssetId => $composableBuilder(
+    column: $table.coverAssetId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$InterestsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $InterestsTable> {
+  $$InterestsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get childId =>
+      $composableBuilder(column: $table.childId, builder: (column) => column);
+
+  GeneratedColumn<String> get name =>
+      $composableBuilder(column: $table.name, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get firstNoticed => $composableBuilder(
+    column: $table.firstNoticed,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get interestLevel => $composableBuilder(
+    column: $table.interestLevel,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get notes =>
+      $composableBuilder(column: $table.notes, builder: (column) => column);
+
+  GeneratedColumn<String> get coverAssetId => $composableBuilder(
+    column: $table.coverAssetId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+}
+
+class $$InterestsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $InterestsTable,
+          InterestRow,
+          $$InterestsTableFilterComposer,
+          $$InterestsTableOrderingComposer,
+          $$InterestsTableAnnotationComposer,
+          $$InterestsTableCreateCompanionBuilder,
+          $$InterestsTableUpdateCompanionBuilder,
+          (
+            InterestRow,
+            BaseReferences<_$AppDatabase, $InterestsTable, InterestRow>,
+          ),
+          InterestRow,
+          PrefetchHooks Function()
+        > {
+  $$InterestsTableTableManager(_$AppDatabase db, $InterestsTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$InterestsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$InterestsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$InterestsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> childId = const Value.absent(),
+                Value<String> name = const Value.absent(),
+                Value<DateTime?> firstNoticed = const Value.absent(),
+                Value<int?> interestLevel = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                Value<String?> coverAssetId = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => InterestsCompanion(
+                id: id,
+                childId: childId,
+                name: name,
+                firstNoticed: firstNoticed,
+                interestLevel: interestLevel,
+                notes: notes,
+                coverAssetId: coverAssetId,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String childId,
+                required String name,
+                Value<DateTime?> firstNoticed = const Value.absent(),
+                Value<int?> interestLevel = const Value.absent(),
+                Value<String?> notes = const Value.absent(),
+                Value<String?> coverAssetId = const Value.absent(),
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => InterestsCompanion.insert(
+                id: id,
+                childId: childId,
+                name: name,
+                firstNoticed: firstNoticed,
+                interestLevel: interestLevel,
+                notes: notes,
+                coverAssetId: coverAssetId,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$InterestsTable, InterestRow>(table),
+                  BaseReferences<_$AppDatabase, $InterestsTable, InterestRow>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$InterestsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $InterestsTable,
+      InterestRow,
+      $$InterestsTableFilterComposer,
+      $$InterestsTableOrderingComposer,
+      $$InterestsTableAnnotationComposer,
+      $$InterestsTableCreateCompanionBuilder,
+      $$InterestsTableUpdateCompanionBuilder,
+      (
+        InterestRow,
+        BaseReferences<_$AppDatabase, $InterestsTable, InterestRow>,
+      ),
+      InterestRow,
+      PrefetchHooks Function()
+    >;
+typedef $$FamilyEventsTableCreateCompanionBuilder =
+    FamilyEventsCompanion Function({
+      required String id,
+      required String childId,
+      required String eventType,
+      required String title,
+      required DateTime eventDate,
+      Value<String?> locationText,
+      Value<String?> story,
+      Value<String?> childReaction,
+      Value<String?> coverAssetId,
+      Value<String?> albumId,
+      Value<bool> isFavorite,
+      required DateTime createdAt,
+      required DateTime updatedAt,
+      Value<DateTime?> deletedAt,
+      Value<int> rowid,
+    });
+typedef $$FamilyEventsTableUpdateCompanionBuilder =
+    FamilyEventsCompanion Function({
+      Value<String> id,
+      Value<String> childId,
+      Value<String> eventType,
+      Value<String> title,
+      Value<DateTime> eventDate,
+      Value<String?> locationText,
+      Value<String?> story,
+      Value<String?> childReaction,
+      Value<String?> coverAssetId,
+      Value<String?> albumId,
+      Value<bool> isFavorite,
+      Value<DateTime> createdAt,
+      Value<DateTime> updatedAt,
+      Value<DateTime?> deletedAt,
+      Value<int> rowid,
+    });
+
+class $$FamilyEventsTableFilterComposer
+    extends Composer<_$AppDatabase, $FamilyEventsTable> {
+  $$FamilyEventsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get eventType => $composableBuilder(
+    column: $table.eventType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get eventDate => $composableBuilder(
+    column: $table.eventDate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get locationText => $composableBuilder(
+    column: $table.locationText,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get story => $composableBuilder(
+    column: $table.story,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get childReaction => $composableBuilder(
+    column: $table.childReaction,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get coverAssetId => $composableBuilder(
+    column: $table.coverAssetId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get albumId => $composableBuilder(
+    column: $table.albumId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get isFavorite => $composableBuilder(
+    column: $table.isFavorite,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$FamilyEventsTableOrderingComposer
+    extends Composer<_$AppDatabase, $FamilyEventsTable> {
+  $$FamilyEventsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get eventType => $composableBuilder(
+    column: $table.eventType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get eventDate => $composableBuilder(
+    column: $table.eventDate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get locationText => $composableBuilder(
+    column: $table.locationText,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get story => $composableBuilder(
+    column: $table.story,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get childReaction => $composableBuilder(
+    column: $table.childReaction,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get coverAssetId => $composableBuilder(
+    column: $table.coverAssetId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get albumId => $composableBuilder(
+    column: $table.albumId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get isFavorite => $composableBuilder(
+    column: $table.isFavorite,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$FamilyEventsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $FamilyEventsTable> {
+  $$FamilyEventsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get childId =>
+      $composableBuilder(column: $table.childId, builder: (column) => column);
+
+  GeneratedColumn<String> get eventType =>
+      $composableBuilder(column: $table.eventType, builder: (column) => column);
+
+  GeneratedColumn<String> get title =>
+      $composableBuilder(column: $table.title, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get eventDate =>
+      $composableBuilder(column: $table.eventDate, builder: (column) => column);
+
+  GeneratedColumn<String> get locationText => $composableBuilder(
+    column: $table.locationText,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get story =>
+      $composableBuilder(column: $table.story, builder: (column) => column);
+
+  GeneratedColumn<String> get childReaction => $composableBuilder(
+    column: $table.childReaction,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get coverAssetId => $composableBuilder(
+    column: $table.coverAssetId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get albumId =>
+      $composableBuilder(column: $table.albumId, builder: (column) => column);
+
+  GeneratedColumn<bool> get isFavorite => $composableBuilder(
+    column: $table.isFavorite,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+}
+
+class $$FamilyEventsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $FamilyEventsTable,
+          FamilyEventRow,
+          $$FamilyEventsTableFilterComposer,
+          $$FamilyEventsTableOrderingComposer,
+          $$FamilyEventsTableAnnotationComposer,
+          $$FamilyEventsTableCreateCompanionBuilder,
+          $$FamilyEventsTableUpdateCompanionBuilder,
+          (
+            FamilyEventRow,
+            BaseReferences<_$AppDatabase, $FamilyEventsTable, FamilyEventRow>,
+          ),
+          FamilyEventRow,
+          PrefetchHooks Function()
+        > {
+  $$FamilyEventsTableTableManager(_$AppDatabase db, $FamilyEventsTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$FamilyEventsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$FamilyEventsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$FamilyEventsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> childId = const Value.absent(),
+                Value<String> eventType = const Value.absent(),
+                Value<String> title = const Value.absent(),
+                Value<DateTime> eventDate = const Value.absent(),
+                Value<String?> locationText = const Value.absent(),
+                Value<String?> story = const Value.absent(),
+                Value<String?> childReaction = const Value.absent(),
+                Value<String?> coverAssetId = const Value.absent(),
+                Value<String?> albumId = const Value.absent(),
+                Value<bool> isFavorite = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => FamilyEventsCompanion(
+                id: id,
+                childId: childId,
+                eventType: eventType,
+                title: title,
+                eventDate: eventDate,
+                locationText: locationText,
+                story: story,
+                childReaction: childReaction,
+                coverAssetId: coverAssetId,
+                albumId: albumId,
+                isFavorite: isFavorite,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String childId,
+                required String eventType,
+                required String title,
+                required DateTime eventDate,
+                Value<String?> locationText = const Value.absent(),
+                Value<String?> story = const Value.absent(),
+                Value<String?> childReaction = const Value.absent(),
+                Value<String?> coverAssetId = const Value.absent(),
+                Value<String?> albumId = const Value.absent(),
+                Value<bool> isFavorite = const Value.absent(),
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => FamilyEventsCompanion.insert(
+                id: id,
+                childId: childId,
+                eventType: eventType,
+                title: title,
+                eventDate: eventDate,
+                locationText: locationText,
+                story: story,
+                childReaction: childReaction,
+                coverAssetId: coverAssetId,
+                albumId: albumId,
+                isFavorite: isFavorite,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$FamilyEventsTable, FamilyEventRow>(table),
+                  BaseReferences<
+                    _$AppDatabase,
+                    $FamilyEventsTable,
+                    FamilyEventRow
+                  >(db, table, e),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$FamilyEventsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $FamilyEventsTable,
+      FamilyEventRow,
+      $$FamilyEventsTableFilterComposer,
+      $$FamilyEventsTableOrderingComposer,
+      $$FamilyEventsTableAnnotationComposer,
+      $$FamilyEventsTableCreateCompanionBuilder,
+      $$FamilyEventsTableUpdateCompanionBuilder,
+      (
+        FamilyEventRow,
+        BaseReferences<_$AppDatabase, $FamilyEventsTable, FamilyEventRow>,
+      ),
+      FamilyEventRow,
+      PrefetchHooks Function()
+    >;
+typedef $$TripsTableCreateCompanionBuilder = TripsCompanion Function({
+  required String id,
+  required String childId,
+  required String tripType,
+  required String title,
+  required String placeName,
+  required DateTime startDate,
+  Value<DateTime?> endDate,
+  Value<String?> story,
+  Value<String?> childReaction,
+  Value<String?> coverAssetId,
+  Value<String?> albumId,
+  Value<bool> isFavorite,
+  required DateTime createdAt,
+  required DateTime updatedAt,
+  Value<DateTime?> deletedAt,
+  Value<int> rowid,
+});
+typedef $$TripsTableUpdateCompanionBuilder = TripsCompanion Function({
+  Value<String> id,
+  Value<String> childId,
+  Value<String> tripType,
+  Value<String> title,
+  Value<String> placeName,
+  Value<DateTime> startDate,
+  Value<DateTime?> endDate,
+  Value<String?> story,
+  Value<String?> childReaction,
+  Value<String?> coverAssetId,
+  Value<String?> albumId,
+  Value<bool> isFavorite,
+  Value<DateTime> createdAt,
+  Value<DateTime> updatedAt,
+  Value<DateTime?> deletedAt,
+  Value<int> rowid,
+});
+
+class $$TripsTableFilterComposer extends Composer<_$AppDatabase, $TripsTable> {
+  $$TripsTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get tripType => $composableBuilder(
+    column: $table.tripType,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get placeName => $composableBuilder(
+    column: $table.placeName,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get startDate => $composableBuilder(
+    column: $table.startDate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get endDate => $composableBuilder(
+    column: $table.endDate,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get story => $composableBuilder(
+    column: $table.story,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get childReaction => $composableBuilder(
+    column: $table.childReaction,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get coverAssetId => $composableBuilder(
+    column: $table.coverAssetId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<String> get albumId => $composableBuilder(
+    column: $table.albumId,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<bool> get isFavorite => $composableBuilder(
+    column: $table.isFavorite,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$TripsTableOrderingComposer
+    extends Composer<_$AppDatabase, $TripsTable> {
+  $$TripsTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get childId => $composableBuilder(
+    column: $table.childId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get tripType => $composableBuilder(
+    column: $table.tripType,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get placeName => $composableBuilder(
+    column: $table.placeName,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get startDate => $composableBuilder(
+    column: $table.startDate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get endDate => $composableBuilder(
+    column: $table.endDate,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get story => $composableBuilder(
+    column: $table.story,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get childReaction => $composableBuilder(
+    column: $table.childReaction,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get coverAssetId => $composableBuilder(
+    column: $table.coverAssetId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get albumId => $composableBuilder(
+    column: $table.albumId,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<bool> get isFavorite => $composableBuilder(
+    column: $table.isFavorite,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get createdAt => $composableBuilder(
+    column: $table.createdAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get updatedAt => $composableBuilder(
+    column: $table.updatedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<DateTime> get deletedAt => $composableBuilder(
+    column: $table.deletedAt,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$TripsTableAnnotationComposer
+    extends Composer<_$AppDatabase, $TripsTable> {
+  $$TripsTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumn<String> get childId =>
+      $composableBuilder(column: $table.childId, builder: (column) => column);
+
+  GeneratedColumn<String> get tripType =>
+      $composableBuilder(column: $table.tripType, builder: (column) => column);
+
+  GeneratedColumn<String> get title =>
+      $composableBuilder(column: $table.title, builder: (column) => column);
+
+  GeneratedColumn<String> get placeName =>
+      $composableBuilder(column: $table.placeName, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get startDate =>
+      $composableBuilder(column: $table.startDate, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get endDate =>
+      $composableBuilder(column: $table.endDate, builder: (column) => column);
+
+  GeneratedColumn<String> get story =>
+      $composableBuilder(column: $table.story, builder: (column) => column);
+
+  GeneratedColumn<String> get childReaction => $composableBuilder(
+    column: $table.childReaction,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get coverAssetId => $composableBuilder(
+    column: $table.coverAssetId,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<String> get albumId =>
+      $composableBuilder(column: $table.albumId, builder: (column) => column);
+
+  GeneratedColumn<bool> get isFavorite => $composableBuilder(
+    column: $table.isFavorite,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<DateTime> get createdAt =>
+      $composableBuilder(column: $table.createdAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get updatedAt =>
+      $composableBuilder(column: $table.updatedAt, builder: (column) => column);
+
+  GeneratedColumn<DateTime> get deletedAt =>
+      $composableBuilder(column: $table.deletedAt, builder: (column) => column);
+}
+
+class $$TripsTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $TripsTable,
+          TripRow,
+          $$TripsTableFilterComposer,
+          $$TripsTableOrderingComposer,
+          $$TripsTableAnnotationComposer,
+          $$TripsTableCreateCompanionBuilder,
+          $$TripsTableUpdateCompanionBuilder,
+          (TripRow, BaseReferences<_$AppDatabase, $TripsTable, TripRow>),
+          TripRow,
+          PrefetchHooks Function()
+        > {
+  $$TripsTableTableManager(_$AppDatabase db, $TripsTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$TripsTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$TripsTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$TripsTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<String> childId = const Value.absent(),
+                Value<String> tripType = const Value.absent(),
+                Value<String> title = const Value.absent(),
+                Value<String> placeName = const Value.absent(),
+                Value<DateTime> startDate = const Value.absent(),
+                Value<DateTime?> endDate = const Value.absent(),
+                Value<String?> story = const Value.absent(),
+                Value<String?> childReaction = const Value.absent(),
+                Value<String?> coverAssetId = const Value.absent(),
+                Value<String?> albumId = const Value.absent(),
+                Value<bool> isFavorite = const Value.absent(),
+                Value<DateTime> createdAt = const Value.absent(),
+                Value<DateTime> updatedAt = const Value.absent(),
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => TripsCompanion(
+                id: id,
+                childId: childId,
+                tripType: tripType,
+                title: title,
+                placeName: placeName,
+                startDate: startDate,
+                endDate: endDate,
+                story: story,
+                childReaction: childReaction,
+                coverAssetId: coverAssetId,
+                albumId: albumId,
+                isFavorite: isFavorite,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required String childId,
+                required String tripType,
+                required String title,
+                required String placeName,
+                required DateTime startDate,
+                Value<DateTime?> endDate = const Value.absent(),
+                Value<String?> story = const Value.absent(),
+                Value<String?> childReaction = const Value.absent(),
+                Value<String?> coverAssetId = const Value.absent(),
+                Value<String?> albumId = const Value.absent(),
+                Value<bool> isFavorite = const Value.absent(),
+                required DateTime createdAt,
+                required DateTime updatedAt,
+                Value<DateTime?> deletedAt = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => TripsCompanion.insert(
+                id: id,
+                childId: childId,
+                tripType: tripType,
+                title: title,
+                placeName: placeName,
+                startDate: startDate,
+                endDate: endDate,
+                story: story,
+                childReaction: childReaction,
+                coverAssetId: coverAssetId,
+                albumId: albumId,
+                isFavorite: isFavorite,
+                createdAt: createdAt,
+                updatedAt: updatedAt,
+                deletedAt: deletedAt,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$TripsTable, TripRow>(table),
+                  BaseReferences<_$AppDatabase, $TripsTable, TripRow>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$TripsTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $TripsTable,
+      TripRow,
+      $$TripsTableFilterComposer,
+      $$TripsTableOrderingComposer,
+      $$TripsTableAnnotationComposer,
+      $$TripsTableCreateCompanionBuilder,
+      $$TripsTableUpdateCompanionBuilder,
+      (TripRow, BaseReferences<_$AppDatabase, $TripsTable, TripRow>),
+      TripRow,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -30194,4 +33638,10 @@ class $AppDatabaseManager {
       $$BirthdayAnswersTableTableManager(_db, _db.birthdayAnswers);
   $$FavoritesTableTableManager get favorites =>
       $$FavoritesTableTableManager(_db, _db.favorites);
+  $$InterestsTableTableManager get interests =>
+      $$InterestsTableTableManager(_db, _db.interests);
+  $$FamilyEventsTableTableManager get familyEvents =>
+      $$FamilyEventsTableTableManager(_db, _db.familyEvents);
+  $$TripsTableTableManager get trips =>
+      $$TripsTableTableManager(_db, _db.trips);
 }

@@ -107,8 +107,17 @@ abstract final class AlbumTypes {
   static const yearInReview = 'year_in_review';
   static const favorites = 'favorites';
   static const birthday = 'birthday';
+  static const familyEvent = 'family_event';
+  static const trip = 'trip';
 
-  static const all = [custom, yearInReview, favorites, birthday];
+  static const all = [
+    custom,
+    yearInReview,
+    favorites,
+    birthday,
+    familyEvent,
+    trip,
+  ];
 }
 
 abstract final class AlbumThemes {

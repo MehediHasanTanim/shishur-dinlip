@@ -365,6 +365,117 @@ class SearchService extends RepositoryBase {
         }
       }
 
+      if (query.type == null || query.type == SearchResultType.interest) {
+        final rows = await db.customSelect(
+          '''
+          SELECT id, child_id, name, notes, first_noticed, interest_level
+          FROM interests
+          WHERE child_id = ? AND deleted_at IS NULL
+            AND (name LIKE ? OR IFNULL(notes, '') LIKE ?)
+          ORDER BY IFNULL(first_noticed, created_at) DESC
+          LIMIT ?
+          ''',
+          variables: [
+            Variable.withString(query.childId),
+            Variable.withString(pattern),
+            Variable.withString(pattern),
+            Variable.withInt(query.limit),
+          ],
+          readsFrom: {db.interests},
+        ).get();
+        for (final row in rows) {
+          addIfAllowed(
+            SearchResultType.interest,
+            SearchResult(
+              id: row.data['id'] as String,
+              childId: row.data['child_id'] as String,
+              type: SearchResultType.interest,
+              title: row.data['name'] as String,
+              subtitle: row.data['interest_level'] == null
+                  ? null
+                  : 'Level ${row.data['interest_level']}',
+              snippet: row.data['notes'] as String?,
+              eventDate: _readDate(row.data['first_noticed']),
+            ),
+          );
+        }
+      }
+
+      if (query.type == null || query.type == SearchResultType.familyEvent) {
+        final rows = await db.customSelect(
+          '''
+          SELECT id, child_id, title, event_type, event_date, location_text, story
+          FROM family_events
+          WHERE child_id = ? AND deleted_at IS NULL
+            AND (title LIKE ? OR event_type LIKE ?
+                 OR IFNULL(location_text, '') LIKE ?
+                 OR IFNULL(story, '') LIKE ?)
+          ORDER BY event_date DESC
+          LIMIT ?
+          ''',
+          variables: [
+            Variable.withString(query.childId),
+            Variable.withString(pattern),
+            Variable.withString(pattern),
+            Variable.withString(pattern),
+            Variable.withString(pattern),
+            Variable.withInt(query.limit),
+          ],
+          readsFrom: {db.familyEvents},
+        ).get();
+        for (final row in rows) {
+          addIfAllowed(
+            SearchResultType.familyEvent,
+            SearchResult(
+              id: row.data['id'] as String,
+              childId: row.data['child_id'] as String,
+              type: SearchResultType.familyEvent,
+              title: row.data['title'] as String,
+              subtitle: row.data['event_type'] as String?,
+              snippet: row.data['story'] as String?,
+              eventDate: _readDate(row.data['event_date']),
+            ),
+          );
+        }
+      }
+
+      if (query.type == null || query.type == SearchResultType.trip) {
+        final rows = await db.customSelect(
+          '''
+          SELECT id, child_id, title, place_name, trip_type, start_date, story
+          FROM trips
+          WHERE child_id = ? AND deleted_at IS NULL
+            AND (title LIKE ? OR place_name LIKE ? OR trip_type LIKE ?
+                 OR IFNULL(story, '') LIKE ?)
+          ORDER BY start_date DESC
+          LIMIT ?
+          ''',
+          variables: [
+            Variable.withString(query.childId),
+            Variable.withString(pattern),
+            Variable.withString(pattern),
+            Variable.withString(pattern),
+            Variable.withString(pattern),
+            Variable.withInt(query.limit),
+          ],
+          readsFrom: {db.trips},
+        ).get();
+        for (final row in rows) {
+          addIfAllowed(
+            SearchResultType.trip,
+            SearchResult(
+              id: row.data['id'] as String,
+              childId: row.data['child_id'] as String,
+              type: SearchResultType.trip,
+              title: row.data['title'] as String,
+              subtitle: row.data['place_name'] as String?,
+              snippet: row.data['story'] as String?,
+              eventDate: _readDate(row.data['start_date']),
+            ),
+          );
+        }
+      }
+
       results.sort((a, b) => b.eventDate.compareTo(a.eventDate));
       if (results.length > query.limit) {
         return results.take(query.limit).toList();

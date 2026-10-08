@@ -11,6 +11,8 @@ enum TimelineItemType {
   illness,
   doctorVisit,
   birthday,
+  familyEvent,
+  trip,
 }
 
 enum TimelineFilter {
@@ -64,6 +66,8 @@ class TimelineItem {
     TimelineItemType.illness => 'illness_episode',
     TimelineItemType.doctorVisit => 'doctor_visit',
     TimelineItemType.birthday => 'birthday',
+    TimelineItemType.familyEvent => 'family_event',
+    TimelineItemType.trip => 'trip',
   };
 
   bool matches(TimelineFilter filter) {
@@ -72,7 +76,9 @@ class TimelineItem {
       TimelineFilter.memories =>
         type == TimelineItemType.journal ||
         type == TimelineItemType.funnyMoment ||
-        type == TimelineItemType.achievement,
+        type == TimelineItemType.achievement ||
+        type == TimelineItemType.familyEvent ||
+        type == TimelineItemType.trip,
       TimelineFilter.growth => type == TimelineItemType.growth,
       TimelineFilter.milestones => type == TimelineItemType.milestone,
       TimelineFilter.health =>
@@ -91,12 +97,14 @@ class TimelineItem {
     TimelineItemType.journal => 1,
     TimelineItemType.achievement => 2,
     TimelineItemType.funnyMoment => 3,
-    TimelineItemType.milestone => 4,
-    TimelineItemType.growth => 5,
-    TimelineItemType.schoolEvent => 6,
-    TimelineItemType.vaccination => 7,
-    TimelineItemType.illness => 8,
-    TimelineItemType.doctorVisit => 9,
+    TimelineItemType.familyEvent => 4,
+    TimelineItemType.trip => 5,
+    TimelineItemType.milestone => 6,
+    TimelineItemType.growth => 7,
+    TimelineItemType.schoolEvent => 8,
+    TimelineItemType.vaccination => 9,
+    TimelineItemType.illness => 10,
+    TimelineItemType.doctorVisit => 11,
   };
 }
 

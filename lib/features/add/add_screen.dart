@@ -79,6 +79,49 @@ class AddScreen extends ConsumerWidget {
               subtitle: l10n.addFavoriteSubtitle,
               onTap: () => context.push(AppRoutes.favoriteCreate),
             ),
+            _AddTile(
+              icon: Icons.interests_outlined,
+              title: l10n.addInterest,
+              subtitle: l10n.addInterestSubtitle,
+              onTap: () => context.push(AppRoutes.interestCreate),
+            ),
+            _AddTile(
+              icon: Icons.celebration_outlined,
+              title: l10n.addFamilyEvent,
+              subtitle: l10n.addFamilyEventSubtitle,
+              onTap: () => context.push(AppRoutes.familyEventCreate),
+            ),
+            _AddTile(
+              icon: Icons.flight_takeoff_outlined,
+              title: l10n.addTrip,
+              subtitle: l10n.addTripSubtitle,
+              onTap: () => context.push(AppRoutes.tripCreate),
+            ),
+            const SizedBox(height: 12),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: [
+                ActionChip(
+                  label: Text(l10n.familyEventTypeEid),
+                  onPressed: () => context.push(
+                    AppRoutes.familyEventCreatePath(type: 'eid'),
+                  ),
+                ),
+                ActionChip(
+                  label: Text(l10n.tripTypeFirstFlight),
+                  onPressed: () => context.push(
+                    AppRoutes.tripCreatePath(type: 'first_flight'),
+                  ),
+                ),
+                ActionChip(
+                  label: Text(l10n.tripTypeFirstBeach),
+                  onPressed: () => context.push(
+                    AppRoutes.tripCreatePath(type: 'first_beach'),
+                  ),
+                ),
+              ],
+            ),
             const SizedBox(height: 24),
             Text(
               l10n.addGroupDevelopment,

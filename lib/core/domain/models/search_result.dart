@@ -10,6 +10,9 @@ enum SearchResultType {
   achievement,
   birthday,
   favorite,
+  interest,
+  familyEvent,
+  trip,
 }
 
 @immutable

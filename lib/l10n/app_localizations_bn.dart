@@ -2357,4 +2357,198 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get addFavoriteSubtitle => 'খাবার, রং, কার্টুন, বই, খেলা, বন্ধু';
+
+  @override
+  String get interestsTitle => 'আগ্রহ';
+
+  @override
+  String get addInterest => 'আগ্রহ যোগ করুন';
+
+  @override
+  String get editInterest => 'আগ্রহ সম্পাদনা';
+
+  @override
+  String get interestName => 'আগ্রহ';
+
+  @override
+  String get interestFirstNoticed => 'প্রথম লক্ষ করা';
+
+  @override
+  String get interestLevel => 'আগ্রহের মাত্রা';
+
+  @override
+  String get interestNotes => 'নোট';
+
+  @override
+  String get interestEmpty => 'এখনো কোনো আগ্রহ নেই।';
+
+  @override
+  String get interestEmptyHint =>
+      'আঁকা, খেলা, সঙ্গীতসহ বেড়ে ওঠার আগ্রহগুলো রাখুন।';
+
+  @override
+  String interestLevelLabel(int level) {
+    return 'মাত্রা $level';
+  }
+
+  @override
+  String get familyEventsTitle => 'পারিবারিক অনুষ্ঠান';
+
+  @override
+  String get addFamilyEvent => 'পারিবারিক অনুষ্ঠান যোগ';
+
+  @override
+  String get editFamilyEvent => 'অনুষ্ঠান সম্পাদনা';
+
+  @override
+  String get familyEventType => 'ধরন';
+
+  @override
+  String get familyEventTitle => 'শিরোনাম';
+
+  @override
+  String get familyEventDate => 'তারিখ';
+
+  @override
+  String get familyEventLocation => 'স্থান';
+
+  @override
+  String get familyEventStory => 'গল্প';
+
+  @override
+  String get familyEventReaction => 'শিশুর প্রতিক্রিয়া';
+
+  @override
+  String get familyEventEmpty => 'এখনো কোনো পারিবারিক অনুষ্ঠান নেই।';
+
+  @override
+  String get familyEventEmptyHint =>
+      'ঈদ, বিয়ে, সফর ও বিশেষ মুহূর্ত সংরক্ষণ করুন।';
+
+  @override
+  String get familyEventAlbumCreate => 'অনুষ্ঠানের অ্যালবাম তৈরি';
+
+  @override
+  String get familyEventAlbumReady => 'পারিবারিক অ্যালবাম প্রস্তুত।';
+
+  @override
+  String get familyEventTypeEid => 'ঈদ';
+
+  @override
+  String get familyEventTypeWedding => 'বিয়ে';
+
+  @override
+  String get familyEventTypeVacation => 'পারিবারিক ছুটি';
+
+  @override
+  String get familyEventTypeGrandparent => 'দাদা-দাদি/নানা-নানির সফর';
+
+  @override
+  String get familyEventTypeSibling => 'নতুন ভাইবোন';
+
+  @override
+  String get familyEventTypeMoving => 'ঘর বদল';
+
+  @override
+  String get familyEventTypeFirstFlight => 'প্রথম বিমানযাত্রা';
+
+  @override
+  String get familyEventTypeFirstBeach => 'প্রথম সমুদ্রসৈকত';
+
+  @override
+  String get familyEventTypeGathering => 'মিলনমেলা';
+
+  @override
+  String get familyEventTypeOther => 'অন্যান্য';
+
+  @override
+  String get tripsTitle => 'ভ্রমণ ও স্থান';
+
+  @override
+  String get addTrip => 'ভ্রমণ যোগ করুন';
+
+  @override
+  String get editTrip => 'ভ্রমণ সম্পাদনা';
+
+  @override
+  String get tripType => 'ভ্রমণের ধরন';
+
+  @override
+  String get tripTitle => 'শিরোনাম';
+
+  @override
+  String get tripPlace => 'স্থান';
+
+  @override
+  String get tripStartDate => 'শুরুর তারিখ';
+
+  @override
+  String get tripEndDate => 'শেষ তারিখ (ঐচ্ছিক)';
+
+  @override
+  String get tripStory => 'গল্প';
+
+  @override
+  String get tripReaction => 'শিশুর প্রতিক্রিয়া';
+
+  @override
+  String get tripEmpty => 'এখনো কোনো ভ্রমণ নেই।';
+
+  @override
+  String get tripEmptyHint =>
+      'ছুটি, প্রথম ফ্লাইট, সৈকত ও ঘুরে দেখা স্থানগুলো রাখুন।';
+
+  @override
+  String get tripAlbumCreate => 'ভ্রমণের অ্যালবাম তৈরি';
+
+  @override
+  String get tripAlbumReady => 'ভ্রমণ অ্যালবাম প্রস্তুত।';
+
+  @override
+  String get tripTypeVacation => 'ছুটির ভ্রমণ';
+
+  @override
+  String get tripTypeFirstFlight => 'প্রথম বিমানযাত্রা';
+
+  @override
+  String get tripTypeFirstBeach => 'প্রথম সৈকত';
+
+  @override
+  String get tripTypePlaceVisit => 'স্থান পরিদর্শন';
+
+  @override
+  String get tripTypeOther => 'অন্যান্য';
+
+  @override
+  String get timelineTypeFamilyEvent => 'পারিবারিক অনুষ্ঠান';
+
+  @override
+  String get timelineTypeTrip => 'ভ্রমণ';
+
+  @override
+  String get searchTypeInterest => 'আগ্রহ';
+
+  @override
+  String get searchTypeFamilyEvent => 'পারিবারিক অনুষ্ঠান';
+
+  @override
+  String get searchTypeTrip => 'ভ্রমণ';
+
+  @override
+  String get homeInterests => 'বেড়ে ওঠা আগ্রহ';
+
+  @override
+  String get homeFamilyEvents => 'পারিবারিক মুহূর্ত';
+
+  @override
+  String get homeTrips => 'ভ্রমণ ও স্থান';
+
+  @override
+  String get addInterestSubtitle => 'শখ ও আগ্রহ';
+
+  @override
+  String get addFamilyEventSubtitle => 'ঈদ, বিয়ে, সফর, প্রথমবার';
+
+  @override
+  String get addTripSubtitle => 'ভ্রমণ, স্থান, সৈকত, ফ্লাইট';
 }

@@ -16,6 +16,15 @@ import 'package:shishur_dinlipi/features/birthdays/birthday_interview_screen.dar
 import 'package:shishur_dinlipi/features/birthdays/birthdays_list_screen.dart';
 import 'package:shishur_dinlipi/features/birthdays/favorite_editor_screen.dart';
 import 'package:shishur_dinlipi/features/birthdays/favorites_overview_screen.dart';
+import 'package:shishur_dinlipi/features/life/family_event_detail_screen.dart';
+import 'package:shishur_dinlipi/features/life/family_event_editor_screen.dart';
+import 'package:shishur_dinlipi/features/life/family_events_list_screen.dart';
+import 'package:shishur_dinlipi/features/life/interest_detail_screen.dart';
+import 'package:shishur_dinlipi/features/life/interest_editor_screen.dart';
+import 'package:shishur_dinlipi/features/life/interests_list_screen.dart';
+import 'package:shishur_dinlipi/features/life/trip_detail_screen.dart';
+import 'package:shishur_dinlipi/features/life/trip_editor_screen.dart';
+import 'package:shishur_dinlipi/features/life/trips_list_screen.dart';
 import 'package:shishur_dinlipi/features/security/security_settings_screen.dart';
 import 'package:shishur_dinlipi/features/security/unlock_screen.dart';
 import 'package:shishur_dinlipi/features/storage/storage_screen.dart';
@@ -663,6 +672,88 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         builder: (context, state) => FavoriteEditorScreen(
           favoriteId: state.pathParameters['id'],
         ),
+      ),
+      GoRoute(
+        path: AppRoutes.interests,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const InterestsListScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.interestCreate,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const InterestEditorScreen(),
+      ),
+      GoRoute(
+        path: '/interests/:id',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => InterestDetailScreen(
+          interestId: state.pathParameters['id']!,
+        ),
+        routes: [
+          GoRoute(
+            path: 'edit',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (context, state) => InterestEditorScreen(
+              interestId: state.pathParameters['id'],
+            ),
+          ),
+        ],
+      ),
+      GoRoute(
+        path: AppRoutes.familyEvents,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const FamilyEventsListScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.familyEventCreate,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => FamilyEventEditorScreen(
+          initialType: state.uri.queryParameters['type'],
+        ),
+      ),
+      GoRoute(
+        path: '/family-events/:id',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => FamilyEventDetailScreen(
+          eventId: state.pathParameters['id']!,
+        ),
+        routes: [
+          GoRoute(
+            path: 'edit',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (context, state) => FamilyEventEditorScreen(
+              eventId: state.pathParameters['id'],
+            ),
+          ),
+        ],
+      ),
+      GoRoute(
+        path: AppRoutes.trips,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => const TripsListScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.tripCreate,
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => TripEditorScreen(
+          initialType: state.uri.queryParameters['type'],
+        ),
+      ),
+      GoRoute(
+        path: '/trips/:id',
+        parentNavigatorKey: _rootNavigatorKey,
+        builder: (context, state) => TripDetailScreen(
+          tripId: state.pathParameters['id']!,
+        ),
+        routes: [
+          GoRoute(
+            path: 'edit',
+            parentNavigatorKey: _rootNavigatorKey,
+            builder: (context, state) => TripEditorScreen(
+              tripId: state.pathParameters['id'],
+            ),
+          ),
+        ],
       ),
       GoRoute(
         path: AppRoutes.yearReview,

@@ -17,6 +17,9 @@ abstract final class EntityTypes {
   static const album = 'album';
   static const birthday = 'birthday';
   static const favorite = 'favorite';
+  static const interest = 'interest';
+  static const familyEvent = 'family_event';
+  static const trip = 'trip';
 }
 
 abstract final class JournalEntryTypes {

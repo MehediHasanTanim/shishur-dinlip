@@ -15,6 +15,9 @@ String searchTypeLabel(AppLocalizations l10n, SearchResultType type) {
     SearchResultType.achievement => l10n.searchTypeAchievement,
     SearchResultType.birthday => l10n.searchTypeBirthday,
     SearchResultType.favorite => l10n.searchTypeFavorite,
+    SearchResultType.interest => l10n.searchTypeInterest,
+    SearchResultType.familyEvent => l10n.searchTypeFamilyEvent,
+    SearchResultType.trip => l10n.searchTypeTrip,
   };
 }
 
@@ -29,6 +32,9 @@ IconData searchTypeIcon(SearchResultType type) {
     SearchResultType.achievement => Icons.emoji_events_outlined,
     SearchResultType.birthday => Icons.cake_outlined,
     SearchResultType.favorite => Icons.favorite_outline,
+    SearchResultType.interest => Icons.interests_outlined,
+    SearchResultType.familyEvent => Icons.family_restroom_outlined,
+    SearchResultType.trip => Icons.flight_takeoff_outlined,
   };
 }
 
@@ -43,6 +49,10 @@ String? searchResultDetailPath(SearchResult result) {
     SearchResultType.achievement => AppRoutes.achievementDetailPath(result.id),
     SearchResultType.birthday => AppRoutes.birthdayDetailPath(result.id),
     SearchResultType.favorite => AppRoutes.favoriteEditPath(result.id),
+    SearchResultType.interest => AppRoutes.interestDetailPath(result.id),
+    SearchResultType.familyEvent =>
+      AppRoutes.familyEventDetailPath(result.id),
+    SearchResultType.trip => AppRoutes.tripDetailPath(result.id),
   };
 }
 

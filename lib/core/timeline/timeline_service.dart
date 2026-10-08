@@ -272,6 +272,38 @@ class TimelineService extends RepositoryBase {
       );
     }
 
+    final familyEvents = await db.familyEventsDao.forChild(childId);
+    for (final row in familyEvents) {
+      items.add(
+        TimelineItem(
+          id: row.id,
+          childId: childId,
+          type: TimelineItemType.familyEvent,
+          eventDate: row.eventDate,
+          title: row.title,
+          subtitle: row.eventType,
+          favorite: row.isFavorite,
+          sortKey: TimelineItem.typeSortKey(TimelineItemType.familyEvent),
+        ),
+      );
+    }
+
+    final trips = await db.tripsDao.forChild(childId);
+    for (final row in trips) {
+      items.add(
+        TimelineItem(
+          id: row.id,
+          childId: childId,
+          type: TimelineItemType.trip,
+          eventDate: row.startDate,
+          title: row.title,
+          subtitle: row.placeName,
+          favorite: row.isFavorite,
+          sortKey: TimelineItem.typeSortKey(TimelineItemType.trip),
+        ),
+      );
+    }
+
     await _attachPhotos(items);
 
     for (var i = 0; i < items.length; i++) {
@@ -349,6 +381,8 @@ class TimelineService extends RepositoryBase {
     await enrich(TimelineItemType.illness, EntityTypes.illnessEpisode);
     await enrich(TimelineItemType.doctorVisit, EntityTypes.doctorVisit);
     await enrich(TimelineItemType.birthday, EntityTypes.birthday);
+    await enrich(TimelineItemType.familyEvent, EntityTypes.familyEvent);
+    await enrich(TimelineItemType.trip, EntityTypes.trip);
   }
 
   void _sort(List<TimelineItem> items) {

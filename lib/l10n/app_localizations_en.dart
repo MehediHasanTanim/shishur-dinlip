@@ -2380,4 +2380,198 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get addFavoriteSubtitle => 'Food, color, cartoon, book, game, friend';
+
+  @override
+  String get interestsTitle => 'Interests';
+
+  @override
+  String get addInterest => 'Add interest';
+
+  @override
+  String get editInterest => 'Edit interest';
+
+  @override
+  String get interestName => 'Interest';
+
+  @override
+  String get interestFirstNoticed => 'First noticed';
+
+  @override
+  String get interestLevel => 'Interest level';
+
+  @override
+  String get interestNotes => 'Notes';
+
+  @override
+  String get interestEmpty => 'No interests yet.';
+
+  @override
+  String get interestEmptyHint =>
+      'Track drawing, sports, music, and more as they grow.';
+
+  @override
+  String interestLevelLabel(int level) {
+    return 'Level $level';
+  }
+
+  @override
+  String get familyEventsTitle => 'Family events';
+
+  @override
+  String get addFamilyEvent => 'Add family event';
+
+  @override
+  String get editFamilyEvent => 'Edit family event';
+
+  @override
+  String get familyEventType => 'Event type';
+
+  @override
+  String get familyEventTitle => 'Title';
+
+  @override
+  String get familyEventDate => 'Date';
+
+  @override
+  String get familyEventLocation => 'Place';
+
+  @override
+  String get familyEventStory => 'Story';
+
+  @override
+  String get familyEventReaction => 'Child’s reaction';
+
+  @override
+  String get familyEventEmpty => 'No family events yet.';
+
+  @override
+  String get familyEventEmptyHint =>
+      'Capture Eid, weddings, visits, and special moments.';
+
+  @override
+  String get familyEventAlbumCreate => 'Create event album';
+
+  @override
+  String get familyEventAlbumReady => 'Family event album ready.';
+
+  @override
+  String get familyEventTypeEid => 'Eid';
+
+  @override
+  String get familyEventTypeWedding => 'Wedding';
+
+  @override
+  String get familyEventTypeVacation => 'Family vacation';
+
+  @override
+  String get familyEventTypeGrandparent => 'Grandparent visit';
+
+  @override
+  String get familyEventTypeSibling => 'New sibling';
+
+  @override
+  String get familyEventTypeMoving => 'Moving home';
+
+  @override
+  String get familyEventTypeFirstFlight => 'First flight';
+
+  @override
+  String get familyEventTypeFirstBeach => 'First beach';
+
+  @override
+  String get familyEventTypeGathering => 'Gathering';
+
+  @override
+  String get familyEventTypeOther => 'Other';
+
+  @override
+  String get tripsTitle => 'Trips & places';
+
+  @override
+  String get addTrip => 'Add trip';
+
+  @override
+  String get editTrip => 'Edit trip';
+
+  @override
+  String get tripType => 'Trip type';
+
+  @override
+  String get tripTitle => 'Title';
+
+  @override
+  String get tripPlace => 'Place';
+
+  @override
+  String get tripStartDate => 'Start date';
+
+  @override
+  String get tripEndDate => 'End date (optional)';
+
+  @override
+  String get tripStory => 'Story';
+
+  @override
+  String get tripReaction => 'Child’s reaction';
+
+  @override
+  String get tripEmpty => 'No trips yet.';
+
+  @override
+  String get tripEmptyHint =>
+      'Save vacations, first flights, beaches, and places visited.';
+
+  @override
+  String get tripAlbumCreate => 'Create trip album';
+
+  @override
+  String get tripAlbumReady => 'Trip album ready.';
+
+  @override
+  String get tripTypeVacation => 'Vacation';
+
+  @override
+  String get tripTypeFirstFlight => 'First flight';
+
+  @override
+  String get tripTypeFirstBeach => 'First beach';
+
+  @override
+  String get tripTypePlaceVisit => 'Place visit';
+
+  @override
+  String get tripTypeOther => 'Other';
+
+  @override
+  String get timelineTypeFamilyEvent => 'Family event';
+
+  @override
+  String get timelineTypeTrip => 'Trip';
+
+  @override
+  String get searchTypeInterest => 'Interest';
+
+  @override
+  String get searchTypeFamilyEvent => 'Family event';
+
+  @override
+  String get searchTypeTrip => 'Trip';
+
+  @override
+  String get homeInterests => 'Growing interests';
+
+  @override
+  String get homeFamilyEvents => 'Family moments';
+
+  @override
+  String get homeTrips => 'Trips & places';
+
+  @override
+  String get addInterestSubtitle => 'Hobbies and passions';
+
+  @override
+  String get addFamilyEventSubtitle => 'Eid, wedding, visits, firsts';
+
+  @override
+  String get addTripSubtitle => 'Travel, places, beach, flights';
 }

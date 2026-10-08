@@ -10,6 +10,8 @@ import 'package:shishur_dinlipi/core/domain/unit_conversion.dart';
 import 'package:shishur_dinlipi/core/settings/app_settings.dart';
 import 'package:shishur_dinlipi/core/di/core_providers.dart';
 import 'package:shishur_dinlipi/features/development/growth_providers.dart';
+import 'package:shishur_dinlipi/features/life/life_labels.dart';
+import 'package:shishur_dinlipi/features/life/life_providers.dart';
 import 'package:shishur_dinlipi/features/memories/recent_memories_provider.dart';
 import 'package:shishur_dinlipi/features/reminders/reminder_labels.dart';
 import 'package:shishur_dinlipi/features/reminders/reminders_providers.dart';
@@ -189,6 +191,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     ),
                     const SizedBox(height: 8),
                     const _RecentMemoriesSection(),
+                    const SizedBox(height: 24),
+                    const _LifeMemoriesDashboard(),
                     const SizedBox(height: 24),
                     Text(
                       l10n.schoolDashboard,
@@ -378,6 +382,117 @@ class _GrowthSnapshotCard extends ConsumerWidget {
             trailing: const Icon(Icons.chevron_right),
             onTap: () => context.push(AppRoutes.growth),
           ),
+        );
+      },
+    );
+  }
+}
+
+class _LifeMemoriesDashboard extends ConsumerWidget {
+  const _LifeMemoriesDashboard();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context);
+    final async = ref.watch(homeLifeCardsProvider);
+
+    return async.when(
+      loading: () => const SizedBox.shrink(),
+      error: (_, _) => const SizedBox.shrink(),
+      data: (data) {
+        if (data.interests.isEmpty &&
+            data.events.isEmpty &&
+            data.trips.isEmpty) {
+          return const SizedBox.shrink();
+        }
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            if (data.interests.isNotEmpty) ...[
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      l10n.homeInterests,
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () => context.push(AppRoutes.interests),
+                    child: Text(l10n.commonSeeAll),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              for (final i in data.interests)
+                Card(
+                  child: ListTile(
+                    leading: const Icon(Icons.interests_outlined),
+                    title: Text(i.name),
+                    subtitle: i.interestLevel == null
+                        ? null
+                        : Text(l10n.interestLevelLabel(i.interestLevel!)),
+                    onTap: () =>
+                        context.push(AppRoutes.interestDetailPath(i.id)),
+                  ),
+                ),
+              const SizedBox(height: 16),
+            ],
+            if (data.events.isNotEmpty) ...[
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      l10n.homeFamilyEvents,
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () => context.push(AppRoutes.familyEvents),
+                    child: Text(l10n.commonSeeAll),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              for (final e in data.events)
+                Card(
+                  child: ListTile(
+                    leading: const Icon(Icons.celebration_outlined),
+                    title: Text(e.title),
+                    subtitle: Text(familyEventTypeLabel(l10n, e.eventType)),
+                    onTap: () =>
+                        context.push(AppRoutes.familyEventDetailPath(e.id)),
+                  ),
+                ),
+              const SizedBox(height: 16),
+            ],
+            if (data.trips.isNotEmpty) ...[
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      l10n.homeTrips,
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () => context.push(AppRoutes.trips),
+                    child: Text(l10n.commonSeeAll),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              for (final t in data.trips)
+                Card(
+                  child: ListTile(
+                    leading: const Icon(Icons.place_outlined),
+                    title: Text(t.title),
+                    subtitle: Text(t.placeName),
+                    onTap: () => context.push(AppRoutes.tripDetailPath(t.id)),
+                  ),
+                ),
+            ],
+          ],
         );
       },
     );

@@ -30,6 +30,8 @@ String timelineTypeLabel(AppLocalizations l10n, TimelineItemType type) {
     TimelineItemType.illness => l10n.timelineTypeIllness,
     TimelineItemType.doctorVisit => l10n.timelineTypeDoctor,
     TimelineItemType.birthday => l10n.timelineTypeBirthday,
+    TimelineItemType.familyEvent => l10n.timelineTypeFamilyEvent,
+    TimelineItemType.trip => l10n.timelineTypeTrip,
   };
 }
 
@@ -45,6 +47,8 @@ IconData timelineTypeIcon(TimelineItemType type) {
     TimelineItemType.illness => Icons.healing_outlined,
     TimelineItemType.doctorVisit => Icons.medical_services_outlined,
     TimelineItemType.birthday => Icons.cake_outlined,
+    TimelineItemType.familyEvent => Icons.family_restroom_outlined,
+    TimelineItemType.trip => Icons.flight_takeoff_outlined,
   };
 }
 
@@ -60,6 +64,8 @@ String? timelineDetailPath(TimelineItem item) {
     TimelineItemType.illness => AppRoutes.illnessDetailPath(item.id),
     TimelineItemType.doctorVisit => AppRoutes.doctorVisitDetailPath(item.id),
     TimelineItemType.birthday => AppRoutes.birthdayDetailPath(item.id),
+    TimelineItemType.familyEvent => AppRoutes.familyEventDetailPath(item.id),
+    TimelineItemType.trip => AppRoutes.tripDetailPath(item.id),
   };
 }
 
