@@ -1929,6 +1929,16 @@ Research:
 
 Do not rush this feature because it materially changes the product's privacy model.
 
+**Discovery deliverable (completed):** [`docs/plan/family_sharing_sync_research.md`](./family_sharing_sync_research.md)
+
+Summary decisions:
+
+- Do **not** implement multi-writer sync in this sprint (or as a casual follow-on).
+- Keep offline-first + encrypted `.sdjbackup` (local/cloud file) as the cross-device path.
+- Any future sharing must be **true E2EE** (per-member key wraps + vault key epochs); server-readable sync is rejected.
+- Prefer encrypted **vault handoff** before live sync; health conflicts need review UI; revocation requires key rotation.
+- Schema fields from design §103 (`owner_id`, `created_by`, `updated_by`, `sync_version`) stay deferred until a dedicated implementation sprint.
+
 ---
 
 # 28. Detailed Cross-Sprint Task Tracks

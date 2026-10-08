@@ -2622,6 +2622,8 @@ sync_version
 
 Do not require these for MVP unless sync work is planned early.
 
+Discovery research (Optional Sprint 20): see `docs/plan/family_sharing_sync_research.md`. Do not implement multi-writer sync without completing the E2EE, revocation, and conflict recommendations in that doc.
+
 ---
 
 # 104. Future AI Architecture

@@ -153,5 +153,6 @@ All UI work must follow `docs/UX/` (spec + mockups + `Icons.png`). See `.cursor/
 | `docs/feature/…` | Product & feature requirements |
 | `docs/design/…` | Full technical design |
 | `docs/plan/…` | Sprint-wise implementation plan |
+| `docs/plan/family_sharing_sync_research.md` | Sprint 20 discovery: E2EE family vault / sync (not implemented) |
 | `docs/UX/…` | UI specification & mockups |
 | `docs/architecture/GIT.md` | Git repository standards |
